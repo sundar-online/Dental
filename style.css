@@ -2476,11 +2476,10 @@ a {
 
     .clinic-featured-case {
         width: 100%;
-        height: auto;
-        aspect-ratio: 4 / 3;
-        min-height: 250px;
-        max-height: 380px;
-        border-radius: 16px;
+        height: 380px;
+        min-height: 340px;
+        max-height: 480px;
+        border-radius: 18px;
     }
 
     /* Mobile Navigation: Show 1 featured outcome at a time with simple Previous / Next controls */
@@ -2520,10 +2519,7 @@ a {
     }
 
     .clinic-mobile-counter {
-        font-size: 12.5px;
-        font-weight: 600;
-        color: #5d718a;
-        letter-spacing: 0.02em;
+        display: none !important;
     }
 
     /* On mobile, show 1 featured outcome at a time per user specification */
@@ -2538,7 +2534,8 @@ a {
     }
 
     .clinic-featured-case {
-        height: 240px;
+        height: 360px;
+        min-height: 320px;
     }
 
     .clinic-case-title {
@@ -2742,53 +2739,43 @@ a {
     padding: 14px 0 20px;
 }
 
-/* Viewport with smooth gradient mask ending — dissolves cards softly without sharp cutoff */
+/* Viewport — Clean and open, NO text-cutting mask over the active center card */
 .reviews-carousel-viewport {
     width: 100%;
     overflow: hidden;
-    padding: 16px 0 24px;
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.35) 30px, black 95px, black calc(100% - 95px), rgba(0, 0, 0, 0.35) calc(100% - 30px), transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.35) 30px, black 95px, black calc(100% - 95px), rgba(0, 0, 0, 0.35) calc(100% - 30px), transparent 100%);
+    padding: 18px 0 24px;
 }
 
-/* Soft frosted blur overlays at the left and right endings */
+/* Subtle, soft edge fades on the far outer edges only — never touches the active card */
 .reviews-carousel-wrap::before,
 .reviews-carousel-wrap::after {
     content: '';
     position: absolute;
-    top: 14px;
+    top: 18px;
     bottom: 24px;
-    width: clamp(70px, 9vw, 130px);
+    width: clamp(28px, 4vw, 56px);
     z-index: 10;
     pointer-events: none;
 }
 
 .reviews-carousel-wrap::before {
     left: 0;
-    background: linear-gradient(to right, var(--bg-soft) 25%, rgba(243, 250, 254, 0.75) 60%, rgba(243, 250, 254, 0) 100%);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    mask-image: linear-gradient(to right, black 30%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to right, black 30%, transparent 100%);
+    background: linear-gradient(to right, var(--bg-soft) 20%, rgba(243, 250, 254, 0) 100%);
 }
 
 .reviews-carousel-wrap::after {
     right: 0;
-    background: linear-gradient(to left, var(--bg-soft) 25%, rgba(243, 250, 254, 0.75) 60%, rgba(243, 250, 254, 0) 100%);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    mask-image: linear-gradient(to left, black 30%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to left, black 30%, transparent 100%);
+    background: linear-gradient(to left, var(--bg-soft) 20%, rgba(243, 250, 254, 0) 100%);
 }
 
-/* Prev / Next Arrow Buttons */
+/* Prev / Next Arrow Buttons — positioned outside active card */
 .carousel-nav-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 20;
-    width: 46px;
-    height: 46px;
+    z-index: 25;
+    width: 48px;
+    height: 48px;
     border-radius: var(--radius-pill);
     background: #FFFFFF;
     border: 1px solid var(--border-color);
@@ -2797,7 +2784,7 @@ a {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: var(--shadow-card);
+    box-shadow: 0 4px 16px rgba(15, 31, 45, 0.1);
     transition: background 0.25s ease, border-color 0.25s ease,
                 box-shadow 0.25s ease, transform 0.25s ease, color 0.25s ease;
     font-family: inherit;
@@ -2807,12 +2794,12 @@ a {
     background: var(--btn-blue);
     border-color: var(--btn-blue);
     color: #FFFFFF;
-    box-shadow: 0 6px 18px rgba(0, 103, 182, 0.22);
-    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 8px 22px rgba(0, 103, 182, 0.28);
+    transform: translateY(-50%) scale(1.08);
 }
 
-.carousel-prev { left: 8px; }
-.carousel-next { right: 8px; }
+.carousel-prev { left: clamp(8px, 2vw, 24px); }
+.carousel-next { right: clamp(8px, 2vw, 24px); }
 
 /* Carousel Track — horizontal flex strip */
 .reviews-carousel-track {
@@ -2829,62 +2816,42 @@ a {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-card);
-    padding: 28px 30px;
+    padding: 34px 38px;
     display: flex;
     flex-direction: column;
     box-shadow: var(--shadow-card);
-    flex: 0 0 clamp(310px, 38vw, 490px);
-    min-height: 300px;
+    flex: 0 0 clamp(360px, 52vw, 660px);
+    min-height: 280px;
     position: relative;
-    transform: scale(0.94);
-    opacity: 0.65;
-    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
-                opacity  0.6s ease,
+    transform: scale(0.92);
+    opacity: 0.45;
+    transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
+                opacity  0.55s ease,
                 box-shadow 0.35s ease,
                 border-color 0.35s ease;
     cursor: pointer;
     user-select: none;
+    box-sizing: border-box;
 }
 
-/* CENTER / ACTIVE card */
+/* CENTER / ACTIVE card — fully visible with proper width, padding, and readable text */
 .review-card.carousel-active {
-    transform: scale(1.04);
-    opacity: 1;
-    box-shadow: 0 14px 34px rgba(0, 103, 182, 0.12), 0 4px 12px rgba(15, 31, 45, 0.05);
-    border-color: rgba(0, 103, 182, 0.28);
+    transform: scale(1);
+    opacity: 1 !important;
+    box-shadow: 0 16px 42px rgba(0, 103, 182, 0.12), 0 4px 14px rgba(15, 31, 45, 0.05);
+    border-color: rgba(0, 103, 182, 0.3);
     z-index: 5;
+    cursor: default;
 }
 
-/* Card one step away from center */
+/* Card one step away from center — partially visible with subtle fade */
 .review-card.carousel-adjacent {
-    transform: scale(0.96);
-    opacity: 0.78;
+    transform: scale(0.94);
+    opacity: 0.52;
     z-index: 2;
 }
 
-/* Dot indicators below carousel */
-.carousel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 24px;
-}
 
-.carousel-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: var(--radius-pill);
-    background: var(--border-color);
-    cursor: pointer;
-    transition: background 0.25s ease, transform 0.25s ease, width 0.25s ease;
-    border: none;
-    padding: 0;
-}
-
-.carousel-dot.active {
-    background: var(--primary-blue);
-    width: 24px;
-}
 
 /* Card Header */
 .review-card-top {
@@ -2984,21 +2951,23 @@ a {
 
 /* Review Title & Body */
 .review-title {
-    font-size: 16px;
+    font-size: 16.5px;
     font-weight: 700;
-    line-height: 1.35;
+    line-height: 1.4;
     color: var(--dark-navy);
     letter-spacing: -.01em;
-    margin: 0 0 10px 0;
+    margin: 0 0 12px 0;
 }
 
 .review-text {
-    font-size: 14px;
-    line-height: 1.65;
+    font-size: 14.5px;
+    line-height: 1.7;
     color: var(--text-secondary);
     font-weight: 400;
     margin-bottom: 0;
     flex: 1;
+    word-break: normal;
+    overflow-wrap: break-word;
 }
 
 /* Compact & Elegant Dark CTA Bar */
@@ -3075,10 +3044,11 @@ a {
 /* Reviews / Carousel Responsive Breakpoints */
 @media(max-width: 1080px) {
     .reviews-carousel-wrap {
-        padding: 24px 0 36px;
+        padding: 16px 0 24px;
     }
     .review-card {
-        flex: 0 0 clamp(280px, 55vw, 420px);
+        flex: 0 0 clamp(340px, 58vw, 560px);
+        padding: 30px 32px;
     }
 }
 
@@ -3088,8 +3058,12 @@ a {
         align-items: flex-start;
         padding: 28px 24px;
     }
-    .carousel-prev { left: 4px; }
-    .carousel-next { right: 4px; }
+    .carousel-nav-btn {
+        width: 44px;
+        height: 44px;
+    }
+    .carousel-prev { left: 8px; }
+    .carousel-next { right: 8px; }
 }
 
 @media(max-width: 680px) {
@@ -3099,21 +3073,42 @@ a {
     .reviews-heading {
         font-size: clamp(1.7rem, 7vw, 2.3rem);
     }
-    .reviews-carousel-viewport {
-        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 45px, black calc(100% - 45px), transparent 100%);
-        mask-image: linear-gradient(to right, transparent 0%, black 45px, black calc(100% - 45px), transparent 100%);
+    .reviews-carousel-wrap {
+        padding-bottom: 66px;
     }
     .reviews-carousel-wrap::before,
     .reviews-carousel-wrap::after {
-        width: 50px;
+        display: none;
+    }
+    .reviews-carousel-viewport {
+        padding: 12px 0 18px;
     }
     .review-card {
-        flex: 0 0 clamp(260px, 78vw, 340px);
-        padding: 22px 20px;
+        flex: 0 0 min(86vw, 380px);
+        padding: 24px 22px;
+        min-height: 250px;
+        opacity: 0.35;
+        transform: scale(0.94);
+    }
+    .review-card.carousel-active {
+        opacity: 1 !important;
+        transform: scale(1);
     }
     .carousel-nav-btn {
-        width: 40px;
-        height: 40px;
+        top: auto;
+        bottom: 8px;
+        transform: none;
+        width: 42px;
+        height: 42px;
+    }
+    .carousel-nav-btn:hover {
+        transform: scale(1.06);
+    }
+    .carousel-prev {
+        left: calc(50% - 48px);
+    }
+    .carousel-next {
+        right: calc(50% - 48px);
     }
 }
 
@@ -4067,23 +4062,94 @@ html.modal-open {
 }
 
 .form-success-msg {
-    padding: 14px 16px;
-    background: var(--light-blue);
-    border: 1px solid var(--border-color);
+    padding: 16px 18px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
     border-radius: var(--radius-sm);
     color: var(--dark-navy);
-    font-size: 12.5px;
-    line-height: 1.5;
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
     gap: 10px;
     animation: quickFadeIn 0.3s ease;
+    margin-top: 8px;
 }
 
-.form-success-msg svg {
+.form-success-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #166534;
+    font-weight: 700;
+    font-size: 13.5px;
+}
+
+.form-success-header svg {
+    color: #16a34a;
     flex-shrink: 0;
-    margin-top: 2px;
+}
+
+.form-success-note {
+    font-size: 12.5px;
+    color: #374151;
+    margin: 0;
+    line-height: 1.45;
+}
+
+.form-wa-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+@media (max-width: 520px) {
+    .form-wa-actions {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-wa-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 16px;
+    border-radius: var(--radius-pill);
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-align: center;
+}
+
+.form-wa-app-btn {
+    background: #25D366;
+    color: #ffffff;
+    border: 1px solid #22c55e;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+}
+
+.form-wa-app-btn:hover {
+    background: #1eb956;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+}
+
+.form-wa-web-btn {
+    background: #ffffff;
+    color: #0f1f2d;
+    border: 1px solid #cbd5e1;
+    box-shadow: 0 2px 8px rgba(15, 31, 45, 0.06);
+}
+
+.form-wa-web-btn:hover {
+    background: #f8fafc;
+    border-color: #94a3b8;
     color: var(--primary-blue);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 103, 182, 0.15);
 }
 
 .modal-footer-call {

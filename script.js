@@ -101,8 +101,7 @@ function showQuickAnswer(key) {
 // Floating WhatsApp Chat Button Direct Opener
 if (quickHelpBtn) {
   const clinicWhatsAppNumber = '918870677523';
-  const defaultText = encodeURIComponent('Hello Balagam Dental and Medical Clinic, I would like to inquire about a consultation.');
-  const whatsappUrl = `https://wa.me/${clinicWhatsAppNumber}?text=${defaultText}`;
+  const whatsappUrl = `https://wa.me/${clinicWhatsAppNumber}`;
   quickHelpBtn.href = whatsappUrl;
 
   quickHelpBtn.addEventListener('click', (e) => {
@@ -293,26 +292,56 @@ if (appointmentForm) {
     }
   });
 
+  const waOpenAppBtn = document.getElementById('waOpenAppBtn');
+  const waContinueWebBtn = document.getElementById('waContinueWebBtn');
+
+  // Handle direct click on Open App button
+  if (waOpenAppBtn) {
+    waOpenAppBtn.addEventListener('click', (e) => {
+      const href = waOpenAppBtn.getAttribute('href');
+      if (!href || href === '#') {
+        e.preventDefault();
+        if (appointmentForm.reportValidity && !appointmentForm.reportValidity()) return;
+        appointmentForm.requestSubmit ? appointmentForm.requestSubmit() : appointmentForm.dispatchEvent(new Event('submit', { cancelable: true }));
+      }
+    });
+  }
+
+  // Handle direct click on Continue to WhatsApp Web button
+  if (waContinueWebBtn) {
+    waContinueWebBtn.addEventListener('click', (e) => {
+      const href = waContinueWebBtn.getAttribute('href');
+      if (!href || href === '#') {
+        e.preventDefault();
+        if (appointmentForm.reportValidity && !appointmentForm.reportValidity()) return;
+        appointmentForm.requestSubmit ? appointmentForm.requestSubmit() : appointmentForm.dispatchEvent(new Event('submit', { cancelable: true }));
+      }
+    });
+  }
+
   appointmentForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const fullName = document.getElementById('appFullName')?.value.trim() || '';
-    const phone = document.getElementById('appPhone')?.value.trim() || '';
-    const treatment = document.getElementById('appTreatment')?.value || 'General Consultation & X-ray';
-    const rawDate = document.getElementById('appDate')?.value || '';
-    const note = document.getElementById('appMessage')?.value.trim() || 'None';
+    const fullName = String(document.getElementById('appFullName')?.value || '').trim();
+    const phone = String(document.getElementById('appPhone')?.value || '').trim();
+    const treatment = String(document.getElementById('appTreatment')?.value || 'General Consultation & X-ray').trim();
+    const rawDate = String(document.getElementById('appDate')?.value || '').trim();
+    const note = String(document.getElementById('appMessage')?.value || '').trim() || 'None';
 
     if (!fullName || !phone) return;
 
-    // Format readable preferred date if provided
+    // Format readable preferred date safely
     let formattedDate = 'Flexible / Earliest Available';
     if (rawDate) {
       try {
         const parts = rawDate.split('-');
         if (parts.length === 3) {
-          const d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
-          if (!isNaN(d.getTime())) {
-            formattedDate = d.toLocaleDateString('en-US', {
+          const y = parseInt(parts[0], 10);
+          const m = parseInt(parts[1], 10) - 1;
+          const d = parseInt(parts[2], 10);
+          const dateObj = new Date(y, m, d);
+          if (!isNaN(dateObj.getTime())) {
+            formattedDate = dateObj.toLocaleDateString('en-US', {
               weekday: 'short',
               year: 'numeric',
               month: 'short',
@@ -329,36 +358,61 @@ if (appointmentForm) {
       }
     }
 
-    // Build plain-text appointment message
-    const msgLines = [
-      'New Appointment Request - Balagam Dental Clinic',
+    // Construct structured pre-filled booking message
+    const messageLines = [
+      '*New Appointment Request - Balagam Dental Clinic*',
       '',
-      'Patient Name: ' + fullName,
-      'Phone Number: ' + phone,
-      'Treatment: ' + treatment,
-      'Preferred Date: ' + formattedDate,
-      'Additional Note: ' + note,
+      '*Patient Name:* ' + fullName,
+      '*Phone Number:* ' + phone,
+      '*Treatment:* ' + treatment,
+      '*Preferred Date:* ' + formattedDate,
+      '*Additional Note:* ' + note,
       '',
       'Please confirm my appointment slot. Thank you!'
     ];
-    const messageText = msgLines.join('\n');
+    const messageText = messageLines.join('\n');
 
-    // Open the WhatsApp chat directly — no pre-filled text, just the chat window
-    const waUrl = 'https://wa.me/918870677523';
-    window.open(waUrl, '_blank') || (window.location.href = waUrl);
+    // Safe RFC 3986 URL encoder for full Unicode (Tamil, Hindi, emojis, symbols)
+    const safeUrlEncode = (str) =>
+      encodeURIComponent(str).replace(/[!'()*]/g, (c) => '%' + c.charCodeAt(0).toString(16).toUpperCase());
+
+    const clinicWhatsAppNumber = '918870677523';
+    const encodedMessage = safeUrlEncode(messageText);
+
+    // Both buttons share the exact same dynamically generated booking message:
+    // 1. WhatsApp app link (triggers mobile/desktop app)
+    const appUrl = `https://wa.me/${clinicWhatsAppNumber}?text=${encodedMessage}`;
+    // 2. Direct WhatsApp Web chat link (bypasses broken intermediate redirects and prevents landing on homepage)
+    const webUrl = `https://web.whatsapp.com/send?phone=${clinicWhatsAppNumber}&text=${encodedMessage}`;
+
+    // Update both action buttons with the dynamically generated message
+    if (waOpenAppBtn) {
+      waOpenAppBtn.href = appUrl;
+    }
+    if (waContinueWebBtn) {
+      waContinueWebBtn.href = webUrl;
+    }
+
+    // Cross-platform direct dispatch:
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (isMobile) {
+      window.location.href = appUrl;
+    } else {
+      // Desktop: directly open WhatsApp Web chat without broken intermediate redirect
+      const win = window.open(webUrl, '_blank');
+      if (!win) {
+        window.location.href = webUrl;
+      }
+    }
 
     // Update UI state
     if (appSubmitBtn) {
       appSubmitBtn.disabled = true;
       appSubmitBtn.style.opacity = '0.9';
-      appSubmitBtn.innerHTML = '<span>Appointment Request Sent via WhatsApp \u2713</span>';
+      appSubmitBtn.innerHTML = '<span>Appointment Request Ready \u2713</span>';
     }
 
     if (formSuccessMsg) {
-      const msgSpan = formSuccessMsg.querySelector('span');
-      if (msgSpan) {
-        msgSpan.textContent = 'Appointment request sent via WhatsApp \u2713';
-      }
       formSuccessMsg.style.display = 'flex';
       formSuccessMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
@@ -460,7 +514,6 @@ if (appointmentForm) {
   const track = document.getElementById('reviewsCarouselTrack');
   const prevBtn = document.getElementById('carouselPrev');
   const nextBtn = document.getElementById('carouselNext');
-  const dotsWrap = document.getElementById('carouselDots');
   const originalCards = Array.from(document.querySelectorAll('#reviewsCarouselTrack .review-card'));
   const treatCards = document.querySelectorAll('.treatment-card');
 
@@ -500,29 +553,7 @@ if (appointmentForm) {
   let dragStartX = 0;
   let dragDeltaX = 0;
 
-  // Build dot indicators (one per original card)
-  function buildDots(count) {
-    if (!dotsWrap) return;
-    dotsWrap.innerHTML = '';
-    for (let i = 0; i < count; i++) {
-      const btn = document.createElement('button');
-      btn.className = 'carousel-dot';
-      btn.setAttribute('aria-label', `Go to review ${i + 1}`);
-      btn.addEventListener('click', () => {
-        goToRealIndex(i);
-        resetAuto();
-      });
-      dotsWrap.appendChild(btn);
-    }
-  }
 
-  function updateDots() {
-    if (!dotsWrap) return;
-    const realIndex = ((currentTrackIndex - N) % N + N) % N;
-    dotsWrap.querySelectorAll('.carousel-dot').forEach((dot, i) => {
-      dot.classList.toggle('active', i === realIndex);
-    });
-  }
 
   // Compute card width + gap (reads live from DOM)
   function getCardStep() {
@@ -563,8 +594,6 @@ if (appointmentForm) {
         card.classList.add('carousel-adjacent');
       }
     });
-
-    updateDots();
   }
 
   // Step to a track index with boundary jump handling
@@ -727,7 +756,6 @@ if (appointmentForm) {
     requestAnimationFrame(() => applyCarousel(false));
   }, { passive: true });
 
-  buildDots(N);
   applyCarousel(false);
   requestAnimationFrame(() => {
     applyCarousel(false);
