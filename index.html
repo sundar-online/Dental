@@ -1222,117 +1222,126 @@
         </div>
     </footer>
 
-    <!-- FLOATING QUICK HELP UTILITY -->
+    <!-- FLOATING QUICK CHAT WHATSAPP-STYLE UTILITY -->
     <div class="quick-help-wrapper" id="quickHelp">
         <!-- Floating Trigger Button -->
-        <a class="quick-help-btn" id="quickHelpBtn" href="https://wa.me/918870677523" target="_blank"
-            rel="noopener noreferrer" aria-label="Chat on WhatsApp with Balagam Dental Clinic">
-            <svg class="quick-help-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
-                <path
-                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-            </svg>
-            <span class="quick-help-tooltip">Chat on WhatsApp</span>
-        </a>
+        <button class="quick-help-btn" id="quickHelpBtn" type="button"
+            aria-label="Open Balagam Dental Clinic Quick Chat" aria-expanded="false" aria-controls="quickHelpPanel">
+            <span class="trigger-unread-dot" aria-hidden="true"></span>
+            <div class="trigger-icon-wrap">
+                <div class="trigger-logo-badge">
+                    <img src="img/logol.jpg.jpeg" alt="Quick Message Logo" class="trigger-logo-img">
+                </div>
+                <svg class="trigger-icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </div>
+            <span class="quick-help-tooltip">Quick Chat • Online</span>
+        </button>
 
-        <!-- Compact Floating Quick-Answer Panel -->
-        <div class="quick-help-panel" id="quickHelpPanel" role="dialog" aria-modal="true" aria-hidden="true">
+        <!-- Compact Floating Chat Panel -->
+        <div class="quick-help-panel" id="quickHelpPanel" role="dialog" aria-modal="true" aria-hidden="true"
+            aria-label="Balagam Dental and Medical Clinic Quick Chat">
             <!-- Header -->
-            <div class="quick-panel-header">
-                <button class="quick-header-back" id="quickBackBtn" type="button" aria-label="Back to options"
-                    style="display: none;">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+            <div class="quick-chat-header">
+                <div class="chat-header-avatar">
+                    <img src="img/logol.jpg.jpeg" alt="Balagam Dental Clinic" class="chat-avatar-img">
+                    <span class="chat-online-badge" title="Online"></span>
+                </div>
+                <div class="chat-header-info">
+                    <span class="chat-header-name">Balagam Dental Clinic</span>
+                    <div class="chat-header-status">
+                        <span class="status-pulse-dot"></span>
+                        <span>Typically replies instantly • Online</span>
+                    </div>
+                </div>
+                <button class="chat-header-close" id="quickCloseBtn" type="button" aria-label="Close Chat">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                         stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="19" y1="12" x2="5" y2="12"></line>
-                        <polyline points="12 19 5 12 12 5"></polyline>
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
                     </svg>
                 </button>
-                <div class="quick-header-title-wrap">
-                    <span class="quick-panel-title" id="quickPanelTitle">How can we help?</span>
-                </div>
-                <button class="quick-header-close" id="quickCloseBtn" type="button"
-                    aria-label="Close Quick Help">✕</button>
             </div>
 
-            <!-- Panel Body -->
-            <div class="quick-panel-body">
-                <!-- 5 Clickable Quick Options View -->
-                <div class="quick-options-view" id="quickOptionsView">
-                    <button class="quick-option-item" type="button" data-option="hours">
-                        <div class="quick-option-icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <polyline points="12 6 12 12 16 14"></polyline>
-                            </svg>
-                        </div>
-                        <span class="quick-option-text">Opening Hours</span>
-                        <span class="quick-option-arrow">›</span>
-                    </button>
+            <!-- Chat Scrollable Body -->
+            <div class="quick-chat-body" id="quickChatBody">
+                <div class="chat-date-badge"><span>Today</span></div>
 
-                    <button class="quick-option-item" type="button" data-option="location">
-                        <div class="quick-option-icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                        </div>
-                        <span class="quick-option-text">Location</span>
-                        <span class="quick-option-arrow">›</span>
-                    </button>
-
-                    <button class="quick-option-item" type="button" data-option="contact">
-                        <div class="quick-option-icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path
-                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                                </path>
-                            </svg>
-                        </div>
-                        <span class="quick-option-text">Contact Us</span>
-                        <span class="quick-option-arrow">›</span>
-                    </button>
-
-                    <button class="quick-option-item" type="button" data-option="treatments">
-                        <div class="quick-option-icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path
-                                    d="M12 2C8 2 5 4.5 5 8c0 4.5 2 9 3 13 1 1 2 1 3 0l1-5 1 5c1 1 2 1 3 0 1-4 3-8.5 3-13 0-3.5-3-6-7-6z" />
-                            </svg>
-                        </div>
-                        <span class="quick-option-text">Treatments</span>
-                        <span class="quick-option-arrow">›</span>
-                    </button>
-
-                    <button class="quick-option-item" type="button" data-option="book">
-                        <div class="quick-option-icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                <line x1="16" y1="2" x2="16" y2="6"></line>
-                                <line x1="8" y1="2" x2="8" y2="6"></line>
-                                <line x1="3" y1="10" x2="21" y2="10"></line>
-                            </svg>
-                        </div>
-                        <span class="quick-option-text">Book Appointment</span>
-                        <span class="quick-option-arrow">›</span>
-                    </button>
+                <!-- Friendly Greeting Bubble -->
+                <div class="chat-msg-row chat-msg-bot">
+                    <div class="chat-bubble chat-bubble-greeting">
+                        <p class="greeting-text">
+                            Hello! 👋 Welcome to <strong>Balagam Dental and Medical Clinic</strong> in Porur, Chennai. How can our dental team assist you today?
+                        </p>
+                        <span class="chat-msg-time" id="chatInitTime">Just now</span>
+                    </div>
                 </div>
 
-                <!-- Answer Display View (Shown on Option Click) -->
-                <div class="quick-answer-view" id="quickAnswerView" style="display: none;">
-                    <div class="quick-answer-badge" id="quickAnswerCategory">Quick Answer</div>
-                    <div class="quick-answer-content" id="quickAnswerContent"></div>
-                    <div class="quick-answer-actions">
-                        <button class="quick-answer-back-btn" id="quickAnswerBackBtn" type="button">
-                            <span>← Back to Options</span>
+                <!-- Quick-Action Options -->
+                <div class="chat-actions-wrapper" id="chatActionsWrapper">
+                    <span class="chat-actions-label">Quick Actions</span>
+                    <div class="chat-actions-grid">
+                        <!-- Option 1: Ask a Question -->
+                        <button class="chat-action-btn" type="button" data-chat-action="ask">
+                            <span class="chat-action-icon">💬</span>
+                            <span class="chat-action-text">Ask a Question</span>
+                            <span class="chat-action-arrow">›</span>
+                        </button>
+
+                        <!-- Option 2: Get Clinic Location -->
+                        <button class="chat-action-btn" type="button" data-chat-action="location">
+                            <span class="chat-action-icon">📍</span>
+                            <span class="chat-action-text">Get Clinic Location</span>
+                            <span class="chat-action-arrow">›</span>
+                        </button>
+
+                        <!-- Option 3: Clinic Timings -->
+                        <button class="chat-action-btn" type="button" data-chat-action="timings">
+                            <span class="chat-action-icon">🕒</span>
+                            <span class="chat-action-text">Clinic Timings</span>
+                            <span class="chat-action-arrow">›</span>
+                        </button>
+
+                        <!-- Option 4: Book an Appointment -->
+                        <button class="chat-action-btn chat-action-highlight" type="button" data-chat-action="book">
+                            <span class="chat-action-icon">📅</span>
+                            <span class="chat-action-text">Book an Appointment</span>
+                            <span class="chat-action-arrow">→</span>
+                        </button>
+
+                        <!-- Option 5: Talk on WhatsApp -->
+                        <button class="chat-action-btn chat-action-whatsapp" type="button" data-chat-action="whatsapp">
+                            <span class="chat-action-icon">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                                </svg>
+                            </span>
+                            <span class="chat-action-text">Talk on WhatsApp</span>
+                            <span class="chat-action-arrow">↗</span>
                         </button>
                     </div>
                 </div>
+
+                <!-- Dynamic Chat Conversation Stream -->
+                <div class="chat-messages-stream" id="chatMessagesStream"></div>
             </div>
+
+            <!-- Chat Footer Input Area -->
+            <form class="quick-chat-footer" id="quickChatForm">
+                <input type="text" class="quick-chat-input" id="quickChatInput"
+                    placeholder="Type your question or message..." autocomplete="off" maxlength="300"
+                    aria-label="Type your message">
+                <button class="quick-chat-send-btn" id="quickChatSendBtn" type="submit" aria-label="Send message">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </form>
         </div>
     </div>
 

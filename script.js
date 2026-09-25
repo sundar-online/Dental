@@ -1,74 +1,63 @@
 
 // ==========================================================================
-// Quick Help Utility Interactions
+// Quick Chat WhatsApp-Style Floating Widget
 // ==========================================================================
 const quickHelp = document.getElementById('quickHelp');
 const quickHelpBtn = document.getElementById('quickHelpBtn');
 const quickHelpPanel = document.getElementById('quickHelpPanel');
 const quickCloseBtn = document.getElementById('quickCloseBtn');
-const quickBackBtn = document.getElementById('quickBackBtn');
-const quickOptionsView = document.getElementById('quickOptionsView');
-const quickAnswerView = document.getElementById('quickAnswerView');
-const quickAnswerBackBtn = document.getElementById('quickAnswerBackBtn');
-const quickPanelTitle = document.getElementById('quickPanelTitle');
-const quickAnswerCategory = document.getElementById('quickAnswerCategory');
-const quickAnswerContent = document.getElementById('quickAnswerContent');
-const quickOptionItems = document.querySelectorAll('.quick-option-item');
+const quickChatBody = document.getElementById('quickChatBody');
+const chatMessagesStream = document.getElementById('chatMessagesStream');
+const quickChatForm = document.getElementById('quickChatForm');
+const quickChatInput = document.getElementById('quickChatInput');
+const chatInitTime = document.getElementById('chatInitTime');
+const clinicWhatsAppNumber = '918870677523';
 
-const quickHelpData = {
-  hours: {
-    category: 'Opening Hours',
-    title: 'Opening Hours',
-    content: 'Monday \u2013 Saturday: 10:00 AM \u2013 1:30 PM | 4:00 PM \u2013 9:00 PM\nSunday: 4:00 PM \u2013 9:00 PM'
-  },
-  location: {
-    category: 'Location',
-    title: 'Location',
-    content: 'Balagam Dental and Medical Clinic\nPorur, Chennai\nNear Sri Ramachandra University\n\nGoogle Maps: https://maps.app.goo.gl/dByS6ndvDBBxftf2A'
-  },
-  contact: {
-    category: 'Contact Us',
-    title: 'Contact Us',
-    content: 'Contact Balagam Dental and Medical Clinic for appointments and enquiries.'
-  },
-  treatments: {
-    category: 'Treatments',
-    title: 'Treatments',
-    content: 'RCT (Root Canal), Dental Implant Fixing, Wisdom Tooth Extraction, Ceramic Crowns and Bridges Fixing, Laser Dentistry, Braces & Aligners, Complete Dentures, Tooth Coloured Fillings, and Consulting & X-ray.'
-  },
-  book: {
-    category: 'Book Appointment',
-    title: 'Book Appointment',
-    content: 'Book an appointment with Balagam Dental and Medical Clinic.'
+function getFormattedTime() {
+  try {
+    return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  } catch (_) {
+    return '';
   }
-};
+}
 
-function resetQuickHelpViews() {
-  if (quickOptionsView && quickAnswerView) {
-    quickOptionsView.style.display = 'flex';
-    quickAnswerView.style.display = 'none';
-  }
-  if (quickBackBtn) {
-    quickBackBtn.style.display = 'none';
-  }
-  if (quickPanelTitle) {
-    quickPanelTitle.textContent = 'How can we help?';
+if (chatInitTime) {
+  chatInitTime.textContent = getFormattedTime();
+}
+
+function scrollChatToBottom() {
+  if (quickChatBody) {
+    requestAnimationFrame(() => {
+      quickChatBody.scrollTop = quickChatBody.scrollHeight;
+    });
   }
 }
 
 function openQuickHelp() {
   if (!quickHelpPanel) return;
-  resetQuickHelpViews();
   quickHelpPanel.classList.add('open');
   quickHelpPanel.setAttribute('aria-hidden', 'false');
-  quickHelpBtn?.setAttribute('aria-expanded', 'true');
+  if (quickHelpBtn) {
+    quickHelpBtn.classList.add('is-active');
+    quickHelpBtn.setAttribute('aria-expanded', 'true');
+  }
+  scrollChatToBottom();
+  // Auto-focus input on desktop only (avoids opening virtual keyboard on mobile)
+  if (!/Android|iPhone|iPad|iPod/i.test(navigator.userAgent) && quickChatInput) {
+    setTimeout(() => {
+      try { quickChatInput.focus(); } catch (_) {}
+    }, 280);
+  }
 }
 
 function closeQuickHelp() {
   if (!quickHelpPanel) return;
   quickHelpPanel.classList.remove('open');
   quickHelpPanel.setAttribute('aria-hidden', 'true');
-  quickHelpBtn?.setAttribute('aria-expanded', 'false');
+  if (quickHelpBtn) {
+    quickHelpBtn.classList.remove('is-active');
+    quickHelpBtn.setAttribute('aria-expanded', 'false');
+  }
 }
 
 function toggleQuickHelp() {
@@ -80,39 +69,153 @@ function toggleQuickHelp() {
   }
 }
 
-function showQuickAnswer(key) {
-  if (key === 'book') {
-    closeQuickHelp();
-    openAppointmentModal();
-    return;
+// Add chat bubble helper
+function appendChatBubble(text, sender = 'bot', isHtml = false) {
+  if (!chatMessagesStream) return;
+  const row = document.createElement('div');
+  row.className = `chat-msg-row chat-msg-${sender}`;
+
+  const bubble = document.createElement('div');
+  bubble.className = `chat-bubble chat-bubble-${sender}`;
+
+  if (isHtml) {
+    bubble.innerHTML = text;
+  } else {
+    const p = document.createElement('p');
+    p.style.margin = '0';
+    p.textContent = text;
+    bubble.appendChild(p);
   }
-  const item = quickHelpData[key];
-  if (!item) return;
 
-  if (quickAnswerCategory) quickAnswerCategory.textContent = item.category;
-  if (quickAnswerContent) quickAnswerContent.textContent = item.content;
-  if (quickPanelTitle) quickPanelTitle.textContent = item.title;
+  const timeSpan = document.createElement('span');
+  timeSpan.className = 'chat-msg-time';
+  timeSpan.textContent = getFormattedTime();
+  bubble.appendChild(timeSpan);
 
-  if (quickBackBtn) quickBackBtn.style.display = 'flex';
-  if (quickOptionsView) quickOptionsView.style.display = 'none';
-  if (quickAnswerView) quickAnswerView.style.display = 'flex';
+  row.appendChild(bubble);
+  chatMessagesStream.appendChild(row);
+  scrollChatToBottom();
 }
 
-// Floating WhatsApp Chat Button Direct Opener
-if (quickHelpBtn) {
-  const clinicWhatsAppNumber = '918870677523';
-  const whatsappUrl = `https://wa.me/${clinicWhatsAppNumber}`;
-  quickHelpBtn.href = whatsappUrl;
+// Safe RFC 3986 URL encoder for full Unicode (Tamil, Hindi, emojis, symbols)
+const safeUrlEncode = (str) =>
+  encodeURIComponent(str).replace(/[!'()*]/g, (c) => '%' + c.charCodeAt(0).toString(16).toUpperCase());
 
-  quickHelpBtn.addEventListener('click', (e) => {
-    // Universal mobile deep link directly invokes WhatsApp application instead of sticking on web browser page
-    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-      e.preventDefault();
-      window.location.href = whatsappUrl;
+// Handle Quick Action Clicks
+document.querySelectorAll('[data-chat-action]').forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const action = btn.getAttribute('data-chat-action');
+
+    if (action === 'ask') {
+      appendChatBubble('Ask a Question', 'user');
+      setTimeout(() => {
+        appendChatBubble(
+          'What would you like to ask? Type your question in the message box below and tap Send to chat with our doctors on WhatsApp!',
+          'bot'
+        );
+        if (quickChatInput) {
+          quickChatInput.focus();
+          quickChatInput.placeholder = 'e.g. Consultation fee, root canal, braces...';
+        }
+      }, 250);
+    } else if (action === 'location') {
+      appendChatBubble('Get Clinic Location', 'user');
+      setTimeout(() => {
+        const locationHtml = `
+          <div class="chat-info-card">
+            <div class="chat-info-title">📍 Clinic Location</div>
+            <p class="chat-info-desc">
+              <strong>Balagam Dental and Medical Clinic</strong><br>
+              Porur, Chennai, Tamil Nadu<br>
+              <span class="chat-info-sub">Near Sri Ramachandra University</span>
+            </p>
+            <a href="https://maps.app.goo.gl/dByS6ndvDBBxftf2A" target="_blank" rel="noopener noreferrer" class="chat-map-action-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+              </svg>
+              <span>Open in Google Maps ↗</span>
+            </a>
+          </div>
+        `;
+        appendChatBubble(locationHtml, 'bot', true);
+      }, 250);
+    } else if (action === 'timings') {
+      appendChatBubble('Clinic Timings', 'user');
+      setTimeout(() => {
+        const timingsHtml = `
+          <div class="chat-info-card">
+            <div class="chat-info-title">🕒 Consultation Hours</div>
+            <p class="chat-info-desc">
+              <strong>Mon – Sat:</strong> 10:00 AM – 1:30 PM &bull; 4:00 PM – 9:00 PM<br>
+              <strong>Sunday:</strong> 4:00 PM – 9:00 PM
+            </p>
+            <div class="chat-timing-badge">Daily &amp; Emergency Slots Available</div>
+          </div>
+        `;
+        appendChatBubble(timingsHtml, 'bot', true);
+      }, 250);
+    } else if (action === 'book') {
+      appendChatBubble('Book an Appointment', 'user');
+      setTimeout(() => {
+        closeQuickHelp();
+        openAppointmentModal();
+      }, 350);
+    } else if (action === 'whatsapp') {
+      appendChatBubble('Talk on WhatsApp', 'user');
+      setTimeout(() => {
+        const waUrl = `https://wa.me/${clinicWhatsAppNumber}`;
+        if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+          window.location.href = waUrl;
+        } else {
+          window.open(waUrl, '_blank') || (window.location.href = waUrl);
+        }
+      }, 350);
     }
+  });
+});
+
+// User custom message submit
+if (quickChatForm) {
+  quickChatForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const query = String(quickChatInput?.value || '').trim();
+    if (!query) return;
+
+    // Show user question bubble
+    appendChatBubble(query, 'user');
+    if (quickChatInput) quickChatInput.value = '';
+
+    // Show bot transition response
+    setTimeout(() => {
+      appendChatBubble(
+        'Connecting you to Balagam Dental Clinic on WhatsApp with your question...',
+        'bot'
+      );
+
+      const waUrl = `https://wa.me/${clinicWhatsAppNumber}?text=${safeUrlEncode(query)}`;
+
+      setTimeout(() => {
+        if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+          window.location.href = waUrl;
+        } else {
+          window.open(waUrl, '_blank') || (window.location.href = waUrl);
+        }
+      }, 400);
+    }, 300);
   });
 }
 
+// Trigger button toggles panel
+if (quickHelpBtn) {
+  quickHelpBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleQuickHelp();
+  });
+}
+
+// Close button
 if (quickCloseBtn) {
   quickCloseBtn.addEventListener('click', (e) => {
     e.stopPropagation();
@@ -120,37 +223,20 @@ if (quickCloseBtn) {
   });
 }
 
-quickBackBtn?.addEventListener('click', (e) => {
-  e.stopPropagation();
-  resetQuickHelpViews();
-});
-
-quickAnswerBackBtn?.addEventListener('click', (e) => {
-  e.stopPropagation();
-  resetQuickHelpViews();
-});
-
-quickOptionItems.forEach((btn) => {
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const opt = btn.getAttribute('data-option');
-    showQuickAnswer(opt);
-  });
-});
-
-// Close panel on click outside
+// Close on outside click
 document.addEventListener('click', (e) => {
   if (
     quickHelp &&
     quickHelpPanel &&
     quickHelpPanel.classList.contains('open') &&
-    !quickHelp.contains(e.target)
+    !quickHelp.contains(e.target) &&
+    !e.target.closest('#quickHelp')
   ) {
     closeQuickHelp();
   }
 });
 
-// Close panel on Escape key
+// Close on Escape key
 window.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && quickHelpPanel?.classList.contains('open')) {
     closeQuickHelp();
