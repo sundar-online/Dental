@@ -98,10 +98,19 @@ function showQuickAnswer(key) {
   if (quickAnswerView) quickAnswerView.style.display = 'flex';
 }
 
+// Floating WhatsApp Chat Button Direct Opener
 if (quickHelpBtn) {
+  const clinicWhatsAppNumber = '918870677523';
+  const defaultText = encodeURIComponent('Hello Balagam Dental and Medical Clinic, I would like to inquire about a consultation.');
+  const whatsappUrl = `https://wa.me/${clinicWhatsAppNumber}?text=${defaultText}`;
+  quickHelpBtn.href = whatsappUrl;
+
   quickHelpBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    toggleQuickHelp();
+    // Universal mobile deep link directly invokes WhatsApp application instead of sticking on web browser page
+    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      e.preventDefault();
+      window.location.href = whatsappUrl;
+    }
   });
 }
 
@@ -150,7 +159,7 @@ window.addEventListener('keydown', (e) => {
 });
 
 // ==========================================================================
-// Appointment Booking Modal & Form Handling
+// Appointment Booking Modal & Form Handling (Universal Cross-Browser)
 // ==========================================================================
 const appointmentModal = document.getElementById('appointmentModal');
 const modalCloseBtn = document.getElementById('modalCloseBtn');
@@ -160,40 +169,119 @@ const formSuccessMsg = document.getElementById('formSuccessMsg');
 const appSubmitBtn = document.getElementById('appSubmitBtn');
 
 function openAppointmentModal() {
-  if (!appointmentModal) return;
-  appointmentModal.classList.add('open');
-  appointmentModal.setAttribute('aria-hidden', 'false');
+  const modal = document.getElementById('appointmentModal');
+  if (!modal) return;
+
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('modal-open');
+  document.documentElement.classList.add('modal-open');
   document.body.style.overflow = 'hidden';
+
+  // Ensure minimum selectable date is today
+  const dateInput = document.getElementById('appDate');
+  if (dateInput && !dateInput.min) {
+    try {
+      const todayStr = new Date().toISOString().split('T')[0];
+      dateInput.min = todayStr;
+    } catch (_) {}
+  }
+
+  // Safe focus to first field for keyboard & screen reader accessibility
   const firstInput = document.getElementById('appFullName');
   if (firstInput) {
-    setTimeout(() => firstInput.focus(), 150);
+    setTimeout(() => {
+      try {
+        firstInput.focus();
+      } catch (_) {}
+    }, 150);
   }
 }
 
 function closeAppointmentModal() {
-  if (!appointmentModal) return;
-  appointmentModal.classList.remove('open');
-  appointmentModal.setAttribute('aria-hidden', 'true');
+  const modal = document.getElementById('appointmentModal');
+  if (!modal) return;
+
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('modal-open');
+  document.documentElement.classList.remove('modal-open');
   document.body.style.overflow = '';
 }
 
-// Attach to all booking buttons
-document.querySelectorAll('#bannerBookBtn, #pillBookBtn, .book-btn, a[href="#contact"].footer-highlight-link').forEach((trigger) => {
-  trigger.addEventListener('click', (e) => {
-    e.preventDefault();
-    openAppointmentModal();
+// 1. Direct event attachment to all booking triggers
+const bookingSelectors = [
+  '#bannerBookBtn',
+  '#pillBookBtn',
+  '.book-btn',
+  '#navBookBtn',
+  '#footerBookBtn',
+  'a[href="#contact"].footer-highlight-link',
+  '[data-trigger="booking"]'
+];
+
+bookingSelectors.forEach((selector) => {
+  document.querySelectorAll(selector).forEach((trigger) => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      openAppointmentModal();
+    });
   });
 });
 
-modalCloseBtn?.addEventListener('click', closeAppointmentModal);
-modalBackdrop?.addEventListener('click', closeAppointmentModal);
+// 2. Document-level delegation for 100% reliability across dynamic changes, touch devices, and nested spans
+document.addEventListener('click', (e) => {
+  // Close button trigger
+  if (e.target.closest('#modalCloseBtn') || e.target.closest('.modal-close-btn')) {
+    e.preventDefault();
+    e.stopPropagation();
+    closeAppointmentModal();
+    return;
+  }
 
+  // Backdrop trigger
+  if (e.target.id === 'modalBackdrop' || e.target.classList.contains('modal-backdrop')) {
+    e.preventDefault();
+    e.stopPropagation();
+    closeAppointmentModal();
+    return;
+  }
+
+  // Any booking trigger
+  const trigger = e.target.closest('#bannerBookBtn, #pillBookBtn, .book-btn, #navBookBtn, #footerBookBtn, a[href="#contact"].footer-highlight-link, [data-option="book"], [data-trigger="booking"], a[href="#appointment"], a[href="#book"]');
+  if (trigger) {
+    e.preventDefault();
+    e.stopPropagation();
+    openAppointmentModal();
+  }
+});
+
+// Direct close bindings
+if (modalCloseBtn) {
+  modalCloseBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    closeAppointmentModal();
+  });
+}
+
+if (modalBackdrop) {
+  modalBackdrop.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    closeAppointmentModal();
+  });
+}
+
+// Escape key to close
 window.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && appointmentModal?.classList.contains('open')) {
+  if ((e.key === 'Escape' || e.key === 'Esc') && appointmentModal?.classList.contains('open')) {
     closeAppointmentModal();
   }
 });
 
+// Form submission & WhatsApp automation
 if (appointmentForm) {
   // Reset submit state if user edits the form
   appointmentForm.addEventListener('input', () => {
@@ -220,14 +308,19 @@ if (appointmentForm) {
     let formattedDate = 'Flexible / Earliest Available';
     if (rawDate) {
       try {
-        const d = new Date(rawDate);
-        if (!isNaN(d.getTime())) {
-          formattedDate = d.toLocaleDateString('en-US', {
-            weekday: 'short',
-            year: 'numeric',
-            month: 'short',
-            day: 'numeric'
-          });
+        const parts = rawDate.split('-');
+        if (parts.length === 3) {
+          const d = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+          if (!isNaN(d.getTime())) {
+            formattedDate = d.toLocaleDateString('en-US', {
+              weekday: 'short',
+              year: 'numeric',
+              month: 'short',
+              day: 'numeric'
+            });
+          } else {
+            formattedDate = rawDate;
+          }
         } else {
           formattedDate = rawDate;
         }
@@ -236,44 +329,29 @@ if (appointmentForm) {
       }
     }
 
-    // Clinic's official WhatsApp number (international format without + or spaces)
-    const clinicWhatsAppNumber = '919876543210';
-
-    // Construct professional pre-filled WhatsApp message
-    const message = [
-      '*New Appointment Request \u2014 Balagam Dental Clinic*',
+    // Build plain-text appointment message
+    const msgLines = [
+      'New Appointment Request - Balagam Dental Clinic',
       '',
-      `*Patient Name:* ${fullName}`,
-      `*Phone Number:* ${phone}`,
-      `*Treatment:* ${treatment}`,
-      `*Preferred Date:* ${formattedDate}`,
-      `*Additional Note:* ${note}`,
+      'Patient Name: ' + fullName,
+      'Phone Number: ' + phone,
+      'Treatment: ' + treatment,
+      'Preferred Date: ' + formattedDate,
+      'Additional Note: ' + note,
       '',
       'Please confirm my appointment slot. Thank you!'
-    ].join('\n');
+    ];
+    const messageText = msgLines.join('\n');
 
-    const whatsappUrl = `https://wa.me/${clinicWhatsAppNumber}?text=${encodeURIComponent(message)}`;
+    // Open the WhatsApp chat directly — no pre-filled text, just the chat window
+    const waUrl = 'https://wa.me/918870677523';
+    window.open(waUrl, '_blank') || (window.location.href = waUrl);
 
-    // Automatically open WhatsApp with pre-filled message
-    let opened = false;
-    try {
-      const win = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-      if (win) {
-        opened = true;
-      }
-    } catch (_) {
-      opened = false;
-    }
-
-    if (!opened) {
-      window.location.href = whatsappUrl;
-    }
-
-    // Show "Appointment request sent via WhatsApp" only after the WhatsApp action is triggered
+    // Update UI state
     if (appSubmitBtn) {
       appSubmitBtn.disabled = true;
-      appSubmitBtn.style.opacity = '0.85';
-      appSubmitBtn.innerHTML = '<span>Appointment request sent via WhatsApp \u2713</span>';
+      appSubmitBtn.style.opacity = '0.9';
+      appSubmitBtn.innerHTML = '<span>Appointment Request Sent via WhatsApp \u2713</span>';
     }
 
     if (formSuccessMsg) {
@@ -1014,49 +1092,49 @@ if (appointmentForm) {
 
   var ALL_CASES = [
     {
-      img: 'img/Gallery-1.webp',
+      img: 'img/Gallery-1.png',
       alt: 'Cosmetic Smile Makeover Before and After',
       title: 'Cosmetic Smile Makeover',
       desc: 'Diastema space closure & aesthetic ceramic veneers'
     },
     {
-      img: 'img/Gallery-2.webp',
+      img: 'img/Gallery-2.png',
       alt: 'Midline Gap Closure Before and After',
       title: 'Midline Gap Closure',
       desc: 'Composite bonding & aesthetic spacing correction'
     },
     {
-      img: 'img/Gallery-3.webp',
+      img: 'img/Gallery-3.png',
       alt: 'Deep Dental Scaling Before and After',
       title: 'Deep Ultrasonic Scaling',
       desc: 'Ultrasonic airflow scaling & plaque stain removal'
     },
     {
-      img: 'img/Gallery-4.webp',
+      img: 'img/Gallery-4.png',
       alt: 'Arch Rehabilitation Before and After',
       title: 'Arch Rehabilitation',
       desc: 'Full dental arch alignment & restorative bridge'
     },
     {
-      img: 'img/Gallery-5.webp',
+      img: 'img/Gallery-1.png',
       alt: 'Fracture Restoration Before and After',
       title: 'Fracture Restoration',
       desc: 'Anterior composite repair & incisal edge matching'
     },
     {
-      img: 'img/Gallery-1.webp',
+      img: 'img/Gallery-2.png',
       alt: 'Ceramic Laminate Veneers Before and After',
       title: 'Ceramic Veneer Makeover',
       desc: 'Laminate porcelain veneers for smile aesthetics'
     },
     {
-      img: 'img/Gallery-2.webp',
+      img: 'img/Gallery-3.png',
       alt: 'Diastema Spacing Closure Before and After',
       title: 'Diastema Spacing Closure',
       desc: 'Micro-invasive anterior composite realignment'
     },
     {
-      img: 'img/Gallery-3.webp',
+      img: 'img/Gallery-4.png',
       alt: 'Periodontal Stain Removal Before and After',
       title: 'Subgingival Stain Removal',
       desc: 'Periodontal therapy & airflow cosmetic polish'
