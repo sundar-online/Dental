@@ -509,10 +509,10 @@ if (appointmentForm) {
 // Navigation Active State Tracking & Smooth Spy
 // ==========================================================================
 (function initNavScrollSpy() {
-  const navLinks = document.querySelectorAll('.nav-links .nav-link');
+  const navLinks = document.querySelectorAll('.nav-links .nav-link, .mobile-nav-links .mobile-nav-link');
   if (!navLinks.length) return;
 
-  const sectionIds = ['home', 'treatments', 'team', 'reviews', 'contact'];
+  const sectionIds = ['home', 'treatments', 'team', 'aftercare', 'reviews', 'contact'];
   let isManualClick = false;
   let clickTimeout = null;
 
@@ -547,6 +547,8 @@ if (appointmentForm) {
     const triggerLine = scrollY + 160;
 
     const treatmentsTop = getSectionTop('treatments') || Infinity;
+    const teamTop = getSectionTop('team') || Infinity;
+    const aftercareTop = getSectionTop('aftercare') || Infinity;
     const reviewsTop = getSectionTop('reviews') || Infinity;
     const contactTop = getSectionTop('contact') || Infinity;
 
@@ -554,6 +556,10 @@ if (appointmentForm) {
       setActiveLink('contact');
     } else if (triggerLine >= reviewsTop) {
       setActiveLink('reviews');
+    } else if (triggerLine >= aftercareTop) {
+      setActiveLink('aftercare');
+    } else if (triggerLine >= teamTop) {
+      setActiveLink('team');
     } else if (triggerLine >= treatmentsTop) {
       setActiveLink('treatments');
     } else {
@@ -590,6 +596,76 @@ if (appointmentForm) {
   } else {
     updateActiveNav();
   }
+})();
+
+// ==========================================================================
+// Mobile Hamburger Menu & Animated Drawer
+// ==========================================================================
+(function initMobileHamburgerMenu() {
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileDrawer = document.getElementById('mobileMenuDrawer');
+  const mobileBackdrop = document.getElementById('mobileMenuBackdrop');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link, .mobile-menu-cta, .mobile-action-pill');
+
+  if (!hamburgerBtn || !mobileDrawer || !mobileBackdrop) return;
+
+  let isOpen = false;
+
+  function openMenu() {
+    isOpen = true;
+    hamburgerBtn.classList.add('is-active');
+    hamburgerBtn.setAttribute('aria-expanded', 'true');
+    mobileDrawer.classList.add('is-open');
+    mobileDrawer.setAttribute('aria-hidden', 'false');
+    mobileBackdrop.classList.add('is-open');
+    mobileBackdrop.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    if (!isOpen) return;
+    isOpen = false;
+    hamburgerBtn.classList.remove('is-active');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+    mobileDrawer.classList.remove('is-open');
+    mobileDrawer.setAttribute('aria-hidden', 'true');
+    mobileBackdrop.classList.remove('is-open');
+    mobileBackdrop.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function toggleMenu() {
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
+
+  hamburgerBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMenu();
+  });
+
+  mobileBackdrop.addEventListener('click', closeMenu);
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      setTimeout(closeMenu, 150);
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isOpen) {
+      closeMenu();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 991 && isOpen) {
+      closeMenu();
+    }
+  }, { passive: true });
 })();
 
 
@@ -720,14 +796,23 @@ if (appointmentForm) {
     stepTo(currentTrackIndex + diff);
   }
 
-  prevBtn.addEventListener('click', () => {
+  let userStoppedAuto = false;
+
+  function stopAutoByUser() {
+    userStoppedAuto = true;
+    stopAuto();
+  }
+
+  prevBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    stopAutoByUser();
     stepTo(currentTrackIndex - 1);
-    resetAuto();
   });
 
-  nextBtn.addEventListener('click', () => {
+  nextBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    stopAutoByUser();
     stepTo(currentTrackIndex + 1);
-    resetAuto();
   });
 
   // Keyboard support
@@ -738,12 +823,12 @@ if (appointmentForm) {
     const inView = rect.top < window.innerHeight && rect.bottom > 0;
     if (!inView) return;
     if (e.key === 'ArrowLeft') {
+      stopAutoByUser();
       stepTo(currentTrackIndex - 1);
-      resetAuto();
     }
     if (e.key === 'ArrowRight') {
+      stopAutoByUser();
       stepTo(currentTrackIndex + 1);
-      resetAuto();
     }
   });
 
@@ -765,6 +850,7 @@ if (appointmentForm) {
     if (!isDragging) return;
     isDragging = false;
     const threshold = 50;
+    stopAutoByUser();
     if (dragDeltaX < -threshold) {
       stepTo(currentTrackIndex + 1);
     } else if (dragDeltaX > threshold) {
@@ -772,20 +858,20 @@ if (appointmentForm) {
     } else {
       applyCarousel(true);
     }
-    resetAuto();
   });
 
   allTrackCards.forEach((card, idx) => {
     card.addEventListener('click', () => {
+      stopAutoByUser();
       if (idx !== currentTrackIndex) {
         stepTo(idx);
-        resetAuto();
       }
     });
   });
 
   treatCards.forEach(tCard => {
     const handleClick = () => {
+      stopAutoByUser();
       const type = tCard.getAttribute('data-treatment');
       const sec = document.getElementById('reviews');
       if (sec) {
@@ -794,7 +880,6 @@ if (appointmentForm) {
           const targetIdx = originalCards.findIndex(c => c.getAttribute('data-category') === type);
           if (targetIdx !== -1) {
             goToRealIndex(targetIdx);
-            resetAuto();
           }
         }, 420);
       }
@@ -812,6 +897,7 @@ if (appointmentForm) {
   let autoTimer = null;
 
   function startAuto() {
+    if (userStoppedAuto) return;
     stopAuto();
     autoTimer = setInterval(() => {
       stepTo(currentTrackIndex + 1);
@@ -825,17 +911,22 @@ if (appointmentForm) {
     }
   }
 
-  function resetAuto() {
-    stopAuto();
-    startAuto();
-  }
-
   const carouselWrap = document.getElementById('reviewsCarouselWrap');
   if (carouselWrap) {
     carouselWrap.addEventListener('mouseenter', stopAuto);
-    carouselWrap.addEventListener('mouseleave', startAuto);
+    carouselWrap.addEventListener('mouseleave', () => {
+      if (!userStoppedAuto) startAuto();
+    });
     carouselWrap.addEventListener('touchstart', stopAuto, { passive: true });
-    carouselWrap.addEventListener('touchend', startAuto, { passive: true });
+    carouselWrap.addEventListener('touchend', () => {
+      if (!userStoppedAuto) startAuto();
+    }, { passive: true });
+    carouselWrap.addEventListener('click', stopAutoByUser);
+  }
+
+  const reviewsSection = document.getElementById('reviews');
+  if (reviewsSection) {
+    reviewsSection.addEventListener('click', stopAutoByUser);
   }
 
   window.addEventListener('resize', () => {
@@ -845,8 +936,24 @@ if (appointmentForm) {
   applyCarousel(false);
   requestAnimationFrame(() => {
     applyCarousel(false);
-    startAuto();
+    if (!userStoppedAuto) {
+      startAuto();
+    }
   });
+
+  // Pause when review section is off-screen, resume when on-screen if not stopped by user
+  if ('IntersectionObserver' in window && reviewsSection) {
+    const reviewsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (!userStoppedAuto) startAuto();
+        } else {
+          stopAuto();
+        }
+      });
+    }, { threshold: 0.15 });
+    reviewsObserver.observe(reviewsSection);
+  }
 })();
 
 // ==========================================================================
@@ -912,7 +1019,6 @@ if (appointmentForm) {
 
   const revealTargets = [
     { selector: '.section-tag', class: 'reveal-up' },
-    { selector: '.dr-profile-container', class: 'reveal-up' },
     { selector: '.treatments-header', class: 'reveal-up' },
     { selector: '.team-header', class: 'reveal-up' },
     { selector: '.reviews-intro-wrap', class: 'reveal-up' },
@@ -967,7 +1073,7 @@ if (appointmentForm) {
       rootMargin: '0px 0px -30px 0px'
     });
 
-    document.querySelectorAll('.reveal-up, .reveal-fade, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+    document.querySelectorAll('.reveal-up, .reveal-fade, .reveal-left, .reveal-right, .reveal-scale, .dr-slide-left, .dr-slide-right, .team-slide-left, .team-slide-right').forEach(el => {
       revealObserver.observe(el);
     });
 
@@ -980,7 +1086,7 @@ if (appointmentForm) {
       }
     });
   } else {
-    document.querySelectorAll('.reveal-up, .reveal-fade, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+    document.querySelectorAll('.reveal-up, .reveal-fade, .reveal-left, .reveal-right, .reveal-scale, .dr-slide-left, .dr-slide-right, .team-slide-left, .team-slide-right').forEach(el => {
       el.classList.add('is-revealed');
     });
     counterElements.forEach(animateCounter);
@@ -1435,3 +1541,290 @@ if (appointmentForm) {
   renderAll();
   startAutoPlay();
 })();
+
+// ==========================================================================
+// DYNAMIC 3D TILT HOVER SYSTEM (Book Appointment, Instagram, Facebook)
+// ==========================================================================
+(function () {
+  const tiltSelectors = [
+    '.book-btn',
+    '.contact-btn-dark',
+    '.form-submit-btn',
+    '.footer-social-btn',
+    '.contact-social-pill',
+    '#footerBookBtn'
+  ];
+
+  const tiltElements = document.querySelectorAll(tiltSelectors.join(', '));
+
+  tiltElements.forEach((el) => {
+    let bounds = null;
+
+    function onMouseEnter() {
+      bounds = el.getBoundingClientRect();
+      el.style.transition = 'transform 0.12s ease-out, box-shadow 0.25s ease';
+    }
+
+    function onMouseMove(e) {
+      if (!bounds) bounds = el.getBoundingClientRect();
+      const mouseX = e.clientX - bounds.left;
+      const mouseY = e.clientY - bounds.top;
+      const xPct = (mouseX / bounds.width) - 0.5;
+      const yPct = (mouseY / bounds.height) - 0.5;
+
+      const isSocial = el.classList.contains('footer-social-btn') || el.classList.contains('contact-social-pill');
+      const maxRotX = isSocial ? 14 : 7;
+      const maxRotY = isSocial ? 16 : 8;
+      const maxRotZ = isSocial ? (el.classList.contains('footer-social-fb') || el.classList.contains('contact-social-fb') ? 8 : -8) : -1.8;
+      const scaleVal = isSocial ? 1.14 : 1.04;
+
+      const rotX = (-yPct * maxRotX).toFixed(2);
+      const rotY = (xPct * maxRotY).toFixed(2);
+
+      el.style.transform = `perspective(400px) translateY(-3px) rotateX(${rotX}deg) rotateY(${rotY}deg) rotateZ(${maxRotZ}deg) scale(${scaleVal})`;
+    }
+
+    function onMouseLeave() {
+      el.style.transition = 'transform 0.38s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease';
+      el.style.transform = '';
+      bounds = null;
+    }
+
+    el.addEventListener('mouseenter', onMouseEnter, { passive: true });
+    el.addEventListener('mousemove', onMouseMove, { passive: true });
+    el.addEventListener('mouseleave', onMouseLeave, { passive: true });
+  });
+})();
+
+// ==========================================================================
+// TREATMENT SECTION MAGNETIC MOTION ENGINE
+// ==========================================================================
+(function () {
+  const treatSection = document.getElementById('treatments');
+  const cards = document.querySelectorAll('.treatments-grid .treatment-card');
+  const sectionTag = treatSection ? treatSection.querySelector('.section-tag') : null;
+
+  if (!treatSection || !cards.length) return;
+
+  // 1. Ambient Section Spotlight Tracker
+  let secRafId = null;
+  treatSection.addEventListener('pointermove', function (e) {
+    if (secRafId) cancelAnimationFrame(secRafId);
+    secRafId = requestAnimationFrame(function () {
+      const rect = treatSection.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      treatSection.style.setProperty('--sec-mouse-x', x.toFixed(1) + '%');
+      treatSection.style.setProperty('--sec-mouse-y', y.toFixed(1) + '%');
+
+      // Subtle magnetic drift on the section tag
+      if (sectionTag) {
+        const tagRect = sectionTag.getBoundingClientRect();
+        const tagDistX = (e.clientX - (tagRect.left + tagRect.width / 2)) / 30;
+        const tagDistY = (e.clientY - (tagRect.top + tagRect.height / 2)) / 30;
+        if (Math.abs(tagDistX) < 8 && Math.abs(tagDistY) < 8) {
+          sectionTag.style.transform = `translate3d(${tagDistX.toFixed(1)}px, ${tagDistY.toFixed(1)}px, 0)`;
+        }
+      }
+    });
+  }, { passive: true });
+
+  treatSection.addEventListener('pointerleave', function () {
+    if (sectionTag) {
+      sectionTag.style.transition = 'transform 0.4s ease';
+      sectionTag.style.transform = '';
+      setTimeout(function () {
+        if (sectionTag) sectionTag.style.transition = '';
+      }, 400);
+    }
+  });
+
+  // 2. Interactive Magnetic Card Physics & 3D Layered Depth
+  cards.forEach(function (card) {
+    const badge = card.querySelector('.treatment-card-badge');
+    const arrow = card.querySelector('.treatment-arrow-btn');
+    const img = card.querySelector('.treatment-card-img');
+
+    let cardRect = null;
+    let cardRaf = null;
+    let releaseTimer = null;
+
+    function onPointerEnter() {
+      if (releaseTimer) clearTimeout(releaseTimer);
+      card.classList.remove('is-releasing');
+      card.classList.add('is-magnetic');
+      cardRect = card.getBoundingClientRect();
+    }
+
+    function onPointerMove(e) {
+      if (!cardRect) cardRect = card.getBoundingClientRect();
+
+      if (cardRaf) cancelAnimationFrame(cardRaf);
+      cardRaf = requestAnimationFrame(function () {
+        const centerX = cardRect.left + cardRect.width / 2;
+        const centerY = cardRect.top + cardRect.height / 2;
+        const relX = (e.clientX - centerX) / (cardRect.width / 2); // -1 to 1
+        const relY = (e.clientY - centerY) / (cardRect.height / 2); // -1 to 1
+
+        // Clamped values for natural physical bounds
+        const cX = Math.max(-1, Math.min(1, relX));
+        const cY = Math.max(-1, Math.min(1, relY));
+
+        // Magnetic Card Pull (translates up to ±10px, tilts up to ±8deg)
+        const moveX = (cX * 10).toFixed(2);
+        const moveY = (cY * 10).toFixed(2);
+        const tiltX = (-cY * 8).toFixed(2);
+        const tiltY = (cX * 8).toFixed(2);
+
+        card.style.transform = `perspective(1000px) translate3d(${moveX}px, ${moveY}px, 12px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.025)`;
+
+        // Specular Glare Follow
+        const glareX = ((e.clientX - cardRect.left) / cardRect.width * 100).toFixed(1);
+        const glareY = ((e.clientY - cardRect.top) / cardRect.height * 100).toFixed(1);
+        card.style.setProperty('--magnetic-glare-x', glareX + '%');
+        card.style.setProperty('--magnetic-glare-y', glareY + '%');
+
+        // Badge Magnetic Extrusion (moves faster outward in 3D)
+        if (badge) {
+          const bX = (cX * 10).toFixed(2);
+          const bY = (cY * 10).toFixed(2);
+          badge.style.transform = `scale(1.06) translate3d(${bX}px, ${bY}px, 26px)`;
+        }
+
+        // Action Arrow Magnetic Pull
+        if (arrow) {
+          const aX = (cX * 8).toFixed(2);
+          const aY = (cY * 8).toFixed(2);
+          arrow.style.transform = `translate3d(${aX}px, ${aY}px, 20px)`;
+        }
+
+        // Card Image Subtle Inverse Depth
+        if (img) {
+          const iX = (-cX * 6).toFixed(2);
+          const iY = (-cY * 6).toFixed(2);
+          img.style.transform = `scale(1.08) translate3d(${iX}px, ${iY}px, 0)`;
+        }
+      });
+    }
+
+    function onPointerLeave() {
+      if (cardRaf) cancelAnimationFrame(cardRaf);
+      card.classList.remove('is-magnetic');
+      card.classList.add('is-releasing');
+
+      card.style.transform = '';
+      if (badge) badge.style.transform = '';
+      if (arrow) arrow.style.transform = '';
+      if (img) img.style.transform = '';
+
+      cardRect = null;
+
+      releaseTimer = setTimeout(function () {
+        card.classList.remove('is-releasing');
+      }, 500);
+    }
+
+    card.addEventListener('pointerenter', onPointerEnter);
+    card.addEventListener('pointermove', onPointerMove);
+    card.addEventListener('pointerleave', onPointerLeave);
+  });
+})();
+
+// ==========================================================================
+// DOCTOR SECTION — PARALLAX & INTERACTIVE SLIDE MOTION
+// ==========================================================================
+(function initDoctorSlideMotion() {
+  const drSection = document.getElementById('stack');
+  const drRight = document.querySelector('.dr-profile-right');
+  const photoFrame = document.querySelector('.dr-photo-frame');
+
+  if (!drSection || !drRight || !photoFrame) return;
+
+  // 1. Subtle Scroll Parallax Slide for Doctor Photo Frame
+  let isTicking = false;
+
+  function updateScrollSlide() {
+    if (photoFrame.dataset.hovered === 'true') {
+      isTicking = false;
+      return;
+    }
+    const rect = drSection.getBoundingClientRect();
+    const windowH = window.innerHeight || document.documentElement.clientHeight;
+
+    if (rect.bottom > 0 && rect.top < windowH) {
+      const centerY = rect.top + rect.height / 2;
+      const progress = (centerY - windowH / 2) / (windowH / 2);
+      const clamped = Math.max(-1.5, Math.min(1.5, progress));
+      const frameY = (clamped * 18).toFixed(1);
+      photoFrame.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+      photoFrame.style.transform = `translate3d(0, ${frameY}px, 0)`;
+    }
+    isTicking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!isTicking) {
+      window.requestAnimationFrame(updateScrollSlide);
+      isTicking = true;
+    }
+  }, { passive: true });
+
+  // 2. Interactive Pointer Slide Motion for Doctor Photo Frame on Desktop
+  const isFinePointer = window.matchMedia('(pointer: fine)').matches;
+  if (!isFinePointer) return;
+
+  let pointerRaf = null;
+  let targetX = 0;
+  let targetY = 0;
+  let currentX = 0;
+  let currentY = 0;
+
+  function animatePointerSlide() {
+    currentX += (targetX - currentX) * 0.075;
+    currentY += (targetY - currentY) * 0.075;
+
+    const rotX = (-currentY * 4.5).toFixed(2);
+    const rotY = (currentX * 5.5).toFixed(2);
+    const transX = (currentX * 14).toFixed(2);
+    const transY = (currentY * 12).toFixed(2);
+
+    photoFrame.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) translate3d(${transX}px, ${transY}px, 14px)`;
+
+    if (photoFrame.dataset.hovered === 'true') {
+      pointerRaf = requestAnimationFrame(animatePointerSlide);
+    }
+  }
+
+  drRight.addEventListener('pointerenter', function () {
+    photoFrame.dataset.hovered = 'true';
+    photoFrame.style.transition = 'box-shadow 0.4s ease';
+    if (pointerRaf) cancelAnimationFrame(pointerRaf);
+    pointerRaf = requestAnimationFrame(animatePointerSlide);
+  });
+
+  drRight.addEventListener('pointermove', function (e) {
+    const rect = drRight.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    targetX = Math.max(-0.5, Math.min(0.5, x)) * 2;
+    targetY = Math.max(-0.5, Math.min(0.5, y)) * 2;
+  });
+
+  drRight.addEventListener('pointerleave', function () {
+    delete photoFrame.dataset.hovered;
+    if (pointerRaf) cancelAnimationFrame(pointerRaf);
+    targetX = 0;
+    targetY = 0;
+
+    photoFrame.style.transition = 'transform 1.1s cubic-bezier(0.16, 1, 0.3, 1)';
+    photoFrame.style.transform = '';
+
+    setTimeout(function () {
+      photoFrame.style.transition = '';
+      updateScrollSlide();
+    }, 1150);
+  });
+})();
+
+
+
