@@ -1,0 +1,1189 @@
+/* ==========================================================================
+   DR. BARATH BALAJI – PROFILE / ABOUT DOCTOR PAGE
+   ========================================================================== */
+
+/* BREADCRUMB (Removed as per requirements) */
+.doc-breadcrumb {
+    display: none !important;
+}
+
+/* ==========================================================================
+   PAGE HERO: CLINICAL BACKGROUND WITH DARK BLUE / CYAN OVERLAY
+   ========================================================================== */
+.about-page-hero,
+.aftercare-hero {
+    position: relative;
+    padding: 136px 4.5vw 64px;
+    background: #0B1F3A;
+    background-image: linear-gradient(135deg, rgba(11, 31, 58, 0.90) 0%, rgba(0, 103, 182, 0.84) 60%, rgba(0, 166, 206, 0.78) 100%), url('img/clinic-2.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    overflow: hidden;
+    text-align: center;
+}
+
+.about-page-hero::before,
+.aftercare-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(0, 166, 206, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.about-hero-inner,
+.aftercare-hero-inner {
+    max-width: var(--container-max, 1240px);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.about-hero-eyebrow,
+.aftercare-hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: var(--radius-pill, 9999px);
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    margin-bottom: 16px;
+}
+
+.about-hero-eyebrow .hero-eyebrow-dot,
+.about-hero-eyebrow .eyebrow-dot,
+.aftercare-hero-eyebrow .eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #00D2FF;
+    box-shadow: 0 0 10px #00D2FF;
+}
+
+.about-hero-title,
+.aftercare-hero-title {
+    font-family: var(--font-serif, 'Cormorant Garamond', serif);
+    font-size: clamp(2.8rem, 6vw, 4.4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    margin: 0 0 14px;
+}
+
+.about-hero-desc,
+.aftercare-hero-desc {
+    max-width: 680px;
+    margin: 0 auto 20px;
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+/* Breadcrumb */
+.about-breadcrumb,
+.aftercare-breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.about-breadcrumb a,
+.aftercare-breadcrumb a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.about-breadcrumb a:hover,
+.aftercare-breadcrumb a:hover {
+    color: #00D2FF;
+}
+
+.about-breadcrumb .breadcrumb-separator,
+.aftercare-breadcrumb .breadcrumb-separator {
+    color: rgba(255, 255, 255, 0.45);
+    font-weight: 400;
+}
+
+.about-breadcrumb .breadcrumb-current,
+.aftercare-breadcrumb .breadcrumb-current {
+    color: #00D2FF;
+}
+
+@media (max-width: 1080px) {
+    .about-page-hero,
+    .aftercare-hero {
+        padding: 114px 5vw 54px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-page-hero,
+    .aftercare-hero {
+        padding: 98px 5vw 44px;
+    }
+}
+
+.doc-hero {
+    background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 55%, #edf5fb 100%);
+    padding: 70px 4.5vw 70px;
+    position: relative;
+    overflow: hidden;
+}
+
+.doc-hero::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 103, 182, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.doc-hero-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* LEFT: Doctor Visual */
+.doc-hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 540px;
+}
+
+.doc-hero-img-frame {
+    position: relative;
+    z-index: 2;
+    width: min(88%, 400px);
+    height: 520px;
+    border-radius: 55% 45% 52% 48% / 48% 52% 48% 52%;
+    overflow: hidden;
+    animation: docBreathingGlow 5.5s ease-in-out infinite;
+}
+
+@keyframes docBreathingGlow {
+    0%, 100% {
+        box-shadow:
+            0 16px 45px rgba(0, 103, 182, 0.12),
+            0 4px 16px rgba(15, 31, 45, 0.06),
+            0 0 0 1px rgba(255, 255, 255, 0.8),
+            0 0 20px rgba(0, 103, 182, 0.12);
+    }
+    50% {
+        box-shadow:
+            0 24px 60px rgba(0, 103, 182, 0.20),
+            0 8px 24px rgba(15, 31, 45, 0.08),
+            0 0 0 2px rgba(0, 199, 244, 0.35),
+            0 0 45px rgba(0, 199, 244, 0.28);
+    }
+}
+
+.doc-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+.doc-hero-decor-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(94%, 430px);
+    height: 480px;
+    margin-top: -240px;
+    margin-left: min(-47%, -215px);
+    border-radius: 50%;
+    border: 1.5px dashed rgba(0, 103, 182, 0.28);
+    z-index: 1;
+    pointer-events: none;
+    animation: docRingRotate 22s linear infinite;
+    transform-origin: center center;
+}
+
+.doc-hero-decor-ring::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--primary-blue);
+    box-shadow: 0 0 10px rgba(0, 119, 200, 0.6);
+    transform: translateX(-50%);
+}
+
+@keyframes docRingRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.doc-hero-badge-float {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+    z-index: 4;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1.5px solid rgba(0, 103, 182, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(0, 103, 182, 0.14);
+    animation: docBadgeFloat 4.8s ease-in-out infinite;
+}
+
+@keyframes docBadgeFloat {
+    0%, 100% {
+        transform: translateY(-50%) translate3d(0, 0, 0) rotate(0deg);
+        box-shadow: 0 8px 22px rgba(0, 103, 182, 0.14);
+    }
+    50% {
+        transform: translateY(calc(-50% - 10px)) translate3d(0, 0, 0) rotate(3deg);
+        box-shadow: 0 16px 32px rgba(0, 103, 182, 0.22);
+    }
+}
+
+/* RIGHT: Text Content */
+.doc-hero-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.doc-hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+}
+
+.doc-eyebrow-line {
+    display: inline-block;
+    width: 28px;
+    height: 2px;
+    background: var(--primary-blue);
+}
+
+.doc-hero-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 5.5vw, 5.2rem);
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    color: var(--dark-navy);
+    margin: 0 0 14px;
+    text-transform: uppercase;
+}
+
+.doc-name-accent {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--primary-blue);
+}
+
+.doc-hero-subtitle {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin: 0 0 28px;
+}
+
+.doc-hero-body {
+    margin-bottom: 32px;
+}
+
+.doc-hero-body p {
+    font-size: 14.5px;
+    line-height: 1.68;
+    color: var(--text-secondary);
+    max-width: 480px;
+    margin: 0 0 16px;
+}
+
+.doc-hero-body p:last-child {
+    margin-bottom: 0;
+}
+
+/* CTAs */
+.doc-hero-ctas {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.doc-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--dark-navy);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 14px 26px;
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 4px 16px rgba(15, 31, 45, 0.12);
+}
+
+.doc-cta-primary:hover {
+    background: var(--primary-blue);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(0, 103, 182, 0.22);
+}
+
+.doc-cta-primary .btn-arrow {
+    transition: transform 0.25s ease;
+}
+
+.doc-cta-primary:hover .btn-arrow {
+    transform: translateX(3px);
+}
+
+.doc-cta-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 22px;
+    border-radius: var(--radius-pill);
+    background: #eef6fc;
+    color: var(--primary-blue);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    border: 1px solid rgba(0, 103, 182, 0.18);
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.doc-cta-whatsapp:hover {
+    background: #25D366;
+    color: #ffffff;
+    border-color: #25D366;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.22);
+}
+
+.doc-cta-whatsapp svg {
+    transition: color 0.25s ease;
+}
+
+.doc-cta-whatsapp:hover svg {
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   SHARED SECTION STYLES
+   ========================================================================== */
+.doc-section {
+    padding: 80px 4.5vw;
+    background: #ffffff;
+}
+
+.doc-section-alt {
+    background: var(--light-bg);
+}
+
+.doc-section-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+}
+
+.doc-section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--primary-blue);
+    margin-bottom: 14px;
+}
+
+.doc-section-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(0, 103, 182, 0.15);
+}
+
+.doc-section-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--dark-navy);
+    margin: 0 0 20px;
+}
+
+.doc-section-intro {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    max-width: 640px;
+    margin: 0 0 40px;
+}
+
+/* ==========================================================================
+   STREAMLINED DOCTOR INNER PAGE COMPONENTS
+   ========================================================================== */
+
+/* About Dr. Barath Balaji Box */
+.doc-about-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-card);
+    padding: 34px 38px;
+    box-shadow: var(--shadow-card);
+    max-width: 860px;
+    transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.doc-about-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.doc-about-text {
+    font-size: 16px;
+    line-height: 1.82;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.doc-about-text strong {
+    color: var(--dark-navy);
+}
+
+/* Compact Qualifications & Clinical Interests Grid (6 Cards) */
+.doc-compact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.doc-compact-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-card);
+    padding: 22px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.doc-compact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(0, 103, 182, 0.3);
+}
+
+.doc-compact-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 14px;
+    background: var(--light-blue);
+    border: 1px solid rgba(0, 103, 182, 0.12);
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+    flex-shrink: 0;
+}
+
+.doc-compact-card:hover .doc-compact-icon {
+    background: var(--primary-blue);
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.doc-compact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.doc-compact-title {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--dark-navy);
+    line-height: 1.35;
+    margin: 0;
+}
+
+.doc-compact-badge {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+/* Short Treatment Philosophy Highlight Card */
+.doc-philosophy-highlight-wrap {
+    max-width: 900px;
+}
+
+.doc-philosophy-highlight-card {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--primary-blue);
+    border-radius: var(--radius-card);
+    padding: 36px 36px 36px 32px;
+    box-shadow: var(--shadow-card);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.doc-philosophy-highlight-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+.doc-highlight-quote-mark {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: rgba(0, 103, 182, 0.14);
+}
+
+.doc-highlight-quote-text {
+    font-family: var(--font-serif);
+    font-size: clamp(1.2rem, 2vw, 1.55rem);
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--dark-navy);
+    margin: 0;
+    padding-left: 32px;
+}
+
+.doc-highlight-quote-text strong {
+    font-style: normal;
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   QUALIFICATIONS
+   ========================================================================== */
+.doc-qual-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.doc-qual-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-card);
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.doc-section-alt .doc-qual-card {
+    background: #ffffff;
+}
+
+.doc-qual-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(0, 103, 182, 0.25);
+}
+
+.doc-qual-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: var(--light-blue);
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.doc-qual-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--dark-navy);
+    margin: 0 0 6px;
+    line-height: 1.3;
+}
+
+.doc-qual-desc {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* ==========================================================================
+   CLINICAL INTERESTS
+   ========================================================================== */
+.doc-interest-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.doc-interest-card {
+    background: var(--light-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-card);
+    padding: 22px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.doc-interest-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(0, 103, 182, 0.25);
+}
+
+.doc-interest-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1px solid rgba(0, 103, 182, 0.12);
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.doc-interest-card:hover .doc-interest-icon {
+    background: var(--primary-blue);
+    color: #ffffff;
+}
+
+.doc-interest-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--dark-navy);
+    margin: 0;
+    line-height: 1.3;
+}
+
+/* ==========================================================================
+   TREATMENT PHILOSOPHY
+   ========================================================================== */
+.doc-philosophy-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.doc-philosophy-main {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.doc-philosophy-quote {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--primary-blue);
+    border-radius: var(--radius-card);
+    padding: 28px 28px 28px 24px;
+    box-shadow: var(--shadow-card);
+}
+
+.doc-section-alt .doc-philosophy-quote {
+    background: #ffffff;
+}
+
+.doc-quote-mark {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    color: rgba(0, 103, 182, 0.15);
+}
+
+.doc-philosophy-quote p {
+    font-family: var(--font-serif);
+    font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.55;
+    color: var(--dark-navy);
+    margin: 0;
+    padding-left: 28px;
+}
+
+.doc-philosophy-text p {
+    font-size: 15px;
+    line-height: 1.68;
+    color: var(--text-secondary);
+    max-width: 640px;
+    margin: 0;
+}
+
+.doc-philosophy-pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.doc-pillar-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-card);
+    padding: 28px 24px;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.doc-section-alt .doc-pillar-card {
+    background: #ffffff;
+}
+
+.doc-pillar-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(0, 103, 182, 0.25);
+}
+
+.doc-pillar-num {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+}
+
+.doc-pillar-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark-navy);
+    margin: 0 0 8px;
+    line-height: 1.3;
+}
+
+.doc-pillar-desc {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* ==========================================================================
+   PATIENT-CENTRED CARE
+   ========================================================================== */
+.doc-care-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.doc-care-card {
+    background: var(--light-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-card);
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.doc-care-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(0, 103, 182, 0.25);
+}
+
+.doc-care-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: #ffffff;
+    border: 1px solid rgba(0, 103, 182, 0.1);
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.doc-care-card:hover .doc-care-icon {
+    background: var(--primary-blue);
+    color: #ffffff;
+}
+
+.doc-care-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--dark-navy);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.doc-care-desc {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.doc-care-summary {
+    max-width: 700px;
+}
+
+.doc-care-summary-card {
+    background: var(--dark-navy);
+    border-radius: var(--radius-lg);
+    padding: 28px 32px;
+    box-shadow: var(--shadow-lg);
+}
+
+.doc-care-summary-text {
+    font-family: var(--font-serif);
+    font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+    font-weight: 500;
+    line-height: 1.55;
+    color: #ffffff;
+    margin: 0;
+}
+
+.doc-care-summary-text strong {
+    color: var(--cyan);
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   CTA SECTION
+   ========================================================================== */
+.doc-cta-section {
+    background: linear-gradient(135deg, #0b1f3a 0%, #0a2540 100%);
+    padding: 64px 4.5vw;
+    position: relative;
+    overflow: hidden;
+}
+
+.doc-cta-section::before {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    right: -60px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 199, 244, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.doc-cta-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.doc-cta-content {
+    max-width: 480px;
+}
+
+.doc-cta-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.doc-cta-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: #ffffff;
+    margin: 0 0 12px;
+}
+
+.doc-cta-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0;
+}
+
+.doc-cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+}
+
+.doc-cta-large {
+    padding: 16px 30px;
+    font-size: 12px;
+}
+
+.doc-cta-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: var(--radius-pill);
+    background: transparent;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+
+.doc-cta-outline:hover {
+    border-color: #ffffff;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .doc-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .doc-hero-visual {
+        height: 420px;
+        order: -1;
+    }
+
+    .doc-hero-img-frame {
+        height: 400px;
+    }
+
+    .doc-hero-decor-ring {
+        width: min(92%, 350px);
+        height: 380px;
+        margin-top: -190px;
+        margin-left: min(-46%, -175px);
+    }
+
+    .doc-hero-content {
+        padding-bottom: 0;
+    }
+
+    .doc-qual-grid,
+    .doc-philosophy-pillars,
+    .doc-care-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .doc-compact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .doc-interest-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .doc-cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 28px;
+    }
+
+    .doc-cta-actions {
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 1080px) {
+    .doc-hero {
+        padding: 104px 5vw 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .doc-breadcrumb {
+        display: none !important;
+    }
+
+    .doc-hero {
+        padding: 96px 5vw 50px;
+    }
+
+    .doc-hero-visual {
+        height: 340px;
+    }
+
+    .doc-hero-img-frame {
+        height: 320px;
+    }
+
+    .doc-hero-decor-ring {
+        width: min(90%, 280px);
+        height: 300px;
+        margin-top: -150px;
+        margin-left: min(-45%, -140px);
+    }
+
+    .doc-hero-badge-float {
+        width: 48px;
+        height: 48px;
+    }
+
+    .doc-hero-badge-float svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .doc-hero-heading {
+        font-size: clamp(2.4rem, 10vw, 3.2rem);
+    }
+
+    .doc-hero-body p {
+        font-size: 14px;
+    }
+
+    .doc-hero-ctas {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .doc-cta-primary,
+    .doc-cta-whatsapp {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .doc-section {
+        padding: 56px 5vw;
+    }
+
+    .doc-compact-grid,
+    .doc-qual-grid,
+    .doc-interest-grid,
+    .doc-philosophy-pillars,
+    .doc-care-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .doc-philosophy-quote p {
+        padding-left: 0;
+        font-size: 1.1rem;
+    }
+
+    .doc-cta-section {
+        padding: 48px 5vw;
+    }
+
+    .doc-cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .doc-cta-large {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .doc-cta-outline {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .doc-cta-section .doc-cta-whatsapp {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .doc-hero-visual {
+        height: 280px;
+    }
+
+    .doc-hero-img-frame {
+        height: 260px;
+    }
+
+    .doc-care-summary-card {
+        padding: 22px 20px;
+    }
+}

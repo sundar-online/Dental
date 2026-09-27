@@ -1,0 +1,908 @@
+/* ==========================================================================
+   BALAGAM DENTAL & MEDICAL CLINIC – AFTERCARE PAGE STYLES
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Hero Section
+   -------------------------------------------------------------------------- */
+.aftercare-hero {
+    position: relative;
+    padding: 136px 4.5vw 72px;
+    background: #0B1F3A;
+    background-image: linear-gradient(135deg, rgba(11, 31, 58, 0.90) 0%, rgba(0, 103, 182, 0.84) 60%, rgba(0, 166, 206, 0.78) 100%), url('img/clinic-2.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.aftercare-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(0, 166, 206, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.aftercare-hero-inner {
+    max-width: var(--container-max, 1240px);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.aftercare-hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: var(--radius-pill, 9999px);
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    margin-bottom: 18px;
+}
+
+.aftercare-hero-eyebrow .eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #00D2FF;
+    box-shadow: 0 0 10px #00D2FF;
+}
+
+.aftercare-hero-title {
+    font-family: var(--font-serif, 'Cormorant Garamond', serif);
+    font-size: clamp(2.8rem, 6vw, 4.4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    margin: 0 0 16px;
+}
+
+.aftercare-hero-desc {
+    max-width: 640px;
+    margin: 0 auto 22px;
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+/* Breadcrumb */
+.aftercare-breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.aftercare-breadcrumb a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.aftercare-breadcrumb a:hover {
+    color: #00D2FF;
+}
+
+.aftercare-breadcrumb .breadcrumb-separator {
+    color: rgba(255, 255, 255, 0.45);
+    font-weight: 400;
+}
+
+.aftercare-breadcrumb .breadcrumb-current {
+    color: #00D2FF;
+}
+
+/* --------------------------------------------------------------------------
+   Main Two-Column Layout
+   -------------------------------------------------------------------------- */
+.aftercare-section {
+    background: #F8FBFE;
+    padding: 60px 4.5vw 90px;
+}
+
+.aftercare-layout {
+    max-width: var(--container-max, 1240px);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 310px 1fr;
+    gap: 42px;
+    align-items: start;
+}
+
+/* --------------------------------------------------------------------------
+   Sidebar Components
+   -------------------------------------------------------------------------- */
+.aftercare-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    position: sticky;
+    top: 96px;
+}
+
+.aftercare-sidebar-card {
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid rgba(15, 31, 45, 0.08);
+    box-shadow: 0 10px 30px rgba(15, 31, 45, 0.04);
+    padding: 26px 22px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.aftercare-sidebar-card:hover {
+    box-shadow: 0 14px 38px rgba(15, 31, 45, 0.07);
+}
+
+.sidebar-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(15, 31, 45, 0.07);
+}
+
+.sidebar-card-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--light-blue, #E8F3FA);
+    color: var(--primary-blue, #0067B6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.sidebar-card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--dark-navy, #0F1F2D);
+    letter-spacing: -0.01em;
+    margin: 0;
+}
+
+/* Services List */
+.aftercare-services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.aftercare-service-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 14px;
+    border-radius: 10px;
+    background: #ffffff;
+    border: 1px solid rgba(15, 31, 45, 0.08);
+    color: var(--dark-navy, #0F1F2D);
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.aftercare-service-item:hover,
+.aftercare-service-item.is-active {
+    background: var(--light-blue, #E8F3FA);
+    border-color: rgba(0, 103, 182, 0.3);
+    color: var(--primary-blue, #0067B6);
+    transform: translateX(4px);
+}
+
+.aftercare-service-item .service-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.aftercare-service-item .service-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--primary-blue, #0067B6);
+    opacity: 0.6;
+}
+
+.aftercare-service-item:hover .service-dot,
+.aftercare-service-item.is-active .service-dot {
+    opacity: 1;
+    transform: scale(1.3);
+}
+
+.aftercare-service-item .service-arrow {
+    font-size: 12px;
+    color: var(--text-secondary, #5C6B79);
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.aftercare-service-item:hover .service-arrow {
+    color: var(--primary-blue, #0067B6);
+    transform: translateX(2px);
+}
+
+/* Working Hours Table */
+.working-hours-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.working-hour-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: #FAFCFE;
+    border: 1px solid rgba(15, 31, 45, 0.05);
+    font-size: 12.5px;
+}
+
+.working-hour-row.is-today {
+    background: #E8F3FA;
+    border-color: rgba(0, 103, 182, 0.25);
+    font-weight: 700;
+}
+
+.working-day {
+    font-weight: 700;
+    color: var(--dark-navy, #0F1F2D);
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+
+.working-time {
+    color: var(--text-secondary, #5C6B79);
+    font-weight: 600;
+    text-align: right;
+    font-size: 12px;
+}
+
+.working-hour-row.is-today .working-time {
+    color: var(--primary-blue, #0067B6);
+}
+
+.sidebar-emergency-box {
+    margin-top: 18px;
+    padding: 14px;
+    background: linear-gradient(135deg, rgba(0, 103, 182, 0.06), rgba(0, 166, 206, 0.08));
+    border: 1px dashed rgba(0, 103, 182, 0.35);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-emergency-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--primary-blue, #0067B6);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+}
+
+.sidebar-emergency-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #25D366;
+    box-shadow: 0 0 8px rgba(37, 211, 102, 0.8);
+}
+
+.sidebar-emergency-text {
+    font-size: 12px;
+    color: var(--dark-navy, #0F1F2D);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.sidebar-emergency-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 9px 14px;
+    background: var(--dark-navy, #0F1F2D);
+    color: #ffffff;
+    border-radius: var(--radius-pill, 9999px);
+    font-size: 11.5px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-top: 4px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.sidebar-emergency-btn:hover {
+    background: var(--primary-blue, #0067B6);
+    transform: translateY(-1.5px);
+}
+
+/* --------------------------------------------------------------------------
+   Right Main Content Components
+   -------------------------------------------------------------------------- */
+.aftercare-main {
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+}
+
+/* Content Box Wrapper */
+.aftercare-card-box {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid rgba(15, 31, 45, 0.08);
+    box-shadow: 0 10px 32px rgba(15, 31, 45, 0.04);
+    padding: 36px 38px;
+}
+
+/* Intro Section */
+.aftercare-intro-header {
+    margin-bottom: 20px;
+}
+
+.aftercare-intro-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    color: var(--primary-blue, #0067B6);
+    margin-bottom: 8px;
+}
+
+.aftercare-intro-eyebrow-line {
+    width: 18px;
+    height: 2px;
+    background: var(--primary-blue, #0067B6);
+    border-radius: 2px;
+}
+
+.aftercare-intro-title {
+    font-family: var(--font-serif, 'Cormorant Garamond', serif);
+    font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+    font-weight: 700;
+    color: var(--dark-navy, #0F1F2D);
+    line-height: 1.2;
+    margin: 0 0 14px;
+}
+
+.aftercare-intro-text {
+    font-size: 15px;
+    line-height: 1.75;
+    color: #4A5B6A;
+    margin: 0 0 20px;
+}
+
+/* Quick Highlights Strip */
+.aftercare-highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.aftercare-highlight-pill {
+    padding: 16px 14px;
+    border-radius: 14px;
+    background: #F4F9FD;
+    border: 1px solid rgba(0, 103, 182, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.highlight-pill-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary-blue, #0067B6);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+}
+
+.highlight-pill-text {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--dark-navy, #0F1F2D);
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Clinical Feature Image */
+.aftercare-media-wrap {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 12px 36px rgba(15, 31, 45, 0.08);
+    border: 1px solid rgba(15, 31, 45, 0.08);
+    background: #0B1F3A;
+}
+
+.aftercare-media-img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.aftercare-media-wrap:hover .aftercare-media-img {
+    transform: scale(1.02);
+}
+
+.aftercare-media-badge {
+    position: absolute;
+    bottom: 16px;
+    left: 18px;
+    right: 18px;
+    padding: 10px 16px;
+    border-radius: 16px;
+    background: rgba(244, 250, 254, 0.96);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 103, 182, 0.16);
+    box-shadow: 0 4px 16px rgba(9, 34, 58, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.media-badge-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.media-badge-left > div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    justify-content: center;
+}
+
+.media-badge-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: var(--primary-blue, #0067B6);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.media-badge-title {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--dark-navy, #09223A);
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+    margin: 0;
+}
+
+.media-badge-sub {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--secondary-text, #5A7184);
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Post-Treatment Instructions */
+.aftercare-instructions-title {
+    font-family: var(--font-serif, 'Cormorant Garamond', serif);
+    font-size: clamp(1.8rem, 2.8vw, 2.3rem);
+    font-weight: 700;
+    color: var(--dark-navy, #0F1F2D);
+    margin: 0 0 8px;
+}
+
+.aftercare-instructions-lead {
+    font-size: 14.5px;
+    color: #5C6B79;
+    margin: 0 0 28px;
+    line-height: 1.6;
+}
+
+/* Instruction Groups */
+.aftercare-groups-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.instruction-group-card {
+    background: #ffffff;
+    border: 1px solid rgba(15, 31, 45, 0.08);
+    border-radius: 16px;
+    padding: 22px 24px;
+    transition: all 0.25s ease;
+}
+
+.instruction-group-card:hover {
+    border-color: rgba(0, 103, 182, 0.28);
+    box-shadow: 0 8px 24px rgba(0, 103, 182, 0.06);
+}
+
+.instruction-group-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(15, 31, 45, 0.06);
+}
+
+.instruction-group-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: #F0F7FC;
+    color: var(--primary-blue, #0067B6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.instruction-group-card:hover .instruction-group-icon {
+    background: var(--primary-blue, #0067B6);
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.instruction-group-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark-navy, #0F1F2D);
+    letter-spacing: -0.01em;
+    margin: 0;
+}
+
+.instruction-group-badge {
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--primary-blue, #0067B6);
+    background: #E8F3FA;
+    padding: 4px 10px;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+}
+
+/* Bullet Points */
+.instruction-bullet-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.instruction-bullet-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    line-height: 1.65;
+    color: #4A5B6A;
+}
+
+.instruction-bullet-check {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #E8F5E9;
+    color: #2E7D32;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.instruction-bullet-item strong {
+    color: var(--dark-navy, #0F1F2D);
+}
+
+/* Warning / Important Group Card */
+.instruction-group-alert {
+    background: #FFFDF9;
+    border-color: rgba(224, 159, 31, 0.35);
+}
+
+.instruction-group-alert .instruction-group-icon {
+    background: #FFF8E7;
+    color: #D9822B;
+}
+
+.instruction-group-alert .instruction-bullet-check {
+    background: #FFF3E0;
+    color: #D9822B;
+}
+
+.instruction-group-alert:hover {
+    border-color: rgba(224, 159, 31, 0.6);
+    box-shadow: 0 8px 24px rgba(224, 159, 31, 0.08);
+}
+
+/* Emergency Contact Group */
+.instruction-group-emergency {
+    background: #FDFBFF;
+    border-color: rgba(0, 103, 182, 0.25);
+    box-shadow: 0 6px 20px rgba(0, 103, 182, 0.04);
+}
+
+.instruction-group-emergency .instruction-group-icon {
+    background: #FFEAEA;
+    color: #D32F2F;
+}
+
+.instruction-group-emergency .instruction-bullet-check {
+    background: #FFEAEA;
+    color: #D32F2F;
+}
+
+/* Call to Action Banner */
+.aftercare-cta-banner {
+    border-radius: 20px;
+    padding: 38px 42px;
+    background: linear-gradient(135deg, #0B1F3A 0%, #004D8C 100%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    box-shadow: 0 16px 40px rgba(11, 31, 58, 0.16);
+    position: relative;
+    overflow: hidden;
+}
+
+.aftercare-cta-banner::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 166, 206, 0.25) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.aftercare-cta-left {
+    position: relative;
+    z-index: 2;
+    max-width: 540px;
+}
+
+.aftercare-cta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: #00D2FF;
+    margin-bottom: 8px;
+}
+
+.aftercare-cta-title {
+    font-family: var(--font-serif, 'Cormorant Garamond', serif);
+    font-size: clamp(1.8rem, 2.6vw, 2.3rem);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0 0 10px;
+}
+
+.aftercare-cta-desc {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.aftercare-cta-actions {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.aftercare-btn-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: var(--radius-pill, 9999px);
+    background: #25D366;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+    transition: all 0.25s ease;
+}
+
+.aftercare-btn-wa:hover {
+    background: #1EBE5D;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.42);
+}
+
+.aftercare-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: var(--radius-pill, 9999px);
+    background: #ffffff;
+    color: var(--dark-navy, #0F1F2D);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.25s ease;
+}
+
+.aftercare-btn-primary:hover {
+    background: #F0F7FC;
+    color: var(--primary-blue, #0067B6);
+    transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 1080px) {
+    .aftercare-hero {
+        padding: 114px 5vw 60px;
+    }
+
+    .aftercare-layout {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .aftercare-sidebar {
+        position: static;
+        order: 2; /* Sidebar sits below main content on tablet/mobile */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .aftercare-main {
+        order: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .aftercare-hero {
+        padding: 98px 5vw 50px;
+    }
+
+    .aftercare-section {
+        padding: 40px 4vw 70px;
+    }
+
+    .aftercare-sidebar {
+        grid-template-columns: 1fr;
+    }
+
+    .aftercare-card-box {
+        padding: 26px 20px;
+    }
+
+    .aftercare-highlights-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .aftercare-media-img {
+        height: 260px;
+    }
+
+    .aftercare-media-badge {
+        position: relative;
+        inset: auto;
+        border-radius: 0 0 16px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 14px 16px;
+        box-shadow: none;
+        border-top: none;
+    }
+
+    .aftercare-media-badge .media-badge-left {
+        width: 100%;
+    }
+
+    .instruction-group-card {
+        padding: 18px 16px;
+    }
+
+    .aftercare-cta-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 28px 24px;
+        gap: 22px;
+    }
+
+    .aftercare-cta-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .aftercare-btn-wa,
+    .aftercare-btn-primary {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .aftercare-hero-title {
+        font-size: 2.3rem;
+    }
+
+    .aftercare-services-list {
+        gap: 6px;
+    }
+
+    .aftercare-service-item {
+        font-size: 13px;
+        padding: 9px 12px;
+    }
+
+    .working-hour-row {
+        font-size: 11.5px;
+        padding: 8px 10px;
+    }
+}

@@ -508,20 +508,120 @@ if (appointmentForm) {
 // ==========================================================================
 // Navigation Active State Tracking & Smooth Spy
 // ==========================================================================
-(function initNavScrollSpy() {
-  const navLinks = document.querySelectorAll('.nav-links .nav-link, .mobile-nav-links .mobile-nav-link');
-  if (!navLinks.length) return;
-
-  const sectionIds = ['home', 'treatments', 'team', 'aftercare', 'reviews', 'contact'];
-  let isManualClick = false;
-  let clickTimeout = null;
-
-  function setActiveLink(activeId) {
-    navLinks.forEach((link) => {
-      const href = link.getAttribute('href');
-      link.classList.toggle('active', href === `#${activeId}`);
+(function initNavActiveController() {
+  // 1. Ensure blob elements exist in each desktop nav-link for the blob-btn animation
+  function ensureNavBlobs() {
+    document.querySelectorAll('.nav-links .nav-link').forEach((link) => {
+      if (!link.querySelector('.blob-btn__inner')) {
+        const inner = document.createElement('span');
+        inner.className = 'blob-btn__inner';
+        inner.setAttribute('aria-hidden', 'true');
+        inner.innerHTML = '<span class="blob-btn__blobs"><span class="blob-btn__blob"></span><span class="blob-btn__blob"></span><span class="blob-btn__blob"></span><span class="blob-btn__blob"></span></span>';
+        link.appendChild(inner);
+      }
     });
   }
+  ensureNavBlobs();
+
+  const desktopLinks = document.querySelectorAll('.nav-links .nav-link');
+  const dropdownAboutUs = document.querySelector('.nav-item-dropdown .nav-dropdown-trigger');
+  const dropdownItems = document.querySelectorAll('.nav-dropdown-menu .dropdown-item');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-links .mobile-nav-link');
+  if (!desktopLinks.length && !mobileLinks.length) return;
+
+  // Detect current page
+  const pathname = window.location.pathname.toLowerCase();
+  const isDoctorPage = pathname.endsWith('doctor.html') || pathname.includes('/doctor');
+  const isTreatmentsPage = pathname.endsWith('treatments.html') || pathname.includes('/treatments');
+  const isAftercarePage = pathname.endsWith('aftercare.html') || pathname.includes('/aftercare');
+  const isHomePage = !isDoctorPage && !isTreatmentsPage && !isAftercarePage;
+
+  function setActiveNav(key) {
+    // A. Desktop Navigation
+    desktopLinks.forEach((link) => {
+      link.classList.remove('active', 'is-active');
+    });
+
+    if (key === 'about' || key === 'team') {
+      // Highlight parent ABOUT US dropdown trigger button
+      if (dropdownAboutUs) {
+        dropdownAboutUs.classList.add('active', 'is-active');
+      }
+      dropdownItems.forEach((item) => {
+        const href = (item.getAttribute('href') || '').toLowerCase();
+        if (key === 'about' && href.includes('doctor.html')) {
+          item.classList.add('active');
+        } else if (key === 'team' && href.includes('#team')) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+    } else {
+      dropdownItems.forEach((item) => item.classList.remove('active'));
+      desktopLinks.forEach((link) => {
+        const navAttr = link.getAttribute('data-nav');
+        const href = (link.getAttribute('href') || '').toLowerCase();
+        let match = false;
+
+        if (navAttr === key) {
+          match = true;
+        } else if (key === 'home' && (href === '#home' || href === 'index.html' || href === 'index.html#home' || href === '/' || href === '')) {
+          match = true;
+        } else if (key === 'treatments' && (href.includes('treatments.html') || href === '#treatments')) {
+          match = true;
+        } else if (key === 'aftercare' && (href.includes('aftercare.html') || href === '#aftercare')) {
+          match = true;
+        } else if (key === 'gallery' && href.includes('#gallery')) {
+          match = true;
+        } else if (key === 'reviews' && href.includes('#reviews')) {
+          match = true;
+        } else if (key === 'contact' && href.includes('#contact')) {
+          match = true;
+        }
+
+        if (match) {
+          link.classList.add('active', 'is-active');
+        }
+      });
+    }
+
+    // B. Mobile Drawer Navigation
+    mobileLinks.forEach((link) => {
+      const href = (link.getAttribute('href') || '').toLowerCase();
+      let mobileMatch = false;
+
+      if (key === 'home' && (href === '#home' || href === 'index.html')) mobileMatch = true;
+      if (key === 'treatments' && href.includes('treatments.html')) mobileMatch = true;
+      if (key === 'aftercare' && href.includes('aftercare.html')) mobileMatch = true;
+      if (key === 'gallery' && href.includes('#gallery')) mobileMatch = true;
+      if (key === 'reviews' && href.includes('#reviews')) mobileMatch = true;
+      if (key === 'contact' && href.includes('#contact')) mobileMatch = true;
+      if ((key === 'about' || key === 'team') && (href.includes('doctor.html') || link.classList.contains('mobile-dropdown-toggle'))) {
+        mobileMatch = true;
+      }
+
+      link.classList.toggle('active', mobileMatch);
+    });
+  }
+
+  // If on a dedicated inner page, set its active nav state and lock it
+  if (isDoctorPage) {
+    setActiveNav('about');
+    return;
+  }
+  if (isTreatmentsPage) {
+    setActiveNav('treatments');
+    return;
+  }
+  if (isAftercarePage) {
+    setActiveNav('aftercare');
+    return;
+  }
+
+  // --- HOMEPAGE SCROLLSPY & HASH HANDLING ---
+  let isManualClick = false;
+  let clickTimeout = null;
 
   function getSectionTop(id) {
     const el = document.getElementById(id);
@@ -530,71 +630,97 @@ if (appointmentForm) {
     return rect.top + window.pageYOffset;
   }
 
-  function updateActiveNav() {
+  function updateHomeNav() {
     if (isManualClick) return;
 
     const scrollY = window.pageYOffset;
     const windowHeight = window.innerHeight;
     const docHeight = document.documentElement.scrollHeight;
 
-    // If scrolled to near the bottom of the page, activate Contact
+    // Contact threshold near page bottom
     if (scrollY + windowHeight >= docHeight - 80) {
-      setActiveLink('contact');
+      setActiveNav('contact');
       return;
     }
 
-    // Viewport threshold line (approx 160px from top, below sticky header)
     const triggerLine = scrollY + 160;
-
     const treatmentsTop = getSectionTop('treatments') || Infinity;
     const teamTop = getSectionTop('team') || Infinity;
     const aftercareTop = getSectionTop('aftercare') || Infinity;
+    const galleryTop = getSectionTop('gallery') || Infinity;
     const reviewsTop = getSectionTop('reviews') || Infinity;
     const contactTop = getSectionTop('contact') || Infinity;
 
     if (triggerLine >= contactTop) {
-      setActiveLink('contact');
+      setActiveNav('contact');
     } else if (triggerLine >= reviewsTop) {
-      setActiveLink('reviews');
+      setActiveNav('reviews');
+    } else if (triggerLine >= galleryTop) {
+      setActiveNav('gallery');
     } else if (triggerLine >= aftercareTop) {
-      setActiveLink('aftercare');
+      setActiveNav('aftercare');
     } else if (triggerLine >= teamTop) {
-      setActiveLink('team');
+      setActiveNav('team'); // Activates parent ABOUT US!
     } else if (triggerLine >= treatmentsTop) {
-      setActiveLink('treatments');
+      setActiveNav('treatments');
     } else {
-      setActiveLink('home');
+      setActiveNav('home');
     }
   }
 
-  // Instant active state feedback on nav link click
-  navLinks.forEach((link) => {
+  function checkHashOnHome() {
+    const hash = (window.location.hash || '').replace('#', '').toLowerCase();
+    if (hash === 'team') {
+      setActiveNav('team');
+    } else if (hash === 'gallery') {
+      setActiveNav('gallery');
+    } else if (hash === 'reviews') {
+      setActiveNav('reviews');
+    } else if (hash === 'contact') {
+      setActiveNav('contact');
+    } else if (hash === 'treatments') {
+      setActiveNav('treatments');
+    } else if (hash === 'aftercare') {
+      setActiveNav('aftercare');
+    } else if (hash === 'home' || !hash) {
+      setActiveNav('home');
+    } else {
+      updateHomeNav();
+    }
+  }
+
+  // Immediate click response
+  const allNavTriggers = document.querySelectorAll('.nav-links a, .nav-dropdown-menu a, .mobile-nav-links a');
+  allNavTriggers.forEach((link) => {
     link.addEventListener('click', () => {
-      const href = link.getAttribute('href');
-      if (href && href.startsWith('#')) {
-        const targetId = href.substring(1);
-        if (sectionIds.includes(targetId)) {
-          setActiveLink(targetId);
+      const href = link.getAttribute('href') || '';
+      if (href.startsWith('#') || href.includes('index.html#')) {
+        const targetId = href.split('#')[1];
+        if (targetId) {
           isManualClick = true;
+          if (targetId === 'team') {
+            setActiveNav('team');
+          } else {
+            setActiveNav(targetId);
+          }
           if (clickTimeout) clearTimeout(clickTimeout);
           clickTimeout = setTimeout(() => {
             isManualClick = false;
-            updateActiveNav();
-          }, 850);
+            updateHomeNav();
+          }, 900);
         }
       }
     });
   });
 
-  // Listen to scroll and resize
-  window.addEventListener('scroll', updateActiveNav, { passive: true });
-  window.addEventListener('resize', updateActiveNav, { passive: true });
+  window.addEventListener('scroll', updateHomeNav, { passive: true });
+  window.addEventListener('resize', updateHomeNav, { passive: true });
+  window.addEventListener('hashchange', checkHashOnHome);
 
-  // Initial check on page load
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', updateActiveNav);
+    document.addEventListener('DOMContentLoaded', checkHashOnHome);
   } else {
-    updateActiveNav();
+    checkHashOnHome();
   }
 })();
 
@@ -605,7 +731,11 @@ if (appointmentForm) {
   const hamburgerBtn = document.getElementById('hamburgerBtn');
   const mobileDrawer = document.getElementById('mobileMenuDrawer');
   const mobileBackdrop = document.getElementById('mobileMenuBackdrop');
-  const mobileLinks = document.querySelectorAll('.mobile-nav-link, .mobile-menu-cta, .mobile-action-pill');
+  // Destination links that close drawer when clicked
+  const mobileNavLinks = document.querySelectorAll(
+    '.mobile-nav-link:not(.mobile-dropdown-toggle), .mobile-sub-link, .mobile-menu-cta, .mobile-action-pill'
+  );
+  const dropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
 
   if (!hamburgerBtn || !mobileDrawer || !mobileBackdrop) return;
 
@@ -623,7 +753,10 @@ if (appointmentForm) {
   }
 
   function closeMenu() {
-    if (!isOpen) return;
+    if (!isOpen) {
+      document.body.style.overflow = '';
+      return;
+    }
     isOpen = false;
     hamburgerBtn.classList.remove('is-active');
     hamburgerBtn.setAttribute('aria-expanded', 'false');
@@ -649,7 +782,20 @@ if (appointmentForm) {
 
   mobileBackdrop.addEventListener('click', closeMenu);
 
-  mobileLinks.forEach(link => {
+  // Accordion toggle for mobile dropdown without closing the drawer
+  dropdownToggles.forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const parentDropdown = toggle.closest('.mobile-nav-item-dropdown');
+      if (!parentDropdown) return;
+      const isExpanded = parentDropdown.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+    });
+  });
+
+  // Clicking any destination link closes the drawer
+  mobileNavLinks.forEach(link => {
     link.addEventListener('click', () => {
       setTimeout(closeMenu, 150);
     });
@@ -662,8 +808,9 @@ if (appointmentForm) {
   });
 
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 991 && isOpen) {
+    if (window.innerWidth > 1080) {
       closeMenu();
+      document.body.style.overflow = '';
     }
   }, { passive: true });
 })();
@@ -1825,6 +1972,19 @@ if (appointmentForm) {
     }, 1150);
   });
 })();
+
+// Global smooth back-to-top handler for all pages
+document.addEventListener('click', function (e) {
+  const backToTopBtn = e.target.closest('.back-to-top');
+  if (backToTopBtn) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (history.replaceState) {
+      history.replaceState(null, null, window.location.pathname + window.location.search);
+    }
+  }
+});
+
 
 
 
