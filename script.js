@@ -535,7 +535,9 @@ if (appointmentForm) {
   const isTreatmentsPage = pathname.endsWith('treatments.html') || pathname.includes('/treatments');
   const isAftercarePage = pathname.endsWith('aftercare.html') || pathname.includes('/aftercare');
   const isTeamPage = pathname.endsWith('team.html') || pathname.includes('/team');
-  const isHomePage = !isDoctorPage && !isTreatmentsPage && !isAftercarePage && !isTeamPage;
+  const isGalleryPage = pathname.endsWith('gallery.html') || pathname.includes('/gallery');
+  const isContactPage = pathname.endsWith('contact.html') || pathname.includes('/contact');
+  const isHomePage = !isDoctorPage && !isTreatmentsPage && !isAftercarePage && !isTeamPage && !isGalleryPage && !isContactPage;
 
   function setActiveNav(key) {
     // A. Desktop Navigation
@@ -573,11 +575,11 @@ if (appointmentForm) {
           match = true;
         } else if (key === 'aftercare' && (href.includes('aftercare.html') || href === '#aftercare')) {
           match = true;
-        } else if (key === 'gallery' && href.includes('#gallery')) {
+        } else if (key === 'gallery' && (href.includes('gallery.html') || href.includes('#gallery') || href === 'gallery.html')) {
           match = true;
         } else if (key === 'reviews' && href.includes('#reviews')) {
           match = true;
-        } else if (key === 'contact' && href.includes('#contact')) {
+        } else if (key === 'contact' && (href.includes('contact.html') || href.includes('#contact') || href === 'contact.html')) {
           match = true;
         }
 
@@ -598,9 +600,9 @@ if (appointmentForm) {
         mobileMatch = true;
       }
       if (key === 'aftercare' && href.includes('aftercare.html')) mobileMatch = true;
-      if (key === 'gallery' && href.includes('#gallery')) mobileMatch = true;
+      if (key === 'gallery' && (href.includes('gallery.html') || href.includes('#gallery'))) mobileMatch = true;
       if (key === 'reviews' && href.includes('#reviews')) mobileMatch = true;
-      if (key === 'contact' && href.includes('#contact')) mobileMatch = true;
+      if (key === 'contact' && (href.includes('contact.html') || href.includes('#contact'))) mobileMatch = true;
       if ((key === 'about' || key === 'team') && (href.includes('doctor.html') || controls.includes('about'))) {
         mobileMatch = true;
       }
@@ -624,6 +626,14 @@ if (appointmentForm) {
   }
   if (isTeamPage) {
     setActiveNav('team');
+    return;
+  }
+  if (isGalleryPage) {
+    setActiveNav('gallery');
+    return;
+  }
+  if (isContactPage) {
+    setActiveNav('contact');
     return;
   }
 
@@ -1489,30 +1499,6 @@ if (appointmentForm) {
       alt: 'Arch Rehabilitation Before and After',
       title: 'Arch Rehabilitation',
       desc: 'Full dental arch alignment & restorative bridge'
-    },
-    {
-      img: 'img/Gallery-1.png',
-      alt: 'Fracture Restoration Before and After',
-      title: 'Fracture Restoration',
-      desc: 'Anterior composite repair & incisal edge matching'
-    },
-    {
-      img: 'img/Gallery-2.png',
-      alt: 'Ceramic Laminate Veneers Before and After',
-      title: 'Ceramic Veneer Makeover',
-      desc: 'Laminate porcelain veneers for smile aesthetics'
-    },
-    {
-      img: 'img/Gallery-3.png',
-      alt: 'Diastema Spacing Closure Before and After',
-      title: 'Diastema Spacing Closure',
-      desc: 'Micro-invasive anterior composite realignment'
-    },
-    {
-      img: 'img/Gallery-4.png',
-      alt: 'Periodontal Stain Removal Before and After',
-      title: 'Subgingival Stain Removal',
-      desc: 'Periodontal therapy & airflow cosmetic polish'
     }
   ];
 
@@ -1521,7 +1507,6 @@ if (appointmentForm) {
     preloadImg.src = c.img;
   });
 
-  var currentSetStart = 0;
   var featuredIndex = 0;
   var autoTimer = null;
   var AUTO_INTERVAL = 6500;
@@ -1536,11 +1521,10 @@ if (appointmentForm) {
     }
 
     for (var i = 0; i < 4; i++) {
-      var caseIdx = currentSetStart + i;
-      var cData = ALL_CASES[caseIdx];
+      var cData = ALL_CASES[i];
       var card = gridCards[i];
       if (card && cData) {
-        card.setAttribute('data-case-index', caseIdx);
+        card.setAttribute('data-case-index', i);
         card.setAttribute('aria-label', cData.title);
 
         var img = card.querySelector('.clinic-case-img');
@@ -1552,7 +1536,7 @@ if (appointmentForm) {
         }
         if (title) title.textContent = cData.title;
 
-        var isFeatured = (caseIdx === featuredIndex);
+        var isFeatured = (i === featuredIndex);
         card.classList.toggle('is-active', isFeatured);
       }
     }
@@ -1568,33 +1552,13 @@ if (appointmentForm) {
     renderAll();
   }
 
-  function nextSet() {
-    var oldStart = currentSetStart;
-    currentSetStart = (currentSetStart + 4) % ALL_CASES.length;
-    if (currentSetStart === oldStart && ALL_CASES.length <= 4) return;
-    featuredIndex = currentSetStart;
-    renderAll();
-    resetAutoPlay();
-  }
-
-  function prevSet() {
-    var oldStart = currentSetStart;
-    currentSetStart = (currentSetStart - 4 + ALL_CASES.length) % ALL_CASES.length;
-    if (currentSetStart === oldStart && ALL_CASES.length <= 4) return;
-    featuredIndex = currentSetStart;
-    renderAll();
-    resetAutoPlay();
-  }
-
   function nextCase() {
     featuredIndex = (featuredIndex + 1) % ALL_CASES.length;
-    currentSetStart = featuredIndex < 4 ? 0 : 4;
     renderAll();
   }
 
   function prevCase() {
     featuredIndex = (featuredIndex - 1 + ALL_CASES.length) % ALL_CASES.length;
-    currentSetStart = featuredIndex < 4 ? 0 : 4;
     renderAll();
   }
 
@@ -1615,13 +1579,10 @@ if (appointmentForm) {
     startAutoPlay();
   }
 
-  gridCards.forEach(function (card) {
+  gridCards.forEach(function (card, index) {
     function handleCardClick() {
-      var cIdx = parseInt(card.getAttribute('data-case-index'), 10);
-      if (!isNaN(cIdx)) {
-        promoteCaseByIndex(cIdx);
-        resetAutoPlay();
-      }
+      promoteCaseByIndex(index);
+      resetAutoPlay();
     }
     card.addEventListener('click', handleCardClick);
     card.addEventListener('keydown', function (e) {
@@ -1634,13 +1595,15 @@ if (appointmentForm) {
 
   if (arrowLeft) {
     arrowLeft.addEventListener('click', function () {
-      prevSet();
+      prevCase();
+      resetAutoPlay();
     });
   }
 
   if (arrowRight) {
     arrowRight.addEventListener('click', function () {
-      nextSet();
+      nextCase();
+      resetAutoPlay();
     });
   }
 

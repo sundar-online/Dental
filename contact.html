@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Meet Our Team – Dental &amp; Medical Specialists | Balagam Dental and Medical Clinic</title>
+    <title>Contact Us &amp; Clinic Directions | Balagam Dental and Medical Clinic</title>
     <meta name="description"
-        content="Meet our expert team of dental surgeons, specialists, and medical consultants at Balagam Dental and Medical Clinic in Porur, Chennai. Precision, clinical expertise, and compassionate patient care.">
+        content="Contact Balagam Dental and Medical Clinic in Porur, Chennai. Book appointments online, call directly, chat on WhatsApp, or get directions. Near Sri Ramachandra University.">
     <link rel="icon" type="image/png" href="img/logo.png">
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +15,7 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="team.css">
+    <link rel="stylesheet" href="contact.css">
 </head>
 
 <body>
@@ -56,7 +56,7 @@
                 </span>
             </a>
             <div class="nav-item-dropdown">
-                <a href="team.html" class="nav-link nav-dropdown-trigger active is-active" aria-haspopup="true" aria-expanded="false">
+                <a href="doctor.html" class="nav-link nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
                     <span>About Us</span>
                     <svg class="dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
@@ -74,13 +74,15 @@
                 </a>
                 <div class="nav-dropdown-menu" role="menu">
                     <a href="doctor.html" class="dropdown-item" role="menuitem">About</a>
-                    <a href="team.html" class="dropdown-item active" role="menuitem">Our Team (Our Doctors)</a>
+                    <a href="team.html" class="dropdown-item" role="menuitem">Our Team (Our Doctors)</a>
                 </div>
             </div>
             <div class="nav-item-dropdown nav-item-treatments">
                 <a href="treatments.html" class="nav-link nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
                     <span>Treatments</span>
-                    <svg class="dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <svg class="dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                        aria-hidden="true">
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                     <span class="blob-btn__inner" aria-hidden="true">
@@ -274,7 +276,7 @@
                     </span>
                 </span>
             </a>
-            <a href="contact.html" class="nav-link">
+            <a href="contact.html" class="nav-link active is-active">
                 <span>Contact</span>
                 <span class="blob-btn__inner" aria-hidden="true">
                     <span class="blob-btn__blobs">
@@ -289,7 +291,7 @@
 
         <!-- Right Side Actions -->
         <div class="nav-actions">
-            <a class="button book-btn" href="index.html#contact" id="navBookBtn" data-trigger="booking"
+            <a class="button book-btn" href="#book-form" id="navBookBtn" data-trigger="booking"
                 aria-label="Book Appointment">
                 <span>Book Appointment</span>
                 <span class="btn-arrow">→</span>
@@ -328,8 +330,8 @@
                         </svg>
                     </span>
                 </a>
-                <div class="mobile-nav-item-dropdown active" data-index="1">
-                    <button type="button" class="mobile-nav-link mobile-dropdown-toggle active" aria-expanded="true"
+                <div class="mobile-nav-item-dropdown" data-index="1">
+                    <button type="button" class="mobile-nav-link mobile-dropdown-toggle" aria-expanded="false"
                         aria-controls="mobileAboutSubmenu">
                         <span class="mobile-nav-icon">
                             <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -360,7 +362,7 @@
                             </div>
                             <span class="mobile-sub-arrow">→</span>
                         </a>
-                        <a href="team.html" class="mobile-sub-link active">
+                        <a href="team.html" class="mobile-sub-link">
                             <div class="mobile-sub-content">
                                 <span class="mobile-sub-icon">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -378,20 +380,34 @@
                     </div>
                 </div>
                 <div class="mobile-nav-item-dropdown" data-index="2">
-                    <button type="button" class="mobile-nav-link mobile-dropdown-toggle" aria-expanded="false" aria-controls="mobileTreatmentsSubmenu">
+                    <button type="button" class="mobile-nav-link mobile-dropdown-toggle" aria-expanded="false"
+                        aria-controls="mobileTreatmentsSubmenu">
                         <span class="mobile-nav-icon">
-                            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.5 2 6 4.5 6 8c0 4.5 2 9 3 13 1 1 2 1 3 0l1-5 1 5c1 1 2 1 3 0 1-4 3-8.5 3-13 0-3.5-3-6-7-6z"/></svg>
+                            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M12 2C8.5 2 6 4.5 6 8c0 4.5 2 9 3 13 1 1 2 1 3 0l1-5 1 5c1 1 2 1 3 0 1-4 3-8.5 3-13 0-3.5-3-6-7-6z" />
+                            </svg>
                         </span>
                         <span class="mobile-nav-text">Treatments</span>
                         <span class="mobile-nav-chevron">
-                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
                         </span>
                     </button>
                     <div class="mobile-dropdown-menu mobile-treatments-submenu" id="mobileTreatmentsSubmenu">
                         <a href="treatments.html" class="mobile-sub-link mobile-sub-overview">
                             <div class="mobile-sub-content">
                                 <span class="mobile-sub-icon">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="3" width="7" height="7"></rect>
+                                        <rect x="14" y="3" width="7" height="7"></rect>
+                                        <rect x="14" y="14" width="7" height="7"></rect>
+                                        <rect x="3" y="14" width="7" height="7"></rect>
+                                    </svg>
                                 </span>
                                 <span class="mobile-sub-text">All Treatments Overview</span>
                             </div>
@@ -400,7 +416,13 @@
                         <a href="treatments.html#digital-dentistry" class="mobile-sub-link">
                             <div class="mobile-sub-content">
                                 <span class="mobile-sub-icon">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10z"/></svg>
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <line x1="2" y1="12" x2="22" y2="12" />
+                                        <path
+                                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10z" />
+                                    </svg>
                                 </span>
                                 <span class="mobile-sub-text">Digital Dentistry</span>
                             </div>
@@ -409,7 +431,12 @@
                         <a href="treatments.html#rct" class="mobile-sub-link">
                             <div class="mobile-sub-content">
                                 <span class="mobile-sub-icon">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.5 2 6 4.5 6 8c0 4.5 2 9 3 13 1 1 2 1 3 0l1-5 1 5c1 1 2 1 3 0 1-4 3-8.5 3-13 0-3.5-3-6-7-6z"/><line x1="12" y1="6" x2="12" y2="16"/></svg>
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M12 2C8.5 2 6 4.5 6 8c0 4.5 2 9 3 13 1 1 2 1 3 0l1-5 1 5c1 1 2 1 3 0 1-4 3-8.5 3-13 0-3.5-3-6-7-6z" />
+                                        <line x1="12" y1="6" x2="12" y2="16" />
+                                    </svg>
                                 </span>
                                 <span class="mobile-sub-text">Root Canal Treatment (RCT)</span>
                             </div>
@@ -465,7 +492,7 @@
                         </svg>
                     </span>
                 </a>
-                <a href="contact.html" class="mobile-nav-link" data-index="6">
+                <a href="contact.html" class="mobile-nav-link active" data-index="6">
                     <span class="mobile-nav-icon">
                         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -484,7 +511,7 @@
             </nav>
 
             <div class="mobile-menu-footer">
-                <a class="mobile-menu-cta" href="index.html#contact" data-trigger="booking"
+                <a class="mobile-menu-cta" href="#book-form" data-trigger="booking"
                     aria-label="Book Appointment from Mobile Menu">
                     <span>Book Appointment</span>
                     <span class="btn-arrow">→</span>
@@ -514,17 +541,17 @@
     <!-- ==========================================================================
          PAGE HERO: CLINICAL BACKGROUND WITH DARK BLUE / CYAN OVERLAY
          ========================================================================== -->
-    <section class="team-hero" id="top">
-        <div class="team-hero-inner">
-            <div class="team-hero-eyebrow motion-reveal motion-fade-up">
-                <span class="eyebrow-dot"></span>
-                <span>Specialist Dental &amp; Medical Team &bull; Porur, Chennai</span>
+    <section class="contact-hero" id="top">
+        <div class="contact-hero-inner">
+            <div class="contact-hero-eyebrow">
+                <span class="eyebrow-live-dot"></span>
+                <span>Balagam Dental and Medical Clinic &bull; Porur, Chennai</span>
             </div>
-            <h1 class="team-hero-title motion-reveal motion-fade-up motion-delay-1">Meet Our Team</h1>
-            <p class="team-hero-desc motion-reveal motion-fade-up motion-delay-2">
-                Dedicated dental surgeons, specialists, and medical consultants bringing together decades of collective clinical expertise, advanced technology, and personalized care.
+            <h1 class="contact-hero-title">Contact &amp; <em>Visit Our Clinic</em></h1>
+            <p class="contact-hero-desc">
+                Connect directly with Dr. Barath Balaji MDS, Dr. Gayathri Balaji MS, and our specialist healthcare team. Schedule your consultation, reach our emergency desk, or get precise directions to our Porur clinic.
             </p>
-            <nav class="team-breadcrumb motion-reveal motion-fade-up motion-delay-3" aria-label="Breadcrumb">
+            <nav class="contact-breadcrumb" aria-label="Breadcrumb">
                 <a href="index.html">
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
                         stroke-linecap="round" stroke-linejoin="round">
@@ -533,495 +560,456 @@
                     </svg>
                     <span>Home</span>
                 </a>
-                <span class="breadcrumb-separator">•</span>
-                <span class="breadcrumb-current">Our Team</span>
+                <span class="contact-breadcrumb-sep">•</span>
+                <span class="contact-breadcrumb-current">Contact Us</span>
             </nav>
         </div>
     </section>
 
     <!-- ==========================================================================
-         TOP INTRODUCTORY SECTION: PRECISION. EXPERTISE. EXCELLENCE.
+         FOUR BRAND-THEMED QUICK CONNECT CARDS (Red, Cyan, Royal Blue, Navy)
          ========================================================================== -->
-    <section class="team-intro-section" aria-label="Team Introduction">
-        <div class="team-intro-container motion-reveal motion-fade-up">
-            <span class="team-intro-badge">Balagam Dental and Medical Clinic</span>
-            <h2 class="team-intro-heading">Precision. Expertise. Excellence.</h2>
-            <p class="team-intro-paragraph">
-                Your journey to achieving optimal oral health is spearheaded by our experienced team at Balagam Dental and Medical Clinic. Every clinician embodies the highest caliber of clinical excellence, dedicated to delivering transformative care in a calm, modern and technologically advanced sanctuary. From diagnosis through complete rehabilitation, our specialists ensure gentle, personalized, and exceptionally high-quality care.
-            </p>
+    <section class="contact-quick-section" aria-label="Quick Connect Options">
+        <div class="contact-quick-grid">
+
+            <!-- Card 1: Red Theme (Emergency & Direct Phone) -->
+            <article class="quick-card card-red">
+                <div class="card-top-row">
+                    <div class="card-icon-wrap" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                    </div>
+                    <span class="card-badge-pill" style="color: var(--brand-red); background: var(--brand-red-light);">Immediate Help</span>
+                </div>
+                <span class="card-heading">Direct Call &amp; Emergency</span>
+                <div class="card-highlight-text">+91 88706 77523</div>
+                <p class="card-desc">Call clinic reception directly for fast appointment confirmation or emergency slots.</p>
+                <a href="tel:+918870677523" class="card-cta-btn" aria-label="Call clinic directly">
+                    <span>Call Now</span>
+                    <span class="btn-arrow">→</span>
+                </a>
+            </article>
+
+            <!-- Card 2: Cyan Theme (WhatsApp Chat) -->
+            <article class="quick-card card-cyan">
+                <div class="card-top-row">
+                    <div class="card-icon-wrap" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12.031 2C6.495 2 2 6.496 2 12.032c0 1.97.57 3.805 1.564 5.352L2.094 22l4.743-1.442A9.97 9.97 0 0 0 12.03 22c5.536 0 10.032-4.496 10.032-10.032C22.063 6.496 17.567 2 12.031 2z"/>
+                        </svg>
+                    </div>
+                    <span class="card-badge-pill" style="color: #007799; background: var(--brand-cyan-light);">Online 24/7</span>
+                </div>
+                <span class="card-heading">WhatsApp Consultation</span>
+                <div class="card-highlight-text">Instant Chat Desk</div>
+                <p class="card-desc">Share queries, treatment doubts, or previous X-rays directly on WhatsApp with our team.</p>
+                <a href="https://wa.me/918870677523" target="_blank" rel="noopener noreferrer" class="card-cta-btn" aria-label="Chat with clinic on WhatsApp">
+                    <span>Open WhatsApp</span>
+                    <span class="btn-arrow">↗</span>
+                </a>
+            </article>
+
+            <!-- Card 3: Royal Blue Theme (Location & Directions) -->
+            <article class="quick-card card-blue">
+                <div class="card-top-row">
+                    <div class="card-icon-wrap" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <span class="card-badge-pill">Porur, Chennai</span>
+                </div>
+                <span class="card-heading">Clinic Address</span>
+                <div class="card-highlight-text">Near Ramachandra Hospital</div>
+                <p class="card-desc">Ground floor clinic with free parking, convenient ramp access, and central Porur transit.</p>
+                <a href="https://maps.app.goo.gl/dByS6ndvDBBxftf2A" target="_blank" rel="noopener noreferrer" class="card-cta-btn" aria-label="Open location in Google Maps">
+                    <span>Get Directions</span>
+                    <span class="btn-arrow">↗</span>
+                </a>
+            </article>
+
+            <!-- Card 4: Clinical Navy & Amber (Consultation Hours) -->
+            <article class="quick-card card-navy">
+                <div class="card-top-row">
+                    <div class="card-icon-wrap" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <span class="card-badge-pill status-open">Open Today</span>
+                </div>
+                <span class="card-heading">Working Hours</span>
+                <div class="card-highlight-text">10 AM – 9 PM</div>
+                <p class="card-desc">Mon–Sat: 10:00 AM–1:30 PM &amp; 4:00 PM–9:00 PM. Sunday: 4:00 PM–9:00 PM evening clinic.</p>
+                <a href="#schedule-info" class="card-cta-btn" aria-label="View complete schedule">
+                    <span>View Timings</span>
+                    <span class="btn-arrow">↓</span>
+                </a>
+            </article>
+
         </div>
     </section>
 
     <!-- ==========================================================================
-         MAIN DOCTORS PROFILES SECTION (ALTERNATING CARDS & WATERMARK)
+         SPLIT SECTION: INTERACTIVE APPOINTMENT FORM + CLINICAL ADVANTAGES
          ========================================================================== -->
-    <main class="team-main-section" id="doctors" aria-label="Specialist Doctors Directory">
+    <main class="contact-main-section" id="book-form">
+        <div class="contact-main-container">
+            <div class="contact-main-grid">
 
-        <!-- Watermark Graphic Right (Care hands holding tooth outline) -->
-        <svg class="team-watermark-bg" viewBox="0 0 100 100" fill="none" stroke="#0067B6" stroke-width="1.8"
-            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M50 20 C42 20 38 26 38 34 C38 43 43 47 45 54 C46 58 46 68 50 68 C54 68 54 58 55 54 C57 47 62 43 62 34 C62 26 58 20 50 20 Z" />
-            <path d="M50 28 L50 42" />
-            <path d="M43 35 L57 35" />
-            <path d="M22 65 C22 55 28 50 36 50 C40 50 44 54 44 58 C38 60 32 64 30 72 C35 72 40 70 45 68 C42 74 38 80 32 80 C26 80 22 74 22 65 Z" />
-            <path d="M78 65 C78 55 72 50 64 50 C60 50 56 54 56 58 C62 60 68 64 70 72 C65 72 60 70 55 68 C58 74 62 80 68 80 C74 80 78 74 78 65 Z" />
-        </svg>
-
-        <!-- Watermark Graphic Left Alt -->
-        <svg class="team-watermark-bg watermark-alt" viewBox="0 0 100 100" fill="none" stroke="#00C7F4" stroke-width="1.8"
-            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M50 20 C42 20 38 26 38 34 C38 43 43 47 45 54 C46 58 46 68 50 68 C54 68 54 58 55 54 C57 47 62 43 62 34 C62 26 58 20 50 20 Z" />
-            <path d="M50 28 L50 42" />
-            <path d="M43 35 L57 35" />
-            <path d="M22 65 C22 55 28 50 36 50 C40 50 44 54 44 58 C38 60 32 64 30 72 C35 72 40 70 45 68 C42 74 38 80 32 80 C26 80 22 74 22 65 Z" />
-            <path d="M78 65 C78 55 72 50 64 50 C60 50 56 54 56 58 C62 60 68 64 70 72 C65 72 60 70 55 68 C58 74 62 80 68 80 C74 80 78 74 78 65 Z" />
-        </svg>
-
-        <div class="team-content-container">
-
-
-            <!-- ==============================================================
-                 DOCTOR 2: DR. GAYATHRI BALAJI, MS (ENT) (Alternating: Info Left, Photo Right)
-                 ============================================================== -->
-            <article class="doctor-row-card row-reverse motion-reveal motion-fade-up" id="dr-gayathri-balaji">
-                <div class="doctor-row-grid">
-                    <!-- Photo Column with Floating Stat Badge -->
-                    <div class="doctor-photo-col">
-                        <div class="doctor-photo-frame">
-                            <img src="img/doctor-2-clean.jpg" alt="Dr. Gayathri Balaji MS - ENT Specialist" loading="lazy">
-                        </div>
-                        <div class="doctor-floating-badge">
-                            <div class="floating-badge-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-                                </svg>
-                            </div>
-                            <div class="floating-badge-text">
-                                <span class="floating-badge-number">8+</span>
-                                <span class="floating-badge-label">Years Specialized Care</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Details Column -->
-                    <div class="doctor-info-col">
-                        <span class="doctor-eyebrow-badge">ENT &amp; Head-Neck Specialist</span>
-                        <h2 class="doctor-card-name">Dr. Gayathri Balaji, MS (ENT)</h2>
-                        <div class="doctor-card-subtitle">
-                            <span>MS (Otorhinolaryngology)</span>
-                            <span>&bull;</span>
-                            <span>Consultant ENT &amp; Sinus Surgeon</span>
-                        </div>
-
-                        <div class="doctor-bio-paragraphs">
-                            <p>
-                                Dr. Gayathri Balaji is an accomplished ENT specialist bringing comprehensive medical and surgical expertise in ear, nose, throat, and head-neck conditions. She works in close collaboration with our dental specialists to manage complex craniofacial, sinus, and airway-related disorders.
-                            </p>
-                            <p>
-                                Her specialized practice addresses the critical intersection between oral health and the upper respiratory tract, providing advanced care for sinonasal diseases, chronic sinusitis secondary to dental infections, snoring, and obstructive sleep apnea.
-                            </p>
-                        </div>
-
-                        <!-- Areas of Expertise -->
-                        <div class="doctor-expertise-block">
-                            <h3 class="expertise-heading">Areas of Expertise</h3>
-                            <div class="expertise-grid">
-                                <div class="expertise-item">
-                                    <svg class="expertise-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" fill="#EBF8FD" />
-                                        <polyline points="9 12 11.5 14.5 15.5 9.5" />
-                                    </svg>
-                                    <span>Endoscopic Sinus Surgery (FESS)</span>
-                                </div>
-                                <div class="expertise-item">
-                                    <svg class="expertise-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" fill="#EBF8FD" />
-                                        <polyline points="9 12 11.5 14.5 15.5 9.5" />
-                                    </svg>
-                                    <span>Odontogenic Sinusitis Management</span>
-                                </div>
-                                <div class="expertise-item">
-                                    <svg class="expertise-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" fill="#EBF8FD" />
-                                        <polyline points="9 12 11.5 14.5 15.5 9.5" />
-                                    </svg>
-                                    <span>Snoring &amp; Sleep Apnea Evaluation</span>
-                                </div>
-                                <div class="expertise-item">
-                                    <svg class="expertise-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" fill="#EBF8FD" />
-                                        <polyline points="9 12 11.5 14.5 15.5 9.5" />
-                                    </svg>
-                                    <span>Pediatric Tonsil &amp; Adenoid Care</span>
-                                </div>
-                                <div class="expertise-item">
-                                    <svg class="expertise-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" fill="#EBF8FD" />
-                                        <polyline points="9 12 11.5 14.5 15.5 9.5" />
-                                    </svg>
-                                    <span>Micro-Ear Surgery &amp; Hearing Care</span>
-                                </div>
-                                <div class="expertise-item">
-                                    <svg class="expertise-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" fill="#EBF8FD" />
-                                        <polyline points="9 12 11.5 14.5 15.5 9.5" />
-                                    </svg>
-                                    <span>TMJ &amp; Airway Integrated Diagnostics</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Philosophy & Commitment -->
-                <div class="doctor-philosophy-box">
-                    <span class="philosophy-title">Philosophy &amp; Commitment</span>
-                    <p class="philosophy-text">
-                        "Integrating medical otorhinolaryngology with oral care allows us to address root-cause airway, sinus, and facial health issues with lasting relief, precision, and genuine compassion."
+                <!-- LEFT: Interactive Consultation Booking Form -->
+                <div class="contact-form-card">
+                    <div class="form-header-badge">Online Consultation Desk</div>
+                    <h2 class="form-header-title">Request an Appointment</h2>
+                    <p class="form-header-subtext">
+                        Select your preferred specialist and time slot. Our clinic reception will promptly verify your slot with zero advance payment needed.
                     </p>
-                </div>
-            </article>
 
-            <!-- ==============================================================
-                 DOCTOR 3: DR. LOKESH SAI, MDS (Photo Left, Info Right)
-                 ============================================================== -->
-            <article class="doctor-row-card motion-reveal motion-fade-up" id="dr-lokesh-sai">
-                <div class="doctor-row-grid">
-                    <!-- Photo Column with Floating Stat Badge -->
-                    <div class="doctor-photo-col">
-                        <div class="doctor-photo-frame">
-                            <img src="img/doctor-4 . Lokesh Sai.jpeg" alt="Dr. Lokesh Sai MDS - Oral &amp; Maxillofacial Surgeon" loading="lazy">
+                    <form class="contact-booking-form" id="contactPageForm">
+                        <div class="contact-input-grid">
+                            <div class="form-field-group">
+                                <label for="cntFullName" class="form-field-label">Full Name <span class="req">*</span></label>
+                                <input type="text" id="cntFullName" class="form-field-input" placeholder="e.g. Anand Kumar" required>
+                            </div>
+                            <div class="form-field-group">
+                                <label for="cntPhone" class="form-field-label">Phone Number <span class="req">*</span></label>
+                                <input type="tel" id="cntPhone" class="form-field-input" placeholder="e.g. +91 98765 43210" required>
+                            </div>
                         </div>
-                        <div class="doctor-floating-badge">
-                            <div class="floating-badge-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+
+                        <div class="contact-input-grid">
+                            <div class="form-field-group">
+                                <label for="cntTreatment" class="form-field-label">Treatment of Interest</label>
+                                <select id="cntTreatment" class="form-field-select">
+                                    <option value="General Consultation & 3D X-Ray">General Dental Consultation &amp; 3D X-Ray</option>
+                                    <option value="Root Canal Treatment (RCT)">Root Canal Treatment (RCT) – Single Sitting</option>
+                                    <option value="Dental Implants">Dental Implants – Titanium Replacement</option>
+                                    <option value="Invisalign & Clear Aligners">Invisalign &amp; Clear Aligners</option>
+                                    <option value="Orthodontics (Braces)">Orthodontics (Metal &amp; Ceramic Braces)</option>
+                                    <option value="Wisdom Tooth Extraction">Wisdom Tooth Extraction (Impaction)</option>
+                                    <option value="Cosmetic Smile Makeover">Cosmetic Smile Makeover &amp; Veneers</option>
+                                    <option value="Laser Dentistry & Gum Care">Laser Dentistry &amp; Gum Care</option>
+                                    <option value="Children's Dentistry">Children's Dentistry (Pediatric Care)</option>
+                                    <option value="ENT Consultation (Dr. Gayathri)">ENT Consultation (Ear, Nose, Throat &amp; Sinus)</option>
+                                    <option value="Other Dental Care">Other Dental / Oral Care Query</option>
+                                </select>
+                            </div>
+                            <div class="form-field-group">
+                                <label for="cntDoctor" class="form-field-label">Preferred Doctor / Specialist</label>
+                                <select id="cntDoctor" class="form-field-select">
+                                    <option value="Any Specialist Available">Any Specialist Available (First Available Slot)</option>
+                                    <option value="Dr. Barath Balaji, MDS (Chief Dental Surgeon)">Dr. Barath Balaji, MDS (Chief Dental Surgeon)</option>
+                                    <option value="Dr. Gayathri Balaji, MS (Consultant ENT & Sinus)">Dr. Gayathri Balaji, MS (Consultant ENT &amp; Sinus)</option>
+                                    <option value="Dr. Lokesh Sai, MDS (Maxillofacial Surgery & Implants)">Dr. Lokesh Sai, MDS (Maxillofacial Surgery &amp; Implants)</option>
+                                    <option value="Dr. Swetha R K, MDS (Pediatric Dentistry)">Dr. Swetha R K, MDS (Pediatric Dentistry)</option>
+                                    <option value="Dr. Dinesh, MDS (Orthodontics & Aligners)">Dr. Dinesh, MDS (Orthodontics &amp; Aligners)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="contact-input-grid">
+                            <div class="form-field-group">
+                                <label for="cntDate" class="form-field-label">Preferred Date</label>
+                                <input type="date" id="cntDate" class="form-field-input">
+                            </div>
+                            <div class="form-field-group">
+                                <label class="form-field-label">Preferred Time Window</label>
+                                <div class="form-radio-options">
+                                    <label class="radio-slot-pill">
+                                        <input type="radio" name="timeSlot" value="Morning (10:00 AM - 1:30 PM)" checked>
+                                        <span>Morning (10 AM–1:30 PM)</span>
+                                    </label>
+                                    <label class="radio-slot-pill">
+                                        <input type="radio" name="timeSlot" value="Evening (4:00 PM - 9:00 PM)">
+                                        <span>Evening (4 PM–9 PM)</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-field-group full-width" style="margin-bottom: 20px;">
+                            <label for="cntMessage" class="form-field-label">Symptoms or Previous History (Optional)</label>
+                            <textarea id="cntMessage" class="form-field-textarea" placeholder="Describe any toothache, swelling, previous X-rays, or specific timing preferences..."></textarea>
+                        </div>
+
+                        <div class="form-buttons-row">
+                            <button type="submit" class="btn-submit-wa" id="cntSubmitWaBtn">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12.031 2C6.495 2 2 6.496 2 12.032c0 1.97.57 3.805 1.564 5.352L2.094 22l4.743-1.442A9.97 9.97 0 0 0 12.03 22c5.536 0 10.032-4.496 10.032-10.032C22.063 6.496 17.567 2 12.031 2z"/>
                                 </svg>
-                            </div>
-                            <div class="floating-badge-text">
-                                <span class="floating-badge-number">6+</span>
-                                <span class="floating-badge-label">Years Surgical Mastery</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Details Column -->
-                    <div class="doctor-info-col">
-                        <span class="doctor-eyebrow-badge">Oral &amp; Maxillofacial Surgeon</span>
-                        <h2 class="doctor-card-name">Dr. Lokesh Sai, MDS</h2>
-                        <div class="doctor-card-subtitle">
-                            <span>MDS (Oral &amp; Maxillofacial Surgery)</span>
-                            <span>&bull;</span>
-                            <span>Consultant Maxillofacial Surgeon</span>
-                        </div>
-
-                        <div class="doctor-bio-paragraphs">
-                            <p>
-                                Dr. Lokesh Sai is an experienced Oral and Maxillofacial Surgeon renowned for his calm demeanor, surgical dexterity, and gentle approach to patient care. Having undergone comprehensive hospital-based surgical residency, he routinely manages complex oral surgical and facial trauma cases.
-                            </p>
-                            <p>
-                                His surgical practice focuses on painless extractions of deeply impacted wisdom teeth, surgical dental implant placement, pre-implant ridge augmentation, and cyst enucleations. He employs refined micro-surgical techniques to ensure optimal healing and minimal recovery downtime.
-                            </p>
-                        </div>
-
-                        <!-- Areas of Expertise -->
-                        <div class="doctor-expertise-block">
-                            <h3 class="expertise-heading">Areas of Expertise</h3>
-                            <div class="expertise-grid">
-                                <div class="expertise-item">
-                                    <svg class="expertise-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" fill="#EBF8FD" />
-                                        <polyline points="9 12 11.5 14.5 15.5 9.5" />
-                                    </svg>
-                                    <span>Impacted Wisdom Tooth Extractions</span>
-                                </div>
-                                <div class="expertise-item">
-                                    <svg class="expertise-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" fill="#EBF8FD" />
-                                        <polyline points="9 12 11.5 14.5 15.5 9.5" />
-                                    </svg>
-                                    <span>Advanced Dental Implant Placement</span>
-                                </div>
-                                <div class="expertise-item">
-                                    <svg class="expertise-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" fill="#EBF8FD" />
-                                        <polyline points="9 12 11.5 14.5 15.5 9.5" />
-                                    </svg>
-                                    <span>Facial Trauma &amp; Fracture Care</span>
-                                </div>
-                                <div class="expertise-item">
-                                    <svg class="expertise-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" fill="#EBF8FD" />
-                                        <polyline points="9 12 11.5 14.5 15.5 9.5" />
-                                    </svg>
-                                    <span>Orthognathic (Jaw Correction) Surgery</span>
-                                </div>
-                                <div class="expertise-item">
-                                    <svg class="expertise-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" fill="#EBF8FD" />
-                                        <polyline points="9 12 11.5 14.5 15.5 9.5" />
-                                    </svg>
-                                    <span>Bone Grafting &amp; Sinus Lift Procedures</span>
-                                </div>
-                                <div class="expertise-item">
-                                    <svg class="expertise-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" fill="#EBF8FD" />
-                                        <polyline points="9 12 11.5 14.5 15.5 9.5" />
-                                    </svg>
-                                    <span>Cysts &amp; Benign Oral Lesion Excision</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Philosophy & Commitment -->
-                <div class="doctor-philosophy-box">
-                    <span class="philosophy-title">Philosophy &amp; Commitment</span>
-                    <p class="philosophy-text">
-                        "Believing that surgical precision must always be paired with empathetic post-operative support, ensuring rapid, smooth recoveries and complete peace of mind."
-                    </p>
-                </div>
-            </article>
-
-            <!-- ==============================================================
-                 DOCTOR 4: DR. SWETHA R K, MDS (Alternating: Info Left, Photo Right)
-                 ============================================================== -->
-            <article class="doctor-row-card row-reverse motion-reveal motion-fade-up" id="dr-swetha">
-                <div class="doctor-row-grid">
-                    <!-- Photo Column with Floating Stat Badge -->
-                    <div class="doctor-photo-col">
-                        <div class="doctor-photo-frame">
-                            <img src="img/doctor-3 Swetha.jpeg" alt="Dr. Swetha R K MDS - Pediatric Dentist" loading="lazy">
-                        </div>
-                        <div class="doctor-floating-badge">
-                            <div class="floating-badge-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                <span>Book via WhatsApp</span>
+                            </button>
+                            <a href="tel:+918870677523" class="btn-submit-call">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                                 </svg>
+                                <span>Direct Phone Call</span>
+                            </a>
+                        </div>
+
+                        <div class="form-reassurance-note">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <path d="m9 12 2 2 4-4"/>
+                            </svg>
+                            <span>Your data is strictly confidential. Zero booking charges or hidden fees.</span>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- RIGHT: Clinic Highlights & Direct Doctor Profiles -->
+                <aside class="contact-sidebar-wrap" id="schedule-info">
+
+                    <!-- High-Tech Standards Highlight Box -->
+                    <div class="clinic-highlight-box">
+                        <span class="clinic-badge-tag">Clinical Excellence</span>
+                        <h3 class="clinic-box-title">Why Patients Choose Balagam Clinic</h3>
+                        <p class="clinic-box-desc">
+                            We unite state-of-the-art diagnostic technology with gentle, compassionate care to ensure every visit is comfortable and reassuring.
+                        </p>
+                        <div class="clinic-facilities-list">
+                            <div class="facility-item">
+                                <div class="facility-check-icon">✓</div>
+                                <span><strong>100% Sterile Protocol:</strong> Class-B Autoclave &amp; UV Sanitize</span>
                             </div>
-                            <div class="floating-badge-text">
-                                <span class="floating-badge-number">100%</span>
-                                <span class="floating-badge-label">Child-Friendly Care</span>
+                            <div class="facility-item">
+                                <div class="facility-check-icon">✓</div>
+                                <span><strong>3D Digital Imaging:</strong> High-definition RVG X-Rays</span>
+                            </div>
+                            <div class="facility-item">
+                                <div class="facility-check-icon">✓</div>
+                                <span><strong>Micro-Anesthesia:</strong> Virtually 100% pain-free treatments</span>
+                            </div>
+                            <div class="facility-item">
+                                <div class="facility-check-icon">✓</div>
+                                <span><strong>Integrated ENT Care:</strong> Oral, sinus, and airway harmony</span>
+                            </div>
+                            <div class="facility-item">
+                                <div class="facility-check-icon">✓</div>
+                                <span><strong>Patient Comfort:</strong> AC lounge, Wi-Fi, and convenient parking</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Details Column -->
-                    <div class="doctor-info-col">
-                        <span class="doctor-eyebrow-badge">Pediatric &amp; Preventive Dentistry</span>
-                        <h2 class="doctor-card-name">Dr. Swetha R K, MDS</h2>
-                        <div class="doctor-card-subtitle">
-                            <span>MDS (Pediatric &amp; Preventive Dentistry)</span>
-                            <span>&bull;</span>
-                            <span>Child Dental Specialist</span>
+                    <!-- Direct Doctors Card Widget -->
+                    <div class="doctors-contact-card">
+                        <div class="doctors-card-header">
+                            <span class="doctors-card-title">Available Doctors</span>
+                            <span style="font-size: 11px; font-weight: 700; color: #10B981; background: #ECFDF5; padding: 3px 8px; border-radius: 6px;">Active Today</span>
                         </div>
 
-                        <div class="doctor-bio-paragraphs">
-                            <p>
-                                Dr. Swetha R K is a dedicated Pediatric Dental Specialist focused on delivering warm, encouraging, and fearless dental experiences for infants, children, adolescents, and children with special healthcare needs.
-                            </p>
-                            <p>
-                                With specialized behavioral guidance techniques and gentle communication, Dr. Swetha transforms dental visits into fun and rewarding milestones. Her clinical practice emphasizes early prevention, painless pulpectomies, habit correction, and cultivating lifelong positive oral hygiene habits.
-                            </p>
-                        </div>
-
-                        <!-- Areas of Expertise -->
-                        <div class="doctor-expertise-block">
-                            <h3 class="expertise-heading">Areas of Expertise</h3>
-                            <div class="expertise-grid">
-                                <div class="expertise-item">
-                                    <svg class="expertise-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" fill="#EBF8FD" />
-                                        <polyline points="9 12 11.5 14.5 15.5 9.5" />
-                                    </svg>
-                                    <span>Infant &amp; Child Preventive Care</span>
-                                </div>
-                                <div class="expertise-item">
-                                    <svg class="expertise-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" fill="#EBF8FD" />
-                                        <polyline points="9 12 11.5 14.5 15.5 9.5" />
-                                    </svg>
-                                    <span>Painless Pediatric Pulpectomy</span>
-                                </div>
-                                <div class="expertise-item">
-                                    <svg class="expertise-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" fill="#EBF8FD" />
-                                        <polyline points="9 12 11.5 14.5 15.5 9.5" />
-                                    </svg>
-                                    <span>Zirconia &amp; Metal Crowns for Kids</span>
-                                </div>
-                                <div class="expertise-item">
-                                    <svg class="expertise-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" fill="#EBF8FD" />
-                                        <polyline points="9 12 11.5 14.5 15.5 9.5" />
-                                    </svg>
-                                    <span>Pit &amp; Fissure Sealants &amp; Fluoride</span>
-                                </div>
-                                <div class="expertise-item">
-                                    <svg class="expertise-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" fill="#EBF8FD" />
-                                        <polyline points="9 12 11.5 14.5 15.5 9.5" />
-                                    </svg>
-                                    <span>Habit Breaking Appliances</span>
-                                </div>
-                                <div class="expertise-item">
-                                    <svg class="expertise-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" fill="#EBF8FD" />
-                                        <polyline points="9 12 11.5 14.5 15.5 9.5" />
-                                    </svg>
-                                    <span>Pediatric Dental Trauma Management</span>
-                                </div>
+                        <!-- Dr. Barath Balaji -->
+                        <div class="doctor-mini-row">
+                            <div class="doctor-mini-avatar">
+                                <img src="img/doctor.jpg" alt="Dr. Barath Balaji MDS">
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Philosophy & Commitment -->
-                <div class="doctor-philosophy-box">
-                    <span class="philosophy-title">Philosophy &amp; Commitment</span>
-                    <p class="philosophy-text">
-                        "Every child deserves a fearless, joyful dental visit. We create gentle, positive memories that nurture lifelong oral well-being and happy, confident smiles."
-                    </p>
-                </div>
-            </article>
-
-            <!-- ==============================================================
-                 DOCTOR 5: DR. DINESH, MDS (Photo Left, Info Right)
-                 ============================================================== -->
-            <article class="doctor-row-card motion-reveal motion-fade-up" id="dr-dinesh">
-                <div class="doctor-row-grid">
-                    <!-- Photo Column with Floating Stat Badge -->
-                    <div class="doctor-photo-col">
-                        <div class="doctor-photo-frame">
-                            <img src="img/doctor-5  Dinesh.jpeg" alt="Dr. Dinesh MDS - Orthodontist" loading="lazy">
-                        </div>
-                        <div class="doctor-floating-badge">
-                            <div class="floating-badge-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="3" y="8" width="18" height="8" rx="2" />
-                                    <line x1="8" y1="8" x2="8" y2="16" />
-                                    <line x1="16" y1="8" x2="16" y2="16" />
-                                </svg>
+                            <div class="doctor-mini-info">
+                                <div class="doctor-mini-name">Dr. Barath Balaji, MDS</div>
+                                <div class="doctor-mini-role">Chief Dental Surgeon &bull; Maxillofacial Pathologist</div>
                             </div>
-                            <div class="floating-badge-text">
-                                <span class="floating-badge-number">500+</span>
-                                <span class="floating-badge-label">Smiles Transformed</span>
+                            <a href="doctor.html" class="button" style="padding: 6px 12px; font-size: 11px; border-radius: 8px; background: var(--brand-royal-light); color: var(--brand-royal-blue); text-decoration: none; font-weight: 700;">View Profile</a>
+                        </div>
+
+                        <!-- Dr. Gayathri Balaji -->
+                        <div class="doctor-mini-row">
+                            <div class="doctor-mini-avatar">
+                                <img src="img/doctor-2-clean.jpg" alt="Dr. Gayathri Balaji MS (ENT)">
                             </div>
+                            <div class="doctor-mini-info">
+                                <div class="doctor-mini-name">Dr. Gayathri Balaji, MS (ENT)</div>
+                                <div class="doctor-mini-role">Consultant ENT &bull; Sinus &amp; Airway Specialist</div>
+                            </div>
+                            <a href="team.html#dr-gayathri-balaji" class="button" style="padding: 6px 12px; font-size: 11px; border-radius: 8px; background: var(--brand-red-light); color: var(--brand-red); text-decoration: none; font-weight: 700;">View Profile</a>
+                        </div>
+
+                        <div style="text-align: center; margin-top: 16px; padding-top: 12px; border-top: 1px dashed #E2ECF3;">
+                            <a href="team.html" style="font-size: 12.5px; font-weight: 700; color: var(--brand-royal-blue); text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                                <span>Meet All Specialists on Our Team</span>
+                                <span>→</span>
+                            </a>
                         </div>
                     </div>
 
-                    <!-- Details Column -->
-                    <div class="doctor-info-col">
-                        <span class="doctor-eyebrow-badge">Orthodontics &amp; Dentofacial Orthopedics</span>
-                        <h2 class="doctor-card-name">Dr. Dinesh, MDS</h2>
-                        <div class="doctor-card-subtitle">
-                            <span>MDS (Orthodontics)</span>
-                            <span>&bull;</span>
-                            <span>Clear Aligner &amp; Braces Specialist</span>
-                        </div>
+                </aside>
 
-                        <div class="doctor-bio-paragraphs">
-                            <p>
-                                Dr. Dinesh is an enthusiastic Orthodontist specializing in state-of-the-art smile alignment for adolescents and adults. He seamlessly combines orthodontic biomechanics with digital 3D treatment planning to achieve balanced occlusion and radiant smiles.
-                            </p>
-                            <p>
-                                His clinical scope includes certified clear aligner treatments (invisible braces), self-ligating aesthetic ceramic braces, and dentofacial growth modulation for growing children. He crafts personalized alignment plans that respect both dental health and facial harmony.
-                            </p>
-                        </div>
-
-                        <!-- Areas of Expertise -->
-                        <div class="doctor-expertise-block">
-                            <h3 class="expertise-heading">Areas of Expertise</h3>
-                            <div class="expertise-grid">
-                                <div class="expertise-item">
-                                    <svg class="expertise-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" fill="#EBF8FD" />
-                                        <polyline points="9 12 11.5 14.5 15.5 9.5" />
-                                    </svg>
-                                    <span>Invisible Clear Aligners (Custom Trays)</span>
-                                </div>
-                                <div class="expertise-item">
-                                    <svg class="expertise-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" fill="#EBF8FD" />
-                                        <polyline points="9 12 11.5 14.5 15.5 9.5" />
-                                    </svg>
-                                    <span>Ceramic Aesthetic Braces</span>
-                                </div>
-                                <div class="expertise-item">
-                                    <svg class="expertise-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" fill="#EBF8FD" />
-                                        <polyline points="9 12 11.5 14.5 15.5 9.5" />
-                                    </svg>
-                                    <span>Self-Ligating Metal Brackets</span>
-                                </div>
-                                <div class="expertise-item">
-                                    <svg class="expertise-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" fill="#EBF8FD" />
-                                        <polyline points="9 12 11.5 14.5 15.5 9.5" />
-                                    </svg>
-                                    <span>Dentofacial Orthopedics &amp; Growth</span>
-                                </div>
-                                <div class="expertise-item">
-                                    <svg class="expertise-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" fill="#EBF8FD" />
-                                        <polyline points="9 12 11.5 14.5 15.5 9.5" />
-                                    </svg>
-                                    <span>Adult Malocclusion &amp; Bite Correction</span>
-                                </div>
-                                <div class="expertise-item">
-                                    <svg class="expertise-check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <circle cx="12" cy="12" r="10" fill="#EBF8FD" />
-                                        <polyline points="9 12 11.5 14.5 15.5 9.5" />
-                                    </svg>
-                                    <span>Retainer Therapy &amp; Smile Stability</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Philosophy & Commitment -->
-                <div class="doctor-philosophy-box">
-                    <span class="philosophy-title">Philosophy &amp; Commitment</span>
-                    <p class="philosophy-text">
-                        "A harmonious smile enhances self-esteem and lifelong dental function. By combining cutting-edge digital orthodontics with customized care plans, we deliver smiles that look natural and radiant."
-                    </p>
-                </div>
-            </article>
-
+            </div>
         </div>
     </main>
 
     <!-- ==========================================================================
-         CALL TO ACTION: CONSULTATION SCHEDULER
+         INTERACTIVE GOOGLE MAP & TRANSIT GUIDE
          ========================================================================== -->
-    <section class="team-cta-section" aria-label="Book Consultation">
-        <div class="team-cta-banner motion-reveal motion-scale-up">
-            <div class="team-cta-content">
-                <span class="team-cta-eyebrow">Personalized Specialist Care</span>
-                <h2 class="team-cta-title">Schedule Your Specialist Consultation</h2>
-                <p class="team-cta-desc">
-                    Experience compassionate, gentle, and technologically advanced healthcare at Balagam Dental and Medical Clinic. Consult with our surgeons and specialists for your personalized treatment roadmap.
-                </p>
+    <section class="contact-map-section" aria-label="Location and How to Reach">
+        <div class="map-section-header">
+            <div class="map-section-tag">Interactive Map &bull; Easy Access</div>
+            <h2 class="map-section-title">How to Find &amp; Reach Our Clinic</h2>
+            <p class="map-section-desc">
+                Conveniently located in Porur, Chennai in close proximity to Sri Ramachandra University &amp; Hospital, with smooth road connectivity and easy landmark access.
+            </p>
+        </div>
+
+        <div class="map-grid-layout">
+
+            <!-- Responsive Google Maps Embed -->
+            <div class="map-embed-frame">
+                <iframe
+                    title="Balagam Dental and Medical Clinic Location Map"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.837882585974!2d80.1425126!3d13.0459891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52614b7e870c9d%3A0x6b4ef84c7e6d9b9a!2sBalagam%20Dental%20and%20Medical%20Clinic!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    allowfullscreen>
+                </iframe>
             </div>
-            <div class="team-cta-actions">
-                <a href="index.html#contact" class="team-cta-btn-primary" data-trigger="booking">
-                    <span>Book Appointment</span>
-                    <span aria-hidden="true">→</span>
-                </a>
-                <a href="https://wa.me/918870677523?text=Hello%20Balagam%20Dental%20Clinic%2C%20I%20would%20like%20to%20consult%20with%20your%20specialists." target="_blank" rel="noopener noreferrer" class="team-cta-btn-secondary">
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12.031 2C6.495 2 2 6.496 2 12.032c0 1.97.57 3.805 1.564 5.352L2.094 22l4.743-1.442A9.97 9.97 0 0 0 12.03 22c5.536 0 10.032-4.496 10.032-10.032C22.063 6.496 17.567 2 12.031 2z" />
-                    </svg>
-                    <span>Chat on WhatsApp</span>
+
+            <!-- Transit & Navigation Guide -->
+            <div class="transit-guide-card">
+                <div>
+                    <h3 class="transit-guide-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+                        </svg>
+                        <span>Transit &amp; Landmark Directions</span>
+                    </h3>
+
+                    <div class="transit-modes-list">
+                        <!-- Car / Bike -->
+                        <div class="transit-mode-item">
+                            <div class="transit-mode-icon">🚗</div>
+                            <div class="transit-mode-detail">
+                                <h4>By Car or Two-Wheeler</h4>
+                                <p>Direct road connectivity from Porur Toll Gate and Mount-Poonamallee Road. Free dedicated parking in front of the clinic entrance.</p>
+                            </div>
+                        </div>
+
+                        <!-- Bus -->
+                        <div class="transit-mode-item">
+                            <div class="transit-mode-icon">🚌</div>
+                            <div class="transit-mode-detail">
+                                <h4>By Public Transit / Bus</h4>
+                                <p>Get down at Sri Ramachandra Hospital or Porur Roundtana bus stop. Just 3 to 5 minutes walk or auto-rickshaw ride.</p>
+                            </div>
+                        </div>
+
+                        <!-- Landmark -->
+                        <div class="transit-mode-item">
+                            <div class="transit-mode-icon">🏥</div>
+                            <div class="transit-mode-detail">
+                                <h4>Key Landmark</h4>
+                                <p>Very close to Sri Ramachandra Institute of Higher Education and Research (SRMC), Porur, Chennai.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://maps.app.goo.gl/dByS6ndvDBBxftf2A" target="_blank" rel="noopener noreferrer" class="map-cta-action">
+                    <span>Open in Google Maps App</span>
+                    <span>↗</span>
                 </a>
             </div>
+
         </div>
     </section>
 
     <!-- ==========================================================================
-         GLOBAL SITE FOOTER
+         URGENT CARE & EMERGENCY BANNER (BALAGAM RED MEDICAL ACCENT)
+         ========================================================================== -->
+    <section class="contact-emergency-section" aria-label="Dental Emergency Information">
+        <div class="emergency-banner-box">
+            <div class="emergency-left-content">
+                <div class="emergency-red-icon" aria-hidden="true">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                </div>
+                <div class="emergency-text-wrap">
+                    <h3>Experiencing Acute Tooth Pain or Dental Emergency?</h3>
+                    <p>
+                        Broken tooth, severe toothache, swelling, or trauma? Don't wait. Our clinic maintains emergency slots every day to provide immediate relief and root-cause treatment.
+                    </p>
+                </div>
+            </div>
+            <a href="tel:+918870677523" class="emergency-call-btn" aria-label="Call Emergency Line">
+                <span>Emergency: +91 88706 77523</span>
+                <span>→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         FREQUENTLY ASKED QUESTIONS (BEFORE YOU VISIT)
+         ========================================================================== -->
+    <section class="contact-faq-section" aria-label="Frequently Asked Questions">
+        <div class="faq-header">
+            <div class="faq-header-tag">Helpful Patient Guide</div>
+            <h2 class="faq-header-title">Frequently Asked Questions</h2>
+            <p style="font-size: 15px; color: #64748B; margin: 0;">Everything you need to know prior to scheduling your visit.</p>
+        </div>
+
+        <div class="faq-grid-wrap">
+
+            <!-- FAQ 1 -->
+            <div class="faq-item is-open">
+                <button type="button" class="faq-question-btn" aria-expanded="true">
+                    <span>Do I need to book in advance or can I walk in?</span>
+                    <span class="faq-chevron" aria-hidden="true">▼</span>
+                </button>
+                <div class="faq-answer-panel">
+                    <p>We welcome both prior appointments and walk-in patients! However, we strongly recommend booking a slot online or via phone/WhatsApp to avoid waiting and ensure dedicated consultation time with your preferred specialist.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-item">
+                <button type="button" class="faq-question-btn" aria-expanded="false">
+                    <span>What should I bring for my first consultation?</span>
+                    <span class="faq-chevron" aria-hidden="true">▼</span>
+                </button>
+                <div class="faq-answer-panel">
+                    <p>Please bring any previous dental X-rays, OPG records, medical prescriptions (especially if you are on blood thinners, diabetic, or hypertensive medications), and a list of any symptoms or concerns you wish to discuss.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-item">
+                <button type="button" class="faq-question-btn" aria-expanded="false">
+                    <span>Are emergency same-day dental treatments available?</span>
+                    <span class="faq-chevron" aria-hidden="true">▼</span>
+                </button>
+                <div class="faq-answer-panel">
+                    <p>Yes. If you are experiencing severe toothache, acute dental abscess, or traumatic tooth injury, call our emergency line (+91 88706 77523) and we will prioritize your treatment on the very same day.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="faq-item">
+                <button type="button" class="faq-question-btn" aria-expanded="false">
+                    <span>Is parking available at the clinic?</span>
+                    <span class="faq-chevron" aria-hidden="true">▼</span>
+                </button>
+                <div class="faq-answer-panel">
+                    <p>Yes, we have dedicated, hassle-free car and two-wheeler parking directly outside our clinic entrance in Porur. Our ground-floor access is wheelchair-friendly and convenient for senior citizens.</p>
+                </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="faq-item">
+                <button type="button" class="faq-question-btn" aria-expanded="false">
+                    <span>Can I consult about ENT and dental issues during the same visit?</span>
+                    <span class="faq-chevron" aria-hidden="true">▼</span>
+                </button>
+                <div class="faq-answer-panel">
+                    <p>Absolutely. That is our clinic's distinctive strength. Dr. Barath Balaji (MDS) and Dr. Gayathri Balaji (MS ENT) collaborate closely for conditions affecting the sinuses, snoring, airway restriction, and odontogenic maxillofacial disorders.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         CLINIC FOOTER (BALAGAM BRAND SYSTEM)
          ========================================================================== -->
     <footer class="site-footer">
         <div class="footer-container">
@@ -1030,11 +1018,13 @@
                 <div class="footer-col footer-col-brand">
                     <a href="index.html" class="footer-logo-link" aria-label="Balagam Dental and Medical Clinic">
                         <span class="footer-logo-badge">
-                            <img src="img/menu-logo.png" alt="Balagam Dental and Medical Clinic" class="footer-brand-logo">
+                            <img src="img/menu-logo.png" alt="Balagam Dental and Medical Clinic"
+                                class="footer-brand-logo">
                         </span>
                     </a>
                     <p class="footer-brand-desc">
-                        Advanced, micro-invasive, and digital dentistry. Delivering pain-free clinical care, precision smile makeovers, and personalized treatment at international standards in Porur, Chennai.
+                        Advanced, micro-invasive, and digital dentistry. Delivering pain-free clinical care, precision
+                        smile makeovers, and personalized treatment at international standards in Porur, Chennai.
                     </p>
                     <div class="footer-badges">
                         <span class="footer-badge">
@@ -1081,32 +1071,31 @@
                 </div>
 
                 <!-- Column 2: Quick Navigation -->
-                <div class="footer-col">
-                    <h4 class="footer-col-title">Quick Navigation</h4>
+                <div class="footer-col footer-col-links">
+                    <h4 class="footer-col-title">Explore</h4>
                     <ul class="footer-links-list">
-                        <li><a href="index.html#home">Home</a></li>
-                        <li><a href="doctor.html">About Us</a></li>
-                        <li><a href="team.html">Our Team</a></li>
-                        <li><a href="treatments.html">Dental Treatments</a></li>
-                        <li><a href="aftercare.html">Aftercare Guide</a></li>
-                        <li><a href="index.html#reviews">Patient Reviews</a></li>
-                        <li><a href="index.html#contact">Contact &amp; Visit Us</a></li>
-                        <li><a href="https://maps.app.goo.gl/dByS6ndvDBBxftf2A" target="_blank"
-                                rel="noopener noreferrer">Directions on Maps ↗</a></li>
-                        <li><a href="index.html#contact" class="footer-highlight-link" id="footerBookBtn"
-                                data-trigger="booking">Book Appointment →</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="doctor.html">About Dr. Barath Balaji</a></li>
+                        <li><a href="team.html">Our Doctors &amp; Specialists</a></li>
+                        <li><a href="treatments.html">Treatments &amp; Procedures</a></li>
+                        <li><a href="aftercare.html">Aftercare Instructions</a></li>
+                        <li><a href="gallery.html">Patient Smile Gallery</a></li>
+                        <li><a href="index.html#reviews">Patient Testimonials</a></li>
+                        <li><a href="contact.html">Contact &amp; Location</a></li>
                     </ul>
                 </div>
 
-                <!-- Column 3: Specialized Treatments -->
-                <div class="footer-col">
-                    <h4 class="footer-col-title">Specialized Treatments</h4>
+                <!-- Column 3: Featured Treatments -->
+                <div class="footer-col footer-col-links">
+                    <h4 class="footer-col-title">Key Procedures</h4>
                     <ul class="footer-links-list">
-                        <li><a href="treatments.html#implants">Dental Implants &amp; 3D Restorations</a></li>
-                        <li><a href="treatments.html#rct">Single Sitting Root Canal (RCT)</a></li>
-                        <li><a href="treatments.html#braces-aligners">Clear Aligners &amp; Invisible Braces</a></li>
-                        <li><a href="treatments.html#wisdom-tooth">Wisdom Tooth Gentle Extractions</a></li>
-                        <li><a href="treatments.html#crowns-bridges">Ceramic &amp; Zirconia Crowns</a></li>
+                        <li><a href="treatments.html#digital-dentistry">3D Digital Dentistry</a></li>
+                        <li><a href="treatments.html#rct">Rotary Root Canal (RCT)</a></li>
+                        <li><a href="treatments.html#implants">Permanent Dental Implants</a></li>
+                        <li><a href="treatments.html#braces-aligners">Invisible Aligners &amp; Braces</a></li>
+                        <li><a href="treatments.html#wisdom-tooth">Gentle Wisdom Tooth Care</a></li>
+                        <li><a href="treatments.html#cosmetic-dentistry">Smile Makeover &amp; Veneers</a></li>
+                        <li><a href="treatments.html#childrens-dentistry">Pediatric Dentistry</a></li>
                         <li><a href="treatments.html#laser-dentistry">Laser Dentistry &amp; Gum Care</a></li>
                     </ul>
                 </div>
@@ -1215,7 +1204,8 @@
                 <div class="chat-msg-row chat-msg-bot">
                     <div class="chat-bubble chat-bubble-greeting">
                         <p class="greeting-text">
-                            Hello! 👋 Welcome to <strong>Balagam Dental and Medical Clinic</strong>. Have a question about our specialists or wish to schedule a consultation? We are here to assist!
+                            Hello! 👋 Welcome to <strong>Balagam Dental and Medical Clinic</strong> in Porur, Chennai.
+                            Have a question about scheduling or treatment? We are here to help!
                         </p>
                         <span class="chat-msg-time" id="chatInitTime">Just now</span>
                     </div>
@@ -1224,12 +1214,12 @@
                 <div class="chat-actions-wrapper" id="chatActionsWrapper">
                     <span class="chat-actions-label">Quick Actions</span>
                     <div class="chat-actions-grid">
-                        <a href="index.html#contact" class="chat-action-btn chat-action-highlight">
+                        <a href="#book-form" class="chat-action-btn chat-action-highlight">
                             <span class="chat-action-icon">📅</span>
                             <span class="chat-action-text">Book Consultation</span>
                             <span class="chat-action-arrow">→</span>
                         </a>
-                        <a href="https://wa.me/918870677523?text=Hello%20Dr.%20Barath%20Balaji%2C%20I%20have%20a%20question%20for%20the%20specialist%20team."
+                        <a href="https://wa.me/918870677523?text=Hello%20Balagam%20Clinic%2C%20I%20would%20like%20to%20book%20an%20appointment."
                             target="_blank" rel="noopener noreferrer" class="chat-action-btn chat-action-whatsapp">
                             <span class="chat-action-icon">
                                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -1265,6 +1255,81 @@
 
     <!-- Scripts -->
     <script src="script.js"></script>
+    <script>
+        // Dedicated Contact Page Interactive Form & FAQ Logic
+        (function () {
+            // 1. Min selectable date = today
+            var dateInput = document.getElementById('cntDate');
+            if (dateInput) {
+                var today = new Date().toISOString().split('T')[0];
+                dateInput.min = today;
+                dateInput.value = today;
+            }
+
+            // 2. WhatsApp Instant Dispatch on Form Submit
+            var contactForm = document.getElementById('contactPageForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    var name = document.getElementById('cntFullName').value.trim();
+                    var phone = document.getElementById('cntPhone').value.trim();
+                    var treatment = document.getElementById('cntTreatment').value;
+                    var doctor = document.getElementById('cntDoctor').value;
+                    var date = document.getElementById('cntDate').value;
+                    var slotRadio = document.querySelector('input[name="timeSlot"]:checked');
+                    var slot = slotRadio ? slotRadio.value : 'Flexible';
+                    var msg = document.getElementById('cntMessage').value.trim();
+
+                    if (!name || !phone) {
+                        alert('Please fill in your name and phone number.');
+                        return;
+                    }
+
+                    var text = "Hello Dr. Barath Balaji & Balagam Clinic,\n" +
+                        "I would like to request an appointment:\n\n" +
+                        "• Name: " + name + "\n" +
+                        "• Phone: " + phone + "\n" +
+                        "• Treatment: " + treatment + "\n" +
+                        "• Specialist: " + doctor + "\n" +
+                        "• Preferred Date: " + date + "\n" +
+                        "• Time Window: " + slot;
+
+                    if (msg) {
+                        text += "\n• Note: " + msg;
+                    }
+
+                    var waUrl = "https://wa.me/918870677523?text=" + encodeURIComponent(text);
+
+                    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                        window.location.href = waUrl;
+                    } else {
+                        window.open(waUrl, '_blank') || (window.location.href = waUrl);
+                    }
+                });
+            }
+
+            // 3. Interactive FAQ Accordion
+            var faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(function (item) {
+                var btn = item.querySelector('.faq-question-btn');
+                if (btn) {
+                    btn.addEventListener('click', function () {
+                        var isOpen = item.classList.contains('is-open');
+                        faqItems.forEach(function (other) {
+                            other.classList.remove('is-open');
+                            var b = other.querySelector('.faq-question-btn');
+                            if (b) b.setAttribute('aria-expanded', 'false');
+                        });
+                        if (!isOpen) {
+                            item.classList.add('is-open');
+                            btn.setAttribute('aria-expanded', 'true');
+                        }
+                    });
+                }
+            });
+        })();
+    </script>
 </body>
 
 </html>

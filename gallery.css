@@ -1,0 +1,971 @@
+/* ==========================================================================
+   BALAGAM DENTAL & MEDICAL CLINIC – INNER GALLERY PAGE STYLES
+   Colors derived directly from Clinic Logo:
+   - Balagam Brand Red: #E31B23
+   - Dental Luminous Cyan: #00AEEF / #00C7F4
+   - Royal Medical Blue: #005CA9 / #0067B6
+   - Clinical Deep Navy: #09223A / #0B1F3A
+   ========================================================================== */
+
+:root {
+    --brand-red: #E31B23;
+    --brand-red-hover: #C5131B;
+    --brand-red-light: #FFF1F2;
+    --brand-red-border: rgba(227, 27, 35, 0.22);
+    --brand-red-glow: rgba(227, 27, 35, 0.35);
+
+    --brand-cyan: #00AEEF;
+    --brand-cyan-bright: #00C7F4;
+    --brand-cyan-light: #E6F8FE;
+    --brand-cyan-border: rgba(0, 174, 239, 0.25);
+    --brand-cyan-glow: rgba(0, 199, 244, 0.35);
+
+    --brand-royal-blue: #005CA9;
+    --brand-royal-light: #EBF4FA;
+    --brand-royal-border: rgba(0, 92, 169, 0.22);
+    --brand-royal-glow: rgba(0, 92, 169, 0.30);
+
+    --brand-navy: #09223A;
+    --brand-dark-text: #0B2545;
+
+    --gallery-card-bg: #FFFFFF;
+    --gallery-border-subtle: #E2ECF3;
+    --gallery-light-bg: #F8FBFE;
+
+    --motion-ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --motion-ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+/* ==========================================================================
+   1. HERO SECTION: CLINICAL NAVY + CYAN & RED AURA
+   ========================================================================== */
+.gallery-hero {
+    position: relative;
+    padding: 140px 4.5vw 76px;
+    background: #0B1F3A;
+    background-image:
+        linear-gradient(135deg, rgba(9, 34, 58, 0.94) 0%, rgba(0, 92, 169, 0.88) 55%, rgba(0, 174, 239, 0.82) 100%),
+        url('img/clinic-2.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    overflow: hidden;
+    text-align: center;
+}
+
+.gallery-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 80% 25%, rgba(0, 199, 244, 0.25) 0%, transparent 55%),
+        radial-gradient(circle at 18% 75%, rgba(227, 27, 35, 0.20) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.gallery-hero-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.gallery-hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 18px;
+    border-radius: var(--radius-pill, 9999px);
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #ffffff;
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 20px;
+}
+
+.gallery-hero-eyebrow .eyebrow-spark-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00E5FF;
+    box-shadow: 0 0 10px #00E5FF;
+    animation: sparkPulse 2s infinite ease-in-out;
+}
+
+@keyframes sparkPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: 0.7; }
+}
+
+.gallery-hero-title {
+    font-family: var(--font-heading, "Cormorant Garamond", serif);
+    font-size: clamp(36px, 4.8vw, 58px);
+    font-weight: 600;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+}
+
+.gallery-hero-title em {
+    font-style: italic;
+    color: #00E5FF;
+    font-weight: 400;
+}
+
+.gallery-hero-desc {
+    max-width: 740px;
+    margin: 0 auto 28px;
+    font-size: clamp(15px, 1.25vw, 17px);
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.gallery-breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.gallery-breadcrumb a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.2s ease;
+}
+
+.gallery-breadcrumb a:hover {
+    color: #00E5FF;
+}
+
+.gallery-breadcrumb-sep {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.gallery-breadcrumb-current {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   2. PATIENT OUTCOME STATS BANNER (MULTI-COLOR CARDS)
+   ========================================================================== */
+.gallery-stats-section {
+    padding: 0 4.5vw;
+    margin-top: -38px;
+    position: relative;
+    z-index: 5;
+}
+
+.gallery-stats-grid {
+    max-width: 1220px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.stat-metric-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 22px 20px;
+    box-shadow: 0 10px 30px rgba(11, 37, 69, 0.08);
+    border: 1px solid var(--gallery-border-subtle);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.3s ease;
+}
+
+.stat-metric-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(11, 37, 69, 0.12);
+}
+
+.stat-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.stat-card-cyan .stat-card-icon {
+    background: var(--brand-cyan-light);
+    color: var(--brand-cyan);
+}
+
+.stat-card-red .stat-card-icon {
+    background: var(--brand-red-light);
+    color: var(--brand-red);
+}
+
+.stat-card-blue .stat-card-icon {
+    background: var(--brand-royal-light);
+    color: var(--brand-royal-blue);
+}
+
+.stat-card-gold .stat-card-icon {
+    background: #FFFBEB;
+    color: #D97706;
+}
+
+.stat-number {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--brand-navy);
+    line-height: 1.15;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #64748B;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 2px;
+}
+
+/* ==========================================================================
+   3. INTERACTIVE CATEGORY FILTER BAR
+   ========================================================================== */
+.gallery-filter-section {
+    padding: 60px 4.5vw 24px;
+    background: linear-gradient(180deg, #F8FAFD 0%, #FFFFFF 100%);
+    text-align: center;
+}
+
+.filter-pills-wrap {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #FFFFFF;
+    padding: 8px 12px;
+    border-radius: var(--radius-pill, 999px);
+    box-shadow: 0 4px 20px rgba(11, 37, 69, 0.06);
+    border: 1px solid var(--gallery-border-subtle);
+}
+
+.gallery-filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 20px;
+    border-radius: var(--radius-pill, 999px);
+    border: none;
+    background: transparent;
+    color: #475569;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.gallery-filter-btn:hover {
+    color: var(--brand-royal-blue);
+    background: var(--brand-royal-light);
+}
+
+.gallery-filter-btn.is-active {
+    background: var(--brand-royal-blue);
+    color: #FFFFFF;
+    box-shadow: 0 4px 14px var(--brand-royal-glow);
+}
+
+.filter-count {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 12px;
+    font-size: 10.5px;
+    font-weight: 800;
+    background: rgba(0, 0, 0, 0.06);
+    color: inherit;
+}
+
+.gallery-filter-btn.is-active .filter-count {
+    background: rgba(255, 255, 255, 0.25);
+    color: #FFFFFF;
+}
+
+/* ==========================================================================
+   4. MAIN GALLERY SHOWCASE GRID (MULTI-TONED CANVAS)
+   ========================================================================== */
+.gallery-main-section {
+    padding: 20px 4.5vw 90px;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F5F9FD 50%, #FAF8F6 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-main-section::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: -120px;
+    width: 440px;
+    height: 440px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 174, 239, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.gallery-main-section::after {
+    content: '';
+    position: absolute;
+    bottom: 10%;
+    right: -120px;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(227, 27, 35, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.gallery-container {
+    max-width: 1220px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1060px;
+    margin: 0 auto;
+}
+
+/* Pure Image-Only Gallery Card */
+.gallery-card {
+    background: #0B1F3A;
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border: 1.5px solid var(--gallery-border-subtle);
+    box-shadow: 0 10px 28px rgba(11, 37, 69, 0.08);
+    transition: transform 0.4s var(--motion-ease-out-expo), box-shadow 0.4s var(--motion-ease-out-expo), border-color 0.35s ease;
+    cursor: pointer;
+}
+
+.gallery-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--brand-cyan);
+    box-shadow: 0 20px 48px rgba(0, 92, 169, 0.22);
+}
+
+.gallery-card-media {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.gallery-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.65s var(--motion-ease-out-expo);
+}
+
+.gallery-card:hover .gallery-card-img {
+    transform: scale(1.08);
+}
+
+/* Top-Left Category Badge */
+.media-badge-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(9, 34, 58, 0.82);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    z-index: 2;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Center Zoom Plus Icon Button */
+.media-zoom-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.75);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--brand-royal-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    transition: transform 0.35s cubic-bezier(0.34, 1.4, 0.64, 1), opacity 0.3s ease;
+    z-index: 3;
+}
+
+.gallery-card:hover .media-zoom-btn {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Bottom Floating Title Overlay on Hover */
+.gallery-card-caption-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 36px 18px 16px;
+    background: linear-gradient(180deg, transparent 0%, rgba(9, 34, 58, 0.9) 100%);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.35s var(--motion-ease-out-expo);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.gallery-card:hover .gallery-card-caption-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-hover-title {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0;
+    line-height: 1.3;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Hidden elements for filtering */
+.gallery-card.is-hidden {
+    display: none !important;
+}
+
+@media (max-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 640px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+    .gallery-card {
+        aspect-ratio: 16 / 10;
+    }
+}
+
+/* ==========================================================================
+   5. CLINIC INFRASTRUCTURE & STERILIZATION TOUR SECTION
+   ========================================================================== */
+.gallery-facility-section {
+    padding: 80px 4.5vw;
+    background: #0B1F3A;
+    background-image:
+        linear-gradient(135deg, rgba(9, 34, 58, 0.96) 0%, rgba(0, 77, 138, 0.90) 55%, rgba(11, 31, 58, 0.96) 100%),
+        url('img/clinic-1.webp');
+    background-size: cover;
+    background-position: center;
+    color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-facility-section::before {
+    content: '';
+    position: absolute;
+    right: -60px;
+    bottom: -60px;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 199, 244, 0.22) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.facility-inner {
+    max-width: 1220px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.facility-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 48px;
+}
+
+.facility-tag {
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #00E5FF;
+    margin-bottom: 12px;
+}
+
+.facility-title {
+    font-family: var(--font-heading, "Cormorant Garamond", serif);
+    font-size: clamp(30px, 3.5vw, 44px);
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.2;
+    color: #ffffff;
+}
+
+.facility-desc {
+    font-size: 15px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.facility-tour-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.facility-tour-item {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 16px;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+}
+
+.facility-tour-item:hover {
+    transform: translateY(-5px);
+    border-color: #00E5FF;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.facility-item-img-wrap {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.facility-item-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.facility-tour-item:hover .facility-item-img {
+    transform: scale(1.08);
+}
+
+.facility-item-content {
+    padding: 16px 18px;
+}
+
+.facility-item-name {
+    font-size: 14.5px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #FFFFFF;
+}
+
+.facility-item-note {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   6. BOTTOM CTA CONSULTATION BANNER
+   ========================================================================== */
+.gallery-cta-section {
+    padding: 80px 4.5vw;
+    background: #FFFFFF;
+}
+
+.gallery-cta-banner {
+    max-width: 1220px;
+    margin: 0 auto;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #09223A 0%, #004D8A 55%, #0B1F3A 100%);
+    color: #FFFFFF;
+    padding: 56px 48px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(9, 34, 58, 0.2);
+}
+
+.gallery-cta-banner::before {
+    content: '';
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 199, 244, 0.28) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.gallery-cta-banner::after {
+    content: '';
+    position: absolute;
+    left: -40px;
+    bottom: -40px;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(227, 27, 35, 0.24) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.gallery-cta-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.gallery-cta-text {
+    max-width: 660px;
+}
+
+.gallery-cta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 14px;
+    border-radius: var(--radius-pill, 999px);
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #00E5FF;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 14px;
+}
+
+.gallery-cta-title {
+    font-family: var(--font-heading, "Cormorant Garamond", serif);
+    font-size: clamp(28px, 3.2vw, 42px);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.gallery-cta-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.gallery-cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.gallery-cta-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 34px;
+    border-radius: var(--radius-pill, 999px);
+    background: var(--brand-red);
+    color: #FFFFFF;
+    font-size: 14.5px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 4px 18px var(--brand-red-glow);
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+.gallery-cta-btn-primary:hover {
+    background: var(--brand-red-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px var(--brand-red-glow);
+}
+
+.gallery-cta-btn-wa {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: var(--radius-pill, 999px);
+    background: #00A884;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(0, 168, 132, 0.3);
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+.gallery-cta-btn-wa:hover {
+    background: #008f6f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 168, 132, 0.4);
+}
+
+/* ==========================================================================
+   7. INTERACTIVE LIGHTBOX MODAL
+   ========================================================================== */
+.gallery-lightbox-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.gallery-lightbox-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(9, 34, 58, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.lightbox-content-box {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    width: 92vw;
+    background: #FFFFFF;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.lightbox-image-wrap {
+    width: 100%;
+    max-height: 520px;
+    background: #0B1F3A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.lightbox-image-wrap img {
+    max-width: 100%;
+    max-height: 520px;
+    object-fit: contain;
+}
+
+.lightbox-meta-bar {
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: #FFFFFF;
+}
+
+.lightbox-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0F172A;
+    margin-bottom: 4px;
+}
+
+.lightbox-caption {
+    font-size: 13.5px;
+    color: #64748B;
+    margin: 0;
+}
+
+.lightbox-close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.65);
+    border: none;
+    color: #FFFFFF;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 5;
+}
+
+.lightbox-close-btn:hover {
+    background: var(--brand-red);
+    transform: rotate(90deg);
+}
+
+.lightbox-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    color: #0F172A;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+    z-index: 5;
+}
+
+.lightbox-nav-btn:hover {
+    background: var(--brand-royal-blue);
+    color: #FFFFFF;
+}
+
+.lightbox-prev-btn {
+    left: 16px;
+}
+
+.lightbox-next-btn {
+    right: 16px;
+}
+
+/* ==========================================================================
+   8. RESPONSIVE MEDIA QUERIES (MOBILE / TABLET)
+   ========================================================================== */
+@media (max-width: 1080px) {
+    .gallery-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .facility-tour-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-cta-content {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .gallery-cta-actions {
+        width: 100%;
+        flex-direction: row;
+    }
+
+    .gallery-cta-btn-primary,
+    .gallery-cta-btn-wa {
+        flex: 1;
+    }
+}
+
+@media (max-width: 640px) {
+    .gallery-hero {
+        padding: 120px 5vw 60px;
+    }
+
+    .gallery-stats-section {
+        margin-top: -26px;
+    }
+
+    .gallery-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .facility-tour-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-pills-wrap {
+        border-radius: 16px;
+        padding: 6px;
+    }
+
+    .gallery-filter-btn {
+        padding: 7px 14px;
+        font-size: 12px;
+    }
+
+    .gallery-cta-banner {
+        padding: 36px 24px;
+    }
+
+    .gallery-cta-actions {
+        flex-direction: column;
+    }
+
+    .lightbox-meta-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px 20px;
+    }
+}

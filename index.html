@@ -13,6 +13,7 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="team-slider.css">
 </head>
 
 <body>
@@ -325,7 +326,7 @@
                     </span>
                 </span>
             </a>
-            <a href="#gallery" class="nav-link">
+            <a href="gallery.html" class="nav-link">
                 <span>Gallery</span>
                 <span class="blob-btn__inner" aria-hidden="true">
                     <span class="blob-btn__blobs">
@@ -347,7 +348,7 @@
                     </span>
                 </span>
             </a>
-            <a href="#contact" class="nav-link">
+            <a href="contact.html" class="nav-link">
                 <span>Contact</span>
                 <span class="blob-btn__inner" aria-hidden="true">
                     <span class="blob-btn__blobs">
@@ -700,7 +701,7 @@
                         </svg>
                     </span>
                 </a>
-                <a href="#gallery" class="mobile-nav-link" data-index="4">
+                <a href="gallery.html" class="mobile-nav-link" data-index="4">
                     <span class="mobile-nav-icon">
                         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -733,7 +734,7 @@
                         </svg>
                     </span>
                 </a>
-                <a href="#contact" class="mobile-nav-link" data-index="6">
+                <a href="contact.html" class="mobile-nav-link" data-index="6">
                     <span class="mobile-nav-icon">
                         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -858,6 +859,367 @@
                         alt="Dr. Barath Balaji MDS - Chief Dental Surgeon &amp; Maxillofacial Pathologist"
                         class="dr-photo-img">
                 </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         OUR TEAM: SPECIALIST DOCTORS SLIDER (Matching Reference Design)
+         - Eyebrow: "Our Team"
+         - Heading: Clinic & Specialist Team
+         - Top-Right Circular Navigation Arrows (←) and (→)
+         - Portrait Cards with Top-Right Share Pill and Frosted Translucent Info Badge
+         ========================================================================== -->
+    <section class="doctor-team-slider-section" id="team" aria-label="Our Specialist Doctors">
+        <div class="doctor-team-slider-container">
+
+            <!-- Section Header: Matching Treatments Style (Accent Line + Serif Heading + Subhead + Nav Arrows) -->
+            <div class="doctor-slider-header">
+                <div class="doctor-slider-header-left">
+                    <div class="section-tag">
+                        <span class="tag-accent"></span>
+                        <span>Our Specialist Team</span>
+                    </div>
+                    <h2 class="doctor-team-heading">
+                        Specialist Doctors &amp; Surgeons
+                    </h2>
+                    <p class="doctor-team-subhead">
+                        Multi-speciality dental surgeons and medical consultants bringing advanced digital precision and compassionate clinical care.
+                    </p>
+                </div>
+                <div class="doctor-slider-nav-arrows" aria-label="Team Slider Navigation">
+                    <button class="slider-arrow-btn prev-btn" id="sliderPrevBtn" type="button" aria-label="Previous Specialist Doctor">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                    </button>
+                    <button class="slider-arrow-btn next-btn" id="sliderNextBtn" type="button" aria-label="Next Specialist Doctor">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Carousel Viewport & Horizontal Track -->
+            <div class="doctor-slider-viewport" id="doctorSliderViewport">
+                <div class="doctor-slider-track" id="doctorSliderTrack" role="region"
+                    aria-label="Doctor Cards Carousel">
+
+                    <!-- CARD 1: Dr. Barath Balaji -->
+                    <article class="doctor-slide-card" aria-label="Dr. Barath Balaji, MDS">
+                        <div class="doctor-card-media">
+                            <img src="img/doctor.jpg"
+                                alt="Dr. Barath Balaji, MDS - Chief Dental Surgeon &amp; Maxillofacial Pathologist"
+                                loading="lazy">
+                        </div>
+
+                        <!-- Top-Right Share Widget with Vertical Social Dropdown Pill -->
+                        <div class="doctor-share-widget" aria-label="Share Dr. Barath Balaji's Profile">
+                            <div class="share-pill-container">
+                                <button class="share-btn-trigger" type="button" aria-label="Share Doctor Profile">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="18" cy="5" r="3"></circle>
+                                        <circle cx="6" cy="12" r="3"></circle>
+                                        <circle cx="18" cy="19" r="3"></circle>
+                                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                    </svg>
+                                </button>
+                                <div class="share-social-stack">
+                                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                                        class="share-social-link" title="Share on Facebook" aria-label="Facebook">
+                                        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+                                            <path
+                                                d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                                        class="share-social-link" title="Follow on Instagram" aria-label="Instagram">
+                                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                        </svg>
+                                    </a>
+                                    <a href="https://wa.me/918870677523?text=Hello%20Balagam%20Dental%20Clinic,%20I%20would%20like%20to%20consult%20Dr.%20Barath%20Balaji"
+                                        target="_blank" rel="noopener noreferrer" class="share-social-link"
+                                        title="Contact on WhatsApp" aria-label="WhatsApp">
+                                        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+                                            <path
+                                                d="M12.031 2C6.495 2 2 6.496 2 12.032c0 1.97.57 3.805 1.564 5.352L2.094 22l4.743-1.442A9.97 9.97 0 0 0 12.03 22c5.536 0 10.032-4.496 10.032-10.032C22.063 6.496 17.567 2 12.031 2z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Frosted Glass Pill Overlay -->
+                        <a href="doctor.html" class="doctor-frosted-pill" aria-label="View Dr. Barath Balaji's profile">
+                            <h3 class="doctor-pill-name">Dr. Barath Balaji, <span class="degree-highlight">MDS</span>
+                            </h3>
+                            <p class="doctor-pill-title">Chief Dental Surgeon &amp; Maxillofacial Pathologist</p>
+                            <span class="doctor-pill-link-arrow">View Profile →</span>
+                        </a>
+                    </article>
+
+                    <!-- CARD 2: Dr. Gayathri Balaji -->
+                    <article class="doctor-slide-card" aria-label="Dr. Gayathri Balaji, MS (ENT)">
+                        <div class="doctor-card-media">
+                            <img src="img/doctor-2-clean.jpg"
+                                alt="Dr. Gayathri Balaji, MS - Consultant ENT &amp; Sinus Surgeon" loading="lazy">
+                        </div>
+
+                        <!-- Top-Right Share Widget with Vertical Social Dropdown Pill -->
+                        <div class="doctor-share-widget" aria-label="Share Dr. Gayathri Balaji's Profile">
+                            <div class="share-pill-container">
+                                <button class="share-btn-trigger" type="button" aria-label="Share Doctor Profile">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="18" cy="5" r="3"></circle>
+                                        <circle cx="6" cy="12" r="3"></circle>
+                                        <circle cx="18" cy="19" r="3"></circle>
+                                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                    </svg>
+                                </button>
+                                <div class="share-social-stack">
+                                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                                        class="share-social-link" title="Share on Facebook" aria-label="Facebook">
+                                        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+                                            <path
+                                                d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                                        class="share-social-link" title="Follow on Instagram" aria-label="Instagram">
+                                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                        </svg>
+                                    </a>
+                                    <a href="https://wa.me/918870677523?text=Hello%20Balagam%20Dental%20Clinic,%20I%20would%20like%20to%20consult%20Dr.%20Gayathri%20Balaji"
+                                        target="_blank" rel="noopener noreferrer" class="share-social-link"
+                                        title="Contact on WhatsApp" aria-label="WhatsApp">
+                                        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+                                            <path
+                                                d="M12.031 2C6.495 2 2 6.496 2 12.032c0 1.97.57 3.805 1.564 5.352L2.094 22l4.743-1.442A9.97 9.97 0 0 0 12.03 22c5.536 0 10.032-4.496 10.032-10.032C22.063 6.496 17.567 2 12.031 2z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Frosted Glass Pill Overlay -->
+                        <a href="team.html#dr-gayathri-balaji" class="doctor-frosted-pill"
+                            aria-label="View Dr. Gayathri Balaji's profile">
+                            <h3 class="doctor-pill-name">Dr. Gayathri Balaji, <span class="degree-highlight">MS
+                                    (ENT)</span></h3>
+                            <p class="doctor-pill-title">Consultant ENT &amp; Sinus Surgeon</p>
+                            <span class="doctor-pill-link-arrow">View Profile →</span>
+                        </a>
+                    </article>
+
+                    <!-- CARD 3: Dr. Lokesh Sai -->
+                    <article class="doctor-slide-card" aria-label="Dr. Lokesh Sai, MDS (OMFS)">
+                        <div class="doctor-card-media">
+                            <img src="img/doctor-4 . Lokesh Sai.jpeg"
+                                alt="Dr. Lokesh Sai, MDS - Oral &amp; Maxillofacial Surgeon" loading="lazy">
+                        </div>
+
+                        <!-- Top-Right Share Widget with Vertical Social Dropdown Pill -->
+                        <div class="doctor-share-widget" aria-label="Share Dr. Lokesh Sai's Profile">
+                            <div class="share-pill-container">
+                                <button class="share-btn-trigger" type="button" aria-label="Share Doctor Profile">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="18" cy="5" r="3"></circle>
+                                        <circle cx="6" cy="12" r="3"></circle>
+                                        <circle cx="18" cy="19" r="3"></circle>
+                                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                    </svg>
+                                </button>
+                                <div class="share-social-stack">
+                                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                                        class="share-social-link" title="Share on Facebook" aria-label="Facebook">
+                                        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+                                            <path
+                                                d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                                        class="share-social-link" title="Follow on Instagram" aria-label="Instagram">
+                                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                        </svg>
+                                    </a>
+                                    <a href="https://wa.me/918870677523?text=Hello%20Balagam%20Dental%20Clinic,%20I%20would%20like%20to%20consult%20Dr.%20Lokesh%20Sai"
+                                        target="_blank" rel="noopener noreferrer" class="share-social-link"
+                                        title="Contact on WhatsApp" aria-label="WhatsApp">
+                                        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+                                            <path
+                                                d="M12.031 2C6.495 2 2 6.496 2 12.032c0 1.97.57 3.805 1.564 5.352L2.094 22l4.743-1.442A9.97 9.97 0 0 0 12.03 22c5.536 0 10.032-4.496 10.032-10.032C22.063 6.496 17.567 2 12.031 2z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Frosted Glass Pill Overlay -->
+                        <a href="team.html#dr-lokesh-sai" class="doctor-frosted-pill"
+                            aria-label="View Dr. Lokesh Sai's profile">
+                            <h3 class="doctor-pill-name">Dr. Lokesh Sai, <span class="degree-highlight">MDS
+                                    (OMFS)</span></h3>
+                            <p class="doctor-pill-title">Oral &amp; Maxillofacial Surgeon &amp; Implantologist</p>
+                            <span class="doctor-pill-link-arrow">View Profile →</span>
+                        </a>
+                    </article>
+
+                    <!-- CARD 4: Dr. Swetha R K -->
+                    <article class="doctor-slide-card" aria-label="Dr. Swetha R K, MDS">
+                        <div class="doctor-card-media">
+                            <img src="img/doctor-3 Swetha.jpeg" alt="Dr. Swetha R K, MDS - Pediatric Dentist"
+                                loading="lazy">
+                        </div>
+
+                        <!-- Top-Right Share Widget with Vertical Social Dropdown Pill -->
+                        <div class="doctor-share-widget" aria-label="Share Dr. Swetha R K's Profile">
+                            <div class="share-pill-container">
+                                <button class="share-btn-trigger" type="button" aria-label="Share Doctor Profile">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="18" cy="5" r="3"></circle>
+                                        <circle cx="6" cy="12" r="3"></circle>
+                                        <circle cx="18" cy="19" r="3"></circle>
+                                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                    </svg>
+                                </button>
+                                <div class="share-social-stack">
+                                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                                        class="share-social-link" title="Share on Facebook" aria-label="Facebook">
+                                        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+                                            <path
+                                                d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                                        class="share-social-link" title="Follow on Instagram" aria-label="Instagram">
+                                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                        </svg>
+                                    </a>
+                                    <a href="https://wa.me/918870677523?text=Hello%20Balagam%20Dental%20Clinic,%20I%20would%20like%20to%20consult%20Dr.%20Swetha%20R%20K"
+                                        target="_blank" rel="noopener noreferrer" class="share-social-link"
+                                        title="Contact on WhatsApp" aria-label="WhatsApp">
+                                        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+                                            <path
+                                                d="M12.031 2C6.495 2 2 6.496 2 12.032c0 1.97.57 3.805 1.564 5.352L2.094 22l4.743-1.442A9.97 9.97 0 0 0 12.03 22c5.536 0 10.032-4.496 10.032-10.032C22.063 6.496 17.567 2 12.031 2z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Frosted Glass Pill Overlay -->
+                        <a href="team.html#dr-swetha" class="doctor-frosted-pill"
+                            aria-label="View Dr. Swetha R K's profile">
+                            <h3 class="doctor-pill-name">Dr. Swetha R K, <span class="degree-highlight">MDS</span></h3>
+                            <p class="doctor-pill-title">Pediatric &amp; Preventive Dentist</p>
+                            <span class="doctor-pill-link-arrow">View Profile →</span>
+                        </a>
+                    </article>
+
+                    <!-- CARD 5: Dr. Dinesh -->
+                    <article class="doctor-slide-card" aria-label="Dr. Dinesh, MDS">
+                        <div class="doctor-card-media">
+                            <img src="img/doctor-5  Dinesh.jpeg"
+                                alt="Dr. Dinesh, MDS - Orthodontist &amp; Clear Aligners" loading="lazy">
+                        </div>
+
+                        <!-- Top-Right Share Widget with Vertical Social Dropdown Pill -->
+                        <div class="doctor-share-widget" aria-label="Share Dr. Dinesh's Profile">
+                            <div class="share-pill-container">
+                                <button class="share-btn-trigger" type="button" aria-label="Share Doctor Profile">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="18" cy="5" r="3"></circle>
+                                        <circle cx="6" cy="12" r="3"></circle>
+                                        <circle cx="18" cy="19" r="3"></circle>
+                                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                    </svg>
+                                </button>
+                                <div class="share-social-stack">
+                                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                                        class="share-social-link" title="Share on Facebook" aria-label="Facebook">
+                                        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+                                            <path
+                                                d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                                        class="share-social-link" title="Follow on Instagram" aria-label="Instagram">
+                                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                        </svg>
+                                    </a>
+                                    <a href="https://wa.me/918870677523?text=Hello%20Balagam%20Dental%20Clinic,%20I%20would%20like%20to%20consult%20Dr.%20Dinesh"
+                                        target="_blank" rel="noopener noreferrer" class="share-social-link"
+                                        title="Contact on WhatsApp" aria-label="WhatsApp">
+                                        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+                                            <path
+                                                d="M12.031 2C6.495 2 2 6.496 2 12.032c0 1.97.57 3.805 1.564 5.352L2.094 22l4.743-1.442A9.97 9.97 0 0 0 12.03 22c5.536 0 10.032-4.496 10.032-10.032C22.063 6.496 17.567 2 12.031 2z" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Frosted Glass Pill Overlay -->
+                        <a href="team.html#dr-dinesh" class="doctor-frosted-pill"
+                            aria-label="View Dr. Dinesh's profile">
+                            <h3 class="doctor-pill-name">Dr. Dinesh, <span class="degree-highlight">MDS</span></h3>
+                            <p class="doctor-pill-title">Orthodontist &amp; Dentofacial Specialist</p>
+                            <span class="doctor-pill-link-arrow">View Profile →</span>
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+
+            <!-- Footer: Link to All Team Details -->
+            <div class="doctor-slider-footer">
+                <a href="team.html" class="doctor-view-all-btn">
+                    <span>Meet All Specialist Doctors &amp; Surgeons</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
             </div>
 
         </div>
@@ -1143,13 +1505,19 @@
     <div id="aftercare" class="nav-target-anchor" aria-hidden="true"
         style="position:relative;top:-90px;visibility:hidden;"></div>
 
-    <!-- OUR CLINIC — CLINICAL OUTCOMES (REAL PATIENT BEFORE & AFTER SHOWCASE) -->
-    <section class="clinic-carousel-section" id="gallery" aria-label="Our Clinic – Real Patient Clinical Outcomes">
+    <!-- CLINICAL OUTCOMES & SMILE GALLERY (REAL PATIENT BEFORE & AFTER SHOWCASE) -->
+    <section class="clinic-carousel-section" id="gallery" aria-label="Clinical Outcomes & Smile Gallery">
         <div class="clinic-carousel-container">
-            <!-- Centered Header Intro -->
-            <div class="clinic-intro">
-                <span class="clinic-eyebrow">OUR CLINIC</span>
-                <h2 class="clinic-heading">Real Patient Clinical Outcomes</h2>
+            <!-- Centered Header matching Brand Standard Style -->
+            <div class="doctor-slider-header" style="text-align: center; margin-bottom: 34px;">
+                <div class="section-tag" style="justify-content: center; margin-bottom: 12px;">
+                    <span class="tag-accent"></span>
+                    <span>Real Patient Results</span>
+                </div>
+                <h2 class="doctor-team-heading" style="margin-bottom: 10px;">Treatment Outcomes &amp; Smile Gallery</h2>
+                <p class="doctor-team-subhead" style="margin: 0 auto; max-width: 640px;">
+                    Explore real clinical before &amp; after transformations achieved through micro-invasive precision dental care.
+                </p>
             </div>
 
             <!-- Showcase Wrapper (Desktop: 1 Featured + 4 Smaller Cards with Arrow Navigation) -->
@@ -1282,6 +1650,15 @@
                         <polyline points="9 18 15 12 9 6"></polyline>
                     </svg>
                 </button>
+            </div>
+
+            <!-- View All Results CTA Button -->
+            <div style="text-align: center; margin-top: 32px;">
+                <a href="gallery.html" class="gallery-explore-all-btn"
+                    style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 30px; background: #005CA9; color: #ffffff; font-weight: 700; font-size: 0.92rem; border-radius: 9999px; text-decoration: none; box-shadow: 0 4px 16px rgba(0, 92, 169, 0.25); transition: all 0.25s ease;">
+                    <span>View All Treatment Results (1 to 4)</span>
+                    <span style="font-size: 1.05rem;">→</span>
+                </a>
             </div>
         </div>
     </section>
@@ -1858,8 +2235,9 @@
                         <li><a href="treatments.html">Dental Treatments</a></li>
                         <li><a href="aftercare.html">Aftercare Guide</a></li>
                         <li><a href="team.html">Our Team</a></li>
+                        <li><a href="gallery.html">Smile Gallery</a></li>
                         <li><a href="#reviews">Patient Reviews</a></li>
-                        <li><a href="#contact">Contact &amp; Visit Us</a></li>
+                        <li><a href="contact.html">Contact &amp; Visit Us</a></li>
                         <li><a href="https://maps.app.goo.gl/dByS6ndvDBBxftf2A" target="_blank"
                                 rel="noopener noreferrer">Directions on Maps ↗</a></li>
                         <li><a href="#contact" class="footer-highlight-link" id="footerBookBtn"
@@ -1916,7 +2294,7 @@
             <!-- Footer Bottom Bar -->
             <div class="footer-bottom-bar">
                 <div class="footer-credit">
-                    Balagam Dental and Medical Clinic Design By @Largtec – 2026
+                    Balagam Dental and Medical Clinic &bull; Design by <a href="https://largtec.com/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline; text-underline-offset: 3px; font-weight: 600;">@Largtec</a> &copy; 2026
                 </div>
                 <div class="footer-bottom-links">
                     <a href="#home" class="back-to-top" aria-label="Back to top of page">
@@ -2075,6 +2453,7 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="team-slider.js"></script>
 </body>
 
 </html>
