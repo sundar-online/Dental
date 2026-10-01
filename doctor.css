@@ -151,6 +151,22 @@
     overflow: hidden;
 }
 
+.doc-profile-direct {
+    padding-top: 130px !important;
+}
+
+@media (max-width: 1080px) {
+    .doc-profile-direct {
+        padding-top: 110px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .doc-profile-direct {
+        padding-top: 96px !important;
+    }
+}
+
 .doc-hero::before {
     content: '';
     position: absolute;

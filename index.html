@@ -18,11 +18,13 @@
 <body>
 
     <!-- SVG Gooey Filter for Blob Navigation Animation -->
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="position:fixed;top:0;left:0;width:0;height:0;pointer-events:none;overflow:hidden;" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+        style="position:fixed;top:0;left:0;width:0;height:0;pointer-events:none;overflow:hidden;" aria-hidden="true">
         <defs>
             <filter id="goo">
                 <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
-                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7" result="goo" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7"
+                    result="goo" />
                 <feBlend in2="goo" in="SourceGraphic" result="mix" />
             </filter>
         </defs>
@@ -50,7 +52,9 @@
             <div class="nav-item-dropdown">
                 <a href="doctor.html" class="nav-link nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
                     <span>About Us</span>
-                    <svg class="dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <svg class="dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                        aria-hidden="true">
                         <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                     <span class="blob-btn__inner" aria-hidden="true">
@@ -64,20 +68,252 @@
                 </a>
                 <div class="nav-dropdown-menu" role="menu">
                     <a href="doctor.html" class="dropdown-item" role="menuitem">About</a>
-                    <a href="#team" class="dropdown-item" role="menuitem">Our Team (Our Doctors)</a>
+                    <a href="team.html" class="dropdown-item" role="menuitem">Our Team (Our Doctors)</a>
                 </div>
             </div>
-            <a href="treatments.html" class="nav-link">
-                <span>Treatments</span>
-                <span class="blob-btn__inner" aria-hidden="true">
-                    <span class="blob-btn__blobs">
-                        <span class="blob-btn__blob"></span>
-                        <span class="blob-btn__blob"></span>
-                        <span class="blob-btn__blob"></span>
-                        <span class="blob-btn__blob"></span>
+            <div class="nav-item-dropdown nav-item-treatments">
+                <a href="treatments.html" class="nav-link nav-dropdown-trigger" aria-haspopup="true"
+                    aria-expanded="false">
+                    <span>Treatments</span>
+                    <svg class="dropdown-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                        aria-hidden="true">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                    <span class="blob-btn__inner" aria-hidden="true">
+                        <span class="blob-btn__blobs">
+                            <span class="blob-btn__blob"></span>
+                            <span class="blob-btn__blob"></span>
+                            <span class="blob-btn__blob"></span>
+                            <span class="blob-btn__blob"></span>
+                        </span>
                     </span>
-                </span>
-            </a>
+                </a>
+                <div class="nav-dropdown-menu nav-treatments-dropdown" role="menu">
+                    <div class="treatments-dropdown-header">
+                        <div class="dropdown-header-left">
+                            <span class="dropdown-header-badge">Procedures</span>
+                            <span class="dropdown-header-title">Clinical Dental Care</span>
+                        </div>
+                        <a href="treatments.html" class="dropdown-view-all-link">
+                            <span>View All Procedures</span>
+                            <span class="dropdown-arrow">→</span>
+                        </a>
+                    </div>
+                    <div class="treatments-dropdown-grid">
+                        <div class="treatments-dropdown-col">
+                            <a href="treatments.html#digital-dentistry" class="treatment-dropdown-item" role="menuitem">
+                                <div class="item-icon-box">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <line x1="2" y1="12" x2="22" y2="12" />
+                                        <path
+                                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10z" />
+                                    </svg>
+                                </div>
+                                <div class="item-text-box">
+                                    <span class="item-title">Digital Dentistry</span>
+                                    <span class="item-desc">3D Intraoral Scanning &bull; CAD/CAM</span>
+                                </div>
+                            </a>
+                            <a href="treatments.html#rct" class="treatment-dropdown-item" role="menuitem">
+                                <div class="item-icon-box">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M12 2C8.5 2 6 4.5 6 8c0 4.5 2 9 3 13 1 1 2 1 3 0l1-5 1 5c1 1 2 1 3 0 1-4 3-8.5 3-13 0-3.5-3-6-7-6z" />
+                                        <line x1="12" y1="6" x2="12" y2="16" />
+                                    </svg>
+                                </div>
+                                <div class="item-text-box">
+                                    <span class="item-title">Root Canal Treatment (RCT)</span>
+                                    <span class="item-desc">Painless Single Sitting Care</span>
+                                </div>
+                            </a>
+                            <a href="treatments.html#implants" class="treatment-dropdown-item" role="menuitem">
+                                <div class="item-icon-box">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M12 2C8.5 2 6 4.5 6 8c0 4 2 8 3 11l1 3 1-3c1-3 3-7 3-11 0-3.5-2.5-6-6-6z" />
+                                        <line x1="9" y1="13" x2="15" y2="13" />
+                                        <line x1="9.5" y1="16" x2="14.5" y2="16" />
+                                    </svg>
+                                </div>
+                                <div class="item-text-box">
+                                    <span class="item-title">Dental Implants</span>
+                                    <span class="item-desc">Permanent Titanium Root Fixing</span>
+                                </div>
+                            </a>
+                            <a href="treatments.html#braces-aligners" class="treatment-dropdown-item" role="menuitem">
+                                <div class="item-icon-box">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="8" width="18" height="8" rx="2" />
+                                        <line x1="8" y1="8" x2="8" y2="16" />
+                                        <line x1="16" y1="8" x2="16" y2="16" />
+                                    </svg>
+                                </div>
+                                <div class="item-text-box">
+                                    <span class="item-title">Orthodontics (Braces)</span>
+                                    <span class="item-desc">Metal, Ceramic &bull; Self-Ligating</span>
+                                </div>
+                            </a>
+                            <a href="treatments.html#stress-free-dentistry" class="treatment-dropdown-item"
+                                role="menuitem">
+                                <div class="item-icon-box">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                    </svg>
+                                </div>
+                                <div class="item-text-box">
+                                    <span class="item-title">Stress-Free Dentistry</span>
+                                    <span class="item-desc">Painless Micro-Anesthesia &bull; Calm Care</span>
+                                </div>
+                            </a>
+                            <a href="treatments.html#childrens-dentistry" class="treatment-dropdown-item"
+                                role="menuitem">
+                                <div class="item-icon-box">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M12 2C8.5 2 6 4.5 6 8c0 4.5 2 9 3 13 1 1 2 1 3 0l1-5 1 5c1 1 2 1 3 0 1-4 3-8.5 3-13 0-3.5-3-6-7-6z" />
+                                    </svg>
+                                </div>
+                                <div class="item-text-box">
+                                    <span class="item-title">Children's Dentistry</span>
+                                    <span class="item-desc">Pediatric Preventive &bull; Gentle Care</span>
+                                </div>
+                            </a>
+                            <a href="treatments.html#fillings" class="treatment-dropdown-item" role="menuitem">
+                                <div class="item-icon-box">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M12 2C8.5 2 6 4.5 6 8c0 4.5 2 9 3 13 1 1 2 1 3 0l1-5 1 5c1 1 2 1 3 0 1-4 3-8.5 3-13 0-3.5-3-6-7-6z" />
+                                        <circle cx="12" cy="7" r="2.5" />
+                                    </svg>
+                                </div>
+                                <div class="item-text-box">
+                                    <span class="item-title">Teeth Whitening &amp; Care</span>
+                                    <span class="item-desc">Tooth-Coloured Fillings &bull; Polishing</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="treatments-dropdown-col">
+                            <a href="treatments.html#cosmetic-dentistry" class="treatment-dropdown-item"
+                                role="menuitem">
+                                <div class="item-icon-box">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polygon
+                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                    </svg>
+                                </div>
+                                <div class="item-text-box">
+                                    <span class="item-title">Smile Makeover</span>
+                                    <span class="item-desc">Cosmetic Porcelain Veneers &bull; DSD</span>
+                                </div>
+                            </a>
+                            <a href="treatments.html#wisdom-tooth" class="treatment-dropdown-item" role="menuitem">
+                                <div class="item-icon-box">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M12 2C8.5 2 6 4.5 6 8c0 4.5 2 9 3 13 1 1 2 1 3 0l1-5 1 5c1 1 2 1 3 0 1-4 3-8.5 3-13 0-3.5-3-6-7-6z" />
+                                        <path d="M16 4l4-2" />
+                                        <path d="M8 4L4 2" />
+                                    </svg>
+                                </div>
+                                <div class="item-text-box">
+                                    <span class="item-title">Wisdom Tooth Extraction</span>
+                                    <span class="item-desc">Gentle Impaction Surgery</span>
+                                </div>
+                            </a>
+                            <a href="treatments.html#crowns-bridges" class="treatment-dropdown-item" role="menuitem">
+                                <div class="item-icon-box">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M12 2C8.5 2 6 4.5 6 8c0 4.5 2 9 3 13 1 1 2 1 3 0l1-5 1 5c1 1 2 1 3 0 1-4 3-8.5 3-13 0-3.5-3-6-7-6z" />
+                                    </svg>
+                                </div>
+                                <div class="item-text-box">
+                                    <span class="item-title">Fixed Teeth &amp; Crowns</span>
+                                    <span class="item-desc">Ceramic Crowns &bull; Bridges Fixing</span>
+                                </div>
+                            </a>
+                            <a href="treatments.html#invisalign" class="treatment-dropdown-item" role="menuitem">
+                                <div class="item-icon-box">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="8" width="18" height="8" rx="2" />
+                                        <line x1="8" y1="8" x2="8" y2="16" />
+                                        <line x1="16" y1="8" x2="16" y2="16" />
+                                    </svg>
+                                </div>
+                                <div class="item-text-box">
+                                    <span class="item-title">Invisalign &amp; Aligners</span>
+                                    <span class="item-desc">Braces &bull; Clear Custom Aligners</span>
+                                </div>
+                            </a>
+                            <a href="treatments.html#laser-dentistry" class="treatment-dropdown-item" role="menuitem">
+                                <div class="item-icon-box">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="12" y1="2" x2="12" y2="6" />
+                                        <line x1="12" y1="18" x2="12" y2="22" />
+                                        <line x1="4.93" y1="4.93" x2="7.76" y2="7.76" />
+                                        <line x1="16.24" y1="16.24" x2="19.07" y2="19.07" />
+                                        <line x1="2" y1="12" x2="6" y2="12" />
+                                        <line x1="18" y1="12" x2="22" y2="12" />
+                                    </svg>
+                                </div>
+                                <div class="item-text-box">
+                                    <span class="item-title">Laser Technology</span>
+                                    <span class="item-desc">Laser Dentistry &bull; Gum Healing</span>
+                                </div>
+                            </a>
+                            <a href="treatments.html#dentures" class="treatment-dropdown-item" role="menuitem">
+                                <div class="item-icon-box">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="6" width="18" height="5" rx="2" />
+                                        <rect x="3" y="13" width="18" height="5" rx="2" />
+                                        <line x1="7" y1="6" x2="7" y2="11" />
+                                        <line x1="12" y1="6" x2="12" y2="11" />
+                                    </svg>
+                                </div>
+                                <div class="item-text-box">
+                                    <span class="item-title">Complete Dentures</span>
+                                    <span class="item-desc">BPS High-Precision Natural Fit</span>
+                                </div>
+                            </a>
+                            <a href="treatments.html#consulting-xray" class="treatment-dropdown-item" role="menuitem">
+                                <div class="item-icon-box">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <line x1="2" y1="12" x2="22" y2="12" />
+                                        <path
+                                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10z" />
+                                    </svg>
+                                </div>
+                                <div class="item-text-box">
+                                    <span class="item-title">Consulting &amp; 3D X-Ray</span>
+                                    <span class="item-desc">Digital Diagnostics &bull; RVG</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="treatments-dropdown-footer">
+                        <span class="dropdown-footer-note">International Sterilization &amp; Pain-Free Standards</span>
+                        <a href="treatments.html" class="dropdown-footer-cta">Explore All Treatments →</a>
+                    </div>
+                </div>
+            </div>
             <a href="aftercare.html" class="nav-link">
                 <span>Aftercare</span>
                 <span class="blob-btn__inner" aria-hidden="true">
@@ -151,37 +387,62 @@
             <nav class="mobile-nav-links" aria-label="Mobile Navigation Links">
                 <a href="#home" class="mobile-nav-link active" data-index="0">
                     <span class="mobile-nav-icon">
-                        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                            <polyline points="9 22 9 12 15 12 15 22" />
+                        </svg>
                     </span>
                     <span class="mobile-nav-text">Home</span>
                     <span class="mobile-nav-arrow">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
                     </span>
                 </a>
                 <div class="mobile-nav-item-dropdown" data-index="1">
-                    <button type="button" class="mobile-nav-link mobile-dropdown-toggle" aria-expanded="false" aria-controls="mobileAboutSubmenu">
+                    <button type="button" class="mobile-nav-link mobile-dropdown-toggle" aria-expanded="false"
+                        aria-controls="mobileAboutSubmenu">
                         <span class="mobile-nav-icon">
-                            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                <circle cx="12" cy="7" r="4" />
+                            </svg>
                         </span>
                         <span class="mobile-nav-text">About Us</span>
                         <span class="mobile-nav-chevron">
-                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
                         </span>
                     </button>
                     <div class="mobile-dropdown-menu" id="mobileAboutSubmenu">
                         <a href="doctor.html" class="mobile-sub-link">
                             <div class="mobile-sub-content">
                                 <span class="mobile-sub-icon">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                                        <circle cx="12" cy="7" r="4" />
+                                    </svg>
                                 </span>
                                 <span class="mobile-sub-text">About</span>
                             </div>
                             <span class="mobile-sub-arrow">→</span>
                         </a>
-                        <a href="#team" class="mobile-sub-link">
+                        <a href="team.html" class="mobile-sub-link">
                             <div class="mobile-sub-content">
                                 <span class="mobile-sub-icon">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                        <circle cx="9" cy="7" r="4" />
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                    </svg>
                                 </span>
                                 <span class="mobile-sub-text">Our Team (Our Doctors)</span>
                             </div>
@@ -189,65 +450,328 @@
                         </a>
                     </div>
                 </div>
-                <a href="treatments.html" class="mobile-nav-link" data-index="2">
-                    <span class="mobile-nav-icon">
-                        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.5 2 6 4.5 6 8c0 4.5 2 9 3 13 1 1 2 1 3 0l1-5 1 5c1 1 2 1 3 0 1-4 3-8.5 3-13 0-3.5-3-6-7-6z"/></svg>
-                    </span>
-                    <span class="mobile-nav-text">Treatments</span>
-                    <span class="mobile-nav-arrow">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                    </span>
-                </a>
+                <div class="mobile-nav-item-dropdown" data-index="2">
+                    <button type="button" class="mobile-nav-link mobile-dropdown-toggle" aria-expanded="false"
+                        aria-controls="mobileTreatmentsSubmenu">
+                        <span class="mobile-nav-icon">
+                            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M12 2C8.5 2 6 4.5 6 8c0 4.5 2 9 3 13 1 1 2 1 3 0l1-5 1 5c1 1 2 1 3 0 1-4 3-8.5 3-13 0-3.5-3-6-7-6z" />
+                            </svg>
+                        </span>
+                        <span class="mobile-nav-text">Treatments</span>
+                        <span class="mobile-nav-chevron">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="mobile-dropdown-menu mobile-treatments-submenu" id="mobileTreatmentsSubmenu">
+                        <a href="treatments.html" class="mobile-sub-link mobile-sub-overview">
+                            <div class="mobile-sub-content">
+                                <span class="mobile-sub-icon">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="3" width="7" height="7"></rect>
+                                        <rect x="14" y="3" width="7" height="7"></rect>
+                                        <rect x="14" y="14" width="7" height="7"></rect>
+                                        <rect x="3" y="14" width="7" height="7"></rect>
+                                    </svg>
+                                </span>
+                                <span class="mobile-sub-text">All Treatments Overview</span>
+                            </div>
+                            <span class="mobile-sub-arrow">→</span>
+                        </a>
+                        <a href="treatments.html#digital-dentistry" class="mobile-sub-link">
+                            <div class="mobile-sub-content">
+                                <span class="mobile-sub-icon">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <line x1="2" y1="12" x2="22" y2="12" />
+                                        <path
+                                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10z" />
+                                    </svg>
+                                </span>
+                                <span class="mobile-sub-text">Digital Dentistry</span>
+                            </div>
+                            <span class="mobile-sub-arrow">→</span>
+                        </a>
+                        <a href="treatments.html#rct" class="mobile-sub-link">
+                            <div class="mobile-sub-content">
+                                <span class="mobile-sub-icon">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M12 2C8.5 2 6 4.5 6 8c0 4.5 2 9 3 13 1 1 2 1 3 0l1-5 1 5c1 1 2 1 3 0 1-4 3-8.5 3-13 0-3.5-3-6-7-6z" />
+                                        <line x1="12" y1="6" x2="12" y2="16" />
+                                    </svg>
+                                </span>
+                                <span class="mobile-sub-text">Root Canal Treatment (RCT)</span>
+                            </div>
+                            <span class="mobile-sub-arrow">→</span>
+                        </a>
+                        <a href="treatments.html#implants" class="mobile-sub-link">
+                            <div class="mobile-sub-content">
+                                <span class="mobile-sub-icon">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M12 2C8.5 2 6 4.5 6 8c0 4 2 8 3 11l1 3 1-3c1-3 3-7 3-11 0-3.5-2.5-6-6-6z" />
+                                        <line x1="9" y1="13" x2="15" y2="13" />
+                                        <line x1="9.5" y1="16" x2="14.5" y2="16" />
+                                    </svg>
+                                </span>
+                                <span class="mobile-sub-text">Dental Implants</span>
+                            </div>
+                            <span class="mobile-sub-arrow">→</span>
+                        </a>
+                        <a href="treatments.html#braces-aligners" class="mobile-sub-link">
+                            <div class="mobile-sub-content">
+                                <span class="mobile-sub-icon">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="8" width="18" height="8" rx="2" />
+                                        <line x1="8" y1="8" x2="8" y2="16" />
+                                        <line x1="16" y1="8" x2="16" y2="16" />
+                                    </svg>
+                                </span>
+                                <span class="mobile-sub-text">Orthodontics (Braces)</span>
+                            </div>
+                            <span class="mobile-sub-arrow">→</span>
+                        </a>
+                        <a href="treatments.html#stress-free-dentistry" class="mobile-sub-link">
+                            <div class="mobile-sub-content">
+                                <span class="mobile-sub-icon">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                    </svg>
+                                </span>
+                                <span class="mobile-sub-text">Stress-Free Dentistry</span>
+                            </div>
+                            <span class="mobile-sub-arrow">→</span>
+                        </a>
+                        <a href="treatments.html#childrens-dentistry" class="mobile-sub-link">
+                            <div class="mobile-sub-content">
+                                <span class="mobile-sub-icon">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M12 2C8.5 2 6 4.5 6 8c0 4.5 2 9 3 13 1 1 2 1 3 0l1-5 1 5c1 1 2 1 3 0 1-4 3-8.5 3-13 0-3.5-3-6-7-6z" />
+                                    </svg>
+                                </span>
+                                <span class="mobile-sub-text">Children's Dentistry</span>
+                            </div>
+                            <span class="mobile-sub-arrow">→</span>
+                        </a>
+                        <a href="treatments.html#fillings" class="mobile-sub-link">
+                            <div class="mobile-sub-content">
+                                <span class="mobile-sub-icon">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M12 2C8.5 2 6 4.5 6 8c0 4.5 2 9 3 13 1 1 2 1 3 0l1-5 1 5c1 1 2 1 3 0 1-4 3-8.5 3-13 0-3.5-3-6-7-6z" />
+                                        <circle cx="12" cy="7" r="2.5" />
+                                    </svg>
+                                </span>
+                                <span class="mobile-sub-text">Teeth Whitening &amp; Care</span>
+                            </div>
+                            <span class="mobile-sub-arrow">→</span>
+                        </a>
+                        <a href="treatments.html#cosmetic-dentistry" class="mobile-sub-link">
+                            <div class="mobile-sub-content">
+                                <span class="mobile-sub-icon">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polygon
+                                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                    </svg>
+                                </span>
+                                <span class="mobile-sub-text">Smile Makeover</span>
+                            </div>
+                            <span class="mobile-sub-arrow">→</span>
+                        </a>
+                        <a href="treatments.html#wisdom-tooth" class="mobile-sub-link">
+                            <div class="mobile-sub-content">
+                                <span class="mobile-sub-icon">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M12 2C8.5 2 6 4.5 6 8c0 4.5 2 9 3 13 1 1 2 1 3 0l1-5 1 5c1 1 2 1 3 0 1-4 3-8.5 3-13 0-3.5-3-6-7-6z" />
+                                        <path d="M16 4l4-2" />
+                                        <path d="M8 4L4 2" />
+                                    </svg>
+                                </span>
+                                <span class="mobile-sub-text">Wisdom Tooth Extraction</span>
+                            </div>
+                            <span class="mobile-sub-arrow">→</span>
+                        </a>
+                        <a href="treatments.html#crowns-bridges" class="mobile-sub-link">
+                            <div class="mobile-sub-content">
+                                <span class="mobile-sub-icon">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M12 2C8.5 2 6 4.5 6 8c0 4.5 2 9 3 13 1 1 2 1 3 0l1-5 1 5c1 1 2 1 3 0 1-4 3-8.5 3-13 0-3.5-3-6-7-6z" />
+                                    </svg>
+                                </span>
+                                <span class="mobile-sub-text">Fixed Teeth &amp; Crowns</span>
+                            </div>
+                            <span class="mobile-sub-arrow">→</span>
+                        </a>
+                        <a href="treatments.html#invisalign" class="mobile-sub-link">
+                            <div class="mobile-sub-content">
+                                <span class="mobile-sub-icon">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="8" width="18" height="8" rx="2" />
+                                        <line x1="8" y1="8" x2="8" y2="16" />
+                                        <line x1="16" y1="8" x2="16" y2="16" />
+                                    </svg>
+                                </span>
+                                <span class="mobile-sub-text">Invisalign &amp; Aligners</span>
+                            </div>
+                            <span class="mobile-sub-arrow">→</span>
+                        </a>
+                        <a href="treatments.html#laser-dentistry" class="mobile-sub-link">
+                            <div class="mobile-sub-content">
+                                <span class="mobile-sub-icon">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="12" y1="2" x2="12" y2="6" />
+                                        <line x1="12" y1="18" x2="12" y2="22" />
+                                        <line x1="4.93" y1="4.93" x2="7.76" y2="7.76" />
+                                        <line x1="16.24" y1="16.24" x2="19.07" y2="19.07" />
+                                        <line x1="2" y1="12" x2="6" y2="12" />
+                                        <line x1="18" y1="12" x2="22" y2="12" />
+                                    </svg>
+                                </span>
+                                <span class="mobile-sub-text">Laser Technology</span>
+                            </div>
+                            <span class="mobile-sub-arrow">→</span>
+                        </a>
+                        <a href="treatments.html#dentures" class="mobile-sub-link">
+                            <div class="mobile-sub-content">
+                                <span class="mobile-sub-icon">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="6" width="18" height="5" rx="2" />
+                                        <rect x="3" y="13" width="18" height="5" rx="2" />
+                                        <line x1="7" y1="6" x2="7" y2="11" />
+                                        <line x1="12" y1="6" x2="12" y2="11" />
+                                    </svg>
+                                </span>
+                                <span class="mobile-sub-text">Complete Dentures</span>
+                            </div>
+                            <span class="mobile-sub-arrow">→</span>
+                        </a>
+                        <a href="treatments.html#consulting-xray" class="mobile-sub-link">
+                            <div class="mobile-sub-content">
+                                <span class="mobile-sub-icon">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <line x1="2" y1="12" x2="22" y2="12" />
+                                        <path
+                                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10z" />
+                                    </svg>
+                                </span>
+                                <span class="mobile-sub-text">Consulting &amp; 3D X-Ray</span>
+                            </div>
+                            <span class="mobile-sub-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
                 <a href="aftercare.html" class="mobile-nav-link" data-index="3">
                     <span class="mobile-nav-icon">
-                        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
                     </span>
                     <span class="mobile-nav-text">Aftercare</span>
                     <span class="mobile-nav-arrow">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
                     </span>
                 </a>
                 <a href="#gallery" class="mobile-nav-link" data-index="4">
                     <span class="mobile-nav-icon">
-                        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <polyline points="21 15 16 10 5 21" />
+                        </svg>
                     </span>
                     <span class="mobile-nav-text">Gallery</span>
                     <span class="mobile-nav-arrow">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
                     </span>
                 </a>
                 <a href="#reviews" class="mobile-nav-link" data-index="5">
                     <span class="mobile-nav-icon">
-                        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon
+                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                        </svg>
                     </span>
                     <span class="mobile-nav-text">Reviews</span>
                     <span class="mobile-nav-arrow">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
                     </span>
                 </a>
                 <a href="#contact" class="mobile-nav-link" data-index="6">
                     <span class="mobile-nav-icon">
-                        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
                     </span>
                     <span class="mobile-nav-text">Contact</span>
                     <span class="mobile-nav-arrow">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
                     </span>
                 </a>
             </nav>
 
             <div class="mobile-menu-footer">
-                <a class="mobile-menu-cta" href="#contact" data-trigger="booking" aria-label="Book Appointment from Mobile Menu">
+                <a class="mobile-menu-cta" href="#contact" data-trigger="booking"
+                    aria-label="Book Appointment from Mobile Menu">
                     <span>Book Appointment</span>
                     <span class="btn-arrow">→</span>
                 </a>
                 <div class="mobile-quick-actions">
                     <a href="tel:+918870677523" class="mobile-action-pill" aria-label="Call Clinic Directly">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
                         <span>Call: +91 8870677523</span>
                     </a>
-                    <a href="https://wa.me/918870677523" target="_blank" rel="noopener noreferrer" class="mobile-action-pill mobile-action-wa" aria-label="Chat on WhatsApp">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 2C6.495 2 2 6.496 2 12.032c0 1.97.57 3.805 1.564 5.352L2.094 22l4.743-1.442A9.97 9.97 0 0 0 12.03 22c5.536 0 10.032-4.496 10.032-10.032C22.063 6.496 17.567 2 12.031 2z"/></svg>
+                    <a href="https://wa.me/918870677523" target="_blank" rel="noopener noreferrer"
+                        class="mobile-action-pill mobile-action-wa" aria-label="Chat on WhatsApp">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12.031 2C6.495 2 2 6.496 2 12.032c0 1.97.57 3.805 1.564 5.352L2.094 22l4.743-1.442A9.97 9.97 0 0 0 12.03 22c5.536 0 10.032-4.496 10.032-10.032C22.063 6.496 17.567 2 12.031 2z" />
+                        </svg>
                         <span>WhatsApp Chat</span>
                     </a>
                 </div>
@@ -616,42 +1140,8 @@
     </section>
 
     <!-- AFTERCARE TARGET ANCHOR -->
-    <div id="aftercare" class="nav-target-anchor" aria-hidden="true" style="position:relative;top:-90px;visibility:hidden;"></div>
-
-    <!-- OUR TEAM / DOCTORS SECTION -->
-    <section class="team-section" id="team" aria-label="Our Team of Doctors">
-        <div class="team-container">
-            <!-- Centered Heading -->
-            <div class="team-intro">
-                <span class="team-eyebrow">OUR DOCTORS</span>
-                <h2 class="team-heading">Meet Our Specialists</h2>
-            </div>
-
-            <!-- 2 Profile Cards -->
-            <div class="team-cards">
-                <!-- Card 1: Dr. Barath Balaji -->
-                <div class="team-card team-slide-left">
-                    <div class="team-card-photo">
-                        <img src="img/doctor.jpg" alt="Dr. Barath Balaji" class="team-card-img" loading="lazy">
-                    </div>
-                    <div class="team-card-info">
-                        <h3 class="team-card-name">Dr. Barath Balaji</h3>
-                    </div>
-                </div>
-
-                <!-- Card 2: Dr. Gayathri Balaji -->
-                <div class="team-card team-slide-right">
-                    <div class="team-card-photo">
-                        <img src="img/doctor-2-clean.jpg" alt="Dr. Gayathri Balaji"
-                            class="team-card-img team-card-img-gayathri" loading="lazy">
-                    </div>
-                    <div class="team-card-info">
-                        <h3 class="team-card-name">Dr. Gayathri Balaji</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div id="aftercare" class="nav-target-anchor" aria-hidden="true"
+        style="position:relative;top:-90px;visibility:hidden;"></div>
 
     <!-- OUR CLINIC — CLINICAL OUTCOMES (REAL PATIENT BEFORE & AFTER SHOWCASE) -->
     <section class="clinic-carousel-section" id="gallery" aria-label="Our Clinic – Real Patient Clinical Outcomes">
@@ -1256,16 +1746,23 @@
                             </svg>
                             <span class="form-success-title">Appointment Request Ready ✓</span>
                         </div>
-                        <p class="form-success-note">Your booking message is prepared for +91 8870677523. Choose your preferred option to continue:</p>
+                        <p class="form-success-note">Your booking message is prepared for +91 8870677523. Choose your
+                            preferred option to continue:</p>
                         <div class="form-wa-actions" id="formWaActions">
-                            <a href="https://wa.me/918870677523" class="form-wa-btn form-wa-app-btn" id="waOpenAppBtn" target="_blank" rel="noopener noreferrer">
-                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                            <a href="https://wa.me/918870677523" class="form-wa-btn form-wa-app-btn" id="waOpenAppBtn"
+                                target="_blank" rel="noopener noreferrer">
+                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                                 </svg>
                                 <span>Open app</span>
                             </a>
-                            <a href="https://web.whatsapp.com/send?phone=918870677523" class="form-wa-btn form-wa-web-btn" id="waContinueWebBtn" target="_blank" rel="noopener noreferrer">
-                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <a href="https://web.whatsapp.com/send?phone=918870677523"
+                                class="form-wa-btn form-wa-web-btn" id="waContinueWebBtn" target="_blank"
+                                rel="noopener noreferrer">
+                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                                     <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
                                     <line x1="8" y1="21" x2="16" y2="21"></line>
                                     <line x1="12" y1="17" x2="12" y2="21"></line>
@@ -1360,7 +1857,7 @@
                         <li><a href="doctor.html">About Us</a></li>
                         <li><a href="treatments.html">Dental Treatments</a></li>
                         <li><a href="aftercare.html">Aftercare Guide</a></li>
-                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="team.html">Our Team</a></li>
                         <li><a href="#reviews">Patient Reviews</a></li>
                         <li><a href="#contact">Contact &amp; Visit Us</a></li>
                         <li><a href="https://maps.app.goo.gl/dByS6ndvDBBxftf2A" target="_blank"
@@ -1486,7 +1983,8 @@
                 <div class="chat-msg-row chat-msg-bot">
                     <div class="chat-bubble chat-bubble-greeting">
                         <p class="greeting-text">
-                            Hello! 👋 Welcome to <strong>Balagam Dental and Medical Clinic</strong> in Porur, Chennai. How can our dental team assist you today?
+                            Hello! 👋 Welcome to <strong>Balagam Dental and Medical Clinic</strong> in Porur, Chennai.
+                            How can our dental team assist you today?
                         </p>
                         <span class="chat-msg-time" id="chatInitTime">Just now</span>
                     </div>
@@ -1527,8 +2025,10 @@
                         <!-- Option 5: Talk on WhatsApp -->
                         <button class="chat-action-btn chat-action-whatsapp" type="button" data-chat-action="whatsapp">
                             <span class="chat-action-icon">
-                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                                 </svg>
                             </span>
                             <span class="chat-action-text">Talk on WhatsApp</span>
@@ -1547,8 +2047,8 @@
                     placeholder="Type your question or message..." autocomplete="off" maxlength="300"
                     aria-label="Type your message">
                 <button class="quick-chat-send-btn" id="quickChatSendBtn" type="submit" aria-label="Send message">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                        stroke-linecap="round" stroke-linejoin="round">
                         <line x1="22" y1="2" x2="11" y2="13"></line>
                         <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                     </svg>

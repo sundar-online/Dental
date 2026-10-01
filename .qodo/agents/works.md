@@ -1,5 +1,34 @@
 # Work Log & Change History
 
+## [2026-10-01] - Team Inner Page Creation, Aftercare Menu Fix & Static Web Motion Rules
+
+### 1. Dedicated Team Inner Page (`team.html` & `team.css`)
+- **Visual Architecture**: Created dedicated Team inner page matching reference structure:
+  - Hero header with clinical cover image, dark navy to cyan overlay, eyebrow pill with animated cyan indicator dot, display heading, and breadcrumb.
+  - "Precision. Expertise. Excellence." introductory overview container.
+  - Alternating doctor profile cards (380px photo frame + content column on desktop, fluid 1-column on mobile).
+  - Floating experience badges anchored over the doctor photos with clean icon badges and stat counters (overriding global `right: 16px` leak with `right: auto; width: auto; max-width: calc(100% - 20px)` to ensure full text containment and centering without clipping).
+  - 2-column expertise checklist with custom checkmark icons and hover highlight interactions.
+  - Doctor clinical philosophy block with italic statement and subtle divider.
+  - Subtle background watermarks (tooth and caring hands motif) with slow ambient organic drift.
+  - Consultation CTA banner with primary and secondary appointment actions.
+  - Shared brand header with gooey blob animation, navigation dropdowns, mobile drawer, and comprehensive clinic footer.
+
+### 2. Aftercare Navbar Structure Fix (`aftercare.html`)
+- **Restored Broken Horizontal Menu**: Resolved missing `treatments-dropdown-footer` and closing `</div>` tags that swallowed `Aftercare`, `Gallery`, `Reviews`, and `Contact` into the Treatments dropdown.
+- **Synchronized Links**: Aligned active states and cross-page links across all site headers.
+
+### 3. Static Web Motion System (`static-web-motion.skill`)
+- **Hardware-Accelerated Properties**: Restricted all motion to `transform` and `opacity` with cubic-bezier easing (`cubic-bezier(0.16, 1, 0.3, 1)` and `cubic-bezier(0.34, 1.4, 0.64, 1)`).
+- **IntersectionObserver Reveal Engine**: Added zero-overhead scroll-reveal engine in `script.js` that immediately unobserves revealed elements for maximum 60fps performance.
+- **Ambient & Micro-Interactions**:
+  - Doctor row cards lift `translateY(-4px)` with shadow expansion and border highlight on hover.
+  - Doctor images scale smoothly (`scale(1.035)`).
+  - Floating badges run subtle ambient float animation, pausing and elevating on card hover.
+  - Expertise items slide `translateX(4px)` with icon scale.
+  - Consultation button arrow translates `translateX(4px)` on hover.
+- **Strict Accessibility**: Comprehensive `@media (prefers-reduced-motion: reduce)` block disables all entrance transforms, sets `opacity: 1 !important`, stops keyframes, and collapses transition durations.
+
 ## [2026-09-24] - Hero Section Alignment & Updated Treatment Cards Styling
 
 ### 1. Hero Section Alignment

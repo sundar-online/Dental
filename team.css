@@ -1,0 +1,923 @@
+/* ==========================================================================
+   BALAGAM DENTAL & MEDICAL CLINIC – TEAM INNER PAGE STYLES
+   Structure & visual architecture inspired by reference design
+   Static Web Motion & High-Performance Micro-Interactions Integrated
+   ========================================================================== */
+
+:root {
+    --motion-ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --motion-ease-out-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+    --motion-ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+    --motion-duration-fast: 220ms;
+    --motion-duration-normal: 400ms;
+    --motion-duration-reveal: 800ms;
+}
+
+/* --------------------------------------------------------------------------
+   Hero Section
+   -------------------------------------------------------------------------- */
+.team-hero {
+    position: relative;
+    padding: 140px 4.5vw 72px;
+    background: #0B1F3A;
+    background-image: linear-gradient(135deg, rgba(11, 31, 58, 0.92) 0%, rgba(0, 103, 182, 0.86) 60%, rgba(0, 199, 244, 0.80) 100%), url('img/clinic-2.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    overflow: hidden;
+    text-align: center;
+}
+
+.team-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 75% 30%, rgba(0, 199, 244, 0.18) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.team-hero-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.team-hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 18px;
+    border-radius: var(--radius-pill, 9999px);
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff;
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    margin-bottom: 18px;
+}
+
+.team-hero-eyebrow .eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #00D2FF;
+    box-shadow: 0 0 10px #00D2FF;
+    animation: pulseCyan 2s infinite ease-in-out;
+}
+
+@keyframes pulseCyan {
+    0%, 100% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.3); opacity: 1; }
+}
+
+.team-hero-title {
+    font-family: var(--font-serif, 'Cormorant Garamond', serif);
+    font-size: clamp(2.8rem, 6vw, 4.4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    margin: 0 0 16px;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.25);
+}
+
+.team-hero-desc {
+    max-width: 680px;
+    margin: 0 auto 22px;
+    font-size: clamp(14.5px, 1.25vw, 16.5px);
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+/* Breadcrumb */
+.team-breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.team-breadcrumb a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.team-breadcrumb a:hover {
+    color: #00D2FF;
+}
+
+.team-breadcrumb .breadcrumb-separator {
+    opacity: 0.5;
+}
+
+.team-breadcrumb .breadcrumb-current {
+    color: #00D2FF;
+}
+
+/* --------------------------------------------------------------------------
+   Top Introductory Section: Precision. Expertise. Excellence.
+   -------------------------------------------------------------------------- */
+.team-intro-section {
+    padding: 72px 4.5vw 48px;
+    background: #FFFFFF;
+    text-align: center;
+    position: relative;
+    border-bottom: 1px solid #EBF2F7;
+}
+
+.team-intro-container {
+    max-width: 920px;
+    margin: 0 auto;
+}
+
+.team-intro-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: var(--light-bg, #F3FAFE);
+    border: 1px solid var(--border, #DCEAF4);
+    border-radius: var(--radius-pill, 999px);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--primary-blue, #0067B6);
+    margin-bottom: 16px;
+}
+
+.team-intro-heading {
+    font-family: var(--font-serif, 'Cormorant Garamond', serif);
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--dark-navy, #09223A);
+    margin: 0 0 20px;
+    letter-spacing: -0.01em;
+}
+
+.team-intro-paragraph {
+    font-size: clamp(15px, 1.15vw, 17px);
+    line-height: 1.75;
+    color: var(--secondary-text, #5A7184);
+    margin: 0 auto;
+    max-width: 840px;
+}
+
+/* --------------------------------------------------------------------------
+   Main Team Members Layout
+   -------------------------------------------------------------------------- */
+.team-main-section {
+    padding: 70px 4.5vw 100px;
+    background: #FAFCFE;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Watermark Decorative Background (Hands holding tooth outline) */
+.team-watermark-bg {
+    position: absolute;
+    right: -60px;
+    top: 15%;
+    width: 380px;
+    height: 380px;
+    pointer-events: none;
+    opacity: 0.08;
+    z-index: 1;
+}
+
+.team-watermark-bg.watermark-alt {
+    top: 55%;
+    right: auto;
+    left: -70px;
+    transform: scaleX(-1);
+}
+
+.team-content-container {
+    max-width: 1180px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 90px;
+}
+
+/* --------------------------------------------------------------------------
+   Individual Doctor Card Structure (Alternating 2-Column Rows)
+   -------------------------------------------------------------------------- */
+.doctor-row-card {
+    background: #FFFFFF;
+    border-radius: 24px;
+    border: 1px solid #E5EEF5;
+    box-shadow: 0 10px 35px rgba(9, 34, 58, 0.05);
+    padding: 48px;
+    position: relative;
+    transition: transform 0.4s var(--motion-ease-out-expo), box-shadow 0.4s var(--motion-ease-out-expo), border-color 0.4s ease;
+}
+
+.doctor-row-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 48px rgba(9, 34, 58, 0.09);
+    border-color: #D3E6F3;
+}
+
+/* 2-Column Grid */
+.doctor-row-grid {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 52px;
+    align-items: start;
+}
+
+/* Alternating Reverse Row */
+.doctor-row-card.row-reverse .doctor-row-grid {
+    grid-template-columns: 1fr 380px;
+}
+
+.doctor-row-card.row-reverse .doctor-photo-col {
+    order: 2;
+}
+
+.doctor-row-card.row-reverse .doctor-info-col {
+    order: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Doctor Photo Column & Overlaid Floating Stat Badge
+   -------------------------------------------------------------------------- */
+.doctor-photo-col {
+    position: relative;
+}
+
+.doctor-photo-frame {
+    position: relative;
+    width: 100%;
+    height: 440px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #EBF2F7;
+    box-shadow: 0 12px 30px rgba(9, 34, 58, 0.08);
+    border: 1px solid #DCEAF4;
+}
+
+.doctor-photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.65s var(--motion-ease-out-expo);
+}
+
+.doctor-row-card:hover .doctor-photo-frame img {
+    transform: scale(1.035);
+}
+
+/* Floating Stat Badge at Bottom of Photo (Reference Design Feature) */
+.doctor-floating-badge {
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    right: auto !important;
+    transform: translateX(-50%);
+    width: auto !important;
+    max-width: calc(100% - 20px);
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 12px 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 10px 28px rgba(9, 34, 58, 0.12);
+    border: 1.5px solid #EBF5FC;
+    z-index: 3;
+    white-space: nowrap;
+    animation: ambientBadgeFloat 4.5s ease-in-out infinite;
+    transition: transform 0.4s var(--motion-ease-out-expo), box-shadow 0.4s var(--motion-ease-out-expo);
+}
+
+.doctor-row-card:hover .doctor-floating-badge {
+    animation-play-state: paused;
+    transform: translateX(-50%) translateY(-6px);
+    box-shadow: 0 16px 36px rgba(9, 34, 58, 0.18);
+}
+
+.floating-badge-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: #EBF7FE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-blue, #0067B6);
+    flex-shrink: 0;
+}
+
+.floating-badge-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    min-width: 0;
+}
+
+.floating-badge-number {
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--primary-blue, #0067B6);
+    line-height: 1.1;
+    font-family: var(--font-family, 'DM Sans', sans-serif);
+}
+
+.floating-badge-label {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--secondary-text, #5A7184);
+    letter-spacing: 0.02em;
+    line-height: 1.25;
+    white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   Doctor Information Column
+   -------------------------------------------------------------------------- */
+.doctor-info-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.doctor-eyebrow-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--primary-blue, #0067B6);
+    margin-bottom: 8px;
+}
+
+.doctor-card-name {
+    font-family: var(--font-serif, 'Cormorant Garamond', serif);
+    font-size: clamp(2rem, 3.2vw, 2.7rem);
+    font-weight: 700;
+    color: var(--dark-navy, #09223A);
+    line-height: 1.15;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+}
+
+.doctor-card-subtitle {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #4A6375;
+    margin: 0 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.doctor-bio-paragraphs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.doctor-bio-paragraphs p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #42586A;
+    margin: 0;
+}
+
+/* Areas of Expertise Sub-section */
+.doctor-expertise-block {
+    margin-top: 6px;
+    margin-bottom: 24px;
+}
+
+.expertise-heading {
+    font-size: 15.5px;
+    font-weight: 700;
+    color: var(--dark-navy, #09223A);
+    margin: 0 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.expertise-heading::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 16px;
+    background: var(--primary-blue, #0067B6);
+    border-radius: 2px;
+}
+
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 18px;
+}
+
+.expertise-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #2D4356;
+    transition: transform var(--motion-duration-fast) var(--motion-ease-out-expo), color var(--motion-duration-fast) ease;
+}
+
+.expertise-item:hover {
+    transform: translateX(4px);
+    color: var(--primary-blue, #0067B6);
+}
+
+.expertise-check-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: #00A6CE;
+    transition: transform var(--motion-duration-fast) var(--motion-ease-spring);
+}
+
+.expertise-item:hover .expertise-check-icon {
+    transform: scale(1.18);
+}
+
+/* --------------------------------------------------------------------------
+   Philosophy & Commitment Block (Spanning bottom of card)
+   -------------------------------------------------------------------------- */
+.doctor-philosophy-box {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px dashed #E0ECF5;
+    position: relative;
+}
+
+.philosophy-title {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--primary-blue, #0067B6);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.philosophy-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #E8F1F8;
+    max-width: 60px;
+}
+
+.philosophy-text {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: #556D7E;
+    font-style: italic;
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Bottom Consultation CTA Section
+   -------------------------------------------------------------------------- */
+.team-cta-section {
+    padding: 72px 4.5vw;
+    background: #FFFFFF;
+    position: relative;
+    border-top: 1px solid #EBF2F7;
+}
+
+.team-cta-banner {
+    max-width: 1180px;
+    margin: 0 auto;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #09223A 0%, #004D8A 50%, #0067B6 100%);
+    color: #FFFFFF;
+    padding: 56px 48px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(9, 34, 58, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.team-cta-banner::before {
+    content: '';
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 199, 244, 0.25) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.team-cta-content {
+    max-width: 640px;
+    position: relative;
+    z-index: 2;
+}
+
+.team-cta-eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #00D2FF;
+    margin-bottom: 12px;
+}
+
+.team-cta-title {
+    font-family: var(--font-serif, 'Cormorant Garamond', serif);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0 0 14px;
+    color: #FFFFFF;
+}
+
+.team-cta-desc {
+    font-size: 15.5px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.88);
+    margin: 0;
+}
+
+.team-cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.team-cta-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 32px;
+    border-radius: var(--radius-pill, 999px);
+    background: #00C7F4;
+    color: #09223A;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 18px rgba(0, 199, 244, 0.35);
+}
+
+.team-cta-btn-primary span:last-child {
+    display: inline-block;
+    transition: transform var(--motion-duration-fast) var(--motion-ease-out-expo);
+}
+
+.team-cta-btn-primary:hover {
+    background: #FFFFFF;
+    color: var(--primary-blue, #0067B6);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.25);
+}
+
+.team-cta-btn-primary:hover span:last-child {
+    transform: translateX(4px);
+}
+
+.team-cta-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: var(--radius-pill, 999px);
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    backdrop-filter: blur(6px);
+    transition: all 0.25s ease;
+}
+
+.team-cta-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.22);
+    color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    .doctor-row-card {
+        padding: 36px 32px;
+    }
+
+    .doctor-row-grid,
+    .doctor-row-card.row-reverse .doctor-row-grid {
+        grid-template-columns: 320px 1fr;
+        gap: 36px;
+    }
+
+    .doctor-photo-frame {
+        height: 380px;
+    }
+
+    .team-cta-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 40px 32px;
+    }
+
+    .team-cta-actions {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-hero {
+        padding: 120px 4.5vw 56px;
+    }
+
+    .team-intro-section {
+        padding: 56px 4.5vw 36px;
+    }
+
+    .team-main-section {
+        padding: 48px 4.5vw 72px;
+    }
+
+    .team-content-container {
+        gap: 60px;
+    }
+
+    .doctor-row-card {
+        padding: 28px 20px;
+        border-radius: 18px;
+    }
+
+    /* Stack to 1 column on tablet and mobile */
+    .doctor-row-grid,
+    .doctor-row-card.row-reverse .doctor-row-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .doctor-row-card.row-reverse .doctor-photo-col {
+        order: 1;
+    }
+
+    .doctor-row-card.row-reverse .doctor-info-col {
+        order: 2;
+    }
+
+    .doctor-photo-frame {
+        max-width: 360px;
+        height: 380px;
+        margin: 0 auto;
+    }
+
+    .expertise-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .doctor-floating-badge {
+        bottom: -14px;
+        padding: 10px 18px;
+        right: auto !important;
+        left: 50% !important;
+        transform: translateX(-50%);
+        width: auto !important;
+        max-width: calc(100% - 20px);
+    }
+
+    .team-cta-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .team-cta-btn-primary,
+    .team-cta-btn-secondary {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .doctor-photo-frame {
+        height: 320px;
+    }
+
+    .doctor-floating-badge {
+        padding: 9px 14px;
+        gap: 10px;
+        bottom: -12px;
+        border-radius: 14px;
+    }
+
+    .floating-badge-icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+    }
+
+    .floating-badge-icon svg {
+        width: 17px;
+        height: 17px;
+    }
+
+    .floating-badge-number {
+        font-size: 16px;
+    }
+
+    .floating-badge-label {
+        font-size: 10.5px;
+    }
+
+    .doctor-card-name {
+        font-size: 1.85rem;
+    }
+}
+
+/* ==========================================================================
+   STATIC WEB MOTION ENGINE & HARDWARE-ACCELERATED REVEAL SYSTEM
+   Governed by static-web-motion.skill rules
+   ========================================================================== */
+
+/* Base Reveal Element */
+.motion-reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity var(--motion-duration-reveal) var(--motion-ease-out-expo),
+                transform var(--motion-duration-reveal) var(--motion-ease-out-expo);
+    will-change: opacity, transform;
+}
+
+.motion-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Directional & Scale Variants */
+.motion-fade-up {
+    transform: translateY(32px);
+}
+.motion-fade-up.is-visible {
+    transform: translateY(0);
+}
+
+.motion-fade-left {
+    transform: translateX(-32px);
+}
+.motion-fade-left.is-visible {
+    transform: translateX(0);
+}
+
+.motion-fade-right {
+    transform: translateX(32px);
+}
+.motion-fade-right.is-visible {
+    transform: translateX(0);
+}
+
+.motion-scale-up {
+    transform: scale(0.95) translateY(18px);
+}
+.motion-scale-up.is-visible {
+    transform: scale(1) translateY(0);
+}
+
+/* Stagger Delay Utility Classes */
+.motion-delay-1 { transition-delay: 80ms; }
+.motion-delay-2 { transition-delay: 160ms; }
+.motion-delay-3 { transition-delay: 240ms; }
+.motion-delay-4 { transition-delay: 320ms; }
+.motion-delay-5 { transition-delay: 400ms; }
+.motion-delay-6 { transition-delay: 480ms; }
+
+/* Staggered Children for grids/lists */
+.motion-stagger > * {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 550ms var(--motion-ease-out-expo),
+                transform 550ms var(--motion-ease-out-expo);
+    will-change: opacity, transform;
+}
+
+.motion-stagger.is-visible > *:nth-child(1) { transition-delay: 60ms; }
+.motion-stagger.is-visible > *:nth-child(2) { transition-delay: 120ms; }
+.motion-stagger.is-visible > *:nth-child(3) { transition-delay: 180ms; }
+.motion-stagger.is-visible > *:nth-child(4) { transition-delay: 240ms; }
+.motion-stagger.is-visible > *:nth-child(5) { transition-delay: 300ms; }
+.motion-stagger.is-visible > *:nth-child(6) { transition-delay: 360ms; }
+.motion-stagger.is-visible > *:nth-child(7) { transition-delay: 420ms; }
+.motion-stagger.is-visible > *:nth-child(8) { transition-delay: 480ms; }
+
+.motion-stagger.is-visible > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ambient Floating Micro-Animation for Stat Badges */
+@keyframes ambientBadgeFloat {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-4px);
+    }
+}
+
+/* Watermark Subtle Organic Drift */
+@keyframes subtleWatermarkDrift {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-8px) rotate(1deg);
+    }
+}
+
+.team-watermark-bg {
+    animation: subtleWatermarkDrift 14s ease-in-out infinite;
+}
+
+.team-watermark-bg.watermark-alt {
+    animation: subtleWatermarkDrift 16s ease-in-out infinite reverse;
+}
+
+/* ==========================================================================
+   ACCESSIBILITY: PREFERS-REDUCED-MOTION
+   Strictly respect user preference by disabling/collapsing all motion
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .motion-reveal,
+    .motion-fade-up,
+    .motion-fade-left,
+    .motion-fade-right,
+    .motion-scale-up,
+    .motion-stagger > * {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        transition: none !important;
+        will-change: auto !important;
+    }
+
+    .doctor-floating-badge,
+    .team-watermark-bg,
+    .eyebrow-dot {
+        animation: none !important;
+    }
+
+    .doctor-row-card:hover .doctor-photo-frame img {
+        transform: none !important;
+    }
+
+    .doctor-row-card:hover,
+    .doctor-row-card:hover .doctor-floating-badge,
+    .team-cta-btn-primary:hover {
+        transform: none !important;
+    }
+}

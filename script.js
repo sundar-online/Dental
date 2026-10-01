@@ -534,7 +534,8 @@ if (appointmentForm) {
   const isDoctorPage = pathname.endsWith('doctor.html') || pathname.includes('/doctor');
   const isTreatmentsPage = pathname.endsWith('treatments.html') || pathname.includes('/treatments');
   const isAftercarePage = pathname.endsWith('aftercare.html') || pathname.includes('/aftercare');
-  const isHomePage = !isDoctorPage && !isTreatmentsPage && !isAftercarePage;
+  const isTeamPage = pathname.endsWith('team.html') || pathname.includes('/team');
+  const isHomePage = !isDoctorPage && !isTreatmentsPage && !isAftercarePage && !isTeamPage;
 
   function setActiveNav(key) {
     // A. Desktop Navigation
@@ -551,7 +552,7 @@ if (appointmentForm) {
         const href = (item.getAttribute('href') || '').toLowerCase();
         if (key === 'about' && href.includes('doctor.html')) {
           item.classList.add('active');
-        } else if (key === 'team' && href.includes('#team')) {
+        } else if (key === 'team' && (href.includes('team.html') || href.includes('#team'))) {
           item.classList.add('active');
         } else {
           item.classList.remove('active');
@@ -591,13 +592,16 @@ if (appointmentForm) {
       const href = (link.getAttribute('href') || '').toLowerCase();
       let mobileMatch = false;
 
+      const controls = (link.getAttribute('aria-controls') || '').toLowerCase();
       if (key === 'home' && (href === '#home' || href === 'index.html')) mobileMatch = true;
-      if (key === 'treatments' && href.includes('treatments.html')) mobileMatch = true;
+      if (key === 'treatments' && (href.includes('treatments.html') || controls.includes('treatments'))) {
+        mobileMatch = true;
+      }
       if (key === 'aftercare' && href.includes('aftercare.html')) mobileMatch = true;
       if (key === 'gallery' && href.includes('#gallery')) mobileMatch = true;
       if (key === 'reviews' && href.includes('#reviews')) mobileMatch = true;
       if (key === 'contact' && href.includes('#contact')) mobileMatch = true;
-      if ((key === 'about' || key === 'team') && (href.includes('doctor.html') || link.classList.contains('mobile-dropdown-toggle'))) {
+      if ((key === 'about' || key === 'team') && (href.includes('doctor.html') || controls.includes('about'))) {
         mobileMatch = true;
       }
 
@@ -616,6 +620,10 @@ if (appointmentForm) {
   }
   if (isAftercarePage) {
     setActiveNav('aftercare');
+    return;
+  }
+  if (isTeamPage) {
+    setActiveNav('team');
     return;
   }
 
@@ -1220,7 +1228,7 @@ if (appointmentForm) {
       rootMargin: '0px 0px -30px 0px'
     });
 
-    document.querySelectorAll('.reveal-up, .reveal-fade, .reveal-left, .reveal-right, .reveal-scale, .dr-slide-left, .dr-slide-right, .team-slide-left, .team-slide-right').forEach(el => {
+    document.querySelectorAll('.reveal-up, .reveal-fade, .reveal-left, .reveal-right, .reveal-scale, .dr-slide-left, .dr-slide-right, .team-slide-left, .team-slide-right, .team-slide-up').forEach(el => {
       revealObserver.observe(el);
     });
 
@@ -1233,7 +1241,7 @@ if (appointmentForm) {
       }
     });
   } else {
-    document.querySelectorAll('.reveal-up, .reveal-fade, .reveal-left, .reveal-right, .reveal-scale, .dr-slide-left, .dr-slide-right, .team-slide-left, .team-slide-right').forEach(el => {
+    document.querySelectorAll('.reveal-up, .reveal-fade, .reveal-left, .reveal-right, .reveal-scale, .dr-slide-left, .dr-slide-right, .team-slide-left, .team-slide-right, .team-slide-up').forEach(el => {
       el.classList.add('is-revealed');
     });
     counterElements.forEach(animateCounter);
@@ -1985,6 +1993,63 @@ document.addEventListener('click', function (e) {
   }
 });
 
+// ==========================================================================
+// STATIC WEB MOTION ENGINE (Hardware Accelerated & Zero Runtime Overhead)
+// Governed by static-web-motion.skill rules
+// ==========================================================================
+(function initStaticWebMotion() {
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
 
+  function runMotionObserver() {
+    const prefersReducedMotion =
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    const motionTargets = document.querySelectorAll(
+      '.motion-reveal, .motion-stagger, [data-motion]'
+    );
 
+    if (!motionTargets.length) return;
+
+    // Respect accessibility: immediately reveal if reduced motion is preferred
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+      motionTargets.forEach(function (el) {
+        el.classList.add('is-visible');
+      });
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            // Unobserve immediately after reveal so zero continuous observer overhead remains
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.1
+      }
+    );
+
+    motionTargets.forEach(function (target) {
+      // Check if already in viewport on load
+      const rect = target.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        target.classList.add('is-visible');
+      } else {
+        observer.observe(target);
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', runMotionObserver);
+  } else {
+    runMotionObserver();
+  }
+})();
