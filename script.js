@@ -244,18 +244,178 @@ window.addEventListener('keydown', (e) => {
 });
 
 // ==========================================================================
-// Appointment Booking Modal & Form Handling (Universal Cross-Browser)
+// Appointment Booking Modal & Form Handling (Universal Across All Pages)
 // ==========================================================================
-const appointmentModal = document.getElementById('appointmentModal');
-const modalCloseBtn = document.getElementById('modalCloseBtn');
-const modalBackdrop = document.getElementById('modalBackdrop');
-const appointmentForm = document.getElementById('appointmentForm');
-const formSuccessMsg = document.getElementById('formSuccessMsg');
-const appSubmitBtn = document.getElementById('appSubmitBtn');
+function ensureAppointmentModal() {
+  let modal = document.getElementById('appointmentModal');
+  if (modal) return modal;
 
-function openAppointmentModal() {
-  const modal = document.getElementById('appointmentModal');
+  const modalHtml = `
+    <div class="appointment-modal" id="appointmentModal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-backdrop" id="modalBackdrop"></div>
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <div class="modal-header-info">
+                    <span class="modal-eyebrow">Balagam Dental and Medical Clinic</span>
+                    <h3 class="modal-title">Schedule Your Consultation</h3>
+                    <p class="modal-subtitle">Porur, Chennai • Mon–Sat: 10 AM – 9 PM | Sun: 4 PM – 9 PM</p>
+                </div>
+                <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">✕</button>
+            </div>
+
+            <div class="modal-body">
+                <form class="appointment-form" id="appointmentForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="appFullName" class="form-label">Full Name *</label>
+                            <input type="text" id="appFullName" class="form-input" placeholder="e.g. Rahul Sharma" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="appPhone" class="form-label">Phone Number *</label>
+                            <input type="tel" id="appPhone" class="form-input" placeholder="e.g. +91 98765 43210" required>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="appTreatment" class="form-label">Treatment of Interest</label>
+                            <select id="appTreatment" class="form-input form-select">
+                                <option value="General Consultation & X-ray">General Consultation &amp; X-ray</option>
+                                <option value="RCT (Root Canal)">RCT (Root Canal)</option>
+                                <option value="Dental Implant Fixing">Dental Implant Fixing</option>
+                                <option value="Wisdom Tooth Extraction">Wisdom Tooth Extraction</option>
+                                <option value="Ceramic Crowns & Bridges">Ceramic Crowns &amp; Bridges</option>
+                                <option value="Laser Dentistry">Laser Dentistry</option>
+                                <option value="Braces & Aligners">Braces &amp; Aligners</option>
+                                <option value="Complete Dentures">Complete Dentures</option>
+                                <option value="Tooth Coloured Fillings">Tooth Coloured Fillings</option>
+                                <option value="Other">Other Enquiry</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="appDate" class="form-label">Preferred Date</label>
+                            <input type="date" id="appDate" class="form-input">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="appMessage" class="form-label">Additional Note or Symptoms (Optional)</label>
+                        <textarea id="appMessage" class="form-input form-textarea" rows="3"
+                            placeholder="Tell us if you have pain, need an evening slot, or have previous X-rays..."></textarea>
+                    </div>
+
+                    <button type="submit" class="button form-submit-btn" id="appSubmitBtn">
+                        <span>REQUEST APPOINTMENT</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+
+                    <div class="form-success-msg" id="formSuccessMsg" style="display: none;" role="alert">
+                        <div class="form-success-header">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <span class="form-success-title">Appointment Request Ready ✓</span>
+                        </div>
+                        <p class="form-success-note">Your booking message is prepared for +91 8870677523. Choose your
+                            preferred option to continue:</p>
+                        <div class="form-wa-actions" id="formWaActions">
+                            <a href="https://wa.me/918870677523" class="form-wa-btn form-wa-app-btn" id="waOpenAppBtn"
+                                target="_blank" rel="noopener noreferrer">
+                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                                </svg>
+                                <span>Open app</span>
+                            </a>
+                            <a href="https://web.whatsapp.com/send?phone=918870677523"
+                                class="form-wa-btn form-wa-web-btn" id="waContinueWebBtn" target="_blank"
+                                rel="noopener noreferrer">
+                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                                </svg>
+                                <span>Continue to WhatsApp Web</span>
+                            </a>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="modal-footer-call">
+                    <span>Prefer immediate booking?</span>
+                    <a href="tel:+918870677523" class="modal-call-link">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                            </path>
+                        </svg>
+                        <span>Call +91 88706 77523</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+  `;
+
+  document.body.insertAdjacentHTML('beforeend', modalHtml);
+  initAppointmentModal();
+  return document.getElementById('appointmentModal');
+}
+
+function selectTreatmentOption(hint) {
+  if (!hint) return;
+  const select = document.getElementById('appTreatment');
+  if (!select) return;
+  const lower = String(hint).toLowerCase();
+
+  let targetVal = '';
+  if (lower.includes('implant')) targetVal = 'Dental Implant Fixing';
+  else if (lower.includes('root canal') || lower.includes('rct')) targetVal = 'RCT (Root Canal)';
+  else if (lower.includes('wisdom')) targetVal = 'Wisdom Tooth Extraction';
+  else if (lower.includes('crown') || lower.includes('bridge')) targetVal = 'Ceramic Crowns & Bridges';
+  else if (lower.includes('laser')) targetVal = 'Laser Dentistry';
+  else if (lower.includes('brace') || lower.includes('align') || lower.includes('smile scan') || lower.includes('ortho')) targetVal = 'Braces & Aligners';
+  else if (lower.includes('denture')) targetVal = 'Complete Dentures';
+  else if (lower.includes('filling') || lower.includes('whiten')) targetVal = 'Tooth Coloured Fillings';
+  else if (lower.includes('consult') || lower.includes('x-ray') || lower.includes('doctor') || lower.includes('team')) targetVal = 'General Consultation & X-ray';
+
+  if (targetVal) {
+    select.value = targetVal;
+  }
+}
+
+function closeMobileMenuIfOpen() {
+  const drawer = document.getElementById('mobileMenuDrawer');
+  const backdrop = document.getElementById('mobileMenuBackdrop');
+  const hamburger = document.getElementById('hamburgerBtn');
+  if (drawer && drawer.classList.contains('open')) {
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+    if (backdrop) {
+      backdrop.classList.remove('open');
+      backdrop.setAttribute('aria-hidden', 'true');
+    }
+    if (hamburger) {
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+  }
+}
+
+function openAppointmentModal(treatmentHint) {
+  const modal = ensureAppointmentModal();
   if (!modal) return;
+
+  closeMobileMenuIfOpen();
+
+  if (treatmentHint) {
+    selectTreatmentOption(treatmentHint);
+  }
 
   modal.classList.add('open');
   modal.setAttribute('aria-hidden', 'false');
@@ -294,28 +454,27 @@ function closeAppointmentModal() {
   document.body.style.overflow = '';
 }
 
-// 1. Direct event attachment to all booking triggers
-const bookingSelectors = [
+// Global booking triggers selector
+const bookingSelectorsString = [
   '#bannerBookBtn',
   '#pillBookBtn',
   '.book-btn',
   '#navBookBtn',
   '#footerBookBtn',
   'a[href="#contact"].footer-highlight-link',
-  '[data-trigger="booking"]'
-];
+  'a[href="index.html#contact"].footer-highlight-link',
+  '[data-option="book"]',
+  '[data-trigger="booking"]',
+  'a[href="#appointment"]',
+  'a[href="#book"]',
+  '.doc-cta-primary',
+  '.team-cta-btn-primary',
+  '.treatment-btn-primary',
+  '.aftercare-card-cta',
+  '.mobile-menu-cta'
+].join(', ');
 
-bookingSelectors.forEach((selector) => {
-  document.querySelectorAll(selector).forEach((trigger) => {
-    trigger.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      openAppointmentModal();
-    });
-  });
-});
-
-// 2. Document-level delegation for 100% reliability across dynamic changes, touch devices, and nested spans
+// Document-level delegation for 100% reliability across dynamic changes, touch devices, and nested spans
 document.addEventListener('click', (e) => {
   // Close button trigger
   if (e.target.closest('#modalCloseBtn') || e.target.closest('.modal-close-btn')) {
@@ -334,40 +493,34 @@ document.addEventListener('click', (e) => {
   }
 
   // Any booking trigger
-  const trigger = e.target.closest('#bannerBookBtn, #pillBookBtn, .book-btn, #navBookBtn, #footerBookBtn, a[href="#contact"].footer-highlight-link, [data-option="book"], [data-trigger="booking"], a[href="#appointment"], a[href="#book"]');
+  const trigger = e.target.closest(bookingSelectorsString);
   if (trigger) {
     e.preventDefault();
     e.stopPropagation();
-    openAppointmentModal();
+    const hint = trigger.getAttribute('data-treatment') || trigger.innerText || '';
+    openAppointmentModal(hint);
   }
 });
-
-// Direct close bindings
-if (modalCloseBtn) {
-  modalCloseBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    closeAppointmentModal();
-  });
-}
-
-if (modalBackdrop) {
-  modalBackdrop.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    closeAppointmentModal();
-  });
-}
 
 // Escape key to close
 window.addEventListener('keydown', (e) => {
-  if ((e.key === 'Escape' || e.key === 'Esc') && appointmentModal?.classList.contains('open')) {
+  const modal = document.getElementById('appointmentModal');
+  if ((e.key === 'Escape' || e.key === 'Esc') && modal?.classList.contains('open')) {
     closeAppointmentModal();
   }
 });
 
-// Form submission & WhatsApp automation
-if (appointmentForm) {
+// Initialize form submission & WhatsApp automation inside modal
+function initAppointmentModal() {
+  const appointmentForm = document.getElementById('appointmentForm');
+  if (!appointmentForm || appointmentForm.dataset.bound === 'true') return;
+  appointmentForm.dataset.bound = 'true';
+
+  const appSubmitBtn = document.getElementById('appSubmitBtn');
+  const formSuccessMsg = document.getElementById('formSuccessMsg');
+  const waOpenAppBtn = document.getElementById('waOpenAppBtn');
+  const waContinueWebBtn = document.getElementById('waContinueWebBtn');
+
   // Reset submit state if user edits the form
   appointmentForm.addEventListener('input', () => {
     if (appSubmitBtn && appSubmitBtn.disabled) {
@@ -377,9 +530,6 @@ if (appointmentForm) {
       if (formSuccessMsg) formSuccessMsg.style.display = 'none';
     }
   });
-
-  const waOpenAppBtn = document.getElementById('waOpenAppBtn');
-  const waContinueWebBtn = document.getElementById('waContinueWebBtn');
 
   // Handle direct click on Open App button
   if (waOpenAppBtn) {
@@ -466,9 +616,7 @@ if (appointmentForm) {
     const encodedMessage = safeUrlEncode(messageText);
 
     // Both buttons share the exact same dynamically generated booking message:
-    // 1. WhatsApp app link (triggers mobile/desktop app)
     const appUrl = `https://wa.me/${clinicWhatsAppNumber}?text=${encodedMessage}`;
-    // 2. Direct WhatsApp Web chat link (bypasses broken intermediate redirects and prevents landing on homepage)
     const webUrl = `https://web.whatsapp.com/send?phone=${clinicWhatsAppNumber}&text=${encodedMessage}`;
 
     // Update both action buttons with the dynamically generated message
@@ -484,7 +632,6 @@ if (appointmentForm) {
     if (isMobile) {
       window.location.href = appUrl;
     } else {
-      // Desktop: directly open WhatsApp Web chat without broken intermediate redirect
       const win = window.open(webUrl, '_blank');
       if (!win) {
         window.location.href = webUrl;
@@ -504,6 +651,9 @@ if (appointmentForm) {
     }
   });
 }
+
+// Initial binding if modal is already in static HTML
+initAppointmentModal();
 
 // ==========================================================================
 // Navigation Active State Tracking & Smooth Spy
@@ -842,7 +992,6 @@ if (appointmentForm) {
   const prevBtn = document.getElementById('carouselPrev');
   const nextBtn = document.getElementById('carouselNext');
   const originalCards = Array.from(document.querySelectorAll('#reviewsCarouselTrack .review-card'));
-  const treatCards = document.querySelectorAll('.treatment-card');
 
   if (!track || !prevBtn || !nextBtn || !originalCards.length) return;
 
@@ -1034,30 +1183,6 @@ if (appointmentForm) {
     });
   });
 
-  treatCards.forEach(tCard => {
-    const handleClick = () => {
-      stopAutoByUser();
-      const type = tCard.getAttribute('data-treatment');
-      const sec = document.getElementById('reviews');
-      if (sec) {
-        sec.scrollIntoView({ behavior: 'smooth' });
-        setTimeout(() => {
-          const targetIdx = originalCards.findIndex(c => c.getAttribute('data-category') === type);
-          if (targetIdx !== -1) {
-            goToRealIndex(targetIdx);
-          }
-        }, 420);
-      }
-    };
-    tCard.addEventListener('click', handleClick);
-    tCard.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        handleClick();
-      }
-    });
-  });
-
   const AUTO_INTERVAL = 3800;
   let autoTimer = null;
 
@@ -1119,6 +1244,78 @@ if (appointmentForm) {
     }, { threshold: 0.15 });
     reviewsObserver.observe(reviewsSection);
   }
+})();
+
+// ==========================================================================
+// Dental Treatment Cards Navigation (Direct to Treatment Details on treatments.html)
+// ==========================================================================
+(function initTreatmentCardNavigation() {
+  const treatCards = document.querySelectorAll('.treatment-card');
+  if (!treatCards.length) return;
+
+  const treatmentUrlMap = {
+    'crowns': 'treatments.html#crowns-bridges',
+    'crowns-bridges': 'treatments.html#crowns-bridges',
+    'rct': 'treatments.html#rct',
+    'root-canal': 'treatments.html#rct',
+    'rootcanal': 'treatments.html#rct',
+    'wisdom': 'treatments.html#wisdom-tooth',
+    'wisdom-tooth': 'treatments.html#wisdom-tooth',
+    'implants': 'treatments.html#implants',
+    'dental-implants': 'treatments.html#implants',
+    'aligners': 'treatments.html#cosmetic-dentistry',
+    'cosmetic': 'treatments.html#cosmetic-dentistry',
+    'cosmetic-dentistry': 'treatments.html#cosmetic-dentistry',
+    'dentures': 'treatments.html#dentures',
+    'fillings': 'treatments.html#fillings',
+    'laser': 'treatments.html#laser-dentistry',
+    'laser-dentistry': 'treatments.html#laser-dentistry',
+    'digital': 'treatments.html#digital-dentistry',
+    'digital-dentistry': 'treatments.html#digital-dentistry',
+    'braces': 'treatments.html#braces-aligners',
+    'braces-aligners': 'treatments.html#braces-aligners',
+    'invisalign': 'treatments.html#invisalign',
+    'stress-free': 'treatments.html#stress-free-dentistry',
+    'stress-free-dentistry': 'treatments.html#stress-free-dentistry',
+    'childrens': 'treatments.html#childrens-dentistry',
+    'childrens-dentistry': 'treatments.html#childrens-dentistry',
+    'consulting-xray': 'treatments.html#consulting-xray'
+  };
+
+  treatCards.forEach(tCard => {
+    tCard.style.cursor = 'pointer';
+
+    function getTargetUrl() {
+      const explicitHref = tCard.getAttribute('data-href');
+      if (explicitHref) return explicitHref;
+      const type = (tCard.getAttribute('data-treatment') || '').toLowerCase().trim();
+      return treatmentUrlMap[type] || 'treatments.html';
+    }
+
+    tCard.addEventListener('click', (e) => {
+      // If clicking directly on an anchor inside the card, let default link handle it
+      if (e.target.closest('a')) return;
+      const targetUrl = getTargetUrl();
+      if (e.ctrlKey || e.metaKey || e.button === 1) {
+        window.open(targetUrl, '_blank');
+      } else {
+        window.location.href = targetUrl;
+      }
+    });
+
+    tCard.addEventListener('auxclick', (e) => {
+      if (e.button === 1) {
+        window.open(getTargetUrl(), '_blank');
+      }
+    });
+
+    tCard.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        window.location.href = getTargetUrl();
+      }
+    });
+  });
 })();
 
 // ==========================================================================

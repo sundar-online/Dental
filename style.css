@@ -90,7 +90,7 @@ body::-webkit-scrollbar,
 /* Display headings — Cormorant Garamond */
 h1, h2 {
     font-family: var(--font-serif);
-    color: var(--dark-navy);
+    color:white;
 }
 
 /* UI headings — DM Sans (card titles, labels, subheadings) */
@@ -6771,7 +6771,7 @@ button:active,
     }
 }
 /* -------------------------------------------------------
-   TEAM SECTION � 5-CARD GRID LAYOUT + CARD DETAILS
+   TEAM SECTION � 5-CARD GRID LAYOUT + CARD DETAILS
    ------------------------------------------------------- */
 
 /* Wider container for 5 cards */
