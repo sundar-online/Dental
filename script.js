@@ -1,3 +1,80 @@
+// ==========================================================================
+// Fullscreen Page Preloader & Smooth Navigation Transitions
+// ==========================================================================
+(function initPagePreloader() {
+  const preloader = document.getElementById('pagePreloader');
+  if (!preloader) return;
+
+  function hidePreloader() {
+    if (!preloader.classList.contains('is-hidden')) {
+      preloader.classList.remove('is-navigating');
+      preloader.classList.add('is-hidden');
+    }
+  }
+
+  function showPreloader() {
+    preloader.classList.remove('is-hidden');
+    preloader.classList.add('is-navigating');
+  }
+
+  // Dismiss preloader smoothly when page resources finish loading
+  if (document.readyState === 'complete') {
+    setTimeout(hidePreloader, 180);
+  } else {
+    window.addEventListener('load', () => {
+      setTimeout(hidePreloader, 220);
+    });
+  }
+
+  // Safety fallback: ensure preloader never blocks the user longer than 1.2s
+  setTimeout(hidePreloader, 1200);
+
+  // Instant reset when navigating back via browser history (bfcache)
+  window.addEventListener('pageshow', () => {
+    hidePreloader();
+  });
+
+  // Seamless Page Transitions when moving to the next page
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    if (!link) return;
+
+    const href = link.getAttribute('href');
+    if (!href) return;
+
+    // Ignore anchors on the same page, phone/whatsapp/email, new tabs, and external links
+    if (
+      href.startsWith('#') ||
+      href.startsWith('tel:') ||
+      href.startsWith('mailto:') ||
+      href.startsWith('javascript:') ||
+      link.getAttribute('target') === '_blank' ||
+      link.hasAttribute('download') ||
+      e.ctrlKey || e.metaKey || e.shiftKey || e.altKey
+    ) {
+      return;
+    }
+
+    try {
+      const targetUrl = new URL(link.href, window.location.href);
+      const currentUrl = new URL(window.location.href);
+
+      // Only transition if navigating to a different page within the same domain
+      if (
+        targetUrl.origin === currentUrl.origin &&
+        targetUrl.pathname !== currentUrl.pathname
+      ) {
+        e.preventDefault();
+        showPreloader();
+        setTimeout(() => {
+          window.location.href = link.href;
+        }, 220);
+      }
+    } catch (_) {
+      // Default navigation fallback
+    }
+  });
+})();
 
 // ==========================================================================
 // Quick Chat WhatsApp-Style Floating Widget
