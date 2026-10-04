@@ -284,9 +284,9 @@
 }
 
 .gallery-filter-btn.is-active {
-    background: var(--brand-royal-blue);
+    background: #CE3434;
     color: #FFFFFF;
-    box-shadow: 0 4px 14px var(--brand-royal-glow);
+    box-shadow: 0 4px 14px rgba(206, 52, 52, 0.35);
 }
 
 .filter-count {

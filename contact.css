@@ -553,13 +553,13 @@
 }
 
 .radio-slot-pill input[type="radio"] {
-    accent-color: var(--brand-royal-blue);
+    accent-color: #CE3434;
 }
 
 .radio-slot-pill:has(input[type="radio"]:checked) {
-    border-color: var(--brand-royal-blue);
-    background: var(--brand-royal-light);
-    color: var(--brand-royal-blue);
+    border-color: #CE3434;
+    background: rgba(206, 52, 52, 0.08);
+    color: #CE3434;
 }
 
 .form-buttons-row {

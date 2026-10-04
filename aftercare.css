@@ -212,9 +212,9 @@
 }
 
 .aftercare-service-item.is-active {
-    background: var(--light-blue, #E8F3FA);
-    border-color: rgba(0, 103, 182, 0.3);
-    color: var(--primary-blue, #0067B6);
+    background: rgba(206, 52, 52, 0.08);
+    border-color: #CE3434;
+    color: #CE3434;
     transform: translateX(4px);
 }
 
@@ -234,6 +234,7 @@
 
 .aftercare-service-item:hover .service-dot,
 .aftercare-service-item.is-active .service-dot {
+    background: #CE3434;
     opacity: 1;
     transform: scale(1.3);
 }
@@ -244,7 +245,8 @@
     transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.aftercare-service-item:hover .service-arrow {
+.aftercare-service-item:hover .service-arrow,
+.aftercare-service-item.is-active .service-arrow {
     color: #CE3434;
     transform: translateX(2px);
 }
@@ -382,14 +384,14 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: .14em;
-    color: var(--primary-blue, #0067B6);
+    color: #CE3434;
     margin-bottom: 8px;
 }
 
 .aftercare-intro-eyebrow-line {
     width: 18px;
     height: 2px;
-    background: var(--primary-blue, #0067B6);
+    background: #CE3434;
     border-radius: 2px;
 }
 
@@ -504,7 +506,7 @@
     width: 34px;
     height: 34px;
     border-radius: 10px;
-    background: var(--primary-blue, #0067B6);
+    background: #CE3434;
     color: #ffffff;
     display: flex;
     align-items: center;

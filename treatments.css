@@ -286,8 +286,8 @@
 .sidebar-count-badge {
     font-size: 11px;
     font-weight: 700;
-    color: var(--primary-blue, #0067B6);
-    background: #E8F3FA;
+    color: #CE3434;
+    background: rgba(206, 52, 52, 0.1);
     padding: 3px 9px;
     border-radius: var(--radius-pill, 9999px);
     letter-spacing: .04em;
@@ -327,10 +327,10 @@
 }
 
 .treatment-nav-item.is-active {
-    background: linear-gradient(135deg, #0067B6 0%, #004D8C 100%);
-    border-color: #0067B6;
+    background: linear-gradient(135deg, #CE3434 0%, #B82424 100%);
+    border-color: #CE3434;
     color: #ffffff;
-    box-shadow: 0 6px 20px rgba(0, 103, 182, 0.28);
+    box-shadow: 0 6px 20px rgba(206, 52, 52, 0.32);
     transform: translateX(4px);
 }
 
@@ -576,13 +576,13 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: .12em;
-    color: var(--primary-blue, #0067B6);
+    color: #CE3434;
 }
 
 .dept-badge-line {
     width: 20px;
     height: 2px;
-    background: var(--primary-blue, #0067B6);
+    background: #CE3434;
     border-radius: 2px;
 }
 
@@ -712,7 +712,7 @@
     width: 34px;
     height: 34px;
     border-radius: 10px;
-    background: var(--primary-blue, #0067B6);
+    background: #CE3434;
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -796,8 +796,8 @@
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    background: var(--light-blue, #E8F3FA);
-    color: var(--primary-blue, #0067B6);
+    background: rgba(206, 52, 52, 0.1);
+    color: #CE3434;
     font-size: 12px;
     font-weight: 800;
     display: flex;

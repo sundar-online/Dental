@@ -317,7 +317,7 @@
     display: inline-block;
     width: 28px;
     height: 2px;
-    background: var(--primary-blue);
+    background: #CE3434;
 }
 
 .doc-hero-heading {
@@ -334,7 +334,7 @@
 .doc-name-accent {
     font-family: var(--font-serif);
     font-style: italic;
-    color: var(--primary-blue);
+    color: #CE3434;
 }
 
 .doc-hero-subtitle {

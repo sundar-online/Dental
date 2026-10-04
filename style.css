@@ -317,8 +317,8 @@ a {
 }
 
 .dropdown-item.active {
-    background: var(--light-blue-tint);
-    color: var(--primary-blue);
+    background: rgba(206, 52, 52, 0.08);
+    color: #CE3434;
 }
 
 /* Ensure chevron on active/is-active pill matches white text */
@@ -664,17 +664,17 @@ a {
 }
 
 /* ==========================================================================
-   SOLID BALAGAM BLUE #0067B6 ACTIVE BUTTON WITH SMOOTH BLOB EFFECT
+   SOLID BALAGAM RED #CE3434 ACTIVE BUTTON WITH SMOOTH BLOB EFFECT
    ========================================================================== */
 .nav-link.active,
 .nav-link.is-active,
 .blob-btn.active,
 .blob-btn.is-active {
-    background-color: #0067B6 !important;
-    background: #0067B6 !important;
+    background-color: #CE3434 !important;
+    background: #CE3434 !important;
     color: #FFFFFF !important;
     border-radius: 30px !important;
-    box-shadow: 0 4px 16px rgba(0, 103, 182, 0.32) !important;
+    box-shadow: 0 4px 16px rgba(206, 52, 52, 0.35) !important;
     font-weight: 600;
 }
 
@@ -734,12 +734,12 @@ a {
 .blob-btn__blob:nth-child(3) { left: 60%; transition-delay: 0.16s; }
 .blob-btn__blob:nth-child(4) { left: 90%; transition-delay: 0.24s; }
 
-/* Active blob is original Balagam Blue, Hover blob is #CE3434 */
+/* Active and Hover blobs use Balagam Red #CE3434 */
 .blob-btn.active .blob-btn__blob,
 .blob-btn.is-active .blob-btn__blob,
 .nav-link.active .blob-btn__blob,
 .nav-link.is-active .blob-btn__blob {
-    background: #0067B6 !important;
+    background: #CE3434 !important;
 }
 
 .blob-btn:hover .blob-btn__blob,
@@ -1011,9 +1011,9 @@ a {
 }
 
 .mobile-nav-link.active {
-    background: var(--light-blue);
-    color: var(--primary-blue);
-    border-color: rgba(0, 103, 182, 0.22);
+    background: rgba(206, 52, 52, 0.08);
+    color: #CE3434;
+    border-color: rgba(206, 52, 52, 0.25);
 }
 
 .mobile-nav-icon {
@@ -1037,7 +1037,7 @@ a {
 }
 
 .mobile-nav-link.active .mobile-nav-icon {
-    background: var(--primary-blue);
+    background: #CE3434;
     color: #ffffff;
     transform: scale(1.08);
 }
@@ -1059,7 +1059,7 @@ a {
 }
 
 .mobile-nav-link.active .mobile-nav-arrow {
-    color: var(--primary-blue);
+    color: #CE3434;
     transform: translateX(4px);
 }
 
@@ -1151,9 +1151,9 @@ a {
 }
 
 .mobile-sub-link.active {
-    background: var(--light-blue);
-    color: var(--primary-blue);
-    border-color: rgba(0, 103, 182, 0.18);
+    background: rgba(206, 52, 52, 0.08);
+    color: #CE3434;
+    border-color: rgba(206, 52, 52, 0.25);
 }
 
 .mobile-sub-content {
@@ -1183,7 +1183,7 @@ a {
 }
 
 .mobile-sub-link.active .mobile-sub-icon {
-    background: var(--primary-blue);
+    background: #CE3434;
     color: #ffffff;
     transform: scale(1.06);
 }
@@ -1206,7 +1206,7 @@ a {
 }
 
 .mobile-sub-link.active .mobile-sub-arrow {
-    color: var(--primary-blue);
+    color: #CE3434;
     transform: translateX(3px);
 }
 
@@ -1514,7 +1514,7 @@ a {
 .intro-tag-accent {
     width: 24px;
     height: 1.5px;
-    background: var(--primary-blue);
+    background: #CE3434;
     display: inline-block;
 }
 
@@ -1669,8 +1669,8 @@ a {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: var(--primary-blue);
-    box-shadow: 0 0 0 3px rgba(0, 103, 182, 0.15);
+    background: #CE3434;
+    box-shadow: 0 0 0 3px rgba(206, 52, 52, 0.2);
     flex-shrink: 0;
 }
 
@@ -1918,7 +1918,7 @@ a {
     width: 28px;
     height: 2px;
     border-radius: 2px;
-    background: var(--primary-blue);
+    background: #CE3434;
     flex-shrink: 0;
 }
 
@@ -1934,7 +1934,7 @@ a {
 
 .clinic-video-heading-accent {
     font-style: italic;
-    color: var(--primary-blue);
+    color: #CE3434;
 }
 
 .clinic-video-desc {
@@ -2251,7 +2251,7 @@ a {
     display: inline-block;
     width: 28px;
     height: 2px;
-    background: var(--primary-blue);
+    background: #CE3434;
 }
 
 .dr-profile-heading {
@@ -2268,7 +2268,7 @@ a {
 .dr-name-accent {
     font-family: var(--font-serif);
     font-style: italic;
-    color: var(--primary-blue);
+    color: #CE3434;
 }
 
 .dr-profile-subtitle {
@@ -2308,13 +2308,28 @@ a {
     box-shadow: var(--shadow-card);
     flex: 1;
     min-width: 110px;
-    transition: box-shadow 0.25s ease, transform 0.25s ease;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, color 0.3s ease;
 }
 
 .dr-stat-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 24px rgba(206, 52, 52, 0.16);
-    border-color: #CE3434;
+    background: #CE3434 !important;
+    border-color: #CE3434 !important;
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(206, 52, 52, 0.35);
+}
+
+.dr-stat-card:hover .dr-stat-val {
+    color: #ffffff !important;
+}
+
+.dr-stat-card:hover .dr-stat-lbl {
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.dr-stat-card:hover .dr-stat-icon {
+    background: rgba(255, 255, 255, 0.22) !important;
+    color: #ffffff !important;
+    transform: scale(1.12) rotate(6deg);
 }
 
 .dr-stat-icon {
@@ -2327,6 +2342,7 @@ a {
     justify-content: center;
     color: var(--primary-blue);
     margin-bottom: 2px;
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
 }
 
 .dr-stat-val {
@@ -2336,6 +2352,7 @@ a {
     color: var(--dark-navy);
     letter-spacing: -.03em;
     line-height: 1;
+    transition: color 0.3s ease;
 }
 
 .dr-stat-lbl {
@@ -2345,6 +2362,7 @@ a {
     letter-spacing: .08em;
     color: var(--text-secondary);
     line-height: 1.4;
+    transition: color 0.3s ease;
 }
 
 /* CTAs */
@@ -2721,7 +2739,7 @@ a {
 .dr-associate-name em {
     font-family: var(--font-serif);
     font-style: italic;
-    color: var(--primary-blue);
+    color: #CE3434;
 }
 
 .dr-associate-role {
@@ -3141,6 +3159,46 @@ a {
     display: block;
 }
 
+/* Dedicated Treatments Page Link CTA — default blue background, turns Red on hover */
+.treatments-all-btn-wrap {
+    text-align: center;
+    margin-top: 36px;
+}
+
+.treatments-explore-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 28px;
+    background: var(--primary-blue) !important;
+    color: #ffffff !important;
+    border-radius: var(--radius-pill);
+    font-size: 12.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    text-decoration: none;
+    box-shadow: 0 4px 18px rgba(0, 103, 182, 0.25) !important;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+    cursor: pointer;
+}
+
+.treatments-explore-btn:hover,
+.treatments-all-btn-wrap a:hover {
+    background: #CE3434 !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(206, 52, 52, 0.35) !important;
+}
+
+.treatments-explore-btn .btn-arrow {
+    transition: transform 0.2s ease;
+}
+
+.treatments-explore-btn:hover .btn-arrow {
+    transform: translateX(4px);
+}
+
 /* ==========================================================================
    TREATMENTS GRID RESPONSIVE BREAKPOINTS
    ========================================================================== */
@@ -3191,7 +3249,7 @@ a {
 .tag-accent {
     width: 24px;
     height: 1.5px;
-    background: var(--primary-blue);
+    background: #CE3434;
     display: inline-block;
 }
 
@@ -3741,6 +3799,39 @@ a {
     display: none;
 }
 
+/* Gallery Explore CTA Button — original clinic blue background, turns Red on hover */
+.gallery-explore-all-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 30px;
+    background: #005CA9 !important;
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 0.92rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(0, 92, 169, 0.25) !important;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+    cursor: pointer;
+}
+
+.gallery-explore-all-btn:hover {
+    background: #CE3434 !important;
+    color: #ffffff !important;
+    box-shadow: 0 8px 22px rgba(206, 52, 52, 0.35) !important;
+    transform: translateY(-2px);
+}
+
+.gallery-explore-all-btn .gallery-btn-arrow {
+    transition: transform 0.2s ease;
+    font-size: 1.05rem;
+}
+
+.gallery-explore-all-btn:hover .gallery-btn-arrow {
+    transform: translateX(4px);
+}
+
 /* Responsive Breakpoints */
 @media (max-width: 992px) {
     .clinic-showcase-wrapper {
@@ -3997,8 +4088,9 @@ a {
    ========================================================================== */
 .reviews-section {
     padding: 100px 4.5vw;
-    background: var(--bg-soft);
-    border-top: 1px solid var(--border-color);
+    background: linear-gradient(180deg, #E0EEF9 0%, #D5EAF7 100%);
+    border-top: 1px solid #BEDAEF;
+    border-bottom: 1px solid #BEDAEF;
     position: relative;
 }
 
@@ -4080,12 +4172,12 @@ a {
 
 .reviews-carousel-wrap::before {
     left: 0;
-    background: linear-gradient(to right, var(--bg-soft) 20%, rgba(243, 250, 254, 0) 100%);
+    background: linear-gradient(to right, #DFEEF8 20%, rgba(223, 238, 248, 0) 100%);
 }
 
 .reviews-carousel-wrap::after {
     right: 0;
-    background: linear-gradient(to left, var(--bg-soft) 20%, rgba(243, 250, 254, 0) 100%);
+    background: linear-gradient(to left, #D5EAF7 20%, rgba(213, 234, 247, 0) 100%);
 }
 
 /* Prev / Next Arrow Buttons — positioned outside active card */
@@ -4866,7 +4958,7 @@ footer {
     display: inline-block;
     width: 36px;
     height: 1.5px;
-    background: var(--cyan);
+    background: #CE3434;
     border-radius: 2px;
 }
 
@@ -4882,7 +4974,7 @@ footer {
 }
 
 .contact-title-blue {
-    color: var(--primary-blue);
+    color: #CE3434;
     display: inline-block;
 }
 
@@ -6691,18 +6783,25 @@ html.modal-open {
 
 /* 4. DOCTOR SECTION TRACTION */
 .dr-stat-card {
-    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
     cursor: default;
 }
 .dr-stat-card:hover {
+    background: #CE3434 !important;
+    border-color: #CE3434 !important;
     transform: translateY(-5px);
-    box-shadow: 0 14px 30px rgba(206, 52, 52, 0.16);
-    border-color: #CE3434;
+    box-shadow: 0 14px 30px rgba(206, 52, 52, 0.35);
+}
+.dr-stat-card:hover .dr-stat-val {
+    color: #ffffff !important;
+}
+.dr-stat-card:hover .dr-stat-lbl {
+    color: rgba(255, 255, 255, 0.95) !important;
 }
 .dr-stat-card:hover .dr-stat-icon {
     transform: scale(1.12) rotate(6deg);
-    background: #CE3434;
-    color: #ffffff;
+    background: rgba(255, 255, 255, 0.22) !important;
+    color: #ffffff !important;
 }
 .dr-stat-icon {
     transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
