@@ -787,13 +787,39 @@
 
     <!-- HERO SECTION: CLIENT VIDEO ONLY -->
     <section class="hero" id="home" aria-label="Balagam Dental and Medical Clinic Video">
-        <video class="hero-video" id="heroVideo" src="img/Video.mp4" autoplay muted loop playsinline webkit-playsinline preload="none"
-            tabindex="-1" disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"></video>
+        <video class="hero-video" id="heroVideo" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="img/hero image.png"
+            tabindex="-1" disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback">
+            <source src="img/video.mp4" type="video/mp4">
+            <source src="img/Video.mp4" type="video/mp4">
+            <source src="img/video-optimized.mp4" type="video/mp4">
+        </video>
         <script>
             (function() {
                 var v = document.getElementById('heroVideo');
-                v.addEventListener('loadedmetadata', function() { v.playbackRate = 0.5; });
-                v.addEventListener('play', function() { v.playbackRate = 0.5; });
+                if (!v) return;
+                v.muted = true;
+                v.defaultMuted = true;
+                function applySlowSpeed() {
+                    try { v.playbackRate = 0.5; v.defaultPlaybackRate = 0.5; } catch(e) {}
+                }
+                v.addEventListener('loadedmetadata', applySlowSpeed);
+                v.addEventListener('play', applySlowSpeed);
+                v.addEventListener('playing', applySlowSpeed);
+                applySlowSpeed();
+                var p = v.play();
+                if (p && p.catch) {
+                    p.catch(function() {
+                        var playOnInteraction = function() {
+                            v.play();
+                            window.removeEventListener('click', playOnInteraction);
+                            window.removeEventListener('touchstart', playOnInteraction);
+                            window.removeEventListener('scroll', playOnInteraction);
+                        };
+                        window.addEventListener('click', playOnInteraction, { once: true, passive: true });
+                        window.addEventListener('touchstart', playOnInteraction, { once: true, passive: true });
+                        window.addEventListener('scroll', playOnInteraction, { once: true, passive: true });
+                    });
+                }
             })();
         </script>
     </section>
@@ -2101,7 +2127,7 @@
             <!-- Footer Bottom Bar -->
             <div class="footer-bottom-bar">
                 <div class="footer-credit">
-                    Balagam Dental and Medical Clinic &bull; Design by <a href="https://largtec.com/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline; text-underline-offset: 3px; font-weight: 600;">@Largtec</a> &copy; 2026
+                    Balagam Dental and Medical Clinic &bull; Developed by <a href="https://largtec.com/" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline; text-underline-offset: 3px; font-weight: 600;">@Largtec</a> &copy; 2026
                 </div>
                 <div class="footer-bottom-links">
                     <a href="#home" class="back-to-top" aria-label="Back to top of page">

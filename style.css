@@ -1447,8 +1447,7 @@ a {
     -webkit-user-select: none;
     border: none;
     outline: none;
-    opacity: 0;
-    animation: heroVideoFadeIn 0.8s ease forwards;
+    opacity: 1;
     transition: opacity 0.6s ease;
 }
 

@@ -217,11 +217,18 @@
     gap: 6px;
 }
 
-.treatments-pill-btn.is-active {
-    background: var(--primary-blue, #0067B6);
-    border-color: var(--primary-blue, #0067B6);
-    color: #ffffff;
-    box-shadow: 0 4px 14px rgba(0, 103, 182, 0.25);
+.treatments-pill-btn:not(.is-active):hover {
+    border-color: #CE3434;
+    color: #CE3434;
+    background: rgba(206, 52, 52, 0.06);
+}
+
+.treatments-pill-btn.is-active,
+.treatments-pill-btn.is-active:hover {
+    background: #CE3434 !important;
+    border-color: #CE3434 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px rgba(206, 52, 52, 0.32);
 }
 
 /* --------------------------------------------------------------------------
@@ -316,22 +323,23 @@
     user-select: none;
 }
 
-.treatment-nav-item:hover {
+.treatment-nav-item:not(.is-active):hover {
     background: rgba(206, 52, 52, 0.08);
     border-color: rgba(206, 52, 52, 0.35);
     transform: translateX(3px);
 }
 
-.treatment-nav-item:hover .treatment-item-name {
+.treatment-nav-item:not(.is-active):hover .treatment-item-name {
     color: #CE3434;
 }
 
-.treatment-nav-item.is-active {
-    background: linear-gradient(135deg, #CE3434 0%, #B82424 100%);
-    border-color: #CE3434;
-    color: #ffffff;
-    box-shadow: 0 6px 20px rgba(206, 52, 52, 0.32);
-    transform: translateX(4px);
+.treatment-nav-item.is-active,
+.treatment-nav-item.is-active:hover {
+    background: linear-gradient(135deg, #CE3434 0%, #B82424 100%) !important;
+    border-color: #CE3434 !important;
+    color: #ffffff !important;
+    box-shadow: 0 6px 22px rgba(206, 52, 52, 0.36) !important;
+    transform: translateX(4px) !important;
 }
 
 .treatment-item-left {
@@ -354,14 +362,15 @@
     transition: background 0.2s ease, color 0.2s ease;
 }
 
-.treatment-nav-item:hover .treatment-item-icon {
+.treatment-nav-item:not(.is-active):hover .treatment-item-icon {
     background: #CE3434;
     color: #ffffff;
 }
 
-.treatment-nav-item.is-active .treatment-item-icon {
-    background: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
+.treatment-nav-item.is-active .treatment-item-icon,
+.treatment-nav-item.is-active:hover .treatment-item-icon {
+    background: rgba(255, 255, 255, 0.22) !important;
+    color: #ffffff !important;
 }
 
 .treatment-item-meta {
@@ -377,6 +386,13 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: inherit;
+    transition: color 0.2s ease;
+}
+
+.treatment-nav-item.is-active .treatment-item-name,
+.treatment-nav-item.is-active:hover .treatment-item-name {
+    color: #ffffff !important;
 }
 
 .treatment-item-sub {
@@ -386,10 +402,12 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    transition: color 0.2s ease;
 }
 
-.treatment-nav-item.is-active .treatment-item-sub {
-    color: rgba(255, 255, 255, 0.82);
+.treatment-nav-item.is-active .treatment-item-sub,
+.treatment-nav-item.is-active:hover .treatment-item-sub {
+    color: rgba(255, 255, 255, 0.92) !important;
 }
 
 .treatment-item-arrow {
@@ -406,14 +424,15 @@
     transition: all 0.2s ease;
 }
 
-.treatment-nav-item:hover .treatment-item-arrow {
+.treatment-nav-item:not(.is-active):hover .treatment-item-arrow {
     color: #CE3434;
     transform: translateX(2px);
 }
 
-.treatment-nav-item.is-active .treatment-item-arrow {
-    background: rgba(255, 255, 255, 0.22);
-    color: #ffffff;
+.treatment-nav-item.is-active .treatment-item-arrow,
+.treatment-nav-item.is-active:hover .treatment-item-arrow {
+    background: rgba(255, 255, 255, 0.24) !important;
+    color: #ffffff !important;
     transform: translateX(2px);
 }
 
