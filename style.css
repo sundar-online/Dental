@@ -788,8 +788,8 @@ a {
 }
 
 .book-btn:hover {
-    background: var(--btn-blue);
-    color: #FFFFFF;
+    background: rgb(206, 52, 52);
+    color: #ffffff;
     transform: perspective(400px) translateY(-3px) rotate(-1.8deg) scale(1.04);
     box-shadow: 0 10px 24px rgba(0, 103, 182, 0.32);
 }

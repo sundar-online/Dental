@@ -7,11 +7,16 @@
     <title>Balagam Dental and Medical Clinic | Dr. Barath Balaji MDS &amp; Dr. Gayathri Balaji MS (ENT)</title>
     <link rel="icon" type="image/png" href="img/logo.png">
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    </noscript>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="team-slider.css">
 </head>
@@ -782,8 +787,15 @@
 
     <!-- HERO SECTION: CLIENT VIDEO ONLY -->
     <section class="hero" id="home" aria-label="Balagam Dental and Medical Clinic Video">
-        <video class="hero-video" src="img/video.mp4" autoplay muted loop playsinline webkit-playsinline preload="auto"
+        <video class="hero-video" id="heroVideo" src="img/Video.mp4" autoplay muted loop playsinline webkit-playsinline preload="none"
             tabindex="-1" disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"></video>
+        <script>
+            (function() {
+                var v = document.getElementById('heroVideo');
+                v.addEventListener('loadedmetadata', function() { v.playbackRate = 0.5; });
+                v.addEventListener('play', function() { v.playbackRate = 0.5; });
+            })();
+        </script>
     </section>
     <!-- PREMIUM DOCTOR PROFILE SECTION -->
     <section class="dr-profile-section" id="stack">
