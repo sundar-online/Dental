@@ -311,8 +311,8 @@ a {
 }
 
 .dropdown-item:hover {
-    background: var(--light-bg);
-    color: var(--primary-blue);
+    background: rgba(206, 52, 52, 0.08);
+    color: #CE3434;
     transform: translateX(3px);
 }
 
@@ -421,7 +421,7 @@ a {
 }
 
 .dropdown-view-all-link:hover {
-    color: var(--primary-blue-dark);
+    color: #CE3434;
     transform: translateX(3px);
 }
 
@@ -432,6 +432,7 @@ a {
 
 .dropdown-view-all-link:hover .dropdown-arrow {
     transform: translateX(2px);
+    color: #CE3434;
 }
 
 /* Two-column balanced treatment grid */
@@ -502,20 +503,20 @@ a {
 
 /* Hover effect on treatment items */
 .treatment-dropdown-item:hover {
-    background: #F3FAFE;
-    border-color: rgba(0, 103, 182, 0.16);
+    background: rgba(206, 52, 52, 0.06);
+    border-color: rgba(206, 52, 52, 0.2);
     transform: translateX(3px);
 }
 
 .treatment-dropdown-item:hover .item-icon-box {
-    background: var(--primary-blue);
+    background: #CE3434;
     color: #ffffff;
-    border-color: var(--primary-blue);
+    border-color: #CE3434;
     transform: scale(1.05);
 }
 
 .treatment-dropdown-item:hover .item-title {
-    color: var(--primary-blue);
+    color: #CE3434;
 }
 
 .treatments-dropdown-footer {
@@ -554,7 +555,7 @@ a {
 }
 
 .dropdown-footer-cta:hover {
-    color: var(--primary-blue-dark);
+    color: #CE3434;
     transform: translateX(3px);
 }
 
@@ -644,13 +645,13 @@ a {
 
 /* Inactive nav-link hover: subtle, preserves layout */
 .nav-link:not(.active):not(.is-active):hover {
-    color: var(--primary-blue, #0067B6);
-    background-color: rgba(0, 103, 182, 0.08);
+    color: #CE3434;
+    background-color: rgba(206, 52, 52, 0.08);
 }
 
 .nav-link:not(.active):not(.is-active):hover .dropdown-chevron {
-    color: var(--primary-blue, #0067B6);
-    stroke: var(--primary-blue, #0067B6);
+    color: #CE3434;
+    stroke: #CE3434;
 }
 
 /* Ensure text and SVG chevron stay on top of any animation */
@@ -713,7 +714,7 @@ a {
     top: 0;
     width: 35%;
     height: 100%;
-    background: linear-gradient(135deg, #004D8A 0%, #0077C8 45%, #00C7F4 100%);
+    background: #CE3434;
     border-radius: 100%;
     transform: translate3d(0, 150%, 0) scale(1.6);
     transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
@@ -732,6 +733,19 @@ a {
 .blob-btn__blob:nth-child(2) { left: 30%; transition-delay: 0.08s; }
 .blob-btn__blob:nth-child(3) { left: 60%; transition-delay: 0.16s; }
 .blob-btn__blob:nth-child(4) { left: 90%; transition-delay: 0.24s; }
+
+/* Active blob is original Balagam Blue, Hover blob is #CE3434 */
+.blob-btn.active .blob-btn__blob,
+.blob-btn.is-active .blob-btn__blob,
+.nav-link.active .blob-btn__blob,
+.nav-link.is-active .blob-btn__blob {
+    background: #0067B6 !important;
+}
+
+.blob-btn:hover .blob-btn__blob,
+.nav-link:hover .blob-btn__blob {
+    background: #CE3434 !important;
+}
 
 /* Active and Hover States fill smoothly */
 .blob-btn.active .blob-btn__blob,
@@ -791,7 +805,7 @@ a {
     background: rgb(206, 52, 52);
     color: #ffffff;
     transform: perspective(400px) translateY(-3px) rotate(-1.8deg) scale(1.04);
-    box-shadow: 0 10px 24px rgba(0, 103, 182, 0.32);
+    box-shadow: 0 10px 24px rgba(206, 52, 52, 0.35);
 }
 
 .book-btn:active {
@@ -830,9 +844,9 @@ a {
 }
 
 .hamburger-btn:hover {
-    background: var(--light-blue);
-    border-color: rgba(0, 103, 182, 0.3);
-    box-shadow: 0 4px 16px rgba(0, 103, 182, 0.16);
+    background: rgba(206, 52, 52, 0.08);
+    border-color: rgba(206, 52, 52, 0.4);
+    box-shadow: 0 4px 16px rgba(206, 52, 52, 0.2);
     transform: scale(1.04);
 }
 
@@ -991,9 +1005,9 @@ a {
 
 .mobile-nav-link:hover,
 .mobile-nav-link:active {
-    background: var(--light-blue);
-    color: var(--primary-blue);
-    border-color: rgba(0, 103, 182, 0.15);
+    background: rgba(206, 52, 52, 0.08);
+    color: #CE3434;
+    border-color: rgba(206, 52, 52, 0.25);
 }
 
 .mobile-nav-link.active {
@@ -1016,7 +1030,12 @@ a {
     transition: transform 0.25s ease, background 0.25s ease;
 }
 
-.mobile-nav-link:hover .mobile-nav-icon,
+.mobile-nav-link:hover .mobile-nav-icon {
+    background: #CE3434;
+    color: #ffffff;
+    transform: scale(1.08);
+}
+
 .mobile-nav-link.active .mobile-nav-icon {
     background: var(--primary-blue);
     color: #ffffff;
@@ -1034,7 +1053,11 @@ a {
     transition: transform 0.25s ease, color 0.25s ease;
 }
 
-.mobile-nav-link:hover .mobile-nav-arrow,
+.mobile-nav-link:hover .mobile-nav-arrow {
+    color: #CE3434;
+    transform: translateX(4px);
+}
+
 .mobile-nav-link.active .mobile-nav-arrow {
     color: var(--primary-blue);
     transform: translateX(4px);
@@ -1121,7 +1144,12 @@ a {
 }
 
 .mobile-sub-link:hover,
-.mobile-sub-link:active,
+.mobile-sub-link:active {
+    background: rgba(206, 52, 52, 0.08);
+    color: #CE3434;
+    border-color: rgba(206, 52, 52, 0.25);
+}
+
 .mobile-sub-link.active {
     background: var(--light-blue);
     color: var(--primary-blue);
@@ -1148,7 +1176,12 @@ a {
     transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
-.mobile-sub-link:hover .mobile-sub-icon,
+.mobile-sub-link:hover .mobile-sub-icon {
+    background: #CE3434;
+    color: #ffffff;
+    transform: scale(1.06);
+}
+
 .mobile-sub-link.active .mobile-sub-icon {
     background: var(--primary-blue);
     color: #ffffff;
@@ -1167,7 +1200,11 @@ a {
     transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.mobile-sub-link:hover .mobile-sub-arrow,
+.mobile-sub-link:hover .mobile-sub-arrow {
+    color: #CE3434;
+    transform: translateX(3px);
+}
+
 .mobile-sub-link.active .mobile-sub-arrow {
     color: var(--primary-blue);
     transform: translateX(3px);
@@ -1241,9 +1278,9 @@ a {
 
 .mobile-menu-cta:hover,
 .mobile-menu-cta:active {
-    background: var(--primary-blue);
+    background: #CE3434;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 103, 182, 0.28);
+    box-shadow: 0 8px 24px rgba(206, 52, 52, 0.35);
 }
 
 .mobile-quick-actions {
@@ -1271,8 +1308,8 @@ a {
 .mobile-action-pill:hover,
 .mobile-action-pill:active {
     background: #ffffff;
-    border-color: var(--primary-blue);
-    color: var(--primary-blue);
+    border-color: #CE3434;
+    color: #CE3434;
     transform: translateY(-1.5px);
 }
 
@@ -1282,8 +1319,8 @@ a {
 
 .mobile-action-wa:hover,
 .mobile-action-wa:active {
-    background: #25D366;
-    border-color: #25D366;
+    background: #CE3434;
+    border-color: #CE3434;
     color: #ffffff;
 }
 
@@ -1937,9 +1974,10 @@ a {
 
 .clinic-video-cta:hover {
     background: transparent;
-    color: var(--primary-blue);
+    color: #CE3434;
+    border-color: #CE3434;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 103, 182, 0.18);
+    box-shadow: 0 8px 24px rgba(206, 52, 52, 0.25);
 }
 
 .clinic-video-cta-arrow {
@@ -1949,6 +1987,7 @@ a {
 
 .clinic-video-cta:hover .clinic-video-cta-arrow {
     transform: translateX(4px);
+    color: #CE3434;
 }
 
 /* ── RIGHT: Video Frame ── */
@@ -2274,7 +2313,8 @@ a {
 
 .dr-stat-card:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 10px 24px rgba(206, 52, 52, 0.16);
+    border-color: #CE3434;
 }
 
 .dr-stat-icon {
@@ -2333,9 +2373,9 @@ a {
 }
 
 .dr-consult-btn:hover {
-    background: var(--primary-blue);
+    background: #CE3434;
     transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(0,103,182,0.22);
+    box-shadow: 0 8px 22px rgba(206, 52, 52, 0.35);
 }
 
 .dr-btn-arrow {
@@ -2372,7 +2412,7 @@ a {
 }
 
 .dr-video-btn:hover .dr-play-icon {
-    background: var(--primary-blue);
+    background: #CE3434;
     color: #ffffff;
     transform: scale(1.08);
 }
@@ -2737,7 +2777,8 @@ a {
 }
 
 .dr-assoc-cta:hover {
-    background: var(--primary-blue);
+    background: #CE3434;
+    border-color: #CE3434;
     color: #ffffff;
 }
 
@@ -2957,8 +2998,8 @@ a {
 }
 
 .treatment-card:hover {
-    box-shadow: 0 20px 42px -6px rgba(0, 103, 182, 0.18), 0 8px 20px rgba(9, 34, 58, 0.08);
-    border-color: rgba(0, 103, 182, 0.35);
+    box-shadow: 0 20px 42px -6px rgba(206, 52, 52, 0.22), 0 8px 20px rgba(9, 34, 58, 0.08);
+    border-color: #CE3434;
 }
 
 /* Specular Light/Magnetic Glare Overlay */
@@ -2969,8 +3010,8 @@ a {
     border-radius: inherit;
     background: radial-gradient(
         circle 220px at var(--magnetic-glare-x, 50%) var(--magnetic-glare-y, 50%),
-        rgba(0, 199, 244, 0.16),
-        rgba(0, 103, 182, 0.04) 40%,
+        rgba(206, 52, 52, 0.16),
+        rgba(206, 52, 52, 0.04) 40%,
         transparent 80%
     );
     opacity: 0;
@@ -3028,7 +3069,7 @@ a {
 }
 
 .treatment-card:hover .treatment-card-badge {
-    background: var(--primary-blue);
+    background: #CE3434;
     color: #ffffff;
     transform: scale(1.06);
 }
@@ -3091,7 +3132,7 @@ a {
 }
 
 .treatment-card:hover .treatment-arrow-btn {
-    background: var(--primary-blue);
+    background: #CE3434;
     color: #ffffff;
     transform: translateX(3px);
 }
@@ -3249,7 +3290,8 @@ a {
 .team-card.team-slide-left.is-revealed:hover,
 .team-card.team-slide-right.is-revealed:hover {
     transform: translateY(-7px) !important;
-    box-shadow: 0 16px 42px rgba(0, 103, 182, 0.15);
+    box-shadow: 0 16px 42px rgba(206, 52, 52, 0.2);
+    border-color: rgba(206, 52, 52, 0.4);
 }
 
 /* Portrait area: 420px wide × 400px tall */
@@ -3470,10 +3512,10 @@ a {
 }
 
 .clinic-arrow-btn:hover {
-    background: var(--cyan);
-    color: #072238;
-    border-color: var(--cyan);
-    box-shadow: 0 6px 22px rgba(0, 199, 244, 0.5);
+    background: #CE3434;
+    color: #ffffff;
+    border-color: #CE3434;
+    box-shadow: 0 6px 22px rgba(206, 52, 52, 0.4);
     transform: scale(1.08);
 }
 
@@ -3539,7 +3581,7 @@ a {
 .clinic-featured-case:hover {
     transform: translateY(-3px);
     box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45);
-    border-color: var(--cyan);
+    border-color: #CE3434;
 }
 
 .clinic-featured-case:hover .clinic-case-img {
@@ -3641,7 +3683,7 @@ a {
 .clinic-grid-case:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
-    border-color: rgba(0, 199, 244, 0.5);
+    border-color: #CE3434;
 }
 
 .clinic-grid-case:hover .clinic-case-img {
@@ -3790,9 +3832,9 @@ a {
 
     .clinic-mobile-nav-btn:hover,
     .clinic-mobile-nav-btn:active {
-        background: var(--primary-blue, #0067b6);
+        background: #CE3434;
         color: #ffffff;
-        border-color: var(--primary-blue, #0067b6);
+        border-color: #CE3434;
     }
 
     .clinic-mobile-counter {
@@ -3940,7 +3982,8 @@ a {
 }
 
 .lightbox-close:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: #CE3434;
+    color: #ffffff;
     transform: scale(1.1);
 }
 
@@ -4068,10 +4111,10 @@ a {
 }
 
 .carousel-nav-btn:hover {
-    background: var(--btn-blue);
-    border-color: var(--btn-blue);
+    background: #CE3434;
+    border-color: #CE3434;
     color: #FFFFFF;
-    box-shadow: 0 8px 22px rgba(0, 103, 182, 0.28);
+    box-shadow: 0 8px 22px rgba(206, 52, 52, 0.35);
     transform: translateY(-50%) scale(1.08);
 }
 
@@ -4312,10 +4355,10 @@ a {
 }
 
 .reviews-cta-btn:hover {
-    background: var(--btn-blue);
+    background: #CE3434;
     color: #FFFFFF;
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(0, 103, 182, 0.22);
+    box-shadow: 0 6px 18px rgba(206, 52, 52, 0.35);
 }
 
 /* Reviews / Carousel Responsive Breakpoints */
@@ -4431,7 +4474,7 @@ a {
 .highlight-item:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
-    border-color: var(--primary-blue);
+    border-color: #CE3434;
 }
 
 .highlight-icon {
@@ -4594,7 +4637,7 @@ a {
 
 .about-sub-card:hover {
     transform: translateY(-3px);
-    border-color: var(--primary-blue);
+    border-color: #CE3434;
 }
 
 .sub-card-header {
@@ -4881,8 +4924,8 @@ footer {
 
 .contact-pill-card:hover {
     transform: perspective(400px) translateY(-3px) rotate(-1deg) scale(1.02);
-    border-color: var(--primary-blue);
-    box-shadow: 0 8px 24px rgba(0, 103, 182, 0.14);
+    border-color: #CE3434;
+    box-shadow: 0 8px 24px rgba(206, 52, 52, 0.2);
 }
 
 .pill-icon-wrap {
@@ -4962,9 +5005,9 @@ footer {
 }
 
 .contact-btn-dark:hover {
-    background: var(--primary-blue-dark);
+    background: #CE3434;
     transform: perspective(400px) translateY(-3px) rotate(-1.8deg) scale(1.04);
-    box-shadow: 0 10px 26px rgba(0, 103, 182, 0.4);
+    box-shadow: 0 10px 26px rgba(206, 52, 52, 0.4);
 }
 
 .contact-btn-dark:active {
@@ -4999,9 +5042,9 @@ footer {
 }
 
 .contact-btn-outline:hover {
-    border-color: var(--primary-blue);
-    color: var(--primary-blue);
-    background: rgba(0, 103, 182, 0.06);
+    border-color: #CE3434;
+    color: #CE3434;
+    background: rgba(206, 52, 52, 0.08);
     transform: perspective(400px) translateY(-2px) rotate(1.2deg) scale(1.02);
 }
 
@@ -5041,21 +5084,23 @@ footer {
 }
 
 .contact-social-pill:hover {
+    background: #CE3434;
+    border-color: #CE3434;
     color: #ffffff;
 }
 
 .contact-social-insta:hover {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    border-color: transparent;
+    background: #CE3434;
+    border-color: #CE3434;
     transform: perspective(400px) translateY(-4px) rotate(-10deg) scale(1.14);
-    box-shadow: 0 6px 18px rgba(220, 39, 67, 0.4);
+    box-shadow: 0 6px 18px rgba(206, 52, 52, 0.45);
 }
 
 .contact-social-fb:hover {
-    background: #1877F2;
-    border-color: #1877F2;
+    background: #CE3434;
+    border-color: #CE3434;
     transform: perspective(400px) translateY(-4px) rotate(10deg) scale(1.14);
-    box-shadow: 0 6px 18px rgba(24, 119, 242, 0.4);
+    box-shadow: 0 6px 18px rgba(206, 52, 52, 0.45);
 }
 
 .contact-social-pill:active {
@@ -5273,7 +5318,7 @@ html.modal-open {
 }
 
 .modal-close-btn:hover {
-    background: #0f1f2d;
+    background: #CE3434;
     color: #ffffff;
 }
 
@@ -5355,9 +5400,9 @@ html.modal-open {
 }
 
 .form-submit-btn:hover {
-    background: var(--primary-blue);
+    background: #CE3434;
     transform: perspective(400px) translateY(-3px) rotate(-1.5deg) scale(1.03);
-    box-shadow: 0 10px 24px rgba(0, 103, 182, 0.35);
+    box-shadow: 0 10px 24px rgba(206, 52, 52, 0.38);
 }
 
 .form-submit-btn:active {
@@ -5434,10 +5479,10 @@ html.modal-open {
 }
 
 .form-wa-app-btn:hover {
-    background: #1eb956;
+    background: #CE3434;
     color: #ffffff;
     transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+    box-shadow: 0 6px 16px rgba(206, 52, 52, 0.38);
 }
 
 .form-wa-web-btn {
@@ -5448,11 +5493,11 @@ html.modal-open {
 }
 
 .form-wa-web-btn:hover {
-    background: #f8fafc;
-    border-color: #94a3b8;
-    color: var(--primary-blue);
+    background: rgba(206, 52, 52, 0.08);
+    border-color: #CE3434;
+    color: #CE3434;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 103, 182, 0.15);
+    box-shadow: 0 4px 12px rgba(206, 52, 52, 0.15);
 }
 
 .modal-footer-call {
@@ -5476,6 +5521,7 @@ html.modal-open {
 }
 
 .modal-call-link:hover {
+    color: #CE3434;
     text-decoration: underline;
 }
 
@@ -5691,7 +5737,7 @@ html.modal-open {
 }
 
 .footer-links-list li a:hover {
-    color: var(--primary-blue);
+    color: #CE3434;
     transform: translateX(3px);
 }
 
@@ -5701,7 +5747,7 @@ html.modal-open {
 }
 
 .footer-links-list li a.footer-highlight-link:hover {
-    color: var(--light-blue);
+    color: #CE3434;
 }
 
 /* Info Column */
@@ -5800,21 +5846,23 @@ html.modal-open {
 }
 
 .footer-social-btn:hover {
+    background: #CE3434;
+    border-color: #CE3434;
     color: #ffffff;
 }
 
 .footer-social-insta:hover {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    border-color: transparent;
+    background: #CE3434;
+    border-color: #CE3434;
     transform: perspective(400px) translateY(-4px) rotate(-10deg) scale(1.14);
-    box-shadow: 0 8px 22px rgba(220, 39, 67, 0.5);
+    box-shadow: 0 8px 22px rgba(206, 52, 52, 0.45);
 }
 
 .footer-social-fb:hover {
-    background: #1877F2;
-    border-color: #1877F2;
+    background: #CE3434;
+    border-color: #CE3434;
     transform: perspective(400px) translateY(-4px) rotate(10deg) scale(1.14);
-    box-shadow: 0 8px 22px rgba(24, 119, 242, 0.5);
+    box-shadow: 0 8px 22px rgba(206, 52, 52, 0.45);
 }
 
 .footer-social-btn:active {
@@ -5834,7 +5882,7 @@ html.modal-open {
 }
 
 .footer-map-link:hover {
-    color: #ffffff;
+    color: #CE3434;
     transform: translateX(3px);
 }
 
@@ -5870,7 +5918,7 @@ html.modal-open {
 }
 
 .back-to-top:hover {
-    color: var(--primary-blue);
+    color: #CE3434;
     transform: translateY(-2px);
 }
 
@@ -5934,8 +5982,8 @@ html.modal-open {
 
 .quick-help-btn:hover {
     transform: scale(1.08);
-    background: #20ba59;
-    box-shadow: 0 10px 28px rgba(37, 211, 102, 0.48);
+    background: #CE3434;
+    box-shadow: 0 10px 28px rgba(206, 52, 52, 0.48);
 }
 
 .quick-help-btn:active {
@@ -6169,7 +6217,8 @@ html.modal-open {
 }
 
 .chat-header-close:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: #CE3434;
+    color: #ffffff;
     transform: scale(1.05);
 }
 
@@ -6323,8 +6372,8 @@ html.modal-open {
 }
 
 .chat-action-btn:hover {
-    background: var(--light-blue);
-    border-color: rgba(0, 103, 182, 0.3);
+    background: rgba(206, 52, 52, 0.08);
+    border-color: rgba(206, 52, 52, 0.35);
     transform: translateX(2px);
 }
 
@@ -6353,7 +6402,7 @@ html.modal-open {
 
 .chat-action-btn:hover .chat-action-arrow {
     transform: translateX(2px);
-    color: var(--primary-blue);
+    color: #CE3434;
 }
 
 /* Specific Action Highlights */
@@ -6432,7 +6481,7 @@ html.modal-open {
 }
 
 .chat-map-action-btn:hover {
-    background: var(--btn-dark);
+    background: #CE3434;
     color: #FFFFFF;
     transform: translateY(-1px);
 }
@@ -6496,7 +6545,7 @@ html.modal-open {
 }
 
 .quick-chat-send-btn:hover {
-    background: #25D366;
+    background: #CE3434;
     transform: scale(1.05);
 }
 
@@ -6626,8 +6675,8 @@ html.modal-open {
 }
 .hero-feature-pill:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 24px rgba(0, 103, 182, 0.12);
-    border-color: rgba(0, 103, 182, 0.3);
+    box-shadow: 0 10px 24px rgba(206, 52, 52, 0.16);
+    border-color: #CE3434;
 }
 
 .hero-composite-img {
@@ -6647,12 +6696,12 @@ html.modal-open {
 }
 .dr-stat-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 14px 30px rgba(0, 103, 182, 0.12);
-    border-color: rgba(0, 103, 182, 0.35);
+    box-shadow: 0 14px 30px rgba(206, 52, 52, 0.16);
+    border-color: #CE3434;
 }
 .dr-stat-card:hover .dr-stat-icon {
     transform: scale(1.12) rotate(6deg);
-    background: var(--primary-blue);
+    background: #CE3434;
     color: #ffffff;
 }
 .dr-stat-icon {
@@ -6693,7 +6742,7 @@ html.modal-open {
 }
 .treatment-card:hover .treatment-card-badge {
     transform: scale(1.1) rotate(6deg);
-    box-shadow: 0 6px 18px rgba(0, 103, 182, 0.25);
+    box-shadow: 0 6px 18px rgba(206, 52, 52, 0.3);
 }
 
 /* 6. CONTACT SECTION TRACTION */
@@ -6702,8 +6751,8 @@ html.modal-open {
 }
 .contact-pill-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(0, 103, 182, 0.12);
-    border-color: rgba(0, 103, 182, 0.3);
+    box-shadow: 0 12px 28px rgba(206, 52, 52, 0.18);
+    border-color: #CE3434;
 }
 .contact-pill-card:hover .pill-icon-wrap {
     transform: scale(1.12);
@@ -6728,7 +6777,7 @@ html.modal-open {
 }
 .quick-help-btn:hover {
     transform: scale(1.08) rotate(4deg);
-    box-shadow: 0 8px 24px rgba(0, 103, 182, 0.35);
+    box-shadow: 0 8px 24px rgba(206, 52, 52, 0.45);
 }
 
 /* 8. NAVBAR SCROLLED STATE TRACTION */

@@ -116,7 +116,7 @@
 
 .about-breadcrumb a:hover,
 .aftercare-breadcrumb a:hover {
-    color: #00D2FF;
+    color: #CE3434;
 }
 
 .about-breadcrumb .breadcrumb-separator,
@@ -388,10 +388,10 @@
 }
 
 .doc-cta-primary:hover {
-    background: var(--primary-blue);
+    background: #CE3434;
     color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(0, 103, 182, 0.22);
+    box-shadow: 0 8px 22px rgba(206, 52, 52, 0.35);
 }
 
 .doc-cta-primary .btn-arrow {
@@ -420,11 +420,11 @@
 }
 
 .doc-cta-whatsapp:hover {
-    background: #25D366;
+    background: #CE3434;
     color: #ffffff;
-    border-color: #25D366;
+    border-color: #CE3434;
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.22);
+    box-shadow: 0 6px 18px rgba(206, 52, 52, 0.35);
 }
 
 .doc-cta-whatsapp svg {
@@ -542,8 +542,8 @@
 
 .doc-compact-card:hover {
     transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
-    border-color: rgba(0, 103, 182, 0.3);
+    box-shadow: 0 10px 30px rgba(206, 52, 52, 0.12);
+    border-color: rgba(206, 52, 52, 0.4);
 }
 
 .doc-compact-icon {
@@ -562,7 +562,7 @@
 }
 
 .doc-compact-card:hover .doc-compact-icon {
-    background: var(--primary-blue);
+    background: #CE3434;
     color: #ffffff;
     transform: scale(1.05);
 }
@@ -660,8 +660,8 @@
 
 .doc-qual-card:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-    border-color: rgba(0, 103, 182, 0.25);
+    box-shadow: 0 10px 30px rgba(206, 52, 52, 0.12);
+    border-color: rgba(206, 52, 52, 0.4);
 }
 
 .doc-qual-icon {
@@ -713,8 +713,8 @@
 
 .doc-interest-card:hover {
     transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
-    border-color: rgba(0, 103, 182, 0.25);
+    box-shadow: 0 10px 30px rgba(206, 52, 52, 0.12);
+    border-color: rgba(206, 52, 52, 0.4);
 }
 
 .doc-interest-icon {
@@ -732,7 +732,7 @@
 }
 
 .doc-interest-card:hover .doc-interest-icon {
-    background: var(--primary-blue);
+    background: #CE3434;
     color: #ffffff;
 }
 
@@ -820,8 +820,8 @@
 
 .doc-pillar-card:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-    border-color: rgba(0, 103, 182, 0.25);
+    box-shadow: 0 10px 30px rgba(206, 52, 52, 0.12);
+    border-color: rgba(206, 52, 52, 0.4);
 }
 
 .doc-pillar-num {
@@ -870,8 +870,8 @@
 
 .doc-care-card:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-    border-color: rgba(0, 103, 182, 0.25);
+    box-shadow: 0 10px 30px rgba(206, 52, 52, 0.12);
+    border-color: rgba(206, 52, 52, 0.4);
 }
 
 .doc-care-icon {
@@ -888,7 +888,7 @@
 }
 
 .doc-care-card:hover .doc-care-icon {
-    background: var(--primary-blue);
+    background: #CE3434;
     color: #ffffff;
 }
 
@@ -1024,9 +1024,9 @@
 }
 
 .doc-cta-outline:hover {
-    border-color: #ffffff;
+    border-color: #CE3434;
     color: #ffffff;
-    background: rgba(255, 255, 255, 0.1);
+    background: #CE3434;
     transform: translateY(-2px);
 }
 

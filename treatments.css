@@ -99,7 +99,7 @@
 }
 
 .treatments-breadcrumb a:hover {
-    color: #00D2FF;
+    color: #CE3434;
 }
 
 .treatments-breadcrumb .breadcrumb-separator {
@@ -317,9 +317,13 @@
 }
 
 .treatment-nav-item:hover {
-    background: #F4F9FD;
-    border-color: rgba(0, 103, 182, 0.25);
+    background: rgba(206, 52, 52, 0.08);
+    border-color: rgba(206, 52, 52, 0.35);
     transform: translateX(3px);
+}
+
+.treatment-nav-item:hover .treatment-item-name {
+    color: #CE3434;
 }
 
 .treatment-nav-item.is-active {
@@ -351,7 +355,8 @@
 }
 
 .treatment-nav-item:hover .treatment-item-icon {
-    background: #E8F3FA;
+    background: #CE3434;
+    color: #ffffff;
 }
 
 .treatment-nav-item.is-active .treatment-item-icon {
@@ -402,7 +407,7 @@
 }
 
 .treatment-nav-item:hover .treatment-item-arrow {
-    color: var(--primary-blue, #0067B6);
+    color: #CE3434;
     transform: translateX(2px);
 }
 
@@ -486,8 +491,8 @@
 }
 
 .consult-card-btn-call:hover {
-    background: #E8F3FA;
-    color: var(--primary-blue, #0067B6);
+    background: #CE3434;
+    color: #ffffff;
     transform: translateY(-1.5px);
 }
 
@@ -510,7 +515,8 @@
 }
 
 .consult-card-btn-wa:hover {
-    background: #1EBE5D;
+    background: #CE3434;
+    box-shadow: 0 4px 14px rgba(206, 52, 52, 0.35);
     transform: translateY(-1.5px);
 }
 
@@ -776,9 +782,14 @@
 
 .treatment-step-card:hover {
     background: #ffffff;
-    border-color: rgba(0, 103, 182, 0.28);
-    box-shadow: 0 6px 18px rgba(0, 103, 182, 0.08);
+    border-color: #CE3434;
+    box-shadow: 0 6px 18px rgba(206, 52, 52, 0.16);
     transform: translateY(-2px);
+}
+
+.treatment-step-card:hover .step-card-num {
+    background: #CE3434;
+    color: #ffffff;
 }
 
 .step-card-num {
@@ -908,6 +919,7 @@
 }
 
 .aftercare-strip-link:hover {
+    color: #CE3434;
     transform: translateX(3px);
 }
 

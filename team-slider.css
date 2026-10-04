@@ -10,10 +10,10 @@
 
 :root {
     --slider-brand-red: #E31B23;
-    --slider-brand-red-hover: #C5131B;
+    --slider-brand-red-hover: #CE3434;
     --slider-brand-red-light: #FFF1F2;
     --slider-brand-blue: #005CA9;
-    --slider-brand-blue-hover: #004B8A;
+    --slider-brand-blue-hover: #CE3434;
     --slider-brand-cyan: #00AEEF;
     --slider-brand-cyan-bright: #00C7F4;
     --slider-brand-cyan-light: #E6F8FE;
@@ -196,11 +196,11 @@
 }
 
 .slider-arrow-btn:hover {
-    background: linear-gradient(135deg, #005CA9 0%, #0077B6 60%, #00AEEF 100%);
+    background: #CE3434;
     color: #ffffff;
-    border-color: #005CA9;
+    border-color: #CE3434;
     transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(0, 92, 169, 0.28);
+    box-shadow: 0 8px 22px rgba(206, 52, 52, 0.35);
 }
 
 .slider-arrow-btn:active {
@@ -272,8 +272,8 @@
 
 .doctor-slide-card:hover {
     transform: translateY(-6px);
-    border-color: rgba(0, 174, 239, 0.5);
-    box-shadow: 0 20px 45px rgba(0, 92, 169, 0.16);
+    border-color: rgba(206, 52, 52, 0.5);
+    box-shadow: 0 20px 45px rgba(206, 52, 52, 0.2);
 }
 
 /* Full bleed Portrait Image */
@@ -336,8 +336,9 @@
 }
 
 .share-btn-trigger:hover {
-    background: #005CA9;
-    color: #00C7F4;
+    background: #CE3434;
+    color: #ffffff;
+    border-color: #CE3434;
     transform: scale(1.08);
 }
 
@@ -380,10 +381,10 @@
 }
 
 .share-social-link:hover {
-    background: #00AEEF;
+    background: #CE3434;
     color: #ffffff;
     transform: scale(1.15);
-    box-shadow: 0 0 10px rgba(0, 174, 239, 0.5);
+    box-shadow: 0 0 10px rgba(206, 52, 52, 0.5);
 }
 
 /* Bottom Frosted Translucent Overlay Badge */
@@ -408,8 +409,8 @@
 
 .doctor-slide-card:hover .doctor-frosted-pill {
     background: #ffffff;
-    border-color: rgba(0, 174, 239, 0.5);
-    box-shadow: 0 14px 34px rgba(0, 92, 169, 0.18);
+    border-color: rgba(206, 52, 52, 0.45);
+    box-shadow: 0 14px 34px rgba(206, 52, 52, 0.18);
     transform: translateY(-2px);
 }
 
@@ -453,7 +454,7 @@
 .doctor-slide-card:hover .doctor-pill-link-arrow {
     opacity: 1;
     transform: translateY(0);
-    color: var(--slider-brand-red);
+    color: #CE3434;
 }
 
 /* Footer Action (Explore all specialists button in Royal Blue + Red Hover) */
@@ -480,9 +481,9 @@
 }
 
 .doctor-view-all-btn:hover {
-    background: linear-gradient(135deg, #E31B23 0%, #C5131B 100%);
+    background: #CE3434;
     transform: translateY(-2px);
-    box-shadow: 0 10px 28px rgba(227, 27, 35, 0.35);
+    box-shadow: 0 10px 28px rgba(206, 52, 52, 0.35);
 }
 
 .doctor-view-all-btn svg {

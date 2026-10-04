@@ -9,7 +9,7 @@
 
 :root {
     --brand-red: #E31B23;
-    --brand-red-hover: #C5131B;
+    --brand-red-hover: #CE3434;
     --brand-red-light: #FFF1F2;
     --brand-red-border: rgba(227, 27, 35, 0.22);
     --brand-red-glow: rgba(227, 27, 35, 0.35);
@@ -147,7 +147,7 @@
 }
 
 .contact-breadcrumb a:hover {
-    color: #00E5FF;
+    color: #CE3434;
 }
 
 .contact-breadcrumb-sep {
@@ -200,7 +200,7 @@
     border-top: 4px solid var(--brand-red);
 }
 .quick-card.card-red:hover {
-    border-color: var(--brand-red);
+    border-color: #CE3434;
 }
 .quick-card.card-red .card-icon-wrap {
     background: var(--brand-red-light);
@@ -213,8 +213,8 @@
     box-shadow: 0 4px 14px var(--brand-red-glow);
 }
 .quick-card.card-red .card-cta-btn:hover {
-    background: var(--brand-red-hover);
-    box-shadow: 0 6px 20px var(--brand-red-glow);
+    background: #CE3434;
+    box-shadow: 0 6px 20px rgba(206, 52, 52, 0.35);
 }
 
 /* Card 2: Cyan (WhatsApp Care) */
@@ -222,7 +222,7 @@
     border-top: 4px solid var(--brand-cyan);
 }
 .quick-card.card-cyan:hover {
-    border-color: var(--brand-cyan);
+    border-color: #CE3434;
 }
 .quick-card.card-cyan .card-icon-wrap {
     background: var(--brand-cyan-light);
@@ -235,8 +235,8 @@
     box-shadow: 0 4px 14px rgba(0, 168, 132, 0.32);
 }
 .quick-card.card-cyan .card-cta-btn:hover {
-    background: #008f6f;
-    box-shadow: 0 6px 20px rgba(0, 168, 132, 0.42);
+    background: #CE3434;
+    box-shadow: 0 6px 20px rgba(206, 52, 52, 0.35);
 }
 
 /* Card 3: Royal Blue (Location & Directions) */
@@ -244,7 +244,7 @@
     border-top: 4px solid var(--brand-royal-blue);
 }
 .quick-card.card-blue:hover {
-    border-color: var(--brand-royal-blue);
+    border-color: #CE3434;
 }
 .quick-card.card-blue .card-icon-wrap {
     background: var(--brand-royal-light);
@@ -257,8 +257,8 @@
     box-shadow: 0 4px 14px var(--brand-royal-glow);
 }
 .quick-card.card-blue .card-cta-btn:hover {
-    background: #004d8a;
-    box-shadow: 0 6px 20px var(--brand-royal-glow);
+    background: #CE3434;
+    box-shadow: 0 6px 20px rgba(206, 52, 52, 0.35);
 }
 
 /* Card 4: Clinical Navy & Amber (Consultation Hours) */
@@ -266,7 +266,7 @@
     border-top: 4px solid #00B4D8;
 }
 .quick-card.card-navy:hover {
-    border-color: #00B4D8;
+    border-color: #CE3434;
 }
 .quick-card.card-navy .card-icon-wrap {
     background: #EAF8FC;
@@ -279,8 +279,8 @@
     box-shadow: 0 4px 14px rgba(9, 34, 58, 0.25);
 }
 .quick-card.card-navy .card-cta-btn:hover {
-    background: #005CA9;
-    box-shadow: 0 6px 20px rgba(0, 92, 169, 0.35);
+    background: #CE3434;
+    box-shadow: 0 6px 20px rgba(206, 52, 52, 0.35);
 }
 
 .card-top-row {
@@ -547,7 +547,8 @@
 }
 
 .radio-slot-pill:hover {
-    border-color: var(--brand-royal-blue);
+    border-color: #CE3434;
+    color: #CE3434;
     background: #FFFFFF;
 }
 
@@ -586,9 +587,9 @@
 }
 
 .btn-submit-wa:hover {
-    background: #008f6f;
+    background: #CE3434;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 168, 132, 0.45);
+    box-shadow: 0 8px 24px rgba(206, 52, 52, 0.35);
 }
 
 .btn-submit-call {
@@ -610,9 +611,9 @@
 }
 
 .btn-submit-call:hover {
-    background: #004d8a;
+    background: #CE3434;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px var(--brand-royal-glow);
+    box-shadow: 0 8px 24px rgba(206, 52, 52, 0.35);
 }
 
 .form-reassurance-note {
@@ -931,9 +932,9 @@
 }
 
 .map-cta-action:hover {
-    background: #004d8a;
+    background: #CE3434;
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px var(--brand-royal-glow);
+    box-shadow: 0 6px 18px rgba(206, 52, 52, 0.35);
 }
 
 /* ==========================================================================
@@ -1028,9 +1029,9 @@
 }
 
 .emergency-call-btn:hover {
-    background: var(--brand-red-hover);
+    background: #CE3434;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px var(--brand-red-glow);
+    box-shadow: 0 8px 24px rgba(206, 52, 52, 0.35);
 }
 
 /* ==========================================================================

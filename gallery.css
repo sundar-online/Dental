@@ -1,4 +1,4 @@
-gallery-cta-title/* ==========================================================================
+/* ==========================================================================
    BALAGAM DENTAL & MEDICAL CLINIC – INNER GALLERY PAGE STYLES
    Colors derived directly from Clinic Logo:
    - Balagam Brand Red: #E31B23
@@ -9,7 +9,7 @@ gallery-cta-title/* ============================================================
 
 :root {
     --brand-red: #E31B23;
-    --brand-red-hover: #C5131B;
+    --brand-red-hover: #CE3434;
     --brand-red-light: #FFF1F2;
     --brand-red-border: rgba(227, 27, 35, 0.22);
     --brand-red-glow: rgba(227, 27, 35, 0.35);
@@ -145,7 +145,7 @@ gallery-cta-title/* ============================================================
 }
 
 .gallery-breadcrumb a:hover {
-    color: #00E5FF;
+    color: #CE3434;
 }
 
 .gallery-breadcrumb-sep {
@@ -189,7 +189,8 @@ gallery-cta-title/* ============================================================
 
 .stat-metric-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 16px 36px rgba(11, 37, 69, 0.12);
+    box-shadow: 0 16px 36px rgba(206, 52, 52, 0.15);
+    border-color: rgba(206, 52, 52, 0.35);
 }
 
 .stat-card-icon {
@@ -277,8 +278,9 @@ gallery-cta-title/* ============================================================
 }
 
 .gallery-filter-btn:hover {
-    color: var(--brand-royal-blue);
-    background: var(--brand-royal-light);
+    color: #CE3434;
+    background: rgba(206, 52, 52, 0.08);
+    border-color: rgba(206, 52, 52, 0.3);
 }
 
 .gallery-filter-btn.is-active {
@@ -366,8 +368,8 @@ gallery-cta-title/* ============================================================
 
 .gallery-card:hover {
     transform: translateY(-8px);
-    border-color: var(--brand-cyan);
-    box-shadow: 0 20px 48px rgba(0, 92, 169, 0.22);
+    border-color: #CE3434;
+    box-shadow: 0 20px 48px rgba(206, 52, 52, 0.22);
 }
 
 .gallery-card-media {
@@ -577,7 +579,7 @@ gallery-cta-title/* ============================================================
 
 .facility-tour-item:hover {
     transform: translateY(-5px);
-    border-color: #00E5FF;
+    border-color: #CE3434;
     background: rgba(255, 255, 255, 0.12);
 }
 
@@ -727,9 +729,9 @@ gallery-cta-title/* ============================================================
 }
 
 .gallery-cta-btn-primary:hover {
-    background: var(--brand-red-hover);
+    background: #CE3434;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px var(--brand-red-glow);
+    box-shadow: 0 8px 24px rgba(206, 52, 52, 0.35);
 }
 
 .gallery-cta-btn-wa {
@@ -750,9 +752,9 @@ gallery-cta-title/* ============================================================
 }
 
 .gallery-cta-btn-wa:hover {
-    background: #008f6f;
+    background: #CE3434;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 168, 132, 0.4);
+    box-shadow: 0 6px 20px rgba(206, 52, 52, 0.35);
 }
 
 /* ==========================================================================
@@ -854,7 +856,7 @@ gallery-cta-title/* ============================================================
 }
 
 .lightbox-close-btn:hover {
-    background: var(--brand-red);
+    background: #CE3434;
     transform: rotate(90deg);
 }
 
@@ -878,7 +880,7 @@ gallery-cta-title/* ============================================================
 }
 
 .lightbox-nav-btn:hover {
-    background: var(--brand-royal-blue);
+    background: #CE3434;
     color: #FFFFFF;
 }
 

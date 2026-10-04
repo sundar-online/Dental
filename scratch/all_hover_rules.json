@@ -1,0 +1,762 @@
+{
+  "aftercare.css": [
+    {
+      "selector": ".aftercare-breadcrumb a:hover",
+      "block": "color: #00D2FF;"
+    },
+    {
+      "selector": ".aftercare-sidebar-card:hover",
+      "block": "box-shadow: 0 14px 38px rgba(15, 31, 45, 0.07);"
+    },
+    {
+      "selector": ".aftercare-service-item:hover, .aftercare-service-item.is-active",
+      "block": "background: var(--light-blue, #E8F3FA); border-color: rgba(0, 103, 182, 0.3); color: var(--primary-blue, #0067B6); transform: translateX(4px);"
+    },
+    {
+      "selector": ".aftercare-service-item:hover .service-dot, .aftercare-service-item.is-active .service-dot",
+      "block": "opacity: 1; transform: scale(1.3);"
+    },
+    {
+      "selector": ".aftercare-service-item:hover .service-arrow",
+      "block": "color: var(--primary-blue, #0067B6); transform: translateX(2px);"
+    },
+    {
+      "selector": ".sidebar-emergency-btn:hover",
+      "block": "background: var(--primary-blue, #0067B6); transform: translateY(-1.5px);"
+    },
+    {
+      "selector": ".aftercare-media-wrap:hover .aftercare-media-img",
+      "block": "transform: scale(1.02);"
+    },
+    {
+      "selector": ".instruction-group-card:hover",
+      "block": "border-color: rgba(0, 103, 182, 0.28); box-shadow: 0 8px 24px rgba(0, 103, 182, 0.06);"
+    },
+    {
+      "selector": ".instruction-group-card:hover .instruction-group-icon",
+      "block": "background: var(--primary-blue, #0067B6); color: #ffffff; transform: scale(1.05);"
+    },
+    {
+      "selector": ".instruction-group-alert:hover",
+      "block": "border-color: rgba(224, 159, 31, 0.6); box-shadow: 0 8px 24px rgba(224, 159, 31, 0.08);"
+    },
+    {
+      "selector": ".aftercare-btn-wa:hover",
+      "block": "background: #1EBE5D; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37, 211, 102, 0.42);"
+    },
+    {
+      "selector": ".aftercare-btn-primary:hover",
+      "block": "background: #F0F7FC; color: var(--primary-blue, #0067B6); transform: translateY(-2px);"
+    }
+  ],
+  "contact.css": [
+    {
+      "selector": ".contact-breadcrumb a:hover",
+      "block": "color: #00E5FF;"
+    },
+    {
+      "selector": ".quick-card:hover",
+      "block": "transform: translateY(-6px); box-shadow: 0 18px 40px rgba(11, 37, 69, 0.14);"
+    },
+    {
+      "selector": ".quick-card.card-red:hover",
+      "block": "border-color: var(--brand-red);"
+    },
+    {
+      "selector": ".quick-card.card-red .card-cta-btn:hover",
+      "block": "background: var(--brand-red-hover); box-shadow: 0 6px 20px var(--brand-red-glow);"
+    },
+    {
+      "selector": ".quick-card.card-cyan:hover",
+      "block": "border-color: var(--brand-cyan);"
+    },
+    {
+      "selector": ".quick-card.card-cyan .card-cta-btn:hover",
+      "block": "background: #008f6f; box-shadow: 0 6px 20px rgba(0, 168, 132, 0.42);"
+    },
+    {
+      "selector": ".quick-card.card-blue:hover",
+      "block": "border-color: var(--brand-royal-blue);"
+    },
+    {
+      "selector": ".quick-card.card-blue .card-cta-btn:hover",
+      "block": "background: #004d8a; box-shadow: 0 6px 20px var(--brand-royal-glow);"
+    },
+    {
+      "selector": ".quick-card.card-navy:hover",
+      "block": "border-color: #00B4D8;"
+    },
+    {
+      "selector": ".quick-card.card-navy .card-cta-btn:hover",
+      "block": "background: #005CA9; box-shadow: 0 6px 20px rgba(0, 92, 169, 0.35);"
+    },
+    {
+      "selector": ".card-cta-btn:hover .btn-arrow",
+      "block": "transform: translateX(3px);"
+    },
+    {
+      "selector": ".radio-slot-pill:hover",
+      "block": "border-color: var(--brand-royal-blue); background: #FFFFFF;"
+    },
+    {
+      "selector": ".btn-submit-wa:hover",
+      "block": "background: #008f6f; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0, 168, 132, 0.45);"
+    },
+    {
+      "selector": ".btn-submit-call:hover",
+      "block": "background: #004d8a; transform: translateY(-2px); box-shadow: 0 8px 24px var(--brand-royal-glow);"
+    },
+    {
+      "selector": ".map-cta-action:hover",
+      "block": "background: #004d8a; transform: translateY(-2px); box-shadow: 0 6px 18px var(--brand-royal-glow);"
+    },
+    {
+      "selector": ".emergency-call-btn:hover",
+      "block": "background: var(--brand-red-hover); transform: translateY(-2px); box-shadow: 0 8px 24px var(--brand-red-glow);"
+    }
+  ],
+  "doctor.css": [
+    {
+      "selector": ".about-breadcrumb a:hover, .aftercare-breadcrumb a:hover",
+      "block": "color: #00D2FF;"
+    },
+    {
+      "selector": ".doc-cta-primary:hover",
+      "block": "background: var(--primary-blue); color: #ffffff; transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0, 103, 182, 0.22);"
+    },
+    {
+      "selector": ".doc-cta-primary:hover .btn-arrow",
+      "block": "transform: translateX(3px);"
+    },
+    {
+      "selector": ".doc-cta-whatsapp:hover",
+      "block": "background: #25D366; color: #ffffff; border-color: #25D366; transform: translateY(-2px); box-shadow: 0 6px 18px rgba(37, 211, 102, 0.22);"
+    },
+    {
+      "selector": ".doc-cta-whatsapp:hover svg",
+      "block": "color: #ffffff;"
+    },
+    {
+      "selector": ".doc-about-card:hover",
+      "block": "transform: translateY(-2px); box-shadow: var(--shadow-lg);"
+    },
+    {
+      "selector": ".doc-compact-card:hover",
+      "block": "transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: rgba(0, 103, 182, 0.3);"
+    },
+    {
+      "selector": ".doc-compact-card:hover .doc-compact-icon",
+      "block": "background: var(--primary-blue); color: #ffffff; transform: scale(1.05);"
+    },
+    {
+      "selector": ".doc-philosophy-highlight-card:hover",
+      "block": "box-shadow: var(--shadow-lg); transform: translateY(-2px);"
+    },
+    {
+      "selector": ".doc-qual-card:hover",
+      "block": "transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: rgba(0, 103, 182, 0.25);"
+    },
+    {
+      "selector": ".doc-interest-card:hover",
+      "block": "transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: rgba(0, 103, 182, 0.25);"
+    },
+    {
+      "selector": ".doc-interest-card:hover .doc-interest-icon",
+      "block": "background: var(--primary-blue); color: #ffffff;"
+    },
+    {
+      "selector": ".doc-pillar-card:hover",
+      "block": "transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: rgba(0, 103, 182, 0.25);"
+    },
+    {
+      "selector": ".doc-care-card:hover",
+      "block": "transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: rgba(0, 103, 182, 0.25);"
+    },
+    {
+      "selector": ".doc-care-card:hover .doc-care-icon",
+      "block": "background: var(--primary-blue); color: #ffffff;"
+    },
+    {
+      "selector": ".doc-cta-outline:hover",
+      "block": "border-color: #ffffff; color: #ffffff; background: rgba(255, 255, 255, 0.1); transform: translateY(-2px);"
+    }
+  ],
+  "gallery.css": [
+    {
+      "selector": ".gallery-breadcrumb a:hover",
+      "block": "color: #00E5FF;"
+    },
+    {
+      "selector": ".stat-metric-card:hover",
+      "block": "transform: translateY(-4px); box-shadow: 0 16px 36px rgba(11, 37, 69, 0.12);"
+    },
+    {
+      "selector": ".gallery-filter-btn:hover",
+      "block": "color: var(--brand-royal-blue); background: var(--brand-royal-light);"
+    },
+    {
+      "selector": ".gallery-card:hover",
+      "block": "transform: translateY(-8px); border-color: var(--brand-cyan); box-shadow: 0 20px 48px rgba(0, 92, 169, 0.22);"
+    },
+    {
+      "selector": ".gallery-card:hover .gallery-card-img",
+      "block": "transform: scale(1.08);"
+    },
+    {
+      "selector": ".gallery-card:hover .media-zoom-btn",
+      "block": "opacity: 1; transform: translate(-50%, -50%) scale(1);"
+    },
+    {
+      "selector": ".gallery-card:hover .gallery-card-caption-overlay",
+      "block": "opacity: 1; transform: translateY(0);"
+    },
+    {
+      "selector": ".facility-tour-item:hover",
+      "block": "transform: translateY(-5px); border-color: #00E5FF; background: rgba(255, 255, 255, 0.12);"
+    },
+    {
+      "selector": ".facility-tour-item:hover .facility-item-img",
+      "block": "transform: scale(1.08);"
+    },
+    {
+      "selector": ".gallery-cta-btn-primary:hover",
+      "block": "background: var(--brand-red-hover); transform: translateY(-2px); box-shadow: 0 8px 24px var(--brand-red-glow);"
+    },
+    {
+      "selector": ".gallery-cta-btn-wa:hover",
+      "block": "background: #008f6f; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 168, 132, 0.4);"
+    },
+    {
+      "selector": ".lightbox-close-btn:hover",
+      "block": "background: var(--brand-red); transform: rotate(90deg);"
+    },
+    {
+      "selector": ".lightbox-nav-btn:hover",
+      "block": "background: var(--brand-royal-blue); color: #FFFFFF;"
+    }
+  ],
+  "style.css": [
+    {
+      "selector": ".logo:hover .nav-brand-logo",
+      "block": "transform: scale(1.03);"
+    },
+    {
+      "selector": ".nav-item-dropdown:hover .dropdown-chevron, .nav-item-dropdown:focus-within .dropdown-chevron",
+      "block": "transform: rotate(180deg);"
+    },
+    {
+      "selector": ".nav-item-dropdown:hover .nav-dropdown-menu, .nav-item-dropdown:focus-within .nav-dropdown-menu",
+      "block": "opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0);"
+    },
+    {
+      "selector": ".dropdown-item:hover",
+      "block": "background: var(--light-bg); color: var(--primary-blue); transform: translateX(3px);"
+    },
+    {
+      "selector": ".nav-item-dropdown:hover .nav-treatments-dropdown, .nav-item-dropdown:focus-within .nav-treatments-dropdown",
+      "block": "opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0);"
+    },
+    {
+      "selector": ".dropdown-view-all-link:hover",
+      "block": "color: var(--primary-blue-dark); transform: translateX(3px);"
+    },
+    {
+      "selector": ".dropdown-view-all-link:hover .dropdown-arrow",
+      "block": "transform: translateX(2px);"
+    },
+    {
+      "selector": "/* Hover effect on treatment items */ .treatment-dropdown-item:hover",
+      "block": "background: #F3FAFE; border-color: rgba(0, 103, 182, 0.16); transform: translateX(3px);"
+    },
+    {
+      "selector": ".treatment-dropdown-item:hover .item-icon-box",
+      "block": "background: var(--primary-blue); color: #ffffff; border-color: var(--primary-blue); transform: scale(1.05);"
+    },
+    {
+      "selector": ".treatment-dropdown-item:hover .item-title",
+      "block": "color: var(--primary-blue);"
+    },
+    {
+      "selector": ".dropdown-footer-cta:hover",
+      "block": "color: var(--primary-blue-dark); transform: translateX(3px);"
+    },
+    {
+      "selector": ".nav-link:hover &, .nav-link.active &, .nav-link.is-active &, .blob-btn:hover &, .blob-btn.active &, .blob-btn.is-active &",
+      "block": "transform: translateZ(0) scale(1.7);"
+    },
+    {
+      "selector": "/* Inactive nav-link hover: subtle, preserves layout */ .nav-link:not(.active):not(.is-active):hover",
+      "block": "color: var(--primary-blue, #0067B6); background-color: rgba(0, 103, 182, 0.08);"
+    },
+    {
+      "selector": ".nav-link:not(.active):not(.is-active):hover .dropdown-chevron",
+      "block": "color: var(--primary-blue, #0067B6); stroke: var(--primary-blue, #0067B6);"
+    },
+    {
+      "selector": "/* Active and Hover States fill smoothly */ .blob-btn.active .blob-btn__blob, .blob-btn.is-active .blob-btn__blob, .nav-link.active .blob-btn__blob, .nav-link.is-active .blob-btn__blob, .nav-link:hover .blob-btn__blob",
+      "block": "transform: translateZ(0) scale(1.6); opacity: 1;"
+    },
+    {
+      "selector": ".blob-btn.active .blob-btn__blob, .blob-btn.is-active .blob-btn__blob, .nav-link.active .blob-btn__blob, .nav-link.is-active .blob-btn__blob, .nav-link:hover .blob-btn__blob",
+      "block": "transform: translateZ(0) scale(1.35); opacity: 1;"
+    },
+    {
+      "selector": ".book-btn:hover",
+      "block": "background: rgb(206, 52, 52); color: #ffffff; transform: perspective(400px) translateY(-3px) rotate(-1.8deg) scale(1.04); box-shadow: 0 10px 24px rgba(0, 103, 182, 0.32);"
+    },
+    {
+      "selector": ".book-btn:hover .btn-arrow",
+      "block": "transform: translateX(3px);"
+    },
+    {
+      "selector": ".hamburger-btn:hover",
+      "block": "background: var(--light-blue); border-color: rgba(0, 103, 182, 0.3); box-shadow: 0 4px 16px rgba(0, 103, 182, 0.16); transform: scale(1.04);"
+    },
+    {
+      "selector": ".mobile-nav-link:hover, .mobile-nav-link:active",
+      "block": "background: var(--light-blue); color: var(--primary-blue); border-color: rgba(0, 103, 182, 0.15);"
+    },
+    {
+      "selector": ".mobile-nav-link:hover .mobile-nav-icon, .mobile-nav-link.active .mobile-nav-icon",
+      "block": "background: var(--primary-blue); color: #ffffff; transform: scale(1.08);"
+    },
+    {
+      "selector": ".mobile-nav-link:hover .mobile-nav-arrow, .mobile-nav-link.active .mobile-nav-arrow",
+      "block": "color: var(--primary-blue); transform: translateX(4px);"
+    },
+    {
+      "selector": ".mobile-sub-link:hover, .mobile-sub-link:active, .mobile-sub-link.active",
+      "block": "background: var(--light-blue); color: var(--primary-blue); border-color: rgba(0, 103, 182, 0.18);"
+    },
+    {
+      "selector": ".mobile-sub-link:hover .mobile-sub-icon, .mobile-sub-link.active .mobile-sub-icon",
+      "block": "background: var(--primary-blue); color: #ffffff; transform: scale(1.06);"
+    },
+    {
+      "selector": ".mobile-sub-link:hover .mobile-sub-arrow, .mobile-sub-link.active .mobile-sub-arrow",
+      "block": "color: var(--primary-blue); transform: translateX(3px);"
+    },
+    {
+      "selector": ".mobile-menu-cta:hover, .mobile-menu-cta:active",
+      "block": "background: var(--primary-blue); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0, 103, 182, 0.28);"
+    },
+    {
+      "selector": ".mobile-action-pill:hover, .mobile-action-pill:active",
+      "block": "background: #ffffff; border-color: var(--primary-blue); color: var(--primary-blue); transform: translateY(-1.5px);"
+    },
+    {
+      "selector": ".mobile-action-wa:hover, .mobile-action-wa:active",
+      "block": "background: #25D366; border-color: #25D366; color: #ffffff;"
+    },
+    {
+      "selector": ".doctor-card-wrap:hover .doctor-portrait-img",
+      "block": "transform: scale(1.03);"
+    },
+    {
+      "selector": ".stack-card:hover",
+      "block": "transform: translateY(-2px); box-shadow: var(--shadow-lg);"
+    },
+    {
+      "selector": ".clinic-video-cta:hover",
+      "block": "background: transparent; color: var(--primary-blue); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0, 103, 182, 0.18);"
+    },
+    {
+      "selector": ".clinic-video-cta:hover .clinic-video-cta-arrow",
+      "block": "transform: translateX(4px);"
+    },
+    {
+      "selector": ".dr-stat-card:hover",
+      "block": "transform: translateY(-2px); box-shadow: var(--shadow-lg);"
+    },
+    {
+      "selector": ".dr-consult-btn:hover",
+      "block": "background: var(--primary-blue); transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,103,182,0.22);"
+    },
+    {
+      "selector": ".dr-consult-btn:hover .dr-btn-arrow",
+      "block": "transform: translateX(3px);"
+    },
+    {
+      "selector": ".dr-video-btn:hover .dr-play-icon",
+      "block": "background: var(--primary-blue); color: #ffffff; transform: scale(1.08);"
+    },
+    {
+      "selector": ".dr-assoc-cta:hover",
+      "block": "background: var(--primary-blue); color: #ffffff;"
+    },
+    {
+      "selector": ".treatment-card:hover",
+      "block": "box-shadow: 0 20px 42px -6px rgba(0, 103, 182, 0.18), 0 8px 20px rgba(9, 34, 58, 0.08); border-color: rgba(0, 103, 182, 0.35);"
+    },
+    {
+      "selector": ".treatment-card:hover::after",
+      "block": "opacity: 1;"
+    },
+    {
+      "selector": ".treatment-card:hover .treatment-card-img",
+      "block": "transform: scale(1.05);"
+    },
+    {
+      "selector": ".treatment-card:hover .treatment-card-badge",
+      "block": "background: var(--primary-blue); color: #ffffff; transform: scale(1.06);"
+    },
+    {
+      "selector": ".treatment-card:hover .treatment-arrow-btn",
+      "block": "background: var(--primary-blue); color: #ffffff; transform: translateX(3px);"
+    },
+    {
+      "selector": ".team-card:hover, .team-card.team-slide-left.is-revealed:hover, .team-card.team-slide-right.is-revealed:hover",
+      "block": "transform: translateY(-7px) !important; box-shadow: 0 16px 42px rgba(0, 103, 182, 0.15);"
+    },
+    {
+      "selector": ".team-card:hover .team-card-img",
+      "block": "transform: scale(1.03);"
+    },
+    {
+      "selector": ".clinic-arrow-btn:hover",
+      "block": "background: var(--cyan); color: #072238; border-color: var(--cyan); box-shadow: 0 6px 22px rgba(0, 199, 244, 0.5); transform: scale(1.08);"
+    },
+    {
+      "selector": ".clinic-featured-case:hover",
+      "block": "transform: translateY(-3px); box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45); border-color: var(--cyan);"
+    },
+    {
+      "selector": ".clinic-featured-case:hover .clinic-case-img",
+      "block": "transform: scale(1.03);"
+    },
+    {
+      "selector": ".clinic-featured-case:hover .clinic-case-overlay",
+      "block": "background: linear-gradient(180deg, rgba(11, 31, 58, 0) 0%, rgba(11, 31, 58, 0.8) 35%, rgba(11, 31, 58, 0.98) 100%);"
+    },
+    {
+      "selector": ".clinic-grid-case:hover",
+      "block": "transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35); border-color: rgba(0, 199, 244, 0.5);"
+    },
+    {
+      "selector": ".clinic-grid-case:hover .clinic-case-img",
+      "block": "transform: scale(1.04);"
+    },
+    {
+      "selector": ".clinic-mobile-nav-btn:hover, .clinic-mobile-nav-btn:active",
+      "block": "background: var(--primary-blue, #0067b6); color: #ffffff; border-color: var(--primary-blue, #0067b6);"
+    },
+    {
+      "selector": ".lightbox-close:hover",
+      "block": "background: rgba(255, 255, 255, 0.25); transform: scale(1.1);"
+    },
+    {
+      "selector": ".carousel-nav-btn:hover",
+      "block": "background: var(--btn-blue); border-color: var(--btn-blue); color: #FFFFFF; box-shadow: 0 8px 22px rgba(0, 103, 182, 0.28); transform: translateY(-50%) scale(1.08);"
+    },
+    {
+      "selector": ".reviews-cta-btn:hover",
+      "block": "background: var(--btn-blue); color: #FFFFFF; transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0, 103, 182, 0.22);"
+    },
+    {
+      "selector": ".carousel-nav-btn:hover",
+      "block": "transform: scale(1.06);"
+    },
+    {
+      "selector": ".highlight-item:hover",
+      "block": "transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--primary-blue);"
+    },
+    {
+      "selector": ".highlight-item:hover .highlight-icon",
+      "block": "transform: scale(1.08);"
+    },
+    {
+      "selector": ".about-sub-card:hover",
+      "block": "transform: translateY(-3px); border-color: var(--primary-blue);"
+    },
+    {
+      "selector": ".contact-pill-card:hover",
+      "block": "transform: perspective(400px) translateY(-3px) rotate(-1deg) scale(1.02); border-color: var(--primary-blue); box-shadow: 0 8px 24px rgba(0, 103, 182, 0.14);"
+    },
+    {
+      "selector": ".contact-btn-dark:hover",
+      "block": "background: var(--primary-blue-dark); transform: perspective(400px) translateY(-3px) rotate(-1.8deg) scale(1.04); box-shadow: 0 10px 26px rgba(0, 103, 182, 0.4);"
+    },
+    {
+      "selector": ".contact-btn-dark:hover .btn-arrow",
+      "block": "transform: translateX(4px);"
+    },
+    {
+      "selector": ".contact-btn-outline:hover",
+      "block": "border-color: var(--primary-blue); color: var(--primary-blue); background: rgba(0, 103, 182, 0.06); transform: perspective(400px) translateY(-2px) rotate(1.2deg) scale(1.02);"
+    },
+    {
+      "selector": ".contact-social-pill:hover",
+      "block": "color: #ffffff;"
+    },
+    {
+      "selector": ".contact-social-insta:hover",
+      "block": "background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); border-color: transparent; transform: perspective(400px) translateY(-4px) rotate(-10deg) scale(1.14); box-shadow: 0 6px 18px rgba(220, 39, 67, 0.4);"
+    },
+    {
+      "selector": ".contact-social-fb:hover",
+      "block": "background: #1877F2; border-color: #1877F2; transform: perspective(400px) translateY(-4px) rotate(10deg) scale(1.14); box-shadow: 0 6px 18px rgba(24, 119, 242, 0.4);"
+    },
+    {
+      "selector": ".contact-social-pill:hover svg",
+      "block": "color: #ffffff;"
+    },
+    {
+      "selector": ".modal-close-btn:hover",
+      "block": "background: #0f1f2d; color: #ffffff;"
+    },
+    {
+      "selector": ".form-submit-btn:hover",
+      "block": "background: var(--primary-blue); transform: perspective(400px) translateY(-3px) rotate(-1.5deg) scale(1.03); box-shadow: 0 10px 24px rgba(0, 103, 182, 0.35);"
+    },
+    {
+      "selector": ".form-wa-app-btn:hover",
+      "block": "background: #1eb956; color: #ffffff; transform: translateY(-1px); box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);"
+    },
+    {
+      "selector": ".form-wa-web-btn:hover",
+      "block": "background: #f8fafc; border-color: #94a3b8; color: var(--primary-blue); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0, 103, 182, 0.15);"
+    },
+    {
+      "selector": ".modal-call-link:hover",
+      "block": "text-decoration: underline;"
+    },
+    {
+      "selector": ".footer-logo-badge:hover",
+      "block": "transform: scale(1.02);"
+    },
+    {
+      "selector": ".footer-links-list li a:hover",
+      "block": "color: var(--primary-blue); transform: translateX(3px);"
+    },
+    {
+      "selector": ".footer-links-list li a.footer-highlight-link:hover",
+      "block": "color: var(--light-blue);"
+    },
+    {
+      "selector": ".footer-social-btn:hover",
+      "block": "color: #ffffff;"
+    },
+    {
+      "selector": ".footer-social-insta:hover",
+      "block": "background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); border-color: transparent; transform: perspective(400px) translateY(-4px) rotate(-10deg) scale(1.14); box-shadow: 0 8px 22px rgba(220, 39, 67, 0.5);"
+    },
+    {
+      "selector": ".footer-social-fb:hover",
+      "block": "background: #1877F2; border-color: #1877F2; transform: perspective(400px) translateY(-4px) rotate(10deg) scale(1.14); box-shadow: 0 8px 22px rgba(24, 119, 242, 0.5);"
+    },
+    {
+      "selector": ".footer-map-link:hover",
+      "block": "color: #ffffff; transform: translateX(3px);"
+    },
+    {
+      "selector": ".back-to-top:hover",
+      "block": "color: var(--primary-blue); transform: translateY(-2px);"
+    },
+    {
+      "selector": ".quick-help-btn:hover",
+      "block": "transform: scale(1.08); background: #20ba59; box-shadow: 0 10px 28px rgba(37, 211, 102, 0.48);"
+    },
+    {
+      "selector": ".quick-help-btn:hover .quick-help-tooltip",
+      "block": "opacity: 1; transform: translateY(-50%) translateX(0);"
+    },
+    {
+      "selector": ".chat-header-close:hover",
+      "block": "background: rgba(255, 255, 255, 0.25); transform: scale(1.05);"
+    },
+    {
+      "selector": ".chat-action-btn:hover",
+      "block": "background: var(--light-blue); border-color: rgba(0, 103, 182, 0.3); transform: translateX(2px);"
+    },
+    {
+      "selector": ".chat-action-btn:hover .chat-action-arrow",
+      "block": "transform: translateX(2px); color: var(--primary-blue);"
+    },
+    {
+      "selector": ".chat-map-action-btn:hover",
+      "block": "background: var(--btn-dark); color: #FFFFFF; transform: translateY(-1px);"
+    },
+    {
+      "selector": ".quick-chat-send-btn:hover",
+      "block": "background: #25D366; transform: scale(1.05);"
+    },
+    {
+      "selector": ".hero-feature-pill:hover",
+      "block": "transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0, 103, 182, 0.12); border-color: rgba(0, 103, 182, 0.3);"
+    },
+    {
+      "selector": ".dr-stat-card:hover",
+      "block": "transform: translateY(-5px); box-shadow: 0 14px 30px rgba(0, 103, 182, 0.12); border-color: rgba(0, 103, 182, 0.35);"
+    },
+    {
+      "selector": ".dr-stat-card:hover .dr-stat-icon",
+      "block": "transform: scale(1.12) rotate(6deg); background: var(--primary-blue); color: #ffffff;"
+    },
+    {
+      "selector": "/* Doctor Section - Portrait kept rock-solid and stable */ .dr-photo-frame:hover .dr-photo-img",
+      "block": "transform: none !important;"
+    },
+    {
+      "selector": ".treatment-card:hover::after",
+      "block": "animation: cardShimmer 0.85s cubic-bezier(0.2, 0.8, 0.2, 1);"
+    },
+    {
+      "selector": ".treatment-card:hover .treatment-card-badge",
+      "block": "transform: scale(1.1) rotate(6deg); box-shadow: 0 6px 18px rgba(0, 103, 182, 0.25);"
+    },
+    {
+      "selector": ".contact-pill-card:hover",
+      "block": "transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0, 103, 182, 0.12); border-color: rgba(0, 103, 182, 0.3);"
+    },
+    {
+      "selector": ".contact-pill-card:hover .pill-icon-wrap",
+      "block": "transform: scale(1.12);"
+    },
+    {
+      "selector": ".contact-banner-actions button:hover .btn-arrow, .contact-banner-actions a:hover .btn-arrow",
+      "block": "transform: translateX(4px);"
+    },
+    {
+      "selector": ".quick-help-btn:hover",
+      "block": "transform: scale(1.08) rotate(4deg); box-shadow: 0 8px 24px rgba(0, 103, 182, 0.35);"
+    }
+  ],
+  "team-slider.css": [
+    {
+      "selector": ".slider-arrow-btn:hover",
+      "block": "background: linear-gradient(135deg, #005CA9 0%, #0077B6 60%, #00AEEF 100%); color: #ffffff; border-color: #005CA9; transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0, 92, 169, 0.28);"
+    },
+    {
+      "selector": ".slider-arrow-btn.prev-btn:hover svg",
+      "block": "transform: translateX(-2px);"
+    },
+    {
+      "selector": ".slider-arrow-btn.next-btn:hover svg",
+      "block": "transform: translateX(2px);"
+    },
+    {
+      "selector": ".doctor-slide-card:hover",
+      "block": "transform: translateY(-6px); border-color: rgba(0, 174, 239, 0.5); box-shadow: 0 20px 45px rgba(0, 92, 169, 0.16);"
+    },
+    {
+      "selector": ".doctor-slide-card:hover .doctor-card-media img",
+      "block": "transform: scale(1.035);"
+    },
+    {
+      "selector": ".share-btn-trigger:hover",
+      "block": "background: #005CA9; color: #00C7F4; transform: scale(1.08);"
+    },
+    {
+      "selector": "/* Expanded state: on card hover or widget hover/click */ .doctor-share-widget:hover .share-social-stack, .doctor-share-widget.active .share-social-stack, .doctor-slide-card:hover .doctor-share-widget .share-social-stack",
+      "block": "max-height: 180px; opacity: 1; pointer-events: auto; margin-top: 4px; padding-bottom: 6px;"
+    },
+    {
+      "selector": ".share-social-link:hover",
+      "block": "background: #00AEEF; color: #ffffff; transform: scale(1.15); box-shadow: 0 0 10px rgba(0, 174, 239, 0.5);"
+    },
+    {
+      "selector": ".doctor-slide-card:hover .doctor-frosted-pill",
+      "block": "background: #ffffff; border-color: rgba(0, 174, 239, 0.5); box-shadow: 0 14px 34px rgba(0, 92, 169, 0.18); transform: translateY(-2px);"
+    },
+    {
+      "selector": ".doctor-slide-card:hover .doctor-pill-link-arrow",
+      "block": "opacity: 1; transform: translateY(0); color: var(--slider-brand-red);"
+    },
+    {
+      "selector": ".doctor-view-all-btn:hover",
+      "block": "background: linear-gradient(135deg, #E31B23 0%, #C5131B 100%); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(227, 27, 35, 0.35);"
+    },
+    {
+      "selector": ".doctor-view-all-btn:hover svg",
+      "block": "transform: translateX(4px);"
+    }
+  ],
+  "team.css": [
+    {
+      "selector": ".team-breadcrumb a:hover",
+      "block": "color: #00D2FF;"
+    },
+    {
+      "selector": ".doctor-row-card:hover",
+      "block": "transform: translateY(-4px); box-shadow: 0 20px 48px rgba(9, 34, 58, 0.09); border-color: #D3E6F3;"
+    },
+    {
+      "selector": ".doctor-row-card:hover .doctor-photo-frame img",
+      "block": "transform: scale(1.035);"
+    },
+    {
+      "selector": ".doctor-row-card:hover .doctor-floating-badge",
+      "block": "animation-play-state: paused; transform: translateX(-50%) translateY(-6px); box-shadow: 0 16px 36px rgba(9, 34, 58, 0.18);"
+    },
+    {
+      "selector": ".expertise-item:hover",
+      "block": "transform: translateX(4px); color: var(--primary-blue, #0067B6);"
+    },
+    {
+      "selector": ".expertise-item:hover .expertise-check-icon",
+      "block": "transform: scale(1.18);"
+    },
+    {
+      "selector": ".team-cta-btn-primary:hover",
+      "block": "background: #FFFFFF; color: var(--primary-blue, #0067B6); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255, 255, 255, 0.25);"
+    },
+    {
+      "selector": ".team-cta-btn-primary:hover span:last-child",
+      "block": "transform: translateX(4px);"
+    },
+    {
+      "selector": ".team-cta-btn-secondary:hover",
+      "block": "background: rgba(255, 255, 255, 0.22); color: #FFFFFF;"
+    },
+    {
+      "selector": ".doctor-row-card:hover .doctor-photo-frame img",
+      "block": "transform: none !important;"
+    },
+    {
+      "selector": ".doctor-row-card:hover, .doctor-row-card:hover .doctor-floating-badge, .team-cta-btn-primary:hover",
+      "block": "transform: none !important;"
+    }
+  ],
+  "treatments.css": [
+    {
+      "selector": ".treatments-breadcrumb a:hover",
+      "block": "color: #00D2FF;"
+    },
+    {
+      "selector": ".treatments-sidebar-card:hover",
+      "block": "box-shadow: 0 14px 40px rgba(15, 31, 45, 0.07);"
+    },
+    {
+      "selector": ".treatment-nav-item:hover",
+      "block": "background: #F4F9FD; border-color: rgba(0, 103, 182, 0.25); transform: translateX(3px);"
+    },
+    {
+      "selector": ".treatment-nav-item:hover .treatment-item-icon",
+      "block": "background: #E8F3FA;"
+    },
+    {
+      "selector": ".treatment-nav-item:hover .treatment-item-arrow",
+      "block": "color: var(--primary-blue, #0067B6); transform: translateX(2px);"
+    },
+    {
+      "selector": ".consult-card-btn-call:hover",
+      "block": "background: #E8F3FA; color: var(--primary-blue, #0067B6); transform: translateY(-1.5px);"
+    },
+    {
+      "selector": ".consult-card-btn-wa:hover",
+      "block": "background: #1EBE5D; transform: translateY(-1.5px);"
+    },
+    {
+      "selector": ".treatment-media-wrap:hover .treatment-media-img",
+      "block": "transform: scale(1.02);"
+    },
+    {
+      "selector": ".treatment-step-card:hover",
+      "block": "background: #ffffff; border-color: rgba(0, 103, 182, 0.28); box-shadow: 0 6px 18px rgba(0, 103, 182, 0.08); transform: translateY(-2px);"
+    },
+    {
+      "selector": ".aftercare-strip-link:hover",
+      "block": "transform: translateX(3px);"
+    }
+  ]
+}

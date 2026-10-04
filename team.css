@@ -117,7 +117,7 @@
 }
 
 .team-breadcrumb a:hover {
-    color: #00D2FF;
+    color: #CE3434;
 }
 
 .team-breadcrumb .breadcrumb-separator {
@@ -230,8 +230,8 @@
 
 .doctor-row-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 48px rgba(9, 34, 58, 0.09);
-    border-color: #D3E6F3;
+    box-shadow: 0 20px 48px rgba(206, 52, 52, 0.12);
+    border-color: rgba(206, 52, 52, 0.35);
 }
 
 /* 2-Column Grid */
@@ -450,7 +450,7 @@
 
 .expertise-item:hover {
     transform: translateX(4px);
-    color: var(--primary-blue, #0067B6);
+    color: #CE3434;
 }
 
 .expertise-check-icon {
@@ -463,6 +463,7 @@
 
 .expertise-item:hover .expertise-check-icon {
     transform: scale(1.18);
+    color: #CE3434;
 }
 
 /* --------------------------------------------------------------------------
@@ -604,10 +605,10 @@
 }
 
 .team-cta-btn-primary:hover {
-    background: #FFFFFF;
-    color: var(--primary-blue, #0067B6);
+    background: #CE3434;
+    color: #FFFFFF;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 24px rgba(206, 52, 52, 0.35);
 }
 
 .team-cta-btn-primary:hover span:last-child {
@@ -632,7 +633,8 @@
 }
 
 .team-cta-btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.22);
+    background: #CE3434;
+    border-color: #CE3434;
     color: #FFFFFF;
 }
 
