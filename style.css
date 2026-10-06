@@ -238,10 +238,451 @@ body::-webkit-scrollbar,
     100% { left: 105%; width: 35%; }
 }
 
+/* ==========================================================================
+   HERO SECTION — EXACT MATCH REFERENCE DESIGN (ADVANCED DENTAL & IMPLANT)
+   ========================================================================== */
+
+/* ── Section wrapper ────────────────────────────────────────────────────── */
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #faf8f5;
+    background-image: url('img/hero bg templete.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: cover;
+    overflow: hidden;
+    padding-top: 140px;
+    padding-bottom: 50px;
+    box-sizing: border-box;
+    isolation: isolate;
+}
+
+/* Fallback gradient if background image is loading */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #faf7f2 0%, #f4f8fb 60%, #e8f4fc 100%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ── Container ─────────────────────────────────────────────────────────── */
+.hero-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: auto 0;
+    padding: 0 clamp(20px, 4.5vw, 64px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(24px, 4vw, 56px);
+    position: relative;
+    z-index: 2;
+}
+
+/* ── Left Column: Content ──────────────────────────────────────────────── */
+.hero-content {
+    flex: 0 1 52%;
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    z-index: 3;
+    padding-top: 15px;
+}
+
+/* Eyebrow: — ADVANCED DENTAL & IMPLANT CENTRE */
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+    margin-bottom: 22px;
+    opacity: 0;
+    animation: heroFadeUp 0.6s 0.15s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-eyebrow-line {
+    width: 32px;
+    height: 2px;
+    background: #EF2B2D;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.hero-eyebrow-text {
+    font-family: var(--font-family);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #5b87ad;
+    line-height: 1;
+}
+
+/* Main Display Title: A Healthier / Brighter Smile / Begins Here. */
+.hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 5.3vw, 4.8rem);
+    font-weight: 700;
+    line-height: 1.08;
+    color: #101e2e;
+    letter-spacing: -0.015em;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: heroFadeUp 0.65s 0.28s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-title-line {
+    display: block;
+    color: #101e2e;
+}
+
+.hero-title-accent {
+    display: block;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 700;
+    color: #EF2B2D;
+    -webkit-text-fill-color: #EF2B2D;
+}
+
+.hero-title-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #EF2B2D;
+    border-radius: 50%;
+    margin-left: 4px;
+    vertical-align: super;
+}
+
+/* Subtitle description */
+.hero-desc {
+    font-family: var(--font-family);
+    font-size: 16.5px;
+    line-height: 1.68;
+    color: #5d7085;
+    max-width: 485px;
+    margin-bottom: 34px;
+    font-weight: 400;
+    opacity: 0;
+    animation: heroFadeUp 0.65s 0.40s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ── 3 Feature items in a row ─────────────────────────────────────────── */
+.hero-features {
+    display: flex;
+    align-items: center;
+    gap: clamp(16px, 2.4vw, 28px);
+    margin-bottom: 38px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: heroFadeUp 0.65s 0.52s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: transform 0.25s ease;
+}
+
+.hero-feature-item:hover {
+    transform: translateY(-2px);
+}
+
+.hero-feature-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 13px;
+    background: #e3f2fd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0067b6;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 103, 182, 0.08);
+    transition: all 0.25s ease;
+}
+
+.hero-feature-item:hover .hero-feature-icon {
+    background: #d0e8fc;
+    box-shadow: 0 6px 16px rgba(0, 103, 182, 0.16);
+    color: #00569a;
+}
+
+.hero-feature-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.hero-feature-title {
+    font-family: var(--font-family);
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #101e2e;
+    line-height: 1.25;
+}
+
+.hero-feature-desc {
+    font-family: var(--font-family);
+    font-size: 12px;
+    font-weight: 500;
+    color: #64748b;
+    line-height: 1.25;
+}
+
+/* ── Action buttons row ────────────────────────────────────────────────── */
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: heroFadeUp 0.65s 0.64s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-btn-dark {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #11202e;
+    color: #ffffff;
+    padding: 16px 32px;
+    border-radius: 9999px;
+    font-family: var(--font-family);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(17, 32, 46, 0.22);
+    transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.hero-btn-dark:hover {
+    background: #0067b6;
+    box-shadow: 0 10px 28px rgba(0, 103, 182, 0.32);
+    transform: translateY(-2px);
+    color: #ffffff;
+}
+
+.hero-btn-dark .hero-btn-icon {
+    transition: transform 0.25s ease;
+}
+
+.hero-btn-dark:hover .hero-btn-icon {
+    transform: translateX(4px);
+}
+
+.hero-btn-light {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #ffffff;
+    color: #11202e;
+    padding: 15px 30px;
+    border-radius: 9999px;
+    border: 1.5px solid #d5e0eb;
+    font-family: var(--font-family);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.hero-btn-light:hover {
+    border-color: #0067b6;
+    color: #0067b6;
+    box-shadow: 0 8px 22px rgba(0, 103, 182, 0.12);
+    transform: translateY(-2px);
+}
+
+.hero-btn-light .hero-btn-icon {
+    transition: transform 0.25s ease;
+}
+
+.hero-btn-light:hover .hero-btn-icon {
+    transform: translateY(3px);
+}
+
+/* ── Right Column: Visual Composite & Badges ───────────────────────────── */
+.hero-visual-wrap {
+    flex: 0 1 48%;
+    max-width: 660px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    opacity: 0;
+    animation: heroImageReveal 0.85s 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-image-box {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-composite-img {
+    width: 100%;
+    max-height: min(68vh, 540px);
+    height: auto;
+    display: block;
+    object-fit: contain;
+    filter: drop-shadow(0 24px 48px rgba(0, 103, 182, 0.09));
+    animation: heroFloatSubtle 6s ease-in-out infinite;
+    pointer-events: none;
+    user-select: none;
+}
+
+@keyframes heroFloatSubtle {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-7px); }
+}
+
+/* Foreground blurred lush leaf accent */
+.hero-foreground-leaf {
+    position: absolute;
+    bottom: -10px;
+    left: -40px;
+    z-index: 4;
+    width: clamp(120px, 14vw, 175px);
+    height: auto;
+    pointer-events: none;
+    filter: blur(1.8px);
+    opacity: 0.94;
+    transform: rotate(6deg);
+    transition: transform 0.4s ease;
+}
+
+/* ── Keyframe Animations ───────────────────────────────────────────────── */
+@keyframes heroFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroImageReveal {
+    from {
+        opacity: 0;
+        transform: translateX(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ── Responsive Behavior ───────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+    .hero {
+        min-height: auto;
+        padding-top: 130px;
+        padding-bottom: 60px;
+        background-position: center;
+    }
+    .hero-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .hero-content {
+        flex: 1 1 100%;
+        max-width: 600px;
+        align-items: center;
+    }
+    .hero-eyebrow {
+        justify-content: center;
+    }
+    .hero-desc {
+        max-width: 100%;
+    }
+    .hero-features {
+        justify-content: center;
+    }
+    .hero-actions {
+        justify-content: center;
+    }
+    .hero-visual-wrap {
+        flex: 1 1 100%;
+        max-width: 580px;
+        margin-top: 30px;
+    }
+    .hero-foreground-leaf {
+        left: -10px;
+        bottom: -10px;
+        width: 130px;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero {
+        padding-top: 115px;
+        padding-bottom: 40px;
+    }
+    .hero-title {
+        font-size: clamp(2.4rem, 8vw, 3rem);
+    }
+    .hero-eyebrow-text {
+        font-size: 11.5px;
+    }
+    .hero-desc {
+        font-size: 15px;
+    }
+    .hero-features {
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+    }
+    .hero-feature-item {
+        width: 100%;
+        max-width: 260px;
+        justify-content: flex-start;
+    }
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    .hero-btn-dark,
+    .hero-btn-light {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 24px;
+        font-size: 12.5px;
+    }
+    .hero-foreground-leaf {
+        width: 100px;
+        left: -15px;
+        bottom: -5px;
+    }
+}
+
+
 /* Display headings — Cormorant Garamond */
 h1, h2 {
     font-family: var(--font-serif);
-    color:white;
+    color: var(--dark-navy);
 }
 
 /* UI headings — DM Sans (card titles, labels, subheadings) */
@@ -1569,7 +2010,7 @@ a {
 /* ==========================================================================
    HERO SECTION - CLIENT VIDEO ONLY (Full-Width & Full-Height)
    ========================================================================== */
-.hero {
+.hero-video-section {
     position: relative;
     width: 100%;
     height: 100vh;
