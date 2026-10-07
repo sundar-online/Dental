@@ -239,7 +239,7 @@ body::-webkit-scrollbar,
 }
 
 /* ==========================================================================
-   HERO SECTION — EXACT MATCH REFERENCE DESIGN (ADVANCED DENTAL & IMPLANT)
+   HERO SECTION — CINEMATIC CLINIC DESIGN (Hero Section bg.png)
    ========================================================================== */
 
 /* ── Section wrapper ────────────────────────────────────────────────────── */
@@ -252,8 +252,8 @@ body::-webkit-scrollbar,
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background-color: #faf8f5;
-    background-image: url('img/hero bg templete.png');
+    background-color: #021a3a;
+    background-image: url('img/Hero Section bg.png');
     background-repeat: no-repeat;
     background-position: right center;
     background-size: cover;
@@ -264,13 +264,13 @@ body::-webkit-scrollbar,
     isolation: isolate;
 }
 
-/* Fallback gradient if background image is loading */
+/* Cinematic readability gradient overlay for left-hand text */
 .hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, #faf7f2 0%, #f4f8fb 60%, #e8f4fc 100%);
-    z-index: -1;
+    background: linear-gradient(90deg, rgba(2, 26, 58, 0.85) 0%, rgba(2, 26, 58, 0.55) 50%, rgba(2, 26, 58, 0.10) 100%);
+    z-index: 1;
     pointer-events: none;
 }
 
@@ -312,9 +312,10 @@ body::-webkit-scrollbar,
 .hero-eyebrow-line {
     width: 32px;
     height: 2px;
-    background: #EF2B2D;
+    background: #00C7F4;
     border-radius: 2px;
     flex-shrink: 0;
+    box-shadow: 0 0 8px rgba(0, 199, 244, 0.6);
 }
 
 .hero-eyebrow-text {
@@ -323,7 +324,7 @@ body::-webkit-scrollbar,
     font-weight: 700;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: #5b87ad;
+    color: #00C7F4;
     line-height: 1;
 }
 
@@ -333,7 +334,7 @@ body::-webkit-scrollbar,
     font-size: clamp(3rem, 5.3vw, 4.8rem);
     font-weight: 700;
     line-height: 1.08;
-    color: #101e2e;
+    color: #ffffff;
     letter-spacing: -0.015em;
     margin-bottom: 20px;
     opacity: 0;
@@ -342,7 +343,8 @@ body::-webkit-scrollbar,
 
 .hero-title-line {
     display: block;
-    color: #101e2e;
+    color: #ffffff;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 }
 
 .hero-title-accent {
@@ -350,18 +352,22 @@ body::-webkit-scrollbar,
     font-family: var(--font-serif);
     font-style: italic;
     font-weight: 700;
-    color: #EF2B2D;
-    -webkit-text-fill-color: #EF2B2D;
+    color: #00C7F4;
+    background: linear-gradient(135deg, #00C7F4 0%, #38bdf8 50%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 8px rgba(0, 199, 244, 0.3));
 }
 
 .hero-title-dot {
     display: inline-block;
     width: 8px;
     height: 8px;
-    background: #EF2B2D;
+    background: #00C7F4;
     border-radius: 50%;
     margin-left: 4px;
     vertical-align: super;
+    box-shadow: 0 0 10px #00C7F4;
 }
 
 /* Subtitle description */
@@ -369,7 +375,7 @@ body::-webkit-scrollbar,
     font-family: var(--font-family);
     font-size: 16.5px;
     line-height: 1.68;
-    color: #5d7085;
+    color: #cce2f7;
     max-width: 485px;
     margin-bottom: 34px;
     font-weight: 400;
@@ -403,20 +409,24 @@ body::-webkit-scrollbar,
     width: 46px;
     height: 46px;
     border-radius: 13px;
-    background: #e3f2fd;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(0, 199, 244, 0.28);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #0067b6;
+    color: #00C7F4;
     flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(0, 103, 182, 0.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.20);
     transition: all 0.25s ease;
 }
 
 .hero-feature-item:hover .hero-feature-icon {
-    background: #d0e8fc;
-    box-shadow: 0 6px 16px rgba(0, 103, 182, 0.16);
-    color: #00569a;
+    background: rgba(0, 199, 244, 0.22);
+    border-color: #00C7F4;
+    box-shadow: 0 6px 20px rgba(0, 199, 244, 0.40);
+    color: #ffffff;
 }
 
 .hero-feature-text {
@@ -429,7 +439,7 @@ body::-webkit-scrollbar,
     font-family: var(--font-family);
     font-size: 13.5px;
     font-weight: 700;
-    color: #101e2e;
+    color: #ffffff;
     line-height: 1.25;
 }
 
@@ -437,7 +447,7 @@ body::-webkit-scrollbar,
     font-family: var(--font-family);
     font-size: 12px;
     font-weight: 500;
-    color: #64748b;
+    color: #a4caec;
     line-height: 1.25;
 }
 
@@ -455,7 +465,7 @@ body::-webkit-scrollbar,
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    background: #11202e;
+    background: linear-gradient(135deg, #0067B6 0%, #009ce4 100%);
     color: #ffffff;
     padding: 16px 32px;
     border-radius: 9999px;
@@ -465,13 +475,13 @@ body::-webkit-scrollbar,
     letter-spacing: 0.05em;
     text-transform: uppercase;
     text-decoration: none;
-    box-shadow: 0 8px 24px rgba(17, 32, 46, 0.22);
+    box-shadow: 0 8px 24px rgba(0, 103, 182, 0.40);
     transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .hero-btn-dark:hover {
-    background: #0067b6;
-    box-shadow: 0 10px 28px rgba(0, 103, 182, 0.32);
+    background: linear-gradient(135deg, #CE3434 0%, #e04545 100%);
+    box-shadow: 0 10px 28px rgba(206, 52, 52, 0.45);
     transform: translateY(-2px);
     color: #ffffff;
 }
@@ -488,25 +498,28 @@ body::-webkit-scrollbar,
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: #ffffff;
-    color: #11202e;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
     padding: 15px 30px;
     border-radius: 9999px;
-    border: 1.5px solid #d5e0eb;
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     font-family: var(--font-family);
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     text-decoration: none;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
     transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .hero-btn-light:hover {
-    border-color: #0067b6;
-    color: #0067b6;
-    box-shadow: 0 8px 22px rgba(0, 103, 182, 0.12);
+    border-color: #00C7F4;
+    color: #00C7F4;
+    background: rgba(0, 199, 244, 0.14);
+    box-shadow: 0 8px 22px rgba(0, 199, 244, 0.25);
     transform: translateY(-2px);
 }
 
