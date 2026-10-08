@@ -712,6 +712,9 @@ a {
     overflow: hidden;
     text-overflow: ellipsis;
     transition: color 0.18s ease;
+
+
+    
 }
 
 .treatment-dropdown-item .item-desc {
