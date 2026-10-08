@@ -301,6 +301,50 @@ body::-webkit-scrollbar,
     align-self: center;
 }
 
+/* ── Hero Text Slider (Synchronized with Image Slider) ── */
+.hero-text-slider {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    align-items: start;
+}
+
+.hero-text-slide {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(14px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
+    pointer-events: none;
+    will-change: opacity, transform;
+}
+
+.hero-text-slide.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+    z-index: 2;
+}
+
+.hero-text-slide:not(:first-child) .hero-eyebrow,
+.hero-text-slide:not(:first-child) .hero-title,
+.hero-text-slide:not(:first-child) .hero-desc {
+    opacity: 1;
+    animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-text-slide {
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+        transform: none !important;
+    }
+}
+
 /* Eyebrow: — ADVANCED DENTAL & IMPLANT CENTRE */
 .hero-eyebrow {
     display: inline-flex;
@@ -323,7 +367,7 @@ body::-webkit-scrollbar,
 
 .hero-eyebrow-text {
     font-family: var(--font-family);
-    font-size: 13px;
+    font-size: 11.5px;
     font-weight: 700;
     letter-spacing: 0.16em;
     text-transform: uppercase;
@@ -334,7 +378,7 @@ body::-webkit-scrollbar,
 /* Main Display Title: A Healthier / Brighter Smile / Begins Here. */
 .hero-title {
     font-family: var(--font-serif);
-    font-size: clamp(3rem, 5.3vw, 4.8rem);
+    font-size: clamp(2.6rem, 4.6vw, 4.2rem);
     font-weight: 700;
     line-height: 1.08;
     color: #ffffff;
@@ -400,7 +444,7 @@ body::-webkit-scrollbar,
 /* Subtitle description */
 .hero-desc {
     font-family: var(--font-family);
-    font-size: 16.5px;
+    font-size: 14.5px;
     line-height: 1.68;
     color: #cce2f7;
     max-width: 485px;
@@ -464,7 +508,7 @@ body::-webkit-scrollbar,
 
 .hero-feature-title {
     font-family: var(--font-family);
-    font-size: 13.5px;
+    font-size: 12px;
     font-weight: 700;
     color: #ffffff;
     line-height: 1.25;
@@ -472,7 +516,7 @@ body::-webkit-scrollbar,
 
 .hero-feature-desc {
     font-family: var(--font-family);
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 500;
     color: #a4caec;
     line-height: 1.25;
@@ -576,21 +620,44 @@ body::-webkit-scrollbar,
     position: relative;
     width: 100%;
     z-index: 2;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
     align-items: flex-end;
-    justify-content: center;
+    justify-items: center;
 }
 
 .hero-composite-img {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
     width: 100%;
     max-height: min(74vh, 580px);
     height: auto;
     display: block;
-    object-fit: contain;
+    object-fit: cover;
     object-position: bottom center;
     filter: drop-shadow(0 24px 48px rgba(0, 103, 182, 0.09));
     pointer-events: none;
     user-select: none;
+    opacity: 0;
+    transform-origin: bottom center;
+    transform: scale(1.03);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+.hero-composite-img.is-active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 2;
+}
+
+/* Calibrated image scale & framing to match herosection-1 reference */
+.hero-composite-img.hero-slide-aligner,
+.hero-composite-img.hero-slide:nth-child(2),
+.hero-composite-img.hero-slide-clinic,
+.hero-composite-img.hero-slide:nth-child(3) {
+    transform-origin: bottom center;
 }
 
 @keyframes heroFloatSubtle {
@@ -682,9 +749,8 @@ body::-webkit-scrollbar,
     }
     .hero-composite-img {
         max-height: none;
-        object-fit: contain;
+        object-fit: cover;
         animation: none;
-        transform: none;
     }
     .hero-foreground-leaf {
         left: -10px;
@@ -703,7 +769,7 @@ body::-webkit-scrollbar,
         bottom: 0;
     }
     .hero-title {
-        font-size: clamp(2.6rem, 9.5vw, 3.4rem);
+        font-size: clamp(2.2rem, 8.5vw, 3rem);
         line-height: 1.14;
         letter-spacing: -0.01em;
         margin-bottom: 16px;
@@ -715,14 +781,14 @@ body::-webkit-scrollbar,
         filter: drop-shadow(0 2px 12px rgba(139, 26, 28, 0.4));
     }
     .hero-eyebrow-text {
-        font-size: 12.5px;
+        font-size: 11px;
         letter-spacing: 0.14em;
     }
     .hero-eyebrow-line {
         width: 28px;
     }
     .hero-desc {
-        font-size: 17px;
+        font-size: 15px;
         line-height: 1.72;
         margin-bottom: 28px;
     }
@@ -731,9 +797,9 @@ body::-webkit-scrollbar,
     }
     .hero-composite-img {
         max-height: none;
-        object-fit: contain;
+        object-fit: cover;
         animation: none;
-        transform: none;
+        transform-origin: bottom center;
     }
     .hero-features {
         flex-direction: column;
