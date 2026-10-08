@@ -2292,65 +2292,27 @@ document.addEventListener('click', function (e) {
 })();
 
 // ==========================================================================
-// Hero Section Image Slider (Continuous Loop, 5s interval, 0.8s crossfade)
+// Hero Section Banner Slider (Continuous Loop, 5s interval, 1s crossfade)
 // ==========================================================================
 (function initHeroImageSlider() {
-  const slider = document.getElementById('heroImageSlider');
-  if (!slider) return;
+  var bannerLayer = document.getElementById('heroBannerLayer');
+  if (!bannerLayer) return;
 
-  const slides = Array.from(slider.querySelectorAll('.hero-slide'));
+  var slides = Array.from(bannerLayer.querySelectorAll('.hero-banner'));
   if (slides.length <= 1) return;
 
-  // Preload and decode all slider images to guarantee zero flicker
-  const imageSources = [
-    'img/herosection.png',
-    'img/herosection-1.png',
-    'img/herosection-2.png'
-  ];
-  imageSources.forEach(function (src) {
-    const preloadImg = new Image();
-    preloadImg.src = src;
-    if (preloadImg.decode) {
-      preloadImg.decode().catch(function () {});
-    }
-  });
-
-  const textSlider = document.getElementById('heroTextSlider');
-  const textSlides = textSlider ? Array.from(textSlider.querySelectorAll('.hero-text-slide')) : [];
-
-  let currentIdx = 0;
-  let timerId = null;
+  var currentIdx = 0;
+  var timerId = null;
 
   function goToSlide(nextIdx) {
-    // 1. Update image slides
     slides.forEach(function (slide, idx) {
-      if (idx === nextIdx) {
-        slide.classList.add('is-active');
-        slide.setAttribute('aria-hidden', 'false');
-      } else {
-        slide.classList.remove('is-active');
-        slide.setAttribute('aria-hidden', 'true');
-      }
+      slide.classList.toggle('is-active', idx === nextIdx);
     });
-
-    // 2. Synchronously update text content slides at the exact same instant
-    if (textSlides.length > 0) {
-      textSlides.forEach(function (tSlide, idx) {
-        if (idx === nextIdx) {
-          tSlide.classList.add('is-active');
-          tSlide.setAttribute('aria-hidden', 'false');
-        } else {
-          tSlide.classList.remove('is-active');
-          tSlide.setAttribute('aria-hidden', 'true');
-        }
-      });
-    }
-
     currentIdx = nextIdx;
   }
 
   function nextSlide() {
-    const nextIdx = (currentIdx + 1) % slides.length;
+    var nextIdx = (currentIdx + 1) % slides.length;
     goToSlide(nextIdx);
   }
 
@@ -2359,7 +2321,6 @@ document.addEventListener('click', function (e) {
     timerId = setInterval(nextSlide, 5000);
   }
 
-  // Pause slider when tab is hidden to save CPU and resume cleanly
   document.addEventListener('visibilitychange', function () {
     if (document.hidden) {
       if (timerId) clearInterval(timerId);
